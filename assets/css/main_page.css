@@ -1,0 +1,85 @@
+.main_page_section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.main_board {
+    background-color: #fff;
+    height: 700px;
+}
+
+.main_introduce {
+    background-color: #fff;
+    height: 800px;
+    box-shadow: inset 0 -1px 0 #E8E8E8;
+}
+.main_introduce .introduce_display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.main_introduce .introduce_display .introduce_title {
+    text-align: center;
+    margin-bottom: 80px;
+}
+.main_introduce .introduce_display .introduce_title .introduce_title_span {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 60px;
+}
+.main_introduce .introduce_display .introduce_title .introduce_title_span_highlight {
+    color: rgb(190 242 100);
+}
+.main_introduce .introduce_display .introduce_link {
+    text-align: center;
+}
+.main_introduce .introduce_display .introduce_link .introduce_link_button {
+    background-color: rgb(190 242 100);
+    width: 240px;
+    height: 46px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 46px;
+    color: #fff;
+}
+
+.main_contact {
+    /*background: linear-gradient(to bottom, #78a1b5, #c4d9e2);*/
+    height: 450px;
+}
+.main_contact .contact_display {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.main_contact .contact_display .contact_title,
+.main_contact .contact_display .contact_donate,
+.main_contact .contact_display .contact_inquiry {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.main_contact .contact_display .contact_title .contact_title_span {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 50px;
+}
+.main_contact .contact_display .contact_title .contact_donate_span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+.main_contact .contact_display .contact_title .contact_inquiry_span {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
