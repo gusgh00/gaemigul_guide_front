@@ -1,0 +1,30 @@
+#header_pc {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+#header_pc .inner_section {
+    width: 1260px;
+    margin: auto;
+}
+
+#header_pc .header_section {
+    position: relative;
+    width: 100%;
+    background: #FAFAFA;
+    box-shadow: inset 0 -1px 0 #E8E8E8;
+}
+
+#header_pc .header_section .inner_section {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header_pc .header_section .inner_section .header_logo {
+    font-weight: 500;
+    font-size: 25px;
+}
