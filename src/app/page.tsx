@@ -28,7 +28,7 @@ export default function Home() {
       <div className="main_page_section main_contact main_inner">
         <div className="contact_display">
           <div className="contact_title">
-            <span className="scoredream text-gray-900 contact_title_span">여러분들의 응원을 기다리고 있습니다.</span>
+            <span className="scoredream text-gray-900 contact_title_span">여러분들의 응원을 기다리고 있습니다!</span>
           </div>
           <div className="contact_donate">
             <span className="scoredream text-gray-900 contact_donate_span">후원</span><br/>
