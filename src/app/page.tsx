@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { IoAirplane } from "react-icons/io5";
-import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -39,7 +38,7 @@ export default function Home() {
           <div className="contact_inquiry">
             <span className="scoredream text-gray-900 contact_inquiry_span">문의</span><br/>
             <a href="mailto:gaemigul.guide@gmail.com" target="_blank">
-              <span className="scoredream text-lime-400 contact_inquiry_span">gaemigul.guide@gmail.com</span>
+              <span className="scoredream gaemigul_guide contact_inquiry_span">gaemigul.guide@gmail.com</span>
             </a>
           </div>
         </div>

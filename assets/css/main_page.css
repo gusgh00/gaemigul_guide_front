@@ -31,13 +31,13 @@
     line-height: 60px;
 }
 .main_introduce .introduce_display .introduce_title .introduce_title_span_highlight {
-    color: rgb(190 242 100);
+    color: rgb(255, 69, 00);
 }
 .main_introduce .introduce_display .introduce_link {
     text-align: center;
 }
 .main_introduce .introduce_display .introduce_link .introduce_link_button {
-    background-color: rgb(190 242 100);
+    background-color: rgb(255, 69, 00);
     width: 240px;
     height: 46px;
     border-radius: 20px;

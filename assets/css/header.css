@@ -25,6 +25,6 @@
 }
 
 #header_pc .header_section .inner_section .header_logo {
-    font-weight: 500;
-    font-size: 25px;
+    width: 240px;
+    height: auto;
 }
