@@ -9,6 +9,9 @@ import Footer from "@/app/_components/footer";
 export const metadata: Metadata = {
   title: '개미굴 가이드 :: AI 여행 스케줄링',
   description: '개미굴 가이드 :: AI 여행 스케줄링',
+  icons: {
+    icon: "/gaemigul_guide_logo_favicon.ico"
+  }
 }
 
 export default function RootLayout({
