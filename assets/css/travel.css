@@ -1,0 +1,8 @@
+.travel_top_banner {
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 97;
+    box-shadow:  2px 2px 4px #bfbfbf;
+}
