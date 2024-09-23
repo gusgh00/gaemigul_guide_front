@@ -3,15 +3,38 @@
 @import "../../assets/css/main.css";
 @import "../../assets/css/main_page.css";
 @import "../../assets/css/sign_in.css";
+@import "../../assets/css/loading.css";
+@import "../../assets/css/travel.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-    font-family: 'S-CoreDream-3Light';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
-    font-weight: normal;
+    font-family: 'S-CoreDream-300';
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream3.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-500';
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream5.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-700';
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream7.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'S-CoreDream-900';
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/SCoreDream/SCoreDream9.woff') format('woff');
+    font-weight: 900;
     font-style: normal;
 }
 

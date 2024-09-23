@@ -1,5 +1,17 @@
-.scoredream {
-    font-family: 'S-CoreDream-3Light', serif;
+.scoredream-300 {
+    font-family: 'S-CoreDream-300', 'serif';
+}
+
+.scoredream-500 {
+    font-family: 'S-CoreDream-500', 'serif';
+}
+
+.scoredream-700 {
+    font-family: 'S-CoreDream-700', 'serif';
+}
+
+.scoredream-900 {
+    font-family: 'S-CoreDream-900', 'serif';
 }
 
 #main_content {

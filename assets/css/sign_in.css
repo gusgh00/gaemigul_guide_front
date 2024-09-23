@@ -44,6 +44,11 @@
 
 .sign_in_modal .sign_in_close {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.sign_in_modal .sign_in_close .sign_in_close_text {
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
