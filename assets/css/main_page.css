@@ -14,6 +14,7 @@
     box-shadow: inset 0 -1px 0 #E8E8E8;
 }
 .main_introduce .introduce_display {
+    background-color: #fff;
     width: 100%;
     height: 100%;
     display: flex;
@@ -38,11 +39,18 @@
 }
 .main_introduce .introduce_display .introduce_link .introduce_link_button {
     background-color: rgb(255, 69, 00);
+    box-shadow:  4px 4px 8px #bfbfbf,
+    -4px -4px 8px #ffffff;
     width: 240px;
     height: 46px;
     border-radius: 20px;
     overflow: hidden;
 }
+
+.main_introduce .introduce_display .introduce_link .introduce_link_button:hover {
+    background: linear-gradient(145deg, #e63e00, #ff4a00);
+}
+
 .main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {
     font-size: 18px;
     font-weight: 900;
@@ -55,6 +63,8 @@
     height: 450px;
 }
 .main_contact .contact_display {
+    background-color: #ffffff;
+
     width: 100%;
     height: 100%;
     display: flex;
@@ -62,24 +72,98 @@
     justify-content: center;
     flex-direction: column;
 }
-.main_contact .contact_display .contact_title,
-.main_contact .contact_display .contact_donate,
-.main_contact .contact_display .contact_inquiry {
+.main_contact .contact_display .contact_title {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
-.main_contact .contact_display .contact_title .contact_title_span {
-    font-size: 30px;
+
+.main_contact .contact_display .contact_button_section {
+    display: flex;
+}
+
+.main_contact .contact_display .contact_button_section .contact_donate_button {
+    background: #fbfbfb;
+    box-shadow:  6px 6px 12px #e4e4e4,
+    -6px -6px 12px #ffffff;
+    width: 240px;
+    height: 46px;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 20px;
+
+    transition: 2s;
+}
+
+.main_contact .contact_display .contact_button_section .contact_inquiry_button {
+    background: #fbfbfb;
+    box-shadow:  6px 6px 12px #e4e4e4,
+    -6px -6px 12px #ffffff;
+    width: 240px;
+    height: 46px;
+    border-radius: 20px;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 20px;
+
+    transition: 5s;
+}
+
+.main_contact .contact_display .contact_button_section .contact_donate_button .contact_donate_span {
+    font-size: 18px;
     font-weight: 900;
-    line-height: 50px;
+    line-height: 46px;
+    color: #519CFF;
 }
-.main_contact .contact_display .contact_title .contact_donate_span {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
+
+.main_contact .contact_display .contact_button_section .contact_inquiry_button .contact_inquiry_span {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 46px;
+    color: rgb(255, 69, 00);
 }
-.main_contact .contact_display .contact_title .contact_inquiry_span {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 30px;
+
+.main_contact .contact_display .contact_button_section .contact_donate_button:hover {
+    /*animation-name: contact_button_color;*/
+    /*animation-duration: 250ms;*/
+    /*animation-fill-mode: forwards;*/
+    background: linear-gradient(145deg, #e2e2e2, #ffffff);
+    box-shadow:  5px 5px 7px #e4e4e4,
+    -5px -5px 7px #ffffff;
+}
+
+.main_contact .contact_display .contact_button_section .contact_inquiry_button:hover {
+    /*animation-name: contact_button_color;*/
+    /*animation-duration: 2s;*/
+    /*animation-fill-mode: forwards;*/
+    background: linear-gradient(145deg, #e2e2e2, #ffffff);
+    box-shadow:  5px 5px 7px #e4e4e4,
+    -5px -5px 7px #ffffff;
+}
+
+.main_contact .contact_display .contact_button_section .contact_donate_button:hover .contact_donate_span:before {
+    font-size: 12px;
+    content: 'https://toon.at/donate/gaemigul';
+}
+
+.main_contact .contact_display .contact_button_section .contact_donate_button:hover .contact_donate_span {
+    font-size: 0;
+}
+
+.main_contact .contact_display .contact_button_section .contact_inquiry_button:hover .contact_inquiry_span:before {
+    font-size: 12px;
+    content: 'gaemigul.guide@gmail.com';
+}
+
+.main_contact .contact_display .contact_button_section .contact_inquiry_button:hover .contact_inquiry_span {
+    font-size: 0;
+}
+
+@keyframes contact_button_color {
+    from {
+        background: linear-gradient(145deg, #ffffff, #e1e1e1);
+    }
+    to {
+        background: linear-gradient(145deg, #e1e1e1, #ffffff);
+    }
 }
