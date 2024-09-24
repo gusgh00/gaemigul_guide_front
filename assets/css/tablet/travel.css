@@ -2,6 +2,7 @@
     .travel_top_banner {
         height: calc(100vw * (50 / 1300));
         box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        margin-top: calc(100vw * (64 / 1300));
     }
 
     .travel_top_banner .banner_inner .banner_inner_info span {
@@ -34,12 +35,10 @@
 
     .travel_map {
         width: calc(100vw * (1920 / 1300)) !important;
-        height: calc(100vw * (866 / 1300)) !important;
     }
 
     .travel_list_section {
         width: calc(100vw * (400 / 1300));
-        height: calc(100vw * (866 / 1300));
     }
 
     .travel_list_section_hide {
@@ -51,11 +50,45 @@
         width: calc(100vw * (380 / 1300));
     }
 
+    .travel_list_box .travel_list_box_section {
+        width: calc(100vw * (380 / 1300));
+        padding-top: calc(100vw * (114 / 1300));
+    }
+
     .travel_list_button {
         width: calc(100vw * (20 / 1300));
         height: calc(100vw * (100 / 1300));
         border-radius: 0 calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300)) 0;
         box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (6 / 1300)) #bfbfbf,
         calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section {
+        padding: calc(100vw * (20 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section {
+        height: calc(100vw * (74 / 1300));
+        border-radius: calc(100vw * (20 / 1300));
+        box-shadow:  calc(100vw * (11 / 1300)) calc(100vw * (11 / 1300)) calc(100vw * (21 / 1300)) #c9c9c9,
+        calc(100vw * (-11 / 1300)) calc(100vw * (-11 / 1300)) calc(100vw * (21 / 1300)) #ffffff;
+        margin-bottom: calc(100vw * (30 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
+        width: calc(100vw * (40 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div .drag_handler_icon {
+        width: calc(100vw * (32 / 1300));
+        height: calc(100vw * (32 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
+        font-size: calc(100vw * (18 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address {
+        font-size: calc(100vw * (14 / 1300));
     }
 }
