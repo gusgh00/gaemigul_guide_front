@@ -25,6 +25,26 @@
     justify-content: space-between;
 }
 
+#header_pc .header_section .inner_section .header_sign_in_div {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header_pc .header_section .inner_section .header_sign_in_div .header_sign_in_button {
+    width: 20px;
+    height: 20px;
+    color: #3c3c3c;
+}
+
+#header_pc .header_section .inner_section .header_sign_in_div .header_sign_in_button:hover {
+    animation-name: navi_color;
+    animation-duration: 250ms;
+    animation-fill-mode: forwards;
+}
+
 #header_pc .header_section .inner_section .navigation {
     height: 64px;
     display: flex;
@@ -51,6 +71,10 @@
     color: #3c3c3c;
     font-size: 16px;
     font-weight: 700;
+}
+
+#header_pc .header_section .inner_section .navigation .navigation_text_selected {
+    color: rgb(255, 69, 00);
 }
 
 #header_pc .header_section .inner_section .navigation .navigation_text:after {

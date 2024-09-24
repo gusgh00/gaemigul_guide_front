@@ -37,7 +37,7 @@ export default function RootLayout({
         <main>
             <Suspense fallback={<Loading/>}>{children}</Suspense>
         </main>
-        {/*<Footer/>*/}
+        <Footer/>
         </body>
         </html>
       </AuthProvider>

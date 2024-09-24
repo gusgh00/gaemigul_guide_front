@@ -20,5 +20,10 @@
     height: 120px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+#footer_pc .footer_section .inner_section .footer_copyright {
+    font-size: 12px;
+    color: #9b9b9b;
 }
