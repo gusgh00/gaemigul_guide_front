@@ -6,3 +6,97 @@
     z-index: 97;
     box-shadow:  2px 2px 4px #bfbfbf;
 }
+
+.travel_top_banner .banner_inner {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.travel_top_banner .banner_inner .banner_inner_info span {
+    margin-right: 40px;
+    font-size: 14px;
+}
+
+.travel_top_banner .banner_inner .banner_inner_button {
+    display: flex;
+    flex-direction: row;
+}
+
+.travel_top_banner .banner_inner .banner_button_clear {
+    width: 100px;
+    height: 32px;
+    border-radius: 18px;
+    text-align: center;
+
+    background: linear-gradient(315deg, #404040, #363636);;
+    box-shadow:  2px 2px 4px #bfbfbf,
+    -2px -2px 4px #ffffff;
+
+    margin-right: 14px;
+
+    cursor: pointer;
+}
+
+.travel_top_banner .banner_inner .banner_button_save {
+    width: 100px;
+    height: 32px;
+    border-radius: 18px;
+    text-align: center;
+
+    background: linear-gradient(315deg, #ff4a00, #e63e00);
+    box-shadow:  2px 2px 4px #bfbfbf,
+    -2px -2px 4px #ffffff;
+
+    cursor: pointer;
+}
+
+.travel_top_banner .banner_inner .banner_button_clear span,
+.travel_top_banner .banner_inner .banner_button_save span {
+    font-size: 12px;
+    font-weight: 900;
+    line-height: 32px;
+    color: #fff;
+}
+
+.travel_map {
+    width: 1920px !important;
+    height: 866px !important;
+    position: fixed;
+}
+
+.travel_list_section {
+    width: 400px;
+    height: 866px;
+    position: fixed;
+    display: flex;
+    z-index: 96;
+
+    transition: 500ms;
+    align-items: center;
+}
+
+.travel_list_section_no_hide {
+    left: 0;
+}
+
+.travel_list_section_hide {
+    left: -380px;
+}
+
+.travel_list_box {
+    background: #fff;
+    box-shadow:  2px 2px 4px #bfbfbf;
+    width: 380px;
+    height: 100%;
+}
+
+.travel_list_button {
+    width: 20px;
+    height: 100px;
+    background: linear-gradient(315deg, #ff4a00, #e63e00);;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
+    cursor: pointer;
+}
