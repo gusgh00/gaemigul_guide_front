@@ -56,6 +56,18 @@
     color: rgb(255, 69, 00)
 }
 
+.default_text {
+    color: #3c3c3c
+}
+
+.grey_text {
+    color: #909090
+}
+
+.white_text {
+    color: #fff
+}
+
 /*body {*/
 /*  color: rgb(var(--foreground-rgb));*/
 /*  background: linear-gradient(*/
