@@ -1,0 +1,61 @@
+@media screen and (max-width: 1300px) {
+    .travel_top_banner {
+        height: calc(100vw * (50 / 1300));
+        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+    }
+
+    .travel_top_banner .banner_inner .banner_inner_info span {
+        margin-right: calc(100vw * (40 / 1300));
+        font-size: calc(100vw * (14 / 1300));
+    }
+
+    .travel_top_banner .banner_inner .banner_button_clear {
+        width: calc(100vw * (100 / 1300));
+        height: calc(100vw * (32 / 1300));
+        border-radius: calc(100vw * (18 / 1300));
+        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
+        calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+        margin-right: calc(100vw * (14 / 1300));
+    }
+
+    .travel_top_banner .banner_inner .banner_button_save {
+        width: calc(100vw * (100 / 1300));
+        height: calc(100vw * (32 / 1300));
+        border-radius: calc(100vw * (18 / 1300));
+        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
+        calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+    }
+
+    .travel_top_banner .banner_inner .banner_button_clear span,
+    .travel_top_banner .banner_inner .banner_button_save span {
+        font-size: calc(100vw * (12 / 1300));
+        line-height: calc(100vw * (32 / 1300));
+    }
+
+    .travel_map {
+        width: calc(100vw * (1920 / 1300)) !important;
+        height: calc(100vw * (866 / 1300)) !important;
+    }
+
+    .travel_list_section {
+        width: calc(100vw * (400 / 1300));
+        height: calc(100vw * (866 / 1300));
+    }
+
+    .travel_list_section_hide {
+        left: calc(100vw * (-380 / 1300));
+    }
+
+    .travel_list_box {
+        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        width: calc(100vw * (380 / 1300));
+    }
+
+    .travel_list_button {
+        width: calc(100vw * (20 / 1300));
+        height: calc(100vw * (100 / 1300));
+        border-radius: 0 calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300)) 0;
+        box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (6 / 1300)) #bfbfbf,
+        calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+    }
+}

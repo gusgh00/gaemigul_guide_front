@@ -5,6 +5,12 @@
 @import "../../assets/css/sign_in.css";
 @import "../../assets/css/loading.css";
 @import "../../assets/css/travel.css";
+@import "../../assets/css/tablet/header.css";
+@import "../../assets/css/tablet/footer.css";
+@import "../../assets/css/tablet/main.css";
+@import "../../assets/css/tablet/main_page.css";
+@import "../../assets/css/tablet/sign_in.css";
+@import "../../assets/css/tablet/travel.css";
 
 @tailwind base;
 @tailwind components;

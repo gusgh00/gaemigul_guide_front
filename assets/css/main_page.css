@@ -77,6 +77,10 @@
     margin-bottom: 60px;
 }
 
+.main_contact .contact_display .contact_title .contact_title_span {
+    font-size: 20px;
+}
+
 .main_contact .contact_display .contact_button_section {
     display: flex;
 }

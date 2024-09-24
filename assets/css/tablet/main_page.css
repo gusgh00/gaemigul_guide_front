@@ -1,0 +1,107 @@
+@media screen and (max-width: 1300px) {
+    .main_page_section {
+        margin-bottom: calc(100vw * (20 / 1300));
+    }
+
+    .main_board {
+        height: calc(100vw * (700 / 1300));
+    }
+
+    .main_introduce {
+        height: calc(100vw * (800 / 1300));
+        box-shadow: inset 0 calc(100vw * (-1 / 1300)) 0 #E8E8E8;
+    }
+
+    .main_introduce .introduce_display .introduce_title {
+        margin-bottom: calc(100vw * (80 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_title .introduce_title_span {
+        font-size: calc(100vw * (40 / 1300));
+        line-height: calc(100vw * (60 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_link .introduce_link_button {
+        box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (8 / 1300)) #bfbfbf,
+        calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (8 / 1300)) #ffffff;
+        width: calc(100vw * (240 / 1300));
+        height: calc(100vw * (46 / 1300));
+        border-radius: calc(100vw * (20 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {
+        font-size: calc(100vw * (18 / 1300));
+        line-height: calc(100vw * (46 / 1300));
+    }
+
+    .main_contact {
+        height: calc(100vw * (360 / 1300));
+    }
+
+    .main_contact .contact_display .contact_title {
+        margin-bottom: calc(100vw * (60 / 1300));
+    }
+
+    .main_contact .contact_display .contact_title .contact_title_span {
+        font-size: calc(100vw * (20 / 1300));
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_donate_button {
+        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4,
+        calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
+        width: calc(100vw * (240 / 1300));
+        height: calc(100vw * (46 / 1300));
+        border-radius: calc(100vw * (20 / 1300));
+        margin: 0 calc(100vw * (20 / 1300));
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_inquiry_button {
+        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4,
+        calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
+        width: calc(100vw * (240 / 1300));
+        height: calc(100vw * (46 / 1300));
+        border-radius: calc(100vw * (20 / 1300));
+        margin: 0 calc(100vw * (20 / 1300));
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_donate_button .contact_donate_span {
+        font-size: calc(100vw * (18 / 1300));
+        line-height: calc(100vw * (46 / 1300));
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_inquiry_button .contact_inquiry_span {
+        font-size: calc(100vw * (18 / 1300));
+        line-height: calc(100vw * (46 / 1300));
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_donate_button:hover {
+        /*animation-name: contact_button_color;*/
+        /*animation-duration: 250ms;*/
+        /*animation-fill-mode: forwards;*/
+        background: linear-gradient(145deg, #e2e2e2, #ffffff);
+        box-shadow: 5px 5px 7px #e4e4e4,
+        -5px -5px 7px #ffffff;
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_inquiry_button:hover {
+        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4,
+        calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_donate_button:hover .contact_donate_span:before {
+        font-size: calc(100vw * (12 / 1300));
+    }
+
+    .main_contact .contact_display .contact_button_section .contact_inquiry_button:hover .contact_inquiry_span:before {
+        font-size: calc(100vw * (12 / 1300));
+    }
+
+    @keyframes contact_button_color {
+        from {
+            background: linear-gradient(145deg, #ffffff, #e1e1e1);
+        }
+        to {
+            background: linear-gradient(145deg, #e1e1e1, #ffffff);
+        }
+    }
+}

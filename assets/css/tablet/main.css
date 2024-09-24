@@ -1,0 +1,9 @@
+@media screen and (max-width: 1300px) {
+    #main_content {
+        padding-top: calc(100vw * (64 / 1300));
+    }
+
+    .main_inner {
+        width: calc(100vw * (1260 / 1300));
+    }
+}
