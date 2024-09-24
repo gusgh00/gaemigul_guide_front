@@ -6,7 +6,6 @@ import Footer from "@/app/_components/footer";
 import AuthProvider from "@/lib/next-auth";
 import React, {Suspense} from "react";
 import Script from "next/script";
-import Loading from "@/app/_components/loading";
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -35,7 +34,7 @@ export default function RootLayout({
         />
         <Header/>
         <main>
-            <Suspense fallback={<Loading/>}>{children}</Suspense>
+            {children}
         </main>
         <Footer/>
         </body>

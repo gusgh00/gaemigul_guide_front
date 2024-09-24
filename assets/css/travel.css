@@ -88,10 +88,16 @@
 }
 
 .travel_list_box {
-    background: #fff;
+    background: #ededed;
     box-shadow:  2px 2px 4px #bfbfbf;
     width: 380px;
     height: 100%;
+}
+
+.travel_list_box .travel_list_box_section {
+    width: 380px;
+    height: 100vh;
+    padding-top: 114px;
 }
 
 .travel_list_button {
@@ -101,4 +107,53 @@
     border-radius: 0 20px 20px 0;
     box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
     cursor: pointer;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section {
+    width: 100%;
+    height: 74px;
+    display: flex;
+    align-items: center;
+
+    border-radius: 20px;
+    background: #ededed;
+    box-shadow:  11px 11px 21px #c9c9c9,
+    -11px -11px 21px #ffffff;
+    margin-bottom: 30px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section_is_dragging {
+    background: linear-gradient(145deg, #d5d5d5, #fefefe);
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
+    width: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div .drag_handler_icon {
+    width: 32px;
+    height: 32px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
+    font-size: 18px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address {
+    font-size: 14px;
 }
