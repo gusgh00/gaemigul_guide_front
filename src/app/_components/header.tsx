@@ -24,8 +24,8 @@ const Header = () => {
                         <div>
                             <Navigation/>
                         </div>
-                        <div>
-                            <FaUserLarge onClick={setSignInSignUp} style={{
+                        <div className="header_sign_in_div">
+                            <FaUserLarge className="header_sign_in_button" onClick={setSignInSignUp} style={{
                                 cursor: "pointer"
                             }}/>
                         </div>

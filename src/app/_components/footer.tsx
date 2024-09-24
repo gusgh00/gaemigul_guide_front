@@ -6,13 +6,7 @@ const Footer = () => {
         <footer id="footer_pc">
             <div className="footer_section">
                 <div className="inner_section">
-                    <div>
-                        <Link href="/">
-                            <span className="header_logo scoredream">개미굴 가이드</span>
-                        </Link>
-                    </div>
-                    <div>
-                    </div>
+                    <span className="scoredream-300 footer_copyright">© 2024 Gaemigul-Guide. All Rights Reserved.</span>
                 </div>
             </div>
         </footer>

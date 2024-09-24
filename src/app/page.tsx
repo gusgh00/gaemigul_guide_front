@@ -10,7 +10,7 @@ export default function Home() {
             <span className="scoredream-700 text-gray-900 introduce_title_span"><span className="scoredream introduce_title_span_highlight">개미굴 가이드</span>에서 도와드립니다!</span>
           </div>
           <div className="introduce_link">
-            <Link href="/">
+            <Link href="/travel">
               <div className="introduce_link_button">
                 <span className="scoredream-700 introduce_link_span">여행 계획하기</span>
               </div>
@@ -18,11 +18,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="main_page_section main_board main_inner">
-        <div className="board_display">
+      {/*<div className="main_page_section main_board main_inner">*/}
+      {/*  <div className="board_display">*/}
 
-        </div>
-      </div>
+      {/*  </div>*/}
+      {/*</div>*/}
       <div className="main_page_section main_contact main_inner">
         <div className="contact_display">
           <div className="contact_title">
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           <div className="contact_button_section">
             <div className="contact_donate">
-              <Link href="https://toon.at/donate/gaemigul">
+              <Link href="https://toon.at/donate/gaemigul" target="_blank">
                 <div className="contact_donate_button">
                   <span className="scoredream-500 contact_donate_span">후원</span><br/>
                 </div>
