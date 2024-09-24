@@ -6,7 +6,7 @@ const Travel = () => {
     const [isHideList, setHideList] = useState(false)
     return (
         <>
-            <div id="main_content">
+            <div>
                 <div className="travel_top_banner">
                     <div className="banner_inner main_inner">
                         <div className="banner_inner_info">

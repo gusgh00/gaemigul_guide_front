@@ -5,6 +5,8 @@
     position: fixed;
     z-index: 97;
     box-shadow:  2px 2px 4px #bfbfbf;
+
+    margin-top: 64px;
 }
 
 .travel_top_banner .banner_inner {
@@ -30,7 +32,7 @@
     border-radius: 18px;
     text-align: center;
 
-    background: linear-gradient(315deg, #404040, #363636);;
+    background: #3c3c3c;
     box-shadow:  2px 2px 4px #bfbfbf,
     -2px -2px 4px #ffffff;
 
@@ -45,7 +47,7 @@
     border-radius: 18px;
     text-align: center;
 
-    background: linear-gradient(315deg, #ff4a00, #e63e00);
+    background: #ff4500;
     box-shadow:  2px 2px 4px #bfbfbf,
     -2px -2px 4px #ffffff;
 
@@ -62,13 +64,13 @@
 
 .travel_map {
     width: 1920px !important;
-    height: 866px !important;
+    height: 100vh !important;
     position: fixed;
 }
 
 .travel_list_section {
     width: 400px;
-    height: 866px;
+    height: 100vh;
     position: fixed;
     display: flex;
     z-index: 96;

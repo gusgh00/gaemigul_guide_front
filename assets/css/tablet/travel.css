@@ -2,6 +2,7 @@
     .travel_top_banner {
         height: calc(100vw * (50 / 1300));
         box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        margin-top: calc(100vw * (64 / 1300));
     }
 
     .travel_top_banner .banner_inner .banner_inner_info span {
@@ -34,12 +35,10 @@
 
     .travel_map {
         width: calc(100vw * (1920 / 1300)) !important;
-        height: calc(100vw * (866 / 1300)) !important;
     }
 
     .travel_list_section {
         width: calc(100vw * (400 / 1300));
-        height: calc(100vw * (866 / 1300));
     }
 
     .travel_list_section_hide {
