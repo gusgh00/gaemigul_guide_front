@@ -67,10 +67,9 @@
 #header_pc .header_section .inner_section .navigation .navigation_text {
     margin: 0;
     display: inline;
-
+    line-height: 64px;
     color: #3c3c3c;
     font-size: 16px;
-    font-weight: 700;
 }
 
 #header_pc .header_section .inner_section .navigation .navigation_text_selected {

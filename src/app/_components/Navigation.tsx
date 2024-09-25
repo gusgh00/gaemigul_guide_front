@@ -12,17 +12,17 @@ const Navigation = () => {
                 </Link>
                 <Link href="/travel">
                     <div>
-                        <span className={usePathname() === "/travel" ? "scoredream-500 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>계획하기</span>
+                        <span className={usePathname() === "/travel" ? "scoredream-700 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>여행 계획하기</span>
                     </div>
                 </Link>
                 <Link href="/mytrip">
                     <div>
-                        <span className={usePathname() === "/mytrip" ? "scoredream-500 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>나의 계획</span>
+                        <span className={usePathname() === "/mytrip" ? "scoredream-700 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>나의 여행 계획</span>
                     </div>
                 </Link>
                 <Link href="/board">
                     <div>
-                        <span className={usePathname() === "/board" ? "scoredream-500 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>모두의 계획</span>
+                        <span className={usePathname() === "/board" ? "scoredream-700 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>모두의 여행 계획</span>
                     </div>
                 </Link>
             </div>

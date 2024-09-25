@@ -76,7 +76,7 @@
     }
 
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
-        width: calc(100vw * (40 / 1300));
+        width: calc(100vw * (44 / 1300));
     }
 
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div .drag_handler_icon {
@@ -84,11 +84,37 @@
         height: calc(100vw * (32 / 1300));
     }
 
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .select_place_div {
+        width: calc(100vw * (32 / 1300));
+        height: calc(100vw * (32 / 1300));
+        border-radius: calc(100vw * (150 / 1300));
+        border: solid calc(100vw * (2 / 1300)) #fff;
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .select_place_div .select_place_icon {
+        width: calc(100vw * (16 / 1300));
+        height: calc(100vw * (16 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div {
+        width: calc(100vw * (222 / 1300));
+        padding-left: calc(100vw * (10 / 1300));
+    }
+
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
-        font-size: calc(100vw * (18 / 1300));
+        font-size: calc(100vw * (16 / 1300));
     }
 
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address {
-        font-size: calc(100vw * (14 / 1300));
+        font-size: calc(100vw * (12 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div {
+        width: calc(100vw * (32 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div .close_icon {
+        width: calc(100vw * (20 / 1300));
+        height: calc(100vw * (20 / 1300));
     }
 }
