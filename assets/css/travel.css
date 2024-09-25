@@ -112,7 +112,9 @@
 .travel_list_box .travel_list_box_section .all_place_section {
     width: 100%;
     height: auto;
+    max-height: 80vh;
     padding: 20px;
+    overflow-y: auto;
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section {
@@ -133,7 +135,7 @@
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
-    width: 40px;
+    width: 44px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -145,15 +147,82 @@
     height: 32px;
 }
 
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .select_place_div {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 150px;
+    border: solid 2px #fff;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .default {
+    background: #CBCBCB;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section  .hotel {
+    background: #F05650;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .restaurant {
+    background: #FFD400;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .museum {
+    background: #E7A2E7;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .leisure {
+    background: #4DCEB8;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .rest {
+    background: #7ABD76;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .shopping {
+    background: #FFA048;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .select_place_div .select_place_icon {
+    width: 16px;
+    height: 16px;
+    color: #3c3c3c;
+}
+
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div {
     display: flex;
     flex-direction: column;
+    width: 222px;
+    padding-left: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 2;
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address {
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div {
+    width: 32px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div .close_icon {
+    width: 20px;
+    height: 20px;
+    color: #3c3c3c;
+
+    cursor: pointer;
 }
