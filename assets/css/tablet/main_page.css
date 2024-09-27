@@ -13,25 +13,71 @@
     }
 
     .main_introduce .introduce_display .introduce_title {
-        margin-bottom: calc(100vw * (80 / 1300));
+        margin-top: calc(100vw * (460 / 1300));
     }
 
     .main_introduce .introduce_display .introduce_title .introduce_title_span {
-        font-size: calc(100vw * (40 / 1300));
-        line-height: calc(100vw * (60 / 1300));
+        font-size: calc(100vw * (60 / 1300));
+        line-height: calc(100vw * (80 / 1300));
     }
 
-    .main_introduce .introduce_display .introduce_link .introduce_link_button {
-        box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (8 / 1300)) #bfbfbf,
-        calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (8 / 1300)) #ffffff;
-        width: calc(100vw * (240 / 1300));
-        height: calc(100vw * (46 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
+    /*.main_introduce .introduce_display .introduce_link .introduce_link_button {*/
+    /*    box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (8 / 1300)) #bfbfbf,*/
+    /*    calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (8 / 1300)) #ffffff;*/
+    /*    width: calc(100vw * (240 / 1300));*/
+    /*    height: calc(100vw * (46 / 1300));*/
+    /*    border-radius: calc(100vw * (20 / 1300));*/
+    /*}*/
+    /*.main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {*/
+    /*    font-size: calc(100vw * (18 / 1300));*/
+    /*    line-height: calc(100vw * (46 / 1300));*/
+    /*}*/
+
+    .main_introduce .introduce_display .introduce_ticket {
+        width: calc(100vw * (600 / 1300));
     }
 
-    .main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {
-        font-size: calc(100vw * (18 / 1300));
-        line-height: calc(100vw * (46 / 1300));
+    .main_introduce .introduce_display .introduce_ticket .ticket_top {
+        width: calc(100vw * (400 / 1300));
+        height: calc(100vw * (500 / 1300));
+        border-radius: 0 0 calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300));
+        border: solid calc(100vw * (2 / 1300)) #fff;
+        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4,
+        calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_bottom {
+        width: calc(100vw * (400 / 1300));
+        height: calc(100vw * (200 / 1300));
+        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+        border: solid calc(100vw * (2 / 1300)) #fff;
+        box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_bottom .ticket_qr {
+        width: calc(100vw * (100 / 1300));
+        height: calc(100vw * (100 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_button {
+        width: calc(100vw * (400 / 1300));
+        height: calc(100vw * (200 / 1300));
+        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+        top: calc(100vw * (500 / 1300));
+        border: dashed calc(100vw * (3 / 1300)) transparent;
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_back {
+        width: calc(100vw * (400 / 1300));
+        height: calc(100vw * (200 / 1300));
+        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+        top: calc(100vw * (500 / 1300));
+        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (13 / 1300)) #ab2e00,
+        inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (13 / 1300)) #ff5c00;
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_back span {
+        font-size: calc(100vw * (30 / 1300));
     }
 
     .main_contact {

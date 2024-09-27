@@ -73,13 +73,13 @@
 }
 
 #header_pc .header_section .inner_section .navigation .navigation_text_selected {
-    color: rgb(255, 69, 00);
+    color: rgb(242, 57, 32);
 }
 
 #header_pc .header_section .inner_section .navigation .navigation_text:after {
     display: block;
     content: '';
-    border-bottom: solid 3px rgb(255, 69, 00);
+    border-bottom: solid 3px rgb(242, 57, 32);
     transform: scaleX(0);
     transition: transform 250ms ease-in-out;
 }
@@ -99,6 +99,6 @@
         color: #3c3c3c;
     }
     to {
-        color: rgb(255, 69, 00);
+        color: rgb(242, 57, 32);
     }
 }

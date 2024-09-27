@@ -47,7 +47,7 @@
     border-radius: 18px;
     text-align: center;
 
-    background: #ff4500;
+    background: #f23920;
     box-shadow:  2px 2px 4px #bfbfbf,
     -2px -2px 4px #ffffff;
 
@@ -103,7 +103,7 @@
 .travel_list_button {
     width: 20px;
     height: 100px;
-    background: linear-gradient(315deg, #ff4a00, #e63e00);;
+    background: linear-gradient(315deg, #ff3d22, #da331d);;
     border-radius: 0 20px 20px 0;
     box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
     cursor: pointer;
