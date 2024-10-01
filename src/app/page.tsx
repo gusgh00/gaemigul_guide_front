@@ -1,9 +1,41 @@
+"use client"
 import Link from 'next/link';
 import Image from "next/image";
 import QrCode from "../../assets/images/main/qrcode.png"
 import {router} from "next/client";
+import React, {forwardRef, useState} from "react";
+import DatePicker from "react-datepicker";
+import {MdOutlineDateRange} from "react-icons/md";
+require('react-datepicker/dist/react-datepicker.css')
+
+type Props = {
+  onClick: () => void
+}
 
 export default function Home() {
+  const selectList = ["서울", "부산", "제주도", "대구", "광주", "대전"];
+  const [startSelected, setStartSelected] = useState("");
+  const [endSelected, setEndSelected] = useState("");
+
+  const [startDate, setStartDate] = useState<Date | null | undefined>(new Date());
+  const [endDate, setEndDate] = useState<Date | null | undefined>(new Date());
+  const handleChangeStartSelect = (e: React.ChangeEvent<any>) => {
+    setStartSelected(e.target.value);
+  }
+
+  const handleChangeEndSelect = (e: React.ChangeEvent<any>) => {
+    setEndSelected(e.target.value);
+  }
+
+  // eslint-disable-next-line react/display-name
+  const CustomDatePicker = forwardRef<HTMLInputElement, Props>(
+      ({onClick}, ref) => (
+          <button onClick={onClick} style={{zIndex: 30}} className="date_button">
+            <MdOutlineDateRange className="date_icon"/>
+          </button>
+      )
+  )
+
   return (
       <div id="main_content">
         <div className="main_page_section main_introduce main_inner">
@@ -27,7 +59,43 @@ export default function Home() {
               <span className="scoredream-900 introduce_title_span">도와드립니다!</span>
             </div>
             <div className="introduce_ticket">
-              <div className="ticket_top"></div>
+              <div className="ticket_top">
+                <div className="ticket_place">
+                  <select className="scoredream-900 default_text ticket_place_from" onChange={(event) => handleChangeStartSelect(event)} value={startSelected}>
+                    {selectList.map((item) => (
+                        <option value={item} key={item}>
+                          {item}
+                        </option>
+                    ))}
+                  </select>
+
+                  <select className="scoredream-900 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
+                    {selectList.map((item) => (
+                        <option value={item} key={item}>
+                          {item}
+                        </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="ticket_start">
+                  <span className="scoredream-700 default_text no_select">{startDate && startDate?.getFullYear()}년 {startDate && startDate?.getMonth() + 1}월 {startDate && startDate?.getDate()}일</span>
+                  <DatePicker
+                      selected={startDate}
+                      onChange={(date: Date | null) => date && setStartDate(date)}
+                      minDate={new Date()}
+                      customInput={<CustomDatePicker />}
+                  />
+                </div>
+                <div className="ticket_end">
+                  <span className="scoredream-700 default_text no_select">{endDate && endDate?.getFullYear()}년 {endDate && endDate?.getMonth() + 1}월 {endDate && endDate?.getDate()}일</span>
+                  <DatePicker
+                      selected={endDate}
+                      onChange={(date: Date | null) => date && setEndDate(date)}
+                      minDate={startDate ? startDate : new Date()}
+                      customInput={<CustomDatePicker />}
+                  />
+                </div>
+              </div>
               <div className="ticket_button">
                 <Link href="/travel"></Link>
               </div>

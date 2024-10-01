@@ -46,6 +46,60 @@
         calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
     }
 
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place {
+        width: calc(100vw * (260 / 1300));
+        height: calc(100vw * (100 / 1300));
+        margin: calc(100vw * (70 / 1300)) auto 0;
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from,
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to
+    {
+        width: calc(100vw * (125 / 1300));
+        height: calc(100vw * (80 / 1300));
+        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece,
+        inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
+        border-radius: calc(100vw * (20 / 1300));
+        line-height: calc(100vw * (80 / 1300));
+        font-size: calc(100vw * (40 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from:after,
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to:after {
+        width: calc(100vw * (20 / 1300));
+        height: calc(100vw * (20 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start,
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end {
+        width: calc(100vw * (260 / 1300));
+        height: calc(100vw * (40 / 1300));
+        margin: calc(100vw * (10 / 1300)) auto calc(100vw * (40 / 1300));
+        gap: calc(100vw * (10 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start .date_button,
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end .date_button {
+        width: calc(100vw * (25 / 1300));
+        height: calc(100vw * (25 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start .date_button .date_icon,
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end .date_button .date_icon {
+        width: calc(100vw * (25 / 1300));
+        height: calc(100vw * (25 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start span,
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end span {
+        width: calc(100vw * (200 / 1300));
+        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece,
+        inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
+        border-radius: calc(100vw * (20 / 1300));
+        padding: 0 calc(100vw * (10 / 1300));
+        font-size: calc(100vw * (20 / 1300));
+    }
+
     .main_introduce .introduce_display .introduce_ticket .ticket_bottom {
         width: calc(100vw * (400 / 1300));
         height: calc(100vw * (200 / 1300));
@@ -121,12 +175,8 @@
     }
 
     .main_contact .contact_display .contact_button_section .contact_donate_button:hover {
-        /*animation-name: contact_button_color;*/
-        /*animation-duration: 250ms;*/
-        /*animation-fill-mode: forwards;*/
-        background: linear-gradient(145deg, #e2e2e2, #ffffff);
-        box-shadow: 5px 5px 7px #e4e4e4,
-        -5px -5px 7px #ffffff;
+        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4,
+        calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
     }
 
     .main_contact .contact_display .contact_button_section .contact_inquiry_button:hover {
