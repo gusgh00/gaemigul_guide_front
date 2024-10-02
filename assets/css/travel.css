@@ -69,7 +69,7 @@
 }
 
 .travel_list_section {
-    width: 400px;
+    width: 500px;
     height: 100vh;
     position: fixed;
     display: flex;
@@ -84,18 +84,18 @@
 }
 
 .travel_list_section_hide {
-    left: -380px;
+    left: -480px;
 }
 
 .travel_list_box {
     background: #ededed;
     box-shadow:  2px 2px 4px #bfbfbf;
-    width: 380px;
+    width: 480px;
     height: 100%;
 }
 
 .travel_list_box .travel_list_box_section {
-    width: 380px;
+    width: 480px;
     height: 100vh;
     padding-top: 114px;
 }
@@ -109,10 +109,60 @@
     cursor: pointer;
 }
 
+.travel_list_box .travel_list_box_menu {
+    width: 100%;
+    height: 96px;
+    background: #fafafa;
+    box-shadow:  2px 2px 4px #bfbfbf, -2px -2px 4px #ffffff;
+}
+
+.travel_list_box .travel_list_box_menu .travel_list_box_menu_top {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    border-bottom: solid 1px #e9e9e9;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.travel_list_box .travel_list_box_menu .travel_list_box_menu_top .select_date {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    background: transparent;
+}
+
+.travel_list_box .travel_list_box_menu .travel_list_box_menu_top .current_clear_button {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.travel_list_box .travel_list_box_menu .travel_list_box_menu_top .current_clear_button .current_clear_icon {
+    width: 18px;
+    height: 18px;
+}
+
+.travel_list_box .travel_list_box_menu .travel_list_box_menu_bottom {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.travel_list_box .travel_list_box_menu .travel_list_box_menu_bottom .tab_button {
+    font-size: 14px;
+}
+
 .travel_list_box .travel_list_box_section .all_place_section {
     width: 100%;
     height: auto;
-    max-height: 80vh;
+    max-height: calc(100vh - 210px);
     padding: 20px;
     overflow-y: auto;
 }
@@ -197,18 +247,46 @@
     flex-direction: column;
     width: 222px;
     padding-left: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
+    font-size: 16px;
+    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     -webkit-line-clamp: 2;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
-    font-size: 16px;
-}
-
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address {
     font-size: 12px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 2;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    padding-left: 20px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div .time_type {
+    font-size: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div .time_input_div {
+    display: block;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div .time_input_div .stay_time {
+    background: transparent;
+    font-size: 24px;
+    line-height: 26px;
+    width: 100%;
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div {

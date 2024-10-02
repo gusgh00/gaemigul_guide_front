@@ -32,7 +32,7 @@ export default function Home() {
 
   useEffect(() => {
     const max = maxDate
-    max?.setDate(max?.getDate() + 9)
+    max?.setDate(max?.getDate() + 4)
     setMaxDate(max)
   }, [maxDate]);
 
@@ -102,7 +102,7 @@ export default function Home() {
                       id="end_date_picker"
                       selected={endDate}
                       onChange={(date: Date | null) => date && setEndDate(date)}
-                      minDate={startDate ? startDate : new Date(new Date().setDate(new Date().getDate() + 9))}
+                      minDate={startDate ? startDate : new Date(new Date().setDate(new Date().getDate() + 4))}
                       maxDate={maxDate ? maxDate : new Date()}
                       className="scoredream-700 default_text ticket_date_text datepicker"
                       icon={
