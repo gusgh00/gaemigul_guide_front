@@ -313,7 +313,7 @@ const Travel = () => {
                     className="all_road_section">
                     {placeList.map((item: any, index: number) => {
                         return (
-                            <div key={item.id}>
+                            <div key={index}>
                                 <div
                                     className="place_list_section"
                                 >
@@ -396,7 +396,7 @@ const Travel = () => {
                                             <div className="place_list_div">
                                                 <span className="scoredream-700 default_text place">{item.place}</span>
                                                 <FaArrowRight className="arrow"/>
-                                                <span className="scoredream-700 default_text place">{placeList.find(val => val.id == item.id + 1)?.place}</span>
+                                                <span className="scoredream-700 default_text place">{placeList.find((val, valIndex )=> valIndex == index + 1)?.place}</span>
                                             </div>
                                             <div className="place_amount_div">
                                                 <span className="scoredream-700 grey_text amount_type">이용 비용</span>
@@ -455,7 +455,7 @@ const Travel = () => {
                                                     <FaRegCircleStop className="select_place_icon"/>
                                                 </div>
                                                 <div className="place_list_div">
-                                                    <span className="scoredream-700 default_text place">{placeList.find(val => val.id == item.id + 1)?.place}</span>
+                                                    <span className="scoredream-700 default_text place">{placeList.find((val, valIndex) => valIndex == index + 1)?.place}</span>
                                                     <span className="scoredream-700 grey_text place">도착</span>
                                                 </div>
                                                 <div className="place_move_time_div">
