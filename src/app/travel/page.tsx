@@ -181,8 +181,6 @@ const Travel = () => {
         items.splice(destination.index, 0, reorderedItem);
 
         setPlaceList(items);
-
-        console.log(placeList)
     }
 
     const closePlaceList = (index: number) => {
