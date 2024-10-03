@@ -83,6 +83,10 @@
     user-select: none;
 }
 
+.display_none {
+    display: none !important;
+}
+
 /*body {*/
 /*  color: rgb(var(--foreground-rgb));*/
 /*  background: linear-gradient(*/

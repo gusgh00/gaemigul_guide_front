@@ -159,24 +159,83 @@
     font-size: 14px;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section {
+.travel_list_box .travel_list_box_handle {
+    width: 100%;
+    height: 96px;
+    background: #fafafa;
+    box-shadow:  -2px -2px 4px #bfbfbf, 2px 2px 4px #bfbfbf;
+}
+
+.travel_list_box .travel_list_box_handle .travel_list_box_handle_top {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    border-bottom: solid 1px #e9e9e9;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.travel_list_box .travel_list_box_handle .travel_list_box_handle_top .select_date {
+    width: 150px;
+    height: 30px;
+    font-size: 14px;
+    background: transparent;
+}
+
+.travel_list_box .travel_list_box_handle .travel_list_box_handle_top .current_clear_button {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.travel_list_box .travel_list_box_handle .travel_list_box_handle_top .current_clear_button .current_clear_icon {
+    width: 18px;
+    height: 18px;
+}
+
+.travel_list_box .travel_list_box_handle .travel_list_box_handle_bottom {
+    width: 100%;
+    height: 48px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.travel_list_box .travel_list_box_handle .travel_list_box_handle_bottom .tab_button {
+    font-size: 14px;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section,
+.travel_list_box .travel_list_box_section .all_road_section
+{
     width: 100%;
     height: auto;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 210px - 96px);
     padding: 20px;
     overflow-y: auto;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section {
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section,
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_path_start,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_path_end {
     width: 100%;
     height: 74px;
     display: flex;
     align-items: center;
+    gap: 10px;
 
     border-radius: 20px;
-    background: #ededed;
-    box-shadow:  11px 11px 21px #c9c9c9,
-    -11px -11px 21px #ffffff;
+    background: transparent;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section {
+    box-shadow:  11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
     margin-bottom: 30px;
 }
 
@@ -185,7 +244,8 @@
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
-    width: 44px;
+    width: 34px;
+    margin: 6px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -197,59 +257,16 @@
     height: 32px;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .select_place_div {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 150px;
-    border: solid 2px #fff;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .default {
-    background: #CBCBCB;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section  .hotel {
-    background: #F05650;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .restaurant {
-    background: #FFD400;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .museum {
-    background: #E7A2E7;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .leisure {
-    background: #4DCEB8;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .rest {
-    background: #7ABD76;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .shopping {
-    background: #FFA048;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .select_place_div .select_place_icon {
-    width: 16px;
-    height: 16px;
-    color: #3c3c3c;
-}
-
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div {
     display: flex;
     flex-direction: column;
-    width: 222px;
-    padding-left: 10px;
+    width: 300px;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place {
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place,
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div .place,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .place,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
     font-size: 16px;
     display: block;
     overflow: hidden;
@@ -258,7 +275,8 @@
     -webkit-line-clamp: 2;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address {
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address,
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div .address {
     font-size: 12px;
     display: block;
     overflow: hidden;
@@ -267,30 +285,9 @@
     -webkit-line-clamp: 2;
 }
 
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-    padding-left: 20px;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div .time_type {
-    font-size: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div .time_input_div {
-    display: block;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_stay_time_div .time_input_div .stay_time {
-    background: transparent;
-    font-size: 24px;
-    line-height: 26px;
-    width: 100%;
-}
-
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div {
     width: 32px;
+    margin-left: 30px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -303,4 +300,219 @@
     color: #3c3c3c;
 
     cursor: pointer;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section {
+    box-shadow: 11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
+    margin-bottom: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div {
+    width: 34px;
+    height: 34px;
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 150px;
+    border: solid 2px #fff;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .default {
+    background: #CBCBCB;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section  .hotel {
+    background: #F05650;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .restaurant {
+    background: #FFD400;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .museum {
+    background: #E7A2E7;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .leisure {
+    background: #4DCEB8;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .rest {
+    background: #7ABD76;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .shopping {
+    background: #FFA048;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div .select_place_icon,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div .select_place_icon,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .arrow,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .arrow {
+    width: 18px;
+    height: 18px;
+    color: #3c3c3c;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_type {
+    font-size: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div {
+    display: flex;
+    width: 100%;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div .amount_unit,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div .amount_unit {
+    font-size: 10px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 5px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div .amount,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div .amount {
+    background: transparent;
+    font-size: 24px;
+    line-height: 26px;
+    width: 72px;
+    overflow: hidden;
+    text-align: right;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_type {
+    font-size: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_input_div {
+    display: block;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_input_div .stay_time,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_input_div .move_time,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_input_div .move_time {
+    background: transparent;
+    font-size: 24px;
+    line-height: 26px;
+    width: 100%;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .default {
+    background: #CBCBCB;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section  .walk {
+    background: #87CEEB;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .car {
+    background: #a8c9e0;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .bus {
+    background: #5bb025;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 160px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .place {
+    max-width: 64px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_type {
+    font-size: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_type {
+    font-size: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_input_div {
+    display: block;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_hide_btn {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_hide_icon {
+    width: 18px;
+    height: 18px;
+    transition: 400ms;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_hide_icon.active {
+    transform: rotate(-180deg);
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section {
+    width: 100%;
+    height: 148px;
+    display: block;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .default {
+    background: #CBCBCB;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section  .walk {
+    background: #87CEEB;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .car {
+    background: #a8c9e0;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .bus {
+    background: #5bb025;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
+    max-width: 120px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div {
+    margin-left: 110px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_type {
+    font-size: 10px;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_input_div {
+    display: block;
 }
