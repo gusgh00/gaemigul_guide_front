@@ -732,6 +732,10 @@
     color: #f23920;
 }
 
+.travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button.disabled {
+    color: #909090
+}
+
 .travel_search_section .search_list_div .search_list_nothing {
     width: 100%;
     height: 100%;
