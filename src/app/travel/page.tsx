@@ -10,9 +10,10 @@ import {
     DropResult
 } from "@hello-pangea/dnd";
 import { RxDragHandleHorizontal } from "react-icons/rx";
-import {FaArrowRight, FaBed, FaCar, FaQuestion, FaShoppingCart, FaWalking} from "react-icons/fa";
+import {FaArrowRight, FaBed, FaCar, FaPlus, FaQuestion, FaSearch, FaShoppingCart, FaWalking} from "react-icons/fa";
 import {IoRestaurant} from "react-icons/io5";
 import {
+    MdAutoAwesome,
     MdClose,
     MdForest,
     MdMuseum,
@@ -159,6 +160,9 @@ const Travel = () => {
         },
     ];
 
+    const [isAddList, setAddList] = useState(false)
+    const [isAddPlaceId, setAddPlaceId] = useState(0)
+
     const [isHideList, setHideList] = useState(false)
     const [isListReady, setListReady] = useState(false)
     const [placeList, setPlaceList] = useState<placeListInterface[]>(initialLists);
@@ -294,9 +298,15 @@ const Travel = () => {
                                                             <span className="scoredream-700 default_text place">{item.place}</span>
                                                             <span className="scoredream-500 grey_text address">{item.address}</span>
                                                         </div>
-                                                        <div className="close_div">
+                                                        <div className={placeList.length > 1 ? "close_div" : "display_none"}>
                                                             <MdClose className="close_icon" onClick={() => closePlaceList(index)}/>
                                                         </div>
+                                                        <button className={isAddPlaceId === item.id && isAddList ? "add_button active" : "add_button"} onClick={() => {
+                                                            setAddList(true)
+                                                            setAddPlaceId(item.id)
+                                                        }}>
+                                                            <FaPlus className="add_icon"/>
+                                                        </button>
                                                     </div>
                                                 </>
                                             )}
@@ -539,7 +549,11 @@ const Travel = () => {
                                             <button
                                                 key={index}
                                                 className={isTab === index ? "scoredream-500 gaemigul_guide tab_button" : "scoredream-500 grey_text tab_button"}
-                                                onClick={() => setTab(index)}>
+                                                onClick={() => {
+                                                    setTab(index)
+                                                    setAddList(false)
+                                                    setAddPlaceId(0)
+                                                }}>
                                                 {tab}
                                             </button>
                                             {index === tabList.length - 1 ? null : <span key={index} className="scoredream-500 grey_text tab_button">{">"}</span>}
@@ -548,41 +562,26 @@ const Travel = () => {
                                 </div>
                             </div>
                             {!isListReady ? null : showTab()}
-                            <div className="travel_list_box_handle">
-                                <div className="travel_list_box_handle_top">
-                                    <select className="scoredream-500 grey_text select_date" onChange={(event) => handleChangeDateSelect(event)} value={dateSelected}>
-                                        {dateList.map((item) => (
-                                            <option value={item} key={item}>
-                                                {item}
-                                            </option>
-                                        ))}
-                                    </select>
-                                    <button className="scoredream-500 grey_text current_clear_button">
-                                        <GrPowerReset className="current_clear_icon"/>
-                                        초기화하기
-                                    </button>
-                                </div>
-                                <div className="travel_list_box_handle_bottom">
-                                    {tabList.map((tab: string, index: number) => (
-                                        <>
-                                            <button
-                                                key={index}
-                                                className={isTab === index ? "scoredream-500 gaemigul_guide tab_button" : "scoredream-500 grey_text tab_button"}
-                                                onClick={() => setTab(index)}>
-                                                {tab}
-                                            </button>
-                                            {index === tabList.length - 1 ? null : <span key={index} className="scoredream-500 grey_text tab_button">{">"}</span>}
-                                        </>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div className="travel_list_button" onClick={() => setHideList(!isHideList)}>
                     </div>
                 </div>
-                <div className="travel_search_section">
-
+                <div className={isAddList ? "travel_search_section" : "display_none"}>
+                    <div className="close_div">
+                        <MdClose className="close_icon" onClick={() => {
+                            setAddPlaceId(0)
+                            setAddList(false)
+                        }}/>
+                    </div>
+                    <button className="search_btn_keyword">
+                        <FaSearch className="keyword_icon"/>
+                        <span className="scoredream-500">키워드로 검색</span>
+                    </button>
+                    <button className="search_btn_recommend">
+                        <MdAutoAwesome className="recommend_icon"/>
+                        <span className="scoredream-500">추천 장소</span>
+                    </button>
                 </div>
                 <Map
                     id="map"
