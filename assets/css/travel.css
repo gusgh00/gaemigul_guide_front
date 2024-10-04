@@ -159,62 +159,12 @@
     font-size: 14px;
 }
 
-.travel_list_box .travel_list_box_handle {
-    width: 100%;
-    height: 96px;
-    background: #fafafa;
-    box-shadow:  -2px -2px 4px #bfbfbf, 2px 2px 4px #bfbfbf;
-}
-
-.travel_list_box .travel_list_box_handle .travel_list_box_handle_top {
-    width: 100%;
-    height: 48px;
-    padding: 0 20px;
-    border-bottom: solid 1px #e9e9e9;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.travel_list_box .travel_list_box_handle .travel_list_box_handle_top .select_date {
-    width: 150px;
-    height: 30px;
-    font-size: 14px;
-    background: transparent;
-}
-
-.travel_list_box .travel_list_box_handle .travel_list_box_handle_top .current_clear_button {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.travel_list_box .travel_list_box_handle .travel_list_box_handle_top .current_clear_button .current_clear_icon {
-    width: 18px;
-    height: 18px;
-}
-
-.travel_list_box .travel_list_box_handle .travel_list_box_handle_bottom {
-    width: 100%;
-    height: 48px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.travel_list_box .travel_list_box_handle .travel_list_box_handle_bottom .tab_button {
-    font-size: 14px;
-}
-
 .travel_list_box .travel_list_box_section .all_place_section,
 .travel_list_box .travel_list_box_section .all_road_section
 {
     width: 100%;
     height: auto;
-    max-height: calc(100vh - 210px - 96px);
+    max-height: calc(100vh - 210px);
     padding: 20px;
     overflow-y: auto;
 }
@@ -234,9 +184,46 @@
     background: transparent;
 }
 
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: -30px;
+    z-index: 20;
+    border-radius: 20px;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: dotted 2px transparent;
+    transition: 200ms;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button .add_icon {
+    width: 18px;
+    height: 18px;
+    color: #3c3c3c;
+    transition: 200ms;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button:hover {
+    border: dotted 2px #3c3c3c;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button.active {
+    border: dotted 2px #f23920;
+}
+
+.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button.active .add_icon {
+    color: #f23920;
+}
+
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section {
     box-shadow:  11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section_is_dragging {
@@ -515,4 +502,81 @@
 
 .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_input_div {
     display: block;
+}
+
+.travel_search_section {
+    display: block;
+    width: 400px;
+    height: calc(100vh - 150px);
+    background: #fff;
+    top: 140px;
+    position: fixed;
+    left: 510px;
+    z-index: 96;
+
+    border-radius: 20px;
+    box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
+}
+
+.travel_search_section .close_div {
+    width: 100%;
+    height: 40px;
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.travel_search_section .close_icon {
+    width: 24px;
+    height: 24px;
+    color: #909090;
+    cursor: pointer;
+}
+
+.travel_search_section .search_btn_keyword {
+    width: 360px;
+    height: 30px;
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    border: solid 2px #909090;
+}
+
+.travel_search_section .search_btn_keyword .keyword_icon {
+    color: #909090;
+    width: 18px;
+    height: 18px;
+}
+
+.travel_search_section .search_btn_keyword span {
+    font-size: 16px;
+    color: #909090;
+}
+
+.travel_search_section .search_btn_recommend {
+    width: 360px;
+    height: 30px;
+    margin: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    border: solid 2px #909090;
+}
+
+.travel_search_section .search_btn_recommend .recommend_icon {
+    color: #909090;
+    width: 18px;
+    height: 18px;
+}
+
+.travel_search_section .search_btn_recommend span {
+    font-size: 16px;
+    color: #909090;
 }
