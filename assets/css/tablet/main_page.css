@@ -50,18 +50,25 @@
         width: calc(100vw * (260 / 1300));
         height: calc(100vw * (100 / 1300));
         margin: calc(100vw * (70 / 1300)) auto 0;
+        gap: calc(100vw * (30 / 1300));
     }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from,
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to
-    {
-        width: calc(100vw * (125 / 1300));
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from {
+        width: calc(100vw * (118 / 1300));
         height: calc(100vw * (80 / 1300));
+        line-height: calc(100vw * (80 / 1300));
+        font-size: calc(100vw * (34 / 1300));
+    }
+
+    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to {
+        width: calc(100vw * (110 / 1300));
+        height: calc(100vw * (60 / 1300));
         box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece,
         inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
         border-radius: calc(100vw * (20 / 1300));
-        line-height: calc(100vw * (80 / 1300));
-        font-size: calc(100vw * (40 / 1300));
+        line-height: calc(100vw * (60 / 1300));
+        font-size: calc(100vw * (34 / 1300));
+        margin-top: calc(100vw * (10 / 1300));
     }
 
     .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from:after,

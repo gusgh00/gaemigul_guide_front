@@ -508,20 +508,27 @@
     display: block;
     width: 400px;
     height: calc(100vh - 150px);
-    background: #fff;
+    background: #fafafa;
     top: 140px;
     position: fixed;
     left: 510px;
     z-index: 96;
 
     border-radius: 20px;
-    box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
+    box-shadow: 2px 2px 4px #bfbfbf, -2px -2px 4px #bfbfbf;
+}
+
+.travel_search_section .search_button_div {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: solid 1px #ececec;
 }
 
 .travel_search_section .close_div {
     width: 100%;
-    height: 40px;
-    padding: 10px 20px;
+    height: 30px;
 
     display: flex;
     align-items: center;
@@ -535,48 +542,205 @@
     cursor: pointer;
 }
 
-.travel_search_section .search_btn_keyword {
+.travel_search_section .keyword_input_div {
     width: 360px;
     height: 30px;
-    margin: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     border-radius: 12px;
-    border: solid 2px #909090;
+    border: solid 1px #ececec;
+    background: #fff;
+}
+
+.travel_search_section .keyword_input_div .keyword_input {
+    width: 340px;
+    height: 100%;
+    line-height: 30px;
+    margin: 0 10px;
+    background: #fff;
+    font-size: 16px;
+}
+
+.travel_search_section .search_btn_keyword {
+    width: 360px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 12px;
+    border: solid 1px #ececec;
+    background: transparent;
+
+    box-shadow:  4px 4px 9px #ebebeb, -4px -4px 9px #ffffff;
+
+    transition: 300ms;
 }
 
 .travel_search_section .search_btn_keyword .keyword_icon {
     color: #909090;
     width: 18px;
     height: 18px;
+    transition: 300ms;
 }
 
 .travel_search_section .search_btn_keyword span {
     font-size: 16px;
     color: #909090;
+    transition: 300ms;
+}
+
+.travel_search_section .search_btn_keyword:hover {
+    border: solid 1px #f23920;
+}
+
+.travel_search_section .search_btn_keyword:hover .keyword_icon,
+.travel_search_section .search_btn_keyword:hover span {
+    color: #f23920;
 }
 
 .travel_search_section .search_btn_recommend {
     width: 360px;
     height: 30px;
-    margin: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     border-radius: 12px;
-    border: solid 2px #909090;
+    border: solid 1px #ececec;
+    background: transparent;
+
+    box-shadow:  4px 4px 9px #ebebeb, -4px -4px 9px #ffffff;
+
+    transition: 300ms;
 }
 
 .travel_search_section .search_btn_recommend .recommend_icon {
     color: #909090;
     width: 18px;
     height: 18px;
+    transition: 300ms;
 }
 
 .travel_search_section .search_btn_recommend span {
     font-size: 16px;
     color: #909090;
+    transition: 300ms;
+}
+
+.travel_search_section .search_btn_recommend:hover {
+    border: solid 1px #f23920;
+}
+
+.travel_search_section .search_btn_recommend:hover .recommend_icon,
+.travel_search_section .search_btn_recommend:hover span {
+    color: #f23920;
+}
+
+.travel_search_section .search_list_div {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: calc(100vh - 320px);
+    overflow-y: auto;
+}
+
+.travel_search_section .search_list_div .search_item_section {
+    width: 360px;
+    height: 100px;
+    display: flex;
+    gap: 10px;
+    border-bottom: solid 1px #ececec;
+    border-top: solid 1px #ececec;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_img_div {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: solid 1px #ececec;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_img_div .item_img {
+    width: 90px;
+    height: auto;
+    border-radius: 14px;
+    border: solid 2px #ececec;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_info_div {
+    width: 210px;
+    height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_info_div .place {
+    width: 210px;
+    font-size: 16px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 2;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_info_div .address {
+    width: 210px;
+    font-size: 12px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-line-clamp: 2;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_info_div .to_url {
+    width: 120px;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {
+    font-size: 12px;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_add_div {
+    width: 30px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: solid 1px #ececec;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button {
+    width: 20px;
+    height: 20px;
+    color: #3c3c3c;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button:hover {
+    color: #f23920;
+}
+
+.travel_search_section .search_list_div .search_list_nothing {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.travel_search_section .search_list_div .search_list_nothing {
+    font-size: 16px;
 }

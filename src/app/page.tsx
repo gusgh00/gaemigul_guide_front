@@ -39,19 +39,6 @@ export default function Home() {
   return (
       <div id="main_content">
         <div className="main_page_section main_introduce main_inner">
-          {/*<div className="introduce_display">*/}
-          {/*  <div className="introduce_title">*/}
-          {/*    <span className="scoredream-700 text-gray-900 introduce_title_span">멋진 여행을 원하시나요?</span><br/>*/}
-          {/*    <span className="scoredream-700 text-gray-900 introduce_title_span"><span className="scoredream introduce_title_span_highlight">개미굴 가이드</span>에서 도와드립니다!</span>*/}
-          {/*  </div>*/}
-          {/*  <div className="introduce_link">*/}
-          {/*    <Link href="/travel">*/}
-          {/*      <div className="introduce_link_button">*/}
-          {/*        <span className="scoredream-700 introduce_link_span">여행 계획하기</span>*/}
-          {/*      </div>*/}
-          {/*    </Link>*/}
-          {/*  </div>*/}
-          {/*</div>*/}
           <div className="introduce_display">
             <div className="introduce_title">
               <span className="scoredream-900 introduce_title_span">멋진 여행을 원하시나요?</span>
@@ -61,13 +48,14 @@ export default function Home() {
             <div className="introduce_ticket">
               <div className="ticket_top">
                 <div className="ticket_place">
-                  <select className="scoredream-900 default_text ticket_place_from" onChange={(event) => handleChangeStartSelect(event)} value={startSelected}>
-                    {selectList.map((item) => (
-                        <option value={item} key={item}>
-                          {item}
-                        </option>
-                    ))}
-                  </select>
+                  {/*<select className="scoredream-900 default_text ticket_place_from" onChange={(event) => handleChangeStartSelect(event)} value={startSelected}>*/}
+                  {/*  {selectList.map((item) => (*/}
+                  {/*      <option value={item} key={item}>*/}
+                  {/*        {item}*/}
+                  {/*      </option>*/}
+                  {/*  ))}*/}
+                  {/*</select>*/}
+                  <span className="scoredream-900 default_text ticket_place_from">개미굴</span>
 
                   <select className="scoredream-900 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
                     {selectList.map((item) => (
