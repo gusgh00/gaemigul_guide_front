@@ -10,7 +10,16 @@ import {
     DropResult
 } from "@hello-pangea/dnd";
 import { RxDragHandleHorizontal } from "react-icons/rx";
-import {FaArrowRight, FaBed, FaCar, FaPlus, FaQuestion, FaSearch, FaShoppingCart, FaWalking} from "react-icons/fa";
+import {
+    FaArrowRight,
+    FaBed,
+    FaCar,
+    FaPlus,
+    FaQuestion,
+    FaSearch,
+    FaShoppingCart,
+    FaWalking
+} from "react-icons/fa";
 import {IoRestaurant} from "react-icons/io5";
 import {
     MdAutoAwesome,
@@ -18,13 +27,14 @@ import {
     MdForest,
     MdMuseum,
     MdOutlineKeyboardArrowDown,
-    MdOutlineKeyboardArrowUp,
     MdPlace
 } from "react-icons/md";
 import {TbBeach} from "react-icons/tb";
 import DatePicker from "react-datepicker";
 import {GrPowerReset} from "react-icons/gr";
 import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
+import Link from "next/link";
+import Image from "next/image";
 require('react-datepicker/dist/react-datepicker.css')
 
 const Travel = () => {
@@ -45,7 +55,18 @@ const Travel = () => {
         end_time: Date | null | undefined,
     }
 
-    const initialLists: placeListInterface[] = [
+    interface searchListInterface {
+        id: number,
+        place: string,
+        lat: string,
+        lng: string,
+        address: string,
+        url: string,
+        img: string,
+        social: string,
+    }
+
+    const initialPlaceLists: placeListInterface[] = [
         {
             id: 1,
             place: "서울역",
@@ -160,18 +181,94 @@ const Travel = () => {
         },
     ];
 
+    const initialSearchLists: searchListInterface[] = [
+        {
+            id: 1,
+            place: "서울역",
+            lat: "37.5547125",
+            lng: "126.9707878",
+            address: "서울특별시 용산구 한강대로 405",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+        {
+            id: 2,
+            place: "영등포역",
+            lat: "37.5154133",
+            lng: "126.9071288",
+            address: "서울특별시 영등포구 영등포본동",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+        {
+            id: 3,
+            place: "홍대입구역",
+            lat: "37.557527",
+            lng: "126.9244669",
+            address: "서울특별시 마포구 양화로 지하 160",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+        {
+            id: 4,
+            place: "홍익대학교 서울캠퍼스",
+            lat: "37.5507563",
+            lng: "126.9254901",
+            address: "서울특별시 마포구 와우산로 94",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+        {
+            id: 5,
+            place: "젠틀몬스터 홍대 플래그십스토어",
+            lat: "37.5507563",
+            lng: "126.9254901",
+            address: "서울특별시 마포구 독막로7길 54",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+        {
+            id: 6,
+            place: "63빌딩",
+            lat: "37.5197159",
+            lng: "126.9401255",
+            address: "서울특별시 영등포구 63로 50",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+        {
+            id: 7,
+            place: "탬버린즈 신사 플래그십스토어",
+            lat: "37.5206264",
+            lng: "127.0220599",
+            address: "서울특별시 강남구 압구정로10길 44",
+            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
+            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
+            social: "Google",
+        },
+    ];
+
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
 
     const [isHideList, setHideList] = useState(false)
     const [isListReady, setListReady] = useState(false)
-    const [placeList, setPlaceList] = useState<placeListInterface[]>(initialLists);
+    const [placeList, setPlaceList] = useState<placeListInterface[]>(initialPlaceLists);
 
     const tabList = ['경유지 탐색', '경유지 상세', '최종 계획']
     const [isTab, setTab] = useState(0)
 
     const dateList = ["2024년 10월 12일", "2024년 10월 13일", "2024년 10월 14일", "2024년 10월 15일"]
     const [dateSelected, setDateSelected] = useState("2024년 10월 12일")
+
+    const [searchValue, setSearchValue] = useState("")
+    const [searchList, setSearchList] = useState<searchListInterface[]>();
 
     useEffect(() => {
         setListReady(true)
@@ -264,6 +361,37 @@ const Travel = () => {
         }))
     }
 
+    const changeSearchValue = (value: string) => {
+        setSearchValue(value)
+    }
+
+    const setRecommendList = () => {
+        setSearchList(initialSearchLists)
+    }
+
+    const addSearchList = (params: any) => {
+        const tempPlaceList = [...placeList]
+        const frontPlaceIndex = placeList.findIndex(item => item.id === isAddPlaceId)
+        const newPlaceItem: placeListInterface = {
+            id: placeList.length + 1,
+            place: params.place,
+            lat: params.lat,
+            lng: params.lng,
+            address: params.address,
+            place_type: 0,
+            stay_time: new Date(new Date().setHours(0,0)),
+            stay_amount: "0",
+            vehicle_type: 0,
+            move_time: new Date(new Date().setHours(0,0)),
+            move_amount: "0",
+            path_hide: true,
+            start_time: new Date(new Date().setHours(0,0)),
+            end_time: new Date(new Date().setHours(0,0)),
+        }
+        tempPlaceList.splice(frontPlaceIndex + 1, 0, newPlaceItem)
+        setPlaceList(tempPlaceList)
+    }
+
     const showTab = () => {
         switch (isTab) {
             case 0:
@@ -299,11 +427,19 @@ const Travel = () => {
                                                             <span className="scoredream-500 grey_text address">{item.address}</span>
                                                         </div>
                                                         <div className={placeList.length > 1 ? "close_div" : "display_none"}>
-                                                            <MdClose className="close_icon" onClick={() => closePlaceList(index)}/>
+                                                            <MdClose className="close_icon" onClick={() => {
+                                                                closePlaceList(index)
+                                                                if (item.id === isAddPlaceId) {
+                                                                    setAddList(false)
+                                                                    setAddPlaceId(0)
+                                                                    setSearchList([])
+                                                                }
+                                                            }}/>
                                                         </div>
                                                         <button className={isAddPlaceId === item.id && isAddList ? "add_button active" : "add_button"} onClick={() => {
                                                             setAddList(true)
                                                             setAddPlaceId(item.id)
+                                                            setSearchList([])
                                                         }}>
                                                             <FaPlus className="add_icon"/>
                                                         </button>
@@ -354,17 +490,6 @@ const Travel = () => {
                                     <div className="place_amount_div">
                                         <span className="scoredream-700 grey_text amount_type">이용 비용</span>
                                         <div className="amount_input_div">
-                                            {/*<DatePicker*/}
-                                            {/*    selected={item.stay_time}*/}
-                                            {/*    onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date)}*/}
-                                            {/*    showTimeSelect*/}
-                                            {/*    showTimeSelectOnly*/}
-                                            {/*    showTimeCaption={false}*/}
-                                            {/*    timeIntervals={5}*/}
-                                            {/*    dateFormat="HH:mm"*/}
-                                            {/*    timeFormat="HH:mm"*/}
-                                            {/*    className="scoredream-700 default_text amount"*/}
-                                            {/*/>*/}
                                             <input type="text" maxLength={4} className="scoredream-700 default_text amount" value={item.stay_amount} onChange={(event) => changePlaceStayAmount(item.id, event.target.value)}/>
                                             <span className="scoredream-700 grey_text amount_unit">만원</span>
                                         </div>
@@ -545,43 +670,78 @@ const Travel = () => {
                                 </div>
                                 <div className="travel_list_box_menu_bottom">
                                     {tabList.map((tab: string, index: number) => (
-                                        <>
+                                        <div key={index}>
                                             <button
-                                                key={index}
                                                 className={isTab === index ? "scoredream-500 gaemigul_guide tab_button" : "scoredream-500 grey_text tab_button"}
                                                 onClick={() => {
                                                     setTab(index)
                                                     setAddList(false)
                                                     setAddPlaceId(0)
+                                                    setSearchList([])
                                                 }}>
                                                 {tab}
                                             </button>
-                                            {index === tabList.length - 1 ? null : <span key={index} className="scoredream-500 grey_text tab_button">{">"}</span>}
-                                        </>
+                                            {/*{index === tabList.length - 1 ? null : <span className="scoredream-500 grey_text tab_button">{">"}</span>}*/}
+                                        </div>
                                     ))}
                                 </div>
                             </div>
                             {!isListReady ? null : showTab()}
                         </div>
                     </div>
-                    <div className="travel_list_button" onClick={() => setHideList(!isHideList)}>
+                    <div className="travel_list_button" onClick={() => {
+                        setHideList(!isHideList)
+                        setAddList(false)
+                        setAddPlaceId(0)
+                        setSearchList([])
+                    }}>
                     </div>
                 </div>
                 <div className={isAddList ? "travel_search_section" : "display_none"}>
-                    <div className="close_div">
-                        <MdClose className="close_icon" onClick={() => {
-                            setAddPlaceId(0)
-                            setAddList(false)
-                        }}/>
+                    <div className="search_button_div">
+                        <div className="close_div">
+                            <MdClose className="close_icon" onClick={() => {
+                                setAddPlaceId(0)
+                                setAddList(false)
+                                setSearchList([])
+                            }}/>
+                        </div>
+                        <div className="keyword_input_div">
+                            <input type="text" placeholder="검색할 키워드를 입력하세요." className="scoredream-500 default_text keyword_input" value={searchValue} onChange={(event) => {changeSearchValue(event.target.value)}}/>
+                        </div>
+                        <button className="search_btn_keyword">
+                            <FaSearch className="keyword_icon"/>
+                            <span className="scoredream-500">키워드로 검색</span>
+                        </button>
+                        <button className="search_btn_recommend" onClick={() => setRecommendList()}>
+                            <MdAutoAwesome className="recommend_icon"/>
+                            <span className="scoredream-500">추천 장소</span>
+                        </button>
                     </div>
-                    <button className="search_btn_keyword">
-                        <FaSearch className="keyword_icon"/>
-                        <span className="scoredream-500">키워드로 검색</span>
-                    </button>
-                    <button className="search_btn_recommend">
-                        <MdAutoAwesome className="recommend_icon"/>
-                        <span className="scoredream-500">추천 장소</span>
-                    </button>
+                    <div className="search_list_div">
+                        {!!searchList && searchList?.length > 0 ?
+                        searchList?.map((item, index) => (
+                            <div className="search_item_section" key={index}>
+                                <div className="item_img_div">
+                                    <Image width={408} height={306} src={item.img} alt={item.place} className="item_img"/>
+                                </div>
+                                <div className="item_info_div">
+                                    <span className="scoredream-700 default_text place">{item.place}</span>
+                                    <span className="scoredream-500 grey_text address">{item.address}</span>
+                                    <Link href={item.url} target="_blank" className="to_url">
+                                        <span className="scoredream-500 gaemigul_guide to_url_span">{item.social}로 바로가기{" >"}</span>
+                                    </Link>
+                                </div>
+                                <div className="item_add_div">
+                                    <FaPlus className="item_add_button" onClick={() => {addSearchList(item)}}/>
+                                </div>
+                            </div>
+                        )) :
+                            <div className="search_list_nothing">
+                                <span className="scoredream-700 grey_text">키워드를 검색하거나<br/>추천 장소를 찾아보세요.</span>
+                            </div>
+                        }
+                    </div>
                 </div>
                 <Map
                     id="map"

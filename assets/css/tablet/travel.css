@@ -128,11 +128,11 @@
     }
 
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button:hover {
-        border: dotted calc(100vw * (2 / 1300)) #3c3c3c;
+        border: dotted calc(100vw * (3 / 1300)) #3c3c3c;
     }
 
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button.active {
-        border: dotted calc(100vw * (2 / 1300)) #f23920;
+        border: dotted calc(100vw * (3 / 1300)) #f23920;
     }
 
     .travel_list_box .travel_list_box_section .all_place_section .place_list_section {
@@ -292,12 +292,17 @@
         top: calc(100vw * (140 / 1300));
         left: calc(100vw * (510 / 1300));
         border-radius: calc(100vw * (20 / 1300));
-        box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (6 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+    }
+
+    .travel_search_section .search_button_div {
+        padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
+        gap: calc(100vw * (10 / 1300));
+        border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
     }
 
     .travel_search_section .close_div {
-        height: calc(100vw * (40 / 1300));
-        padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
+        height: calc(100vw * (30 / 1300));
     }
 
     .travel_search_section .close_icon {
@@ -305,39 +310,109 @@
         height: calc(100vw * (24 / 1300));
     }
 
-    .travel_search_section .search_btn_keyword {
+    .travel_search_section .keyword_input_div {
         width: calc(100vw * (360 / 1300));
         height: calc(100vw * (30 / 1300));
-        margin: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
         gap: calc(100vw * (10 / 1300));
         border-radius: calc(100vw * (12 / 1300));
-        border: solid calc(100vw * (2 / 1300)) #909090;
+        border: solid calc(100vw * (1 / 1300)) #ececec;
     }
 
-    .travel_search_section .search_btn_keyword .keyword_icon {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
+    .travel_search_section .keyword_input_div .keyword_input {
+        width: calc(100vw * (340 / 1300));
+        line-height: calc(100vw * (30 / 1300));
+        margin: 0 calc(100vw * (10 / 1300));
+        font-size: calc(100vw*(16 / 1300));
     }
 
-    .travel_search_section .search_btn_keyword span {
-        font-size: calc(100vw * (16 / 1300));
-    }
-
+    .travel_search_section .search_btn_keyword,
     .travel_search_section .search_btn_recommend {
         width: calc(100vw * (360 / 1300));
         height: calc(100vw * (30 / 1300));
-        margin: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
         gap: calc(100vw * (10 / 1300));
         border-radius: calc(100vw * (12 / 1300));
-        border: solid calc(100vw * (2 / 1300)) #909090;
+        border: solid calc(100vw * (1 / 1300)) #ececec;
+        box-shadow:  calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #ebebeb, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
     }
 
+    .travel_search_section .search_btn_keyword .keyword_icon,
     .travel_search_section .search_btn_recommend .recommend_icon {
         width: calc(100vw * (18 / 1300));
         height: calc(100vw * (18 / 1300));
     }
 
+    .travel_search_section .search_btn_keyword span,
     .travel_search_section .search_btn_recommend span {
+        font-size: calc(100vw * (16 / 1300));
+    }
+
+    .travel_search_section .search_btn_keyword:hover,
+    .travel_search_section .search_btn_recommend:hover {
+        border: solid calc(100vw * (1 / 1300)) #f23920;
+    }
+
+    .travel_search_section .search_list_div {
+        padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
+        gap: calc(100vw * (10 / 1300));
+        height: calc(100vh - (100vw * (320 / 1300)));
+    }
+
+    .travel_search_section .search_list_div .search_item_section {
+        width: calc(100vw * (360 / 1300));
+        height: calc(100vw * (100 / 1300));
+        gap: calc(100vw * (10 / 1300));
+        border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
+        border-top: solid calc(100vw * (1 / 1300)) #ececec;
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_img_div {
+        width: calc(100vw * (100 / 130));
+        height: calc(100vw * (100 / 1300));
+        border-right: solid calc(100vw * (1 / 1300)) #ececec;
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_img_div .item_img {
+        width: calc(100vw * (90 / 1300));
+        border-radius: calc(100vw * (14 / 1300));
+        border: solid calc(100vw * (2 / 1300)) #ececec;
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_info_div {
+        width: calc(100vw * (210 / 1300));
+        height: calc(100vw * (100 / 1300));
+        gap: calc(100vw * (5 / 1300));
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_info_div .place {
+        font-size: calc(100vw * (16 / 1300));
+        width: calc(100vw*(210 / 1300));
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_info_div .address {
+        font-size: calc(100vw * (12 / 1300));
+        width: calc(100vw*(210 / 1300));
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_info_div .to_url {
+        width: calc(100vw * (120 / 1300));
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {
+        font-size: calc(100vw * (12 / 1300));
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_add_div {
+        width: calc(100vw * (30 / 1300));
+        height: calc(100vw * (100 / 1300));
+        border-left: solid calc(100vw * (1 / 1300)) #ececec;
+    }
+
+    .travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button {
+        width: calc(100vw * (20 / 1300));
+        height: calc(100vw * (20 / 1300));
+    }
+
+    .travel_search_section .search_list_div .search_list_nothing {
         font-size: calc(100vw * (16 / 1300));
     }
 }

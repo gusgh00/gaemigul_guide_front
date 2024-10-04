@@ -58,6 +58,8 @@
     }
 }
 
+input:focus {outline:none;}
+
 .gaemigul_guide {
     color: rgb(242, 57, 32)
 }
