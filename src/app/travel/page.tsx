@@ -436,13 +436,14 @@ const Travel = () => {
                                                                 }
                                                             }}/>
                                                         </div>
+                                                        {placeList.length >= 10 ? null :
                                                         <button className={isAddPlaceId === item.id && isAddList ? "add_button active" : "add_button"} onClick={() => {
                                                             setAddList(true)
                                                             setAddPlaceId(item.id)
                                                             setSearchList([])
                                                         }}>
                                                             <FaPlus className="add_icon"/>
-                                                        </button>
+                                                        </button>}
                                                     </div>
                                                 </>
                                             )}
@@ -733,7 +734,9 @@ const Travel = () => {
                                     </Link>
                                 </div>
                                 <div className="item_add_div">
-                                    <FaPlus className="item_add_button" onClick={() => {addSearchList(item)}}/>
+                                    <FaPlus className={!!placeList && placeList?.length < 10 ? "item_add_button" : "item_add_button disabled"} onClick={() => {
+                                        if (!!placeList && placeList?.length < 10) addSearchList(item)
+                                    }}/>
                                 </div>
                             </div>
                         )) :
