@@ -49,19 +49,12 @@
     height: 64px;
     display: flex;
     align-items: center;
+    gap: 90px;
 }
 
 #header_pc .header_section .inner_section .navigation .header_logo {
     width: 240px;
     height: auto;
-}
-
-/*#header_pc .header_section .inner_section .navigation .navigation_text:nth-of-type(1) {*/
-/*    margin-left: 60px;*/
-/*}*/
-
-#header_pc .header_section .inner_section .navigation div {
-    margin-left: 90px;
 }
 
 #header_pc .header_section .inner_section .navigation .navigation_text {

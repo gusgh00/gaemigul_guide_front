@@ -393,10 +393,6 @@
         width: calc(100vw*(210 / 1300));
     }
 
-    .travel_search_section .search_list_div .search_item_section .item_info_div .to_url {
-        width: calc(100vw * (120 / 1300));
-    }
-
     .travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {
         font-size: calc(100vw * (12 / 1300));
     }

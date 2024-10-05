@@ -24,14 +24,11 @@
 
     #header_pc .header_section .inner_section .navigation {
         height: calc(100vw * (64 / 1300));
+        gap: calc(100vw * (90 / 1300));
     }
 
     #header_pc .header_section .inner_section .navigation .header_logo {
         width: calc(100vw * (240 / 1300));
-    }
-
-    #header_pc .header_section .inner_section .navigation div {
-        margin-left: calc(100vw * (90 / 1300));
     }
 
     #header_pc .header_section .inner_section .navigation .navigation_text {

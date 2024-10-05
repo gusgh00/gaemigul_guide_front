@@ -58,7 +58,11 @@
     }
 }
 
-input:focus {outline:none;}
+input:focus,
+select:focus,
+button:focus {
+    outline:none;
+}
 
 .gaemigul_guide {
     color: rgb(242, 57, 32)
