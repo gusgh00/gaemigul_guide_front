@@ -704,7 +704,7 @@
 }
 
 .travel_search_section .search_list_div .search_item_section .item_info_div .to_url {
-    width: 120px;
+    margin-right: auto;
 }
 
 .travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {

@@ -369,24 +369,31 @@ const Travel = () => {
         setSearchList(initialSearchLists)
     }
 
+    const findMaxIdLocation = (locations) => {
+        return locations.reduce((max, location) => {
+            return (location.id > max.id) ? location : max;
+        }, locations[0]); // 초기값으로 첫 번째 요소를 사용
+    };
+
     const addSearchList = (params: any) => {
         const tempPlaceList = [...placeList]
         const frontPlaceIndex = placeList.findIndex(item => item.id === isAddPlaceId)
+        const maxPlaceId = findMaxIdLocation(tempPlaceList).id
         const newPlaceItem: placeListInterface = {
-            id: placeList.length + 1,
+            id: maxPlaceId + 1,
             place: params.place,
             lat: params.lat,
             lng: params.lng,
             address: params.address,
             place_type: 0,
-            stay_time: new Date(new Date().setHours(0,0)),
+            stay_time: new Date(new Date().setHours(0, 0)),
             stay_amount: "0",
             vehicle_type: 0,
-            move_time: new Date(new Date().setHours(0,0)),
+            move_time: new Date(new Date().setHours(0, 0)),
             move_amount: "0",
             path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
+            start_time: new Date(new Date().setHours(0, 0)),
+            end_time: new Date(new Date().setHours(0, 0)),
         }
         tempPlaceList.splice(frontPlaceIndex + 1, 0, newPlaceItem)
         setPlaceList(tempPlaceList)
