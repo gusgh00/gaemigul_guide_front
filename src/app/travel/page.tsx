@@ -369,13 +369,13 @@ const Travel = () => {
         setSearchList(initialSearchLists)
     }
 
-    const findMaxIdLocation = (locations) => {
+    const findMaxIdLocation = (locations: placeListInterface[]) => {
         return locations.reduce((max, location) => {
             return (location.id > max.id) ? location : max;
         }, locations[0]); // 초기값으로 첫 번째 요소를 사용
     };
 
-    const addSearchList = (params: any) => {
+    const addSearchList = (params: searchListInterface) => {
         const tempPlaceList = [...placeList]
         const frontPlaceIndex = placeList.findIndex(item => item.id === isAddPlaceId)
         const maxPlaceId = findMaxIdLocation(tempPlaceList).id
