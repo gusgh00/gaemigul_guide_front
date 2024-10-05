@@ -20,7 +20,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@images/*": ["./assets/images/*"],
+      "@css/*": ["./assets/css/*"]
     },
     "types": [
       "kakao.maps.d.ts"

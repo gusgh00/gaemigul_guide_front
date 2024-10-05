@@ -1,5 +1,5 @@
 'use client'
-import {Map} from "react-kakao-maps-sdk";
+import {Map, MapMarker} from "react-kakao-maps-sdk";
 import React, {useEffect, useState} from "react";
 import {
     DragDropContext,
@@ -269,6 +269,8 @@ const Travel = () => {
 
     const [searchValue, setSearchValue] = useState("")
     const [searchList, setSearchList] = useState<searchListInterface[]>();
+
+    const [isMarkerInfo, setMarkerInfo] = useState(false)
 
     useEffect(() => {
         setListReady(true)
@@ -765,7 +767,28 @@ const Travel = () => {
                     }}
                     className="travel_map"
                     level={3}
-                />
+                >
+                    {placeList && placeList.map((item, index) => (
+                        <MapMarker
+                            key={index}
+                            position={{
+                                lat: Number(item.lat),
+                                lng: Number(item.lng)
+                            }}
+                            image={{
+                                src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/place_marker_" + item.place_type + ".png",
+                                size: {
+                                    width: 43,
+                                    height: 64
+                                }
+                            }}
+                            clickable={true}
+                            onMouseOver={() => setMarkerInfo(true)}
+                            onMouseOut={() => setMarkerInfo(false)}
+                        >
+                        </MapMarker>
+                    ))}
+                </Map>
             </div>
         </>
     )

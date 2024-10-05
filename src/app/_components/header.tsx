@@ -4,7 +4,6 @@ import { FaUserLarge } from "react-icons/fa6";
 import {useState} from "react";
 import SignUpSignIn from "@/app/_components/SignUpSignIn";
 import Image from "next/image";
-import GaemigulGuideMain from "../../../assets/images/main/gaemigul_guide_logo_main.png";
 import {useSession} from "next-auth/react";
 import Navigation from "@/app/_components/Navigation";
 

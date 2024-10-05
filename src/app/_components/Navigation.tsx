@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import GaemigulGuideMain from "../../../assets/images/main/gaemigul_guide_logo_main.png";
+import GaemigulGuideMain from "@images/main/gaemigul_guide_logo_main.png";
 import {usePathname} from "next/navigation";
 
 const Navigation = () => {
