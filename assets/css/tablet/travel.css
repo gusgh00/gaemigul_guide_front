@@ -185,7 +185,8 @@
 
     .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div,
     .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div {
+    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div,
+    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div {
         width: calc(100vw * (34 / 1300));
         height: calc(100vw * (34 / 1300));
         margin: calc(100vw * (6 /1300));
@@ -195,9 +196,14 @@
 
     .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div .select_place_icon,
     .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div .select_place_icon,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon
+    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon,
     .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .arrow,
     .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .arrow {
+        width: calc(100vw * (18 / 1300));
+        height: calc(100vw * (18 / 1300));
+    }
+
+    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div .select_vehicle_icon {
         width: calc(100vw * (18 / 1300));
         height: calc(100vw * (18 / 1300));
     }
