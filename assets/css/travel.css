@@ -338,12 +338,30 @@
 
 .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div .select_place_icon,
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div .select_place_icon,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon
+.travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon,
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .arrow,
 .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .arrow {
     width: 18px;
     height: 18px;
     color: #3c3c3c;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div {
+    width: 34px;
+    height: 34px;
+    margin: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 150px;
+    border: solid 2px #fff;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div .select_vehicle_icon {
+    width: 18px;
+    height: 18px;
+    color: #ffffff;
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div {
@@ -408,19 +426,23 @@
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .default {
-    background: #CBCBCB;
+    background: #3c3c3c;
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section  .walk {
-    background: #87CEEB;
+    background: #7430ec;
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .car {
-    background: #a8c9e0;
+    background: #3f8ec7;
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .bus {
     background: #5bb025;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .cycle {
+    background: #c71365;
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div,
@@ -476,17 +498,21 @@
     background: #CBCBCB;
 }
 
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section  .walk {
-    background: #87CEEB;
-}
+/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section  .walk {*/
+/*    background: #87CEEB;*/
+/*}*/
 
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .car {
-    background: #a8c9e0;
-}
+/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section .car {*/
+/*    background: #a8c9e0;*/
+/*}*/
 
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .bus {
-    background: #5bb025;
-}
+/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section .bus {*/
+/*    background: #5bb025;*/
+/*}*/
+
+/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section .cycle {*/
+/*    background: #d41279;*/
+/*}*/
 
 .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
     max-width: 120px;

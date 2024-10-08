@@ -1,8 +1,5 @@
 "use client"
 import Link from 'next/link';
-import Image from "next/image";
-import QrCode from "../../assets/images/main/qrcode.png"
-import {router} from "next/client";
 import React, {forwardRef, useEffect, useState} from "react";
 import DatePicker from "react-datepicker";
 import {MdOutlineDateRange} from "react-icons/md";

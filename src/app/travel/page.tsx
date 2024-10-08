@@ -1,5 +1,5 @@
 'use client'
-import {Map, MapMarker} from "react-kakao-maps-sdk";
+import {Map, MapMarker, Polyline} from "react-kakao-maps-sdk";
 import React, {useEffect, useState} from "react";
 import {
     DragDropContext,
@@ -12,7 +12,7 @@ import {
 import { RxDragHandleHorizontal } from "react-icons/rx";
 import {
     FaArrowRight,
-    FaBed,
+    FaBed, FaBicycle,
     FaCar,
     FaPlus,
     FaQuestion,
@@ -35,6 +35,7 @@ import {GrPowerReset} from "react-icons/gr";
 import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
+import axios from "axios";
 require('react-datepicker/dist/react-datepicker.css')
 
 const Travel = () => {
@@ -53,6 +54,13 @@ const Travel = () => {
         path_hide: boolean,
         start_time: Date | null | undefined,
         end_time: Date | null | undefined,
+        path: placeListPath[],
+        path_color: string
+    }
+
+    interface placeListPath {
+        lat: number,
+        lng: number,
     }
 
     interface searchListInterface {
@@ -82,6 +90,8 @@ const Travel = () => {
             path_hide: true,
             start_time: new Date(new Date().setHours(0,0)),
             end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#3c3c3c",
         },
         {
             id: 2,
@@ -98,6 +108,8 @@ const Travel = () => {
             path_hide: true,
             start_time: new Date(new Date().setHours(0,0)),
             end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#7430ec",
         },
         {
             id: 3,
@@ -114,6 +126,8 @@ const Travel = () => {
             path_hide: true,
             start_time: new Date(new Date().setHours(0,0)),
             end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#3f8ec7",
         },
         {
             id: 4,
@@ -124,28 +138,32 @@ const Travel = () => {
             place_type: 3,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
+            vehicle_type: 4,
+            move_time: new Date(new Date().setHours(0,0)),
+            move_amount: "0",
+            path_hide: true,
+            start_time: new Date(new Date().setHours(0,0)),
+            end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#c71365",
+        },
+        {
+            id: 5,
+            place: "젠틀몬스터 홍대 플래그십스토어",
+            lat: "37.5499122",
+            lng: "126.9200131",
+            address: "서울특별시 마포구 독막로7길 54",
+            place_type: 4,
+            stay_time: new Date(new Date().setHours(0,0)),
+            stay_amount: "0",
             vehicle_type: 3,
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
             start_time: new Date(new Date().setHours(0,0)),
             end_time: new Date(new Date().setHours(0,0)),
-        },
-        {
-            id: 5,
-            place: "젠틀몬스터 홍대 플래그십스토어",
-            lat: "37.5507563",
-            lng: "126.9254901",
-            address: "서울특별시 마포구 독막로7길 54",
-            place_type: 4,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 0,
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#5bb025",
         },
         {
             id: 6,
@@ -162,6 +180,8 @@ const Travel = () => {
             path_hide: true,
             start_time: new Date(new Date().setHours(0,0)),
             end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#3c3c3c",
         },
         {
             id: 7,
@@ -178,6 +198,8 @@ const Travel = () => {
             path_hide: true,
             start_time: new Date(new Date().setHours(0,0)),
             end_time: new Date(new Date().setHours(0,0)),
+            path: [],
+            path_color: "#3c3c3c",
         },
     ];
 
@@ -225,8 +247,8 @@ const Travel = () => {
         {
             id: 5,
             place: "젠틀몬스터 홍대 플래그십스토어",
-            lat: "37.5507563",
-            lng: "126.9254901",
+            lat: "37.5499122",
+            lng: "126.9200131",
             address: "서울특별시 마포구 독막로7길 54",
             url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
             img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
@@ -396,10 +418,63 @@ const Travel = () => {
             path_hide: true,
             start_time: new Date(new Date().setHours(0, 0)),
             end_time: new Date(new Date().setHours(0, 0)),
+            path: [],
+            path_color: "#CBCBCB",
         }
         tempPlaceList.splice(frontPlaceIndex + 1, 0, newPlaceItem)
         setPlaceList(tempPlaceList)
     }
+
+    const changePlacePath = async (coordinates: any[], index: number) => {
+        let paths: placeListPath[] = []
+        for (let i = 0; i < coordinates.length; i++) {
+            paths.push({
+                lat: coordinates[i][1],
+                lng: coordinates[i][0]
+            })
+        }
+
+        const items = [...placeList];
+        items[index].path = paths
+        setPlaceList(items)
+    }
+
+    const getDirectionGeometry = async () => {
+        for (let i = 0; i < placeList.length; i++) {
+            let profiles = ""
+            if (placeList[i].vehicle_type === 1) {
+                profiles = "walking/"
+            } else if (placeList[i].vehicle_type === 2) {
+                profiles = "driving/"
+            } else if (placeList[i].vehicle_type === 4) {
+                profiles = "cycling/"
+            } else {
+                continue;
+            }
+
+            const url = "http://api.mapbox.com/directions/v5/mapbox/"
+            let endPlace = placeList.find((val, valIndex) => valIndex == i + 1)
+            let startPosition = placeList[i].lng + "," + placeList[i].lat
+            let endPosition = endPlace?.lng + "," + endPlace?.lat
+
+            await axios.get(url + profiles + startPosition + ";" + endPosition, {
+                params: {
+                    geometries: "geojson",
+                    access_token: "pk.eyJ1IjoiZGJndXNnaDAwIiwiYSI6ImNtMXlvNHlrejAwNnIya3B3ZWR5cHpicGoifQ.S3A3ATP_E8YRx9LgiZ7W4A"
+                }
+            })
+                .then(async response => {
+                    if (response.data.code === "Ok") {
+                        let coordinates: any[] = response.data.routes[0].geometry.coordinates
+                        await changePlacePath(coordinates, i)
+                    }
+                })
+        }
+    }
+
+    useEffect(() => {
+        console.log(placeList[1].path)
+    }, [placeList]);
 
     const showTab = () => {
         switch (isTab) {
@@ -526,17 +601,20 @@ const Travel = () => {
                                         <div
                                             className="place_road_section"
                                         >
-                                            {/*기본 (default), 도보, 자가용, 대중교통*/}
+                                            {/*기본 (default), 도보, 자가용, 대중교통, 자전거*/}
                                             {item.vehicle_type === 0 &&
-                                                <div className="select_place_div default"><FaQuestion className="select_place_icon"/>
+                                                <div className="select_vehicle_div default"><FaQuestion className="select_vehicle_icon"/>
                                                 </div>}
                                             {item.vehicle_type === 1 &&
-                                                <div className="select_place_div walk"><FaWalking className="select_place_icon"/>
+                                                <div className="select_vehicle_div walk"><FaWalking className="select_vehicle_icon"/>
                                                 </div>}
-                                            {item.vehicle_type === 2 && <div className="select_place_div car"><FaCar
-                                                className="select_place_icon"/></div>}
+                                            {item.vehicle_type === 2 && <div className="select_vehicle_div car"><FaCar
+                                                className="select_vehicle_icon"/></div>}
                                             {item.vehicle_type === 3 &&
-                                                <div className="select_place_div bus"><FaBus className="select_place_icon"/>
+                                                <div className="select_vehicle_div bus"><FaBus className="select_vehicle_icon"/>
+                                                </div>}
+                                            {item.vehicle_type === 4 &&
+                                                <div className="select_vehicle_div cycle"><FaBicycle className="select_vehicle_icon"/>
                                                 </div>}
                                             <div className="place_list_div">
                                                 <span className="scoredream-700 default_text place">{item.place}</span>
@@ -655,7 +733,8 @@ const Travel = () => {
                             {/*<div className="banner_button_clear">*/}
                             {/*    <span className="scoredream-700 white_text">처음부터</span>*/}
                             {/*</div>*/}
-                            <div className="banner_button_save">
+                            <div className="banner_button_save" onClick={() => getDirectionGeometry()}>
+                                {/*임시*/}
                                 <span className="scoredream-700 white_text">저장하기</span>
                             </div>
                         </div>
@@ -787,6 +866,18 @@ const Travel = () => {
                             onMouseOut={() => setMarkerInfo(false)}
                         >
                         </MapMarker>
+                    ))}
+
+                    {isTab === 1 && placeList && placeList.map((item, index) => (
+                        <Polyline
+                            key={index}
+                            path={[item.path]}
+                            strokeWeight={5} // 선의 두께 입니다
+                            strokeColor={item.path_color} // 선의 색깔입니다
+                            strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                            strokeStyle={"solid"} // 선의 스타일입니다
+                        >
+                        </Polyline>
                     ))}
                 </Map>
             </div>
