@@ -452,7 +452,7 @@ const Travel = () => {
                 continue;
             }
 
-            const url = "http://api.mapbox.com/directions/v5/mapbox/"
+            const url = process.env.NEXT_PUBLIC_MAPBOX_URL
             let endPlace = placeList.find((val, valIndex) => valIndex == i + 1)
             let startPosition = placeList[i].lng + "," + placeList[i].lat
             let endPosition = endPlace?.lng + "," + endPlace?.lat
@@ -460,7 +460,7 @@ const Travel = () => {
             await axios.get(url + profiles + startPosition + ";" + endPosition, {
                 params: {
                     geometries: "geojson",
-                    access_token: "pk.eyJ1IjoiZGJndXNnaDAwIiwiYSI6ImNtMXlvNHlrejAwNnIya3B3ZWR5cHpicGoifQ.S3A3ATP_E8YRx9LgiZ7W4A"
+                    access_token: process.env.NEXT_PUBLIC_MAPBOX_KEY
                 }
             })
                 .then(async response => {
