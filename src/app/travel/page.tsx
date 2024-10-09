@@ -36,8 +36,6 @@ import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-import {map} from "yaml/dist/schema/common/map";
-import {da} from "date-fns/locale";
 require('react-datepicker/dist/react-datepicker.css')
 
 const Travel = () => {
@@ -342,7 +340,7 @@ const Travel = () => {
         /*기본 (default), 숙박, 맛집, 관람, 레저, 쉼터, 쇼핑*/
         const currentPlace = placeList.find(item => item.id === isAddPlaceId)
 
-        const weights = {};
+        const weights: { [key: string]: number } = {};
         categoryCodeArr.forEach((category, index) => {
             weights[category] = carPbtArr[index];
         });
