@@ -36,6 +36,8 @@ import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
+import {map} from "yaml/dist/schema/common/map";
+import {da} from "date-fns/locale";
 require('react-datepicker/dist/react-datepicker.css')
 
 const Travel = () => {
@@ -203,79 +205,6 @@ const Travel = () => {
         },
     ];
 
-    const initialSearchLists: searchListInterface[] = [
-        {
-            id: 1,
-            place: "서울역",
-            lat: "37.5547125",
-            lng: "126.9707878",
-            address: "서울특별시 용산구 한강대로 405",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-        {
-            id: 2,
-            place: "영등포역",
-            lat: "37.5154133",
-            lng: "126.9071288",
-            address: "서울특별시 영등포구 영등포본동",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-        {
-            id: 3,
-            place: "홍대입구역",
-            lat: "37.557527",
-            lng: "126.9244669",
-            address: "서울특별시 마포구 양화로 지하 160",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-        {
-            id: 4,
-            place: "홍익대학교 서울캠퍼스",
-            lat: "37.5507563",
-            lng: "126.9254901",
-            address: "서울특별시 마포구 와우산로 94",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-        {
-            id: 5,
-            place: "젠틀몬스터 홍대 플래그십스토어",
-            lat: "37.5499122",
-            lng: "126.9200131",
-            address: "서울특별시 마포구 독막로7길 54",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-        {
-            id: 6,
-            place: "63빌딩",
-            lat: "37.5197159",
-            lng: "126.9401255",
-            address: "서울특별시 영등포구 63로 50",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-        {
-            id: 7,
-            place: "탬버린즈 신사 플래그십스토어",
-            lat: "37.5206264",
-            lng: "127.0220599",
-            address: "서울특별시 강남구 압구정로10길 44",
-            url: "https://maps.app.goo.gl/eDdTwrz1WTB5jXdZ6",
-            img: "https://lh5.googleusercontent.com/p/AF1QipMXlIPe8PgREoMRvWB1DvLxO1-kHRQU_Fetj5Vr=w408-h306-k-no",
-            social: "Google",
-        },
-    ];
-
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
 
@@ -389,8 +318,111 @@ const Travel = () => {
         setSearchValue(value)
     }
 
+    const getRandomCode = () => {
+        const categoryCodeArr = [
+            // "" as kakao.maps.CategoryCode, //코드 미부여
+            "AD5" as kakao.maps.CategoryCode, //숙박
+            "CS2" as kakao.maps.CategoryCode, //편의점
+            "MT1" as kakao.maps.CategoryCode, //대형마트
+            "PK6" as kakao.maps.CategoryCode, //주차장
+            "OL7" as kakao.maps.CategoryCode, //주유소
+            "CT1" as kakao.maps.CategoryCode, //문화시설
+            "AT4" as kakao.maps.CategoryCode, //관광명소
+            "FD6" as kakao.maps.CategoryCode, //음식점
+            "CE7" as kakao.maps.CategoryCode //카페
+        ]
+        const defaultPbtArr = [12, 11, 11, 11, 11, 11, 11, 11, 11]
+        const carPbtArr = [10, 0, 10, 20, 20, 10, 10, 10, 10]
+        const cyclePbtArr = [10, 30, 0, 12, 0, 12, 12, 12, 12]
+        const BusPbtArr = [0, 10, 10, 0, 0, 20, 20, 20, 20]
+        const WalkingPbtArr = [0, 10, 10, 0, 0, 20, 20, 20, 20]
+        const lastPbtArr = [40, 20, 20, 10, 0, 0, 0, 10, 0]
+
+        /*기본 (default), 도보, 자가용, 대중교통, 자전거*/
+        /*기본 (default), 숙박, 맛집, 관람, 레저, 쉼터, 쇼핑*/
+        const currentPlace = placeList.find(item => item.id === isAddPlaceId)
+
+        const weights = {};
+        categoryCodeArr.forEach((category, index) => {
+            weights[category] = carPbtArr[index];
+        });
+
+        let res: kakao.maps.CategoryCode[] = []
+        for (let j = 0; j < 10; j++) {
+            let randNum = Math.random() * 100
+            let cumulativeWeight = 0
+
+            for (const category of categoryCodeArr) {
+                cumulativeWeight += weights[category];
+                if (randNum < cumulativeWeight) {
+                    return category
+                }
+            }
+        }
+        return "AD5"
+    }
+
     const setRecommendList = () => {
-        setSearchList(initialSearchLists)
+        const place = new kakao.maps.services.Places()
+        const options = {
+            size: 10,
+            page: 1,
+            location: new kakao.maps.LatLng(Number(placeList.find(item => item.id === isAddPlaceId)?.lat), Number(placeList.find(item => item.id === isAddPlaceId)?.lng)),
+            sort: kakao.maps.services.SortBy.DISTANCE,
+            radius: 1000,
+        }
+
+        const code = getRandomCode()
+        place.categorySearch(code as kakao.maps.CategoryCode, (data, status, pagination) => {
+            if (status === kakao.maps.services.Status.OK) {
+                let keywordSearchList: searchListInterface[] = []
+                for (let i = 0; i < data.slice(0, 10).length; i++) {
+                    keywordSearchList.push({
+                        id: Number(data[i].id),
+                        place: data[i].place_name,
+                        lat: data[i].y,
+                        lng: data[i].x,
+                        address: data[i].address_name,
+                        url: data[i].place_url,
+                        img: "",
+                        social: "카카오맵",
+                    })
+                }
+                setSearchList(keywordSearchList)
+            }
+        }, options)
+    }
+
+    const setKeywordList = () => {
+        const place = new kakao.maps.services.Places()
+        const options = {
+            size: 10,
+            page: 1,
+            // location: new kakao.maps.LatLng(Number(placeList.find(item => item.id === isAddPlaceId)?.lat), Number(placeList.find(item => item.id === isAddPlaceId)?.lng)),
+            // sort: kakao.maps.services.SortBy.DISTANCE,
+            // radius: 20000,
+        }
+
+        place.keywordSearch(searchValue, (data, status) => {
+            if (status === kakao.maps.services.Status.OK) {
+                let keywordSearchList: searchListInterface[] = []
+
+                for (let i = 0; i < data.slice(0, 10).length; i++) {
+                    keywordSearchList.push({
+                        id: Number(data[i].id),
+                        place: data[i].place_name,
+                        lat: data[i].y,
+                        lng: data[i].x,
+                        address: data[i].address_name,
+                        url: data[i].place_url,
+                        img: "",
+                        social: "카카오맵",
+                    })
+                }
+
+                setSearchList(keywordSearchList)
+            }
+        }, options)
     }
 
     const findMaxIdLocation = (locations: placeListInterface[]) => {
@@ -471,10 +503,6 @@ const Travel = () => {
                 })
         }
     }
-
-    useEffect(() => {
-        console.log(placeList[1].path)
-    }, [placeList]);
 
     const showTab = () => {
         switch (isTab) {
@@ -796,9 +824,20 @@ const Travel = () => {
                             }}/>
                         </div>
                         <div className="keyword_input_div">
-                            <input type="text" placeholder="검색할 키워드를 입력하세요." className="scoredream-500 default_text keyword_input" value={searchValue} onChange={(event) => {changeSearchValue(event.target.value)}}/>
+                            <input
+                                type="text"
+                                placeholder="검색할 키워드를 입력하세요."
+                                className="scoredream-500 default_text keyword_input"
+                                value={searchValue}
+                                onChange={(event) => {changeSearchValue(event.target.value)}}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                        setKeywordList()
+                                    }
+                                }}
+                            />
                         </div>
-                        <button className="search_btn_keyword">
+                        <button className="search_btn_keyword" onClick={() => setKeywordList()}>
                             <FaSearch className="keyword_icon"/>
                             <span className="scoredream-500">키워드로 검색</span>
                         </button>
@@ -812,13 +851,13 @@ const Travel = () => {
                         searchList?.map((item, index) => (
                             <div className="search_item_section" key={index}>
                                 <div className="item_img_div">
-                                    <Image width={408} height={306} src={item.img} alt={item.place} className="item_img"/>
+                                    {/*<Image width={408} height={306} src={null} alt={item.place} className="item_img"/>*/}
                                 </div>
                                 <div className="item_info_div">
                                     <span className="scoredream-700 default_text place">{item.place}</span>
                                     <span className="scoredream-500 grey_text address">{item.address}</span>
                                     <Link href={item.url} target="_blank" className="to_url">
-                                        <span className="scoredream-500 gaemigul_guide to_url_span">{item.social}로 바로가기{" >"}</span>
+                                        <span className="scoredream-500 gaemigul_guide to_url_span">{item.social}(으)로 바로가기{" >"}</span>
                                     </Link>
                                 </div>
                                 <div className="item_add_div">
@@ -864,6 +903,30 @@ const Travel = () => {
                             clickable={true}
                             onMouseOver={() => setMarkerInfo(true)}
                             onMouseOut={() => setMarkerInfo(false)}
+                        >
+                        </MapMarker>
+                    ))}
+
+                    {isTab === 0 && searchList && searchList.map((item, index) => (
+                        <MapMarker
+                            key={index}
+                            position={{
+                                lat: Number(item.lat),
+                                lng: Number(item.lng)
+                            }}
+                            image={{
+                                src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/search_list_marker.png",
+                                size: {
+                                    width: 43,
+                                    height: 64
+                                }
+                            }}
+                            clickable={true}
+                            onMouseOver={() => setMarkerInfo(true)}
+                            onMouseOut={() => setMarkerInfo(false)}
+                            onClick={() => {
+                                if (!!placeList && placeList?.length < 10) addSearchList(item)
+                            }}
                         >
                         </MapMarker>
                     ))}
