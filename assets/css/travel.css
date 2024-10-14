@@ -65,8 +65,16 @@
 .travel_map {
     width: 1920px !important;
     height: 100vh !important;
+    margin: 0;
     position: fixed;
 }
+
+/*.travel_map.active {*/
+/*    width: 1440px !important;*/
+/*    height: 100vh !important;*/
+/*    margin-left: 480px !important;*/
+/*    position: fixed;*/
+/*}*/
 
 .travel_list_section {
     width: 500px;
@@ -224,6 +232,7 @@
     box-shadow:  11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
     margin-bottom: 30px;
     position: relative;
+    cursor: pointer;
 }
 
 .travel_list_box .travel_list_box_section .all_place_section .place_list_section_is_dragging {

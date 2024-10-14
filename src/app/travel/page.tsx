@@ -716,6 +716,7 @@ const Travel = () => {
                                                         ref={provided.innerRef}
                                                         className={snapshot2.isDragging ? "place_list_section place_list_section_is_dragging" : "place_list_section"}
                                                         {...provided.draggableProps}
+                                                        onClick={() => setCenter({lat: Number(item.lat), lng: Number(item.lng)})}
                                                     >
                                                         <div
                                                             className="drag_handler_div"
@@ -724,7 +725,7 @@ const Travel = () => {
                                                             <RxDragHandleHorizontal className="drag_handler_icon"/>
                                                         </div>
                                                         <div className="place_list_div">
-                                                            <span className="scoredream-700 default_text place">{item.place}</span>
+                                                            <span className="scoredream-700 default_text place">{"[" + (index + 1) + "] "}{item.place}</span>
                                                             <span className="scoredream-500 grey_text address">{item.address}</span>
                                                         </div>
                                                         <div className={placeList.length > 1 ? "close_div" : "display_none"}>
@@ -1071,10 +1072,31 @@ const Travel = () => {
                         width: "1920px",
                         height: "866px",
                     }}
-                    className="travel_map"
+                    className={!isHideList ? "travel_map active" : "travel_map"}
                     level={3}
                 >
-                    {placeList && placeList.map((item, index) => (
+                    {isTab === 0 && placeList && placeList.map((item, index) => (
+                        <MapMarker
+                            key={index}
+                            position={{
+                                lat: Number(item.lat),
+                                lng: Number(item.lng)
+                            }}
+                            image={{
+                                src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/list_marker_" + index + ".png",
+                                size: {
+                                    width: 43,
+                                    height: 64
+                                }
+                            }}
+                            clickable={false}
+                            onMouseOver={() => setMarkerInfo(true)}
+                            onMouseOut={() => setMarkerInfo(false)}
+                        >
+                        </MapMarker>
+                    ))}
+
+                    {(isTab === 1 || isTab === 2) && placeList && placeList.map((item, index) => (
                         <MapMarker
                             key={index}
                             position={{
