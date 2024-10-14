@@ -203,6 +203,18 @@
         height: calc(100vw * (18 / 1300));
     }
 
+    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab,
+    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab {
+        gap: calc(100vw * (2 / 1300));
+        border-radius: calc(100vw * (20 / 1300));
+        border: solid calc(100vw * (1 / 1300)) #fff;
+    }
+
+    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab .select_place_div.active,
+    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab .select_vehicle_div.active {
+        border: solid calc(100vw * (2 / 1300)) #f23920;
+    }
+
     .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div .select_vehicle_icon {
         width: calc(100vw * (18 / 1300));
         height: calc(100vw * (18 / 1300));
@@ -372,31 +384,29 @@
     }
 
     .travel_search_section .search_list_div .search_item_section .item_img_div {
-        width: calc(100vw * (100 / 130));
+        width: calc(100vw * (50 / 130));
         height: calc(100vw * (100 / 1300));
         border-right: solid calc(100vw * (1 / 1300)) #ececec;
     }
 
-    .travel_search_section .search_list_div .search_item_section .item_img_div .item_img {
-        width: calc(100vw * (90 / 1300));
-        border-radius: calc(100vw * (14 / 1300));
-        border: solid calc(100vw * (2 / 1300)) #ececec;
+    .travel_search_section .search_list_div .search_item_section .item_img_div .num {
+        font-size: calc(100vw * (16 / 1300));
     }
 
     .travel_search_section .search_list_div .search_item_section .item_info_div {
-        width: calc(100vw * (210 / 1300));
+        width: calc(100vw * (260 / 1300));
         height: calc(100vw * (100 / 1300));
         gap: calc(100vw * (5 / 1300));
     }
 
     .travel_search_section .search_list_div .search_item_section .item_info_div .place {
         font-size: calc(100vw * (16 / 1300));
-        width: calc(100vw*(210 / 1300));
+        width: calc(100vw*(260 / 1300));
     }
 
     .travel_search_section .search_list_div .search_item_section .item_info_div .address {
         font-size: calc(100vw * (12 / 1300));
-        width: calc(100vw*(210 / 1300));
+        width: calc(100vw*(260 / 1300));
     }
 
     .travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {

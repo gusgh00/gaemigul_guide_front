@@ -308,6 +308,34 @@
     border: solid 2px #fff;
 }
 
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section {
+    position: relative;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab {
+    display: flex;
+    gap: 2px;
+    position: absolute;
+    z-index: 20;
+    border-radius: 20px;
+    background: #fafafa;
+    border: solid 1px #fff;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab .select_place_div,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab .select_vehicle_div {
+    cursor: pointer;
+}
+
+.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab .select_place_div.active,
+.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab .select_vehicle_div.active {
+    border: solid 2px #f23920;
+}
+
 .travel_list_box .travel_list_box_section .all_road_section .place_list_section .default {
     background: #CBCBCB;
 }
@@ -426,7 +454,7 @@
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section .default {
-    background: #3c3c3c;
+    background: #CBCBCB;
 }
 
 .travel_list_box .travel_list_box_section .all_road_section .place_road_section  .walk {
@@ -497,22 +525,6 @@
 .travel_list_box .travel_list_box_section .all_road_section .place_path_section .default {
     background: #CBCBCB;
 }
-
-/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section  .walk {*/
-/*    background: #87CEEB;*/
-/*}*/
-
-/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section .car {*/
-/*    background: #a8c9e0;*/
-/*}*/
-
-/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section .bus {*/
-/*    background: #5bb025;*/
-/*}*/
-
-/*.travel_list_box .travel_list_box_section .all_road_section .place_path_section .cycle {*/
-/*    background: #d41279;*/
-/*}*/
 
 .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
     max-width: 120px;
@@ -684,33 +696,34 @@
 }
 
 .travel_search_section .search_list_div .search_item_section .item_img_div {
-    width: 100px;
+    width: 50px;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-right: solid 1px #ececec;
+
+    cursor: pointer;
 }
 
-.travel_search_section .search_list_div .search_item_section .item_img_div .item_img {
-    width: 90px;
-    height: auto;
-    border-radius: 14px;
-    border: solid 2px #ececec;
+.travel_search_section .search_list_div .search_item_section .item_img_div .num {
+    font-size: 16px;
 }
 
 .travel_search_section .search_list_div .search_item_section .item_info_div {
-    width: 210px;
+    width: 260px;
     height: 100px;
 
     display: flex;
     flex-direction: column;
     gap: 5px;
     justify-content: center;
+
+    cursor: pointer;
 }
 
 .travel_search_section .search_list_div .search_item_section .item_info_div .place {
-    width: 210px;
+    width: 260px;
     font-size: 16px;
     display: block;
     overflow: hidden;
@@ -720,7 +733,7 @@
 }
 
 .travel_search_section .search_list_div .search_item_section .item_info_div .address {
-    width: 210px;
+    width: 260px;
     font-size: 12px;
     display: block;
     overflow: hidden;

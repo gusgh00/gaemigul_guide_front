@@ -1,6 +1,6 @@
 'use client'
 import {Map, MapMarker, Polyline} from "react-kakao-maps-sdk";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {
     DragDropContext,
     Draggable, DraggableProvided, DraggableStateSnapshot,
@@ -34,7 +34,6 @@ import DatePicker from "react-datepicker";
 import {GrPowerReset} from "react-icons/gr";
 import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import Link from "next/link";
-import Image from "next/image";
 import axios from "axios";
 require('react-datepicker/dist/react-datepicker.css')
 
@@ -46,9 +45,13 @@ const Travel = () => {
         lng: string,
         address: string,
         place_type: number,
+        place_name: string,
+        place_icon: JSX.Element,
         stay_time: Date | null | undefined
         stay_amount: string,
         vehicle_type: number,
+        vehicle_icon: JSX.Element,
+        vehicle_name: string,
         move_time: Date | null | undefined,
         move_amount: string,
         path_hide: boolean,
@@ -74,6 +77,19 @@ const Travel = () => {
         social: string,
     }
 
+    interface dropdownIconPlaceInterface {
+        place_type: number,
+        place_icon: JSX.Element,
+        place_name: string
+    }
+
+    interface dropdownIconVehicleInterface {
+        vehicle_type: number,
+        vehicle_icon: JSX.Element,
+        vehicle_name: string,
+        path_color: string
+    }
+
     const initialPlaceLists: placeListInterface[] = [
         {
             id: 1,
@@ -82,9 +98,13 @@ const Travel = () => {
             lng: "126.9707878",
             address: "서울특별시 용산구 한강대로 405",
             place_type: 0,
+            place_name: "default",
+            place_icon: <MdPlace className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 0,
+            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
+            vehicle_name: "default",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -100,9 +120,13 @@ const Travel = () => {
             lng: "126.9071288",
             address: "서울특별시 영등포구 영등포본동",
             place_type: 1,
+            place_name: "hotel",
+            place_icon: <FaBed className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 1,
+            vehicle_icon: <FaWalking className="select_vehicle_icon"/>,
+            vehicle_name: "walk",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -118,9 +142,13 @@ const Travel = () => {
             lng: "126.9244669",
             address: "서울특별시 마포구 양화로 지하 160",
             place_type: 2,
+            place_name: "restaurant",
+            place_icon: <IoRestaurant className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 2,
+            vehicle_icon: <FaCar className="select_vehicle_icon"/>,
+            vehicle_name: "car",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -136,9 +164,13 @@ const Travel = () => {
             lng: "126.9254901",
             address: "서울특별시 마포구 와우산로 94",
             place_type: 3,
+            place_name: "museum",
+            place_icon: <MdMuseum className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 4,
+            vehicle_icon: <FaBicycle className="select_vehicle_icon"/>,
+            vehicle_name: "cycle",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -154,9 +186,13 @@ const Travel = () => {
             lng: "126.9200131",
             address: "서울특별시 마포구 독막로7길 54",
             place_type: 4,
+            place_name: "leisure",
+            place_icon: <TbBeach className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 3,
+            vehicle_icon: <FaBus className="select_vehicle_icon"/>,
+            vehicle_name: "bus",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -172,9 +208,13 @@ const Travel = () => {
             lng: "126.9401255",
             address: "서울특별시 영등포구 63로 50",
             place_type: 5,
+            place_name: "rest",
+            place_icon: <MdForest className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 0,
+            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
+            vehicle_name: "default",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -190,9 +230,13 @@ const Travel = () => {
             lng: "127.0220599",
             address: "서울특별시 강남구 압구정로10길 44",
             place_type: 6,
+            place_name: "shopping",
+            place_icon: <FaShoppingCart className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0,0)),
             stay_amount: "0",
             vehicle_type: 0,
+            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
+            vehicle_name: "default",
             move_time: new Date(new Date().setHours(0,0)),
             move_amount: "0",
             path_hide: true,
@@ -202,6 +246,73 @@ const Travel = () => {
             path_color: "#3c3c3c",
         },
     ];
+
+    const dropdownIconPlace: dropdownIconPlaceInterface[] = [
+        {
+            place_type: 0,
+            place_icon: <MdPlace className="select_place_icon"/>,
+            place_name: "default"
+        },
+        {
+            place_type: 1,
+            place_icon: <FaBed className="select_place_icon"/>,
+            place_name: "hotel"
+        },
+        {
+            place_type: 2,
+            place_icon: <IoRestaurant className="select_place_icon"/>,
+            place_name: "restaurant"
+        },
+        {
+            place_type: 3,
+            place_icon: <MdMuseum className="select_place_icon"/>,
+            place_name: "museum"
+        },
+        {
+            place_type: 4,
+            place_icon: <TbBeach className="select_place_icon"/>,
+            place_name: "leisure"
+        },
+        {
+            place_type: 5,
+            place_icon: <MdForest className="select_place_icon"/>,
+            place_name: "rest"
+        },
+        {
+            place_type: 6,
+            place_icon: <FaShoppingCart className="select_place_icon"/>,
+            place_name: "shopping"
+        },
+    ]
+
+    const dropdownIconVehicle: dropdownIconVehicleInterface[] = [
+        {
+            vehicle_type: 1,
+            vehicle_icon: <FaWalking className="select_vehicle_icon"/>,
+            vehicle_name: "walk",
+            path_color: "#7430ec",
+        },
+        {
+            vehicle_type: 2,
+            vehicle_icon: <FaCar className="select_vehicle_icon"/>,
+            vehicle_name: "car",
+            path_color: "#3f8ec7",
+        },
+        {
+            vehicle_type: 3,
+            vehicle_icon: <FaBus className="select_vehicle_icon"/>,
+            vehicle_name: "bus",
+            path_color: "#5bb025",
+        },
+        {
+            vehicle_type: 4,
+            vehicle_icon: <FaBicycle className="select_vehicle_icon"/>,
+            vehicle_name: "cycle",
+            path_color: "#c71365",
+        },
+    ]
+
+    const [isCenter, setCenter] = useState({lat: 37.5547125, lng: 126.9707878})
 
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
@@ -220,6 +331,15 @@ const Travel = () => {
     const [searchList, setSearchList] = useState<searchListInterface[]>();
 
     const [isMarkerInfo, setMarkerInfo] = useState(false)
+
+    const placeRef = useRef(null);
+    const vehicleRef = useRef(null);
+
+    const [placeTab, setPlaceTab] = useState<dropdownIconPlaceInterface[]>(dropdownIconPlace)
+    const [isChangePlaceTab, setChangePlaceTab] = useState({place_type: 0, item_id: 0, status: false})
+
+    const [vehicleTab, setVehicleTab] = useState<dropdownIconVehicleInterface[]>(dropdownIconVehicle)
+    const [isChangeVehicleTab, setChangeVehicleTab] = useState({vehicle_type: 0, item_id: 0, status: false})
 
     useEffect(() => {
         setListReady(true)
@@ -311,6 +431,73 @@ const Travel = () => {
             }
         }))
     }
+
+    const changePlaceTypeTab = (id: number, type: number) => {
+        const tempPlace = placeTab
+        setPlaceTab([
+            tempPlace.filter(item => item.place_type === type)[0],
+            ...tempPlace.filter(item => item.place_type !== type)
+        ])
+        setChangePlaceTab({place_type: type, item_id: id, status: true})
+    }
+
+    const changePlaceType = (id: number, type: number, name: string, icon: JSX.Element) => {
+        setPlaceList(placeList.map(item => {
+            if (item.id === id) {
+                return { ...item,
+                    place_icon: icon,
+                    place_type: type,
+                    place_name: name
+                }
+            } else {
+                return item
+            }
+        }))
+        setChangePlaceTab({place_type: 0, item_id: 0, status: false})
+    }
+
+    const changeVehicleTypeTab = (id: number, type: number) => {
+        const tempVehicle = vehicleTab
+        setVehicleTab([
+            tempVehicle.filter(item => item.vehicle_type === type)[0],
+            ...tempVehicle.filter(item => item.vehicle_type !== type)
+        ])
+        setChangeVehicleTab({vehicle_type: type, item_id: id, status: true})
+    }
+
+    const changeVehicleType = (id: number, type: number, name: string, icon: JSX.Element, color: string) => {
+        setPlaceList(placeList.map(item => {
+            if (item.id === id) {
+                return { ...item,
+                    vehicle_icon: icon,
+                    vehicle_type: type,
+                    vehicle_name: name,
+                    path_color: color,
+                    path: []
+                }
+            } else {
+                return item
+            }
+        }))
+        setChangeVehicleTab({vehicle_type: 0, item_id: 0, status: false})
+    }
+
+    // const handleClickOutSide = (event) => {
+    //     if (placeRef.current && !placeRef.current.contains(event.target)) {
+    //         setChangePlaceTab({place_type: 0, item_id: 0, status: false})
+    //     }
+    //
+    //     if (vehicleRef.current && !vehicleRef.current.contains(event.target)) {
+    //         setChangeVehicleTab({vehicle_type: 0, item_id: 0, status: false})
+    //     }
+    // }
+    //
+    // useEffect(() => {
+    //     document.addEventListener('mousedown', handleClickOutSide)
+    //     return () => {
+    //         document.removeEventListener('mousedown', handleClickOutSide)
+    //     }
+    // }, []);
 
     const changeSearchValue = (value: string) => {
         setSearchValue(value)
@@ -440,9 +627,13 @@ const Travel = () => {
             lng: params.lng,
             address: params.address,
             place_type: 0,
+            place_name: "default",
+            place_icon: <MdPlace className="select_place_icon"/>,
             stay_time: new Date(new Date().setHours(0, 0)),
             stay_amount: "0",
             vehicle_type: 0,
+            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
+            vehicle_name: "default",
             move_time: new Date(new Date().setHours(0, 0)),
             move_amount: "0",
             path_hide: true,
@@ -551,6 +742,7 @@ const Travel = () => {
                                                             setAddList(true)
                                                             setAddPlaceId(item.id)
                                                             setSearchList([])
+                                                            setCenter({lat: Number(item.lat), lng: Number(item.lng)})
                                                         }}>
                                                             <FaPlus className="add_icon"/>
                                                         </button>}
@@ -575,25 +767,20 @@ const Travel = () => {
                                     className="place_list_section"
                                 >
                                     {/*기본 (default), 숙박, 맛집, 관람, 레저, 쉼터, 쇼핑*/}
-                                    {item.place_type === 0 &&
-                                        <div className="select_place_div default"><MdPlace className="select_place_icon"/>
-                                        </div>}
-                                    {item.place_type === 1 &&
-                                        <div className="select_place_div hotel"><FaBed className="select_place_icon"/>
-                                        </div>}
-                                    {item.place_type === 2 && <div className="select_place_div restaurant"><IoRestaurant
-                                        className="select_place_icon"/></div>}
-                                    {item.place_type === 3 &&
-                                        <div className="select_place_div museum"><MdMuseum className="select_place_icon"/>
-                                        </div>}
-                                    {item.place_type === 4 &&
-                                        <div className="select_place_div leisure"><TbBeach className="select_place_icon"/>
-                                        </div>}
-                                    {item.place_type === 5 &&
-                                        <div className="select_place_div rest"><MdForest className="select_place_icon"/>
-                                        </div>}
-                                    {item.place_type === 6 && <div className="select_place_div shopping"><FaShoppingCart
-                                        className="select_place_icon"/></div>}
+                                    <div className={"select_place_div " + item.place_name} onClick={() => changePlaceTypeTab(item.id, item.place_type)}>
+                                        {item.place_icon}
+                                    </div>
+                                    <div className={isChangePlaceTab.status && item.id === isChangePlaceTab.item_id ? "select_place_tab" : "display_none"} ref={placeRef}>
+                                        {placeTab.map((value, index) => (
+                                            <div key={index} className={"select_place_div " + value.place_name + (value.place_type === item.place_type ? " active" : "")}
+                                                 onClick={() => {
+                                                     changePlaceType(item.id, value.place_type, value.place_name, value.place_icon)
+                                                 }}
+                                            >
+                                                {value.place_icon}
+                                            </div>
+                                        ))}
+                                    </div>
                                     <div className="place_list_div">
                                         <span className="scoredream-700 default_text place">{item.place}</span>
                                         <span className="scoredream-500 grey_text address">{item.address}</span>
@@ -628,20 +815,20 @@ const Travel = () => {
                                             className="place_road_section"
                                         >
                                             {/*기본 (default), 도보, 자가용, 대중교통, 자전거*/}
-                                            {item.vehicle_type === 0 &&
-                                                <div className="select_vehicle_div default"><FaQuestion className="select_vehicle_icon"/>
-                                                </div>}
-                                            {item.vehicle_type === 1 &&
-                                                <div className="select_vehicle_div walk"><FaWalking className="select_vehicle_icon"/>
-                                                </div>}
-                                            {item.vehicle_type === 2 && <div className="select_vehicle_div car"><FaCar
-                                                className="select_vehicle_icon"/></div>}
-                                            {item.vehicle_type === 3 &&
-                                                <div className="select_vehicle_div bus"><FaBus className="select_vehicle_icon"/>
-                                                </div>}
-                                            {item.vehicle_type === 4 &&
-                                                <div className="select_vehicle_div cycle"><FaBicycle className="select_vehicle_icon"/>
-                                                </div>}
+                                            <div className={"select_vehicle_div " + item.vehicle_name} onClick={() => changeVehicleTypeTab(item.id, item.vehicle_type)}>
+                                                {item.vehicle_icon}
+                                            </div>
+                                            <div className={isChangeVehicleTab.status && item.id === isChangeVehicleTab.item_id ? "select_vehicle_tab" : "display_none"} ref={vehicleRef} onClick={(e) => e.stopPropagation()}>
+                                                {vehicleTab.map((value, index) => (
+                                                    <div key={index} className={"select_vehicle_div " + value.vehicle_name + (value.vehicle_type === item.vehicle_type ? " active" : "")}
+                                                         onClick={() => {
+                                                             changeVehicleType(item.id, value.vehicle_type, value.vehicle_name, value.vehicle_icon, value.path_color)
+                                                         }}
+                                                    >
+                                                        {value.vehicle_icon}
+                                                    </div>
+                                                ))}
+                                            </div>
                                             <div className="place_list_div">
                                                 <span className="scoredream-700 default_text place">{item.place}</span>
                                                 <FaArrowRight className="arrow"/>
@@ -848,10 +1035,15 @@ const Travel = () => {
                         {!!searchList && searchList?.length > 0 ?
                         searchList?.map((item, index) => (
                             <div className="search_item_section" key={index}>
-                                <div className="item_img_div">
+                                <div className="item_img_div" onClick={() => {
+                                    setCenter({lat: Number(item.lat), lng: Number(item.lng)})
+                                }}>
+                                    <span className="scoredream-700 default_text num">{index + 1}</span>
                                     {/*<Image width={408} height={306} src={null} alt={item.place} className="item_img"/>*/}
                                 </div>
-                                <div className="item_info_div">
+                                <div className="item_info_div" onClick={() => {
+                                    setCenter({lat: Number(item.lat), lng: Number(item.lng)})
+                                }}>
                                     <span className="scoredream-700 default_text place">{item.place}</span>
                                     <span className="scoredream-500 grey_text address">{item.address}</span>
                                     <Link href={item.url} target="_blank" className="to_url">
@@ -873,10 +1065,8 @@ const Travel = () => {
                 </div>
                 <Map
                     id="map"
-                    center={{
-                        lat: 37.5547125,
-                        lng: 126.9707878,
-                    }}
+                    center={isCenter}
+                    isPanto={true}
                     style={{
                         width: "1920px",
                         height: "866px",
