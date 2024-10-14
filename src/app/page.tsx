@@ -38,23 +38,23 @@ export default function Home() {
         <div className="main_page_section main_introduce main_inner">
           <div className="introduce_display">
             <div className="introduce_title">
-              <span className="scoredream-900 introduce_title_span">멋진 여행을 원하시나요?</span>
-              <span className="scoredream-900 introduce_title_span"><span className="scoredream introduce_title_span_highlight">개미굴 가이드</span>에서</span>
-              <span className="scoredream-900 introduce_title_span">도와드립니다!</span>
+              <span className="scoredream-700 introduce_title_span">멋진 여행을 원하시나요?</span>
+              <span className="scoredream-700 introduce_title_span"><span className="scoredream introduce_title_span_highlight">개미굴 가이드</span>에서</span>
+              <span className="scoredream-700 introduce_title_span">도와드립니다!</span>
             </div>
             <div className="introduce_ticket">
               <div className="ticket_top">
                 <div className="ticket_place">
-                  {/*<select className="scoredream-900 default_text ticket_place_from" onChange={(event) => handleChangeStartSelect(event)} value={startSelected}>*/}
+                  {/*<select className="scoredream-700 default_text ticket_place_from" onChange={(event) => handleChangeStartSelect(event)} value={startSelected}>*/}
                   {/*  {selectList.map((item) => (*/}
                   {/*      <option value={item} key={item}>*/}
                   {/*        {item}*/}
                   {/*      </option>*/}
                   {/*  ))}*/}
                   {/*</select>*/}
-                  <span className="scoredream-900 default_text ticket_place_from">개미굴</span>
+                  <span className="scoredream-700 default_text ticket_place_from">개미굴</span>
 
-                  <select className="scoredream-900 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
+                  <select className="scoredream-700 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
                     {selectList.map((item) => (
                         <option value={item} key={item}>
                           {item}
