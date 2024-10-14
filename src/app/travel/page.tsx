@@ -287,6 +287,12 @@ const Travel = () => {
 
     const dropdownIconVehicle: dropdownIconVehicleInterface[] = [
         {
+            vehicle_type: 0,
+            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
+            vehicle_name: "default",
+            path_color: "#3c3c3c",
+        },
+        {
             vehicle_type: 1,
             vehicle_icon: <FaWalking className="select_vehicle_icon"/>,
             vehicle_name: "walk",
