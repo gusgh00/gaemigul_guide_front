@@ -1,142 +1,297 @@
 .main_page_section {
     /*width: 100%;*/
     margin-bottom: 20px;
+    &.main_introduce {
+        background-color: #fff;
+        height: 800px;
+        box-shadow: inset 0 -1px 0 #E8E8E8;
+        .introduce_display {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .introduce_title {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                text-align: start;
+                margin-top: 460px;
+                .introduce_title_span {
+                    font-size: 60px;
+                    line-height: 80px;
+                    color: #3c3c3c;
+                }
+                .introduce_title_span_highlight {
+                    color: rgb(242, 57, 32);
+                }
+            }
+            .introduce_ticket {
+                width: 600px;
+                height: 100%;
+                /*background: #f23920;*/
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                .ticket_top {
+                    position: relative;
+                    width: 400px;
+                    height: 500px;
+                    background: url("../../assets/images/main/gaemigul_guide_ticket_top.jpg") no-repeat;
+                    background-size: cover;
+                    border-radius: 0 0 10px 10px;
+                    border: solid 2px #fff;
+                    box-shadow:  5px 5px 7px #e4e4e4, -5px -5px 7px #ffffff;
+                    .ticket_place {
+                        width: 260px;
+                        height: 100px;
+                        margin: 70px auto 0;
+                        display: flex;
+                        gap: 30px;
+                        .ticket_place_from {
+                            background: transparent;
+                            width: 118px;
+                            height: 80px;
+                            text-align: center;
+                            line-height: 80px;
+                            font-size: 34px;
+                            &:before {
+                                content: '';
+                                display: inline;
+                                position: absolute;
+                                width: 20px;
+                                height: 20px;
+                                z-index: 5;
+                            }
+                        }
+                        .ticket_place_to {
+                            background: transparent;
+                            width: 110px;
+                            height: 60px;
+                            box-shadow: inset 5px 5px 10px #cecece, inset -5px -5px 10px #ffffff;
+                            border-radius: 20px;
+                            text-align: center;
+                            line-height: 60px;
+                            appearance: none;
+                            font-size: 34px;
+                            margin-top: 10px;
+                            &:before {
+                                content: '';
+                                display: inline;
+                                position: absolute;
+                                width: 20px;
+                                height: 20px;
+                                z-index: 5;
+                            }
+                        }
+                    }
+                    .ticket_start,
+                    .ticket_end {
+                        width: 260px;
+                        height: 40px;
+                        margin: 10px auto 40px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        .date_icon {
+                            width: 24px;
+                            height: 24px;
+                            padding: 8px;
+                            color: #3c3c3c;
+                        }
+                        .ticket_date_text {
+                            width: 220px;
+                            height: 100%;
+                            background: transparent;
+                            box-shadow: inset 5px 5px 10px #cecece,
+                            inset -5px -5px 10px #ffffff;
+                            border-radius: 20px;
+                            padding: 0 0 0 36px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 20px;
+                        }
+                    }
+                }
+                .ticket_bottom {
+                    position: relative;
+                    width: 400px;
+                    height: 200px;
+                    background: url("../../assets/images/main/gaemigul_guide_ticket_bottom.jpg") no-repeat;
+                    background-size: cover;
+                    border-radius: 10px 10px 20px 20px;
+                    border: solid 2px #fff;
+                    display: flex;
+                    align-items: center;
+                    box-shadow:  5px 5px 7px #e4e4e4;
+                    transition: transform 300ms;
+                    transform-origin: 100% 0;
+                }
+                .ticket_button {
+                    position: absolute;
+                    cursor: pointer;
+                    z-index: 20;
+                    width: 400px;
+                    height: 200px;
+                    border-radius: 10px 10px 20px 20px;
+                    top: 500px;
+                    border: dashed 3px transparent;
+                    animation-name: ticket_button_guide;
+                    animation-duration: 4s;
+                    animation-direction: normal;
+                    animation-iteration-count: infinite;
+                    & a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    &:hover {
+                        animation: none;
+                        ~ .ticket_bottom {
+                            transform: rotateY(60deg) rotateX(30deg) rotateZ(20deg);
+                            box-shadow:  none;
+                        }
+                    }
+                }
+                .ticket_back {
+                    position: absolute;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: flex-end;
+                    text-align: center;
+                    justify-content: center;
+                    width: 400px;
+                    height: 200px;
+                    border-radius: 10px 10px 20px 20px;
+                    top: 500px;
+                    background: #f23920;
+                    box-shadow: inset 5px 5px 13px #ab2e00,
+                    inset -5px -5px 13px #ff5c00;
+                    & span {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    &.main_contact {
+        /*background: linear-gradient(to bottom, #78a1b5, #c4d9e2);*/
+        height: 360px;
+        .contact_display {
+            background-color: #ffffff;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            .contact_title {
+                text-align: center;
+                margin-bottom: 60px;
+                .contact_title_span {
+                    font-size: 20px;
+                }
+            }
+
+            .contact_button_section {
+                display: flex;
+                .contact_donate_button {
+                    background: #fbfbfb;
+                    box-shadow:  6px 6px 12px #e4e4e4,
+                    -6px -6px 12px #ffffff;
+                    width: 240px;
+                    height: 46px;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    text-align: center;
+                    margin: 0 20px;
+                    transition: all 5s;
+                    .contact_donate_span {
+                        font-size: 18px;
+                        font-weight: 900;
+                        line-height: 46px;
+                        color: #519CFF;
+                    }
+                    &:hover {
+                        background: linear-gradient(145deg, #e2e2e2, #ffffff);
+                        box-shadow:  5px 5px 7px #e4e4e4,
+                        -5px -5px 7px #ffffff;
+                        .contact_donate_span:before {
+                            font-size: 12px;
+                            content: 'https://toon.at/donate/gaemigul';
+                        }
+                        .contact_donate_span {
+                            font-size: 0;
+                        }
+                    }
+                }
+                .contact_inquiry_button {
+                    background: #fbfbfb;
+                    box-shadow:  6px 6px 12px #e4e4e4,
+                    -6px -6px 12px #ffffff;
+                    width: 240px;
+                    height: 46px;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    text-align: center;
+                    margin: 0 20px;
+                    transition: all 5s;
+                    .contact_inquiry_span {
+                        font-size: 18px;
+                        font-weight: 900;
+                        line-height: 46px;
+                        color: rgb(242, 57, 32);
+                    }
+                    &:hover {
+                        background: linear-gradient(145deg, #e2e2e2, #ffffff);
+                        box-shadow:  5px 5px 7px #e4e4e4,
+                        -5px -5px 7px #ffffff;
+                        .contact_inquiry_span:before {
+                            font-size: 12px;
+                            content: 'gaemigul.guide@gmail.com';
+                        }
+                        .contact_inquiry_span {
+                            font-size: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.main_board {
+        background-color: #fff;
+        height: 700px;
+    }
 }
 
-.main_board {
-    background-color: #fff;
-    height: 700px;
+
+@keyframes ticket_button_guide {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #f23920
+    }
+    100% {
+        border-color: transparent;
+    }
 }
 
-.main_introduce {
-    background-color: #fff;
-    height: 800px;
-    box-shadow: inset 0 -1px 0 #E8E8E8;
-}
-.main_introduce .introduce_display {
-    background-color: #fff;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.main_introduce .introduce_display .introduce_title {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    margin-top: 460px;
-}
-.main_introduce .introduce_display .introduce_title .introduce_title_span {
-    font-size: 60px;
-    line-height: 80px;
-    color: #3c3c3c;
-}
-.main_introduce .introduce_display .introduce_title .introduce_title_span_highlight {
-    color: rgb(242, 57, 32);
-}
-
-.main_introduce .introduce_display .introduce_ticket {
-    width: 600px;
-    height: 100%;
-    /*background: #f23920;*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top {
-    position: relative;
-    width: 400px;
-    height: 500px;
-    background: url("../../assets/images/main/gaemigul_guide_ticket_top.jpg") no-repeat;
-    background-size: cover;
-    border-radius: 0 0 10px 10px;
-    border: solid 2px #fff;
-
-    box-shadow:  5px 5px 7px #e4e4e4,
-    -5px -5px 7px #ffffff;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place {
-    width: 260px;
-    height: 100px;
-    margin: 70px auto 0;
-
-    display: flex;
-    gap: 30px;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from {
-    background: transparent;
-    width: 118px;
-    height: 80px;
-    text-align: center;
-    line-height: 80px;
-    font-size: 34px;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to {
-    background: transparent;
-    width: 110px;
-    height: 60px;
-    box-shadow: inset 5px 5px 10px #cecece,
-    inset -5px -5px 10px #ffffff;
-    border-radius: 20px;
-    text-align: center;
-    line-height: 60px;
-    appearance: none;
-    font-size: 34px;
-    margin-top: 10px;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from:before,
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to:before {
-    content: '';
-    display: inline;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    z-index: 5;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start,
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end {
-    width: 260px;
-    height: 40px;
-    margin: 10px auto 40px;
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start .date_icon,
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end .date_icon {
-    width: 24px;
-    height: 24px;
-    padding: 8px;
-    color: #3c3c3c;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start .ticket_date_text,
-.main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end .ticket_date_text {
-    width: 220px;
-    height: 100%;
-    background: transparent;
-    box-shadow: inset 5px 5px 10px #cecece,
-    inset -5px -5px 10px #ffffff;
-    border-radius: 20px;
-    padding: 0 0 0 36px;
-    display: flex;
-    align-items: center;
-    font-size: 20px;
+@keyframes contact_button_color {
+    from {
+        background: linear-gradient(145deg, #ffffff, #e1e1e1);
+    }
+    to {
+        background: linear-gradient(145deg, #e1e1e1, #ffffff);
+    }
 }
 
 .react-datepicker-popper {
-    z-index: 9999 !important;
+    z-index: 1000 !important;
 }
 
 .react-datepicker-wrapper {
@@ -152,226 +307,4 @@
     display: inline-block;
     width: 100%;
     height: 100%;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_bottom {
-    position: relative;
-    width: 400px;
-    height: 200px;
-    background: url("../../assets/images/main/gaemigul_guide_ticket_bottom.jpg") no-repeat;
-    background-size: cover;
-    border-radius: 10px 10px 20px 20px;
-    border: solid 2px #fff;
-    display: flex;
-    align-items: center;
-
-    box-shadow:  5px 5px 7px #e4e4e4;
-
-    transition: transform 300ms;
-    transform-origin: 100% 0;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_bottom .ticket_qr {
-    width: 100px;
-    height: 100px;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_button {
-    position: absolute;
-    cursor: pointer;
-    z-index: 20;
-    width: 400px;
-    height: 200px;
-    border-radius: 10px 10px 20px 20px;
-    top: 500px;
-    border: dashed 3px transparent;
-    animation-name: ticket_button_guide;
-    animation-duration: 4s;
-    animation-direction: normal;
-    animation-iteration-count: infinite;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_button a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_back {
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-end;
-    text-align: center;
-    justify-content: center;
-    width: 400px;
-    height: 200px;
-    border-radius: 10px 10px 20px 20px;
-    top: 500px;
-
-    background: #f23920;
-    box-shadow: inset 5px 5px 13px #ab2e00,
-    inset -5px -5px 13px #ff5c00;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_back span {
-    font-size: 30px;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_button:hover {
-    animation: none;
-}
-
-.main_introduce .introduce_display .introduce_ticket .ticket_button:hover ~ .ticket_bottom {
-    transform: rotateY(60deg) rotateX(30deg) rotateZ(20deg);
-    box-shadow:  none;
-}
-
-@keyframes ticket_button_guide {
-    0% {
-        border-color: transparent;
-    }
-    50% {
-        border-color: #f23920
-    }
-    100% {
-        border-color: transparent;
-    }
-}
-    /*.main_introduce .introduce_display .introduce_link {*/
-/*    text-align: center;*/
-/*}*/
-/*.main_introduce .introduce_display .introduce_link .introduce_link_button {*/
-/*    background-color: rgb(242, 57, 32);*/
-/*    box-shadow:  4px 4px 8px #bfbfbf,*/
-/*    -4px -4px 8px #ffffff;*/
-/*    width: 240px;*/
-/*    height: 46px;*/
-/*    border-radius: 20px;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*.main_introduce .introduce_display .introduce_link .introduce_link_button:hover {*/
-/*    background: linear-gradient(145deg, #e63e00, #ff4a00);*/
-/*}*/
-
-/*.main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {*/
-/*    font-size: 18px;*/
-/*    font-weight: 900;*/
-/*    line-height: 46px;*/
-/*    color: #fff;*/
-/*}*/
-
-.main_contact {
-    /*background: linear-gradient(to bottom, #78a1b5, #c4d9e2);*/
-    height: 360px;
-}
-.main_contact .contact_display {
-    background-color: #ffffff;
-
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.main_contact .contact_display .contact_title {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.main_contact .contact_display .contact_title .contact_title_span {
-    font-size: 20px;
-}
-
-.main_contact .contact_display .contact_button_section {
-    display: flex;
-}
-
-.main_contact .contact_display .contact_button_section .contact_donate_button {
-    background: #fbfbfb;
-    box-shadow:  6px 6px 12px #e4e4e4,
-    -6px -6px 12px #ffffff;
-    width: 240px;
-    height: 46px;
-    border-radius: 20px;
-    overflow: hidden;
-    text-align: center;
-    margin: 0 20px;
-
-    transition: all 5s;
-}
-
-.main_contact .contact_display .contact_button_section .contact_inquiry_button {
-    background: #fbfbfb;
-    box-shadow:  6px 6px 12px #e4e4e4,
-    -6px -6px 12px #ffffff;
-    width: 240px;
-    height: 46px;
-    border-radius: 20px;
-    overflow: hidden;
-    text-align: center;
-    margin: 0 20px;
-
-    transition: all 5s;
-}
-
-.main_contact .contact_display .contact_button_section .contact_donate_button .contact_donate_span {
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 46px;
-    color: #519CFF;
-}
-
-.main_contact .contact_display .contact_button_section .contact_inquiry_button .contact_inquiry_span {
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 46px;
-    color: rgb(242, 57, 32);
-}
-
-.main_contact .contact_display .contact_button_section .contact_donate_button:hover {
-    /*animation-name: contact_button_color;*/
-    /*animation-duration: 250ms;*/
-    /*animation-fill-mode: forwards;*/
-    background: linear-gradient(145deg, #e2e2e2, #ffffff);
-    box-shadow:  5px 5px 7px #e4e4e4,
-    -5px -5px 7px #ffffff;
-}
-
-.main_contact .contact_display .contact_button_section .contact_inquiry_button:hover {
-    /*animation-name: contact_button_color;*/
-    /*animation-duration: 2s;*/
-    /*animation-fill-mode: forwards;*/
-    background: linear-gradient(145deg, #e2e2e2, #ffffff);
-    box-shadow:  5px 5px 7px #e4e4e4,
-    -5px -5px 7px #ffffff;
-}
-
-.main_contact .contact_display .contact_button_section .contact_donate_button:hover .contact_donate_span:before {
-    font-size: 12px;
-    content: 'https://toon.at/donate/gaemigul';
-}
-
-.main_contact .contact_display .contact_button_section .contact_donate_button:hover .contact_donate_span {
-    font-size: 0;
-}
-
-.main_contact .contact_display .contact_button_section .contact_inquiry_button:hover .contact_inquiry_span:before {
-    font-size: 12px;
-    content: 'gaemigul.guide@gmail.com';
-}
-
-.main_contact .contact_display .contact_button_section .contact_inquiry_button:hover .contact_inquiry_span {
-    font-size: 0;
-}
-
-@keyframes contact_button_color {
-    from {
-        background: linear-gradient(145deg, #ffffff, #e1e1e1);
-    }
-    to {
-        background: linear-gradient(145deg, #e1e1e1, #ffffff);
-    }
 }

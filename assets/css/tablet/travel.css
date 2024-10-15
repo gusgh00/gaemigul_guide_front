@@ -1,307 +1,296 @@
 @media screen and (max-width: 1300px) {
     .travel_top_banner {
         height: calc(100vw * (50 / 1300));
-        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
         margin-top: calc(100vw * (64 / 1300));
-    }
-
-    .travel_top_banner .banner_inner .banner_inner_info span {
-        margin-right: calc(100vw * (40 / 1300));
-        font-size: calc(100vw * (14 / 1300));
-    }
-
-    .travel_top_banner .banner_inner .banner_button_clear {
-        width: calc(100vw * (100 / 1300));
-        height: calc(100vw * (32 / 1300));
-        border-radius: calc(100vw * (18 / 1300));
-        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
-        calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
-        margin-right: calc(100vw * (14 / 1300));
-    }
-
-    .travel_top_banner .banner_inner .banner_button_save {
-        width: calc(100vw * (100 / 1300));
-        height: calc(100vw * (32 / 1300));
-        border-radius: calc(100vw * (18 / 1300));
-        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
-        calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
-    }
-
-    .travel_top_banner .banner_inner .banner_button_clear span,
-    .travel_top_banner .banner_inner .banner_button_save span {
-        font-size: calc(100vw * (12 / 1300));
-        line-height: calc(100vw * (32 / 1300));
-    }
-
-    .travel_map {
-        width: calc(100vw * (1920 / 1300)) !important;
+        .banner_inner {
+            .banner_inner_info {
+                & span {
+                    margin-right: calc(100vw * (40 / 1300));
+                    font-size: calc(100vw * (14 / 1300));
+                }
+            }
+            .banner_button_clear {
+                width: calc(100vw * (100 / 1300));
+                height: calc(100vw * (32 / 1300));
+                border-radius: calc(100vw * (18 / 1300));
+                box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
+                calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+                margin-right: calc(100vw * (14 / 1300));
+                & span {
+                    font-size: calc(100vw * (12 / 1300));
+                    line-height: calc(100vw * (32 / 1300));
+                }
+            }
+            .banner_button_save {
+                width: calc(100vw * (100 / 1300));
+                height: calc(100vw * (32 / 1300));
+                border-radius: calc(100vw * (18 / 1300));
+                box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
+                calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+                & span {
+                    font-size: calc(100vw * (12 / 1300));
+                    line-height: calc(100vw * (32 / 1300));
+                }
+            }
+        }
     }
 
     .travel_list_section {
         width: calc(100vw * (500 / 1300));
-    }
-
-    .travel_list_section_hide {
-        left: calc(100vw * (-480 / 1300));
-    }
-
-    .travel_list_box {
-        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
-        width: calc(100vw * (480 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section {
-        width: calc(100vw * (480 / 1300));
-        padding-top: calc(100vw * (114 / 1300));
-    }
-
-    .travel_list_button {
-        width: calc(100vw * (20 / 1300));
-        height: calc(100vw * (100 / 1300));
-        border-radius: 0 calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300)) 0;
-        box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (6 / 1300)) #bfbfbf,
-        calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
-    }
-
-    .travel_list_box .travel_list_box_menu {
-        height: calc(100vw * (96 / 1300));
-        box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
-    }
-
-    .travel_list_box .travel_list_box_menu .travel_list_box_menu_top {
-        height: calc(100vw * (48 / 1300));
-        padding: 0 calc(100vw * (20 / 1300));
-        border-bottom: solid calc(100vw * (1 / 1300)) #e9e9e9;
-    }
-
-    .travel_list_box .travel_list_box_menu .travel_list_box_menu_top .select_date {
-        width: calc(100vw * (150 / 1300));
-        height: calc(100vw * (30 / 1300));
-        font-size: calc(100vw * (14 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_menu .travel_list_box_menu_top .current_clear_button {
-        font-size: calc(100vw * (14 / 1300));
-        gap: calc(100vw * (6 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_menu .travel_list_box_menu_top .current_clear_button .current_clear_icon {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_menu .travel_list_box_menu_bottom {
-        height: calc(100vw * (48 / 1300));
-        padding: 0 calc(100vw * (20 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_menu .travel_list_box_menu_bottom .tab_button {
-        font-size: calc(100vw * (14 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section,
-    .travel_list_box .travel_list_box_section .all_road_section {
-        max-height: calc(100vh - (100vw * (210 / 1300)));
-        padding: calc(100vw * (20 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section,
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_path_start,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_path_end {
-        height: calc(100vw * (74 / 1300));
-        gap: calc(100vw * (10 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button {
-        height: calc(100vw * (30 / 1300));
-        bottom: calc(100vw * (-30 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
-        border: dotted calc(100vw * (2 / 1300)) transparent;
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button .add_icon {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button:hover {
-        border: dotted calc(100vw * (3 / 1300)) #3c3c3c;
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button.active {
-        border: dotted calc(100vw * (3 / 1300)) #f23920;
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section {
-        box-shadow:  calc(100vw * (11 / 1300)) calc(100vw * (11 / 1300)) calc(100vw * (21 / 1300)) #c9c9c9,
-        calc(100vw * (-11 / 1300)) calc(100vw * (-11 / 1300)) calc(100vw * (21 / 1300)) #ffffff;
-        margin-bottom: calc(100vw * (30 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
-        width: calc(100vw * (34 / 1300));
-        margin: calc(100vw * (6 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div .drag_handler_icon {
-        width: calc(100vw * (32 / 1300));
-        height: calc(100vw * (32 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div {
-        width: calc(100vw * (300 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place,
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div .place,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .place,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
-        font-size: calc(100vw * (16 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address,
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div .address{
-        font-size: calc(100vw * (12 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div {
-        width: calc(100vw * (32 / 1300));
-        margin-left: calc(100vw * (30 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div .close_icon {
-        width: calc(100vw * (20 / 1300));
-        height: calc(100vw * (20 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section {
-        box-shadow:  calc(100vw * (11 / 1300)) calc(100vw * (11 / 1300)) calc(100vw * (21 / 1300)) #c9c9c9,
-        calc(100vw * (-11 / 1300)) calc(100vw * (-11 / 1300)) calc(100vw * (21 / 1300)) #ffffff;
-        margin-bottom: calc(100vw * (10 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div {
-        width: calc(100vw * (34 / 1300));
-        height: calc(100vw * (34 / 1300));
-        margin: calc(100vw * (6 /1300));
-        border-radius: calc(100vw * (150 / 1300));
-        border: solid calc(100vw * (2 /1300)) #fff;
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div .select_place_icon,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div .select_place_icon,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .arrow,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .arrow {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab {
-        gap: calc(100vw * (2 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
-        border: solid calc(100vw * (1 / 1300)) #fff;
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab .select_place_div.active,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab .select_vehicle_div.active {
-        border: solid calc(100vw * (2 / 1300)) #f23920;
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div .select_vehicle_icon {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div {
-        width: calc(100vw * (160 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div {
-        width: calc(100vw * (100 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_type {
-        font-size: calc(100vw * (10 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div .amount_unit,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div .amount_unit {
-        font-size: calc(100vw * (10 / 1300));
-        margin-left: calc(100vw * (5 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div .amount,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div .amount {
-        font-size: calc(100vw * (24 / 1300));
-        line-height: calc(100vw * (26 / 1300));
-        width: calc(100vw * (72 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_type {
-        font-size: calc(100vw * (10 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_input_div .stay_time,
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_input_div .move_time,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_input_div .move_time {
-        font-size: calc(100vw * (24 / 1300));
-        line-height: calc(100vw * (26 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div,
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div {
-        gap: calc(100vw * (5 / 1300));
-        width: calc(100vw * (160 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .place {
-        max-width: calc(100vw * (64 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_type {
-        font-size: calc(100vw * (10 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_type {
-        font-size: calc(100vw * (10 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_hide_btn {
-        height: calc(100vw * (20 / 1300));
-        margin-bottom: calc(100vw * (10 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_hide_icon {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section {
-        height: calc(100vw * (148 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
-        max-width: calc(100vw * (120 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div {
-        margin-left: calc(100vw * (110 / 1300));
-    }
-
-    .travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_type {
-        font-size: calc(100vw * (10 / 1300));
+        &.travel_list_section_hide {
+            left: calc(100vw * (-480 / 1300));
+        }
+        .travel_list_box {
+            box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+            width: calc(100vw * (480 / 1300));
+            .travel_list_box_section {
+                width: calc(100vw * (480 / 1300));
+                padding-top: calc(100vw * (114 / 1300));
+                .travel_list_box_menu {
+                    height: calc(100vw * (96 / 1300));
+                    box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+                    .travel_list_box_menu_top {
+                        height: calc(100vw * (48 / 1300));
+                        padding: 0 calc(100vw * (20 / 1300));
+                        border-bottom: solid calc(100vw * (1 / 1300)) #e9e9e9;
+                        .select_date {
+                            width: calc(100vw * (150 / 1300));
+                            height: calc(100vw * (30 / 1300));
+                            font-size: calc(100vw * (14 / 1300));
+                        }
+                        .current_clear_button {
+                            font-size: calc(100vw * (14 / 1300));
+                            gap: calc(100vw * (6 / 1300));
+                            .current_clear_icon {
+                                width: calc(100vw * (18 / 1300));
+                                height: calc(100vw * (18 / 1300));
+                            }
+                        }
+                    }
+                    .travel_list_box_menu_bottom {
+                        height: calc(100vw * (48 / 1300));
+                        padding: 0 calc(100vw * (20 / 1300));
+                        .tab_button {
+                            font-size: calc(100vw * (14 / 1300));
+                        }
+                    }
+                }
+                .all_place_section {
+                    max-height: calc(100vh - (100vw * (210 / 1300)));
+                    padding: calc(100vw * (20 / 1300));
+                    .place_list_section {
+                        height: calc(100vw * (74 / 1300));
+                        gap: calc(100vw * (10 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        box-shadow:  calc(100vw * (11 / 1300)) calc(100vw * (11 / 1300)) calc(100vw * (21 / 1300)) #c9c9c9, calc(100vw * (-11 / 1300)) calc(100vw * (-11 / 1300)) calc(100vw * (21 / 1300)) #ffffff;
+                        margin-bottom: calc(100vw * (30 / 1300));
+                        .add_button {
+                            height: calc(100vw * (30 / 1300));
+                            bottom: calc(100vw * (-30 / 1300));
+                            border-radius: calc(100vw * (20 / 1300));
+                            border: dotted calc(100vw * (2 / 1300)) transparent;
+                            .add_icon {
+                                width: calc(100vw * (18 / 1300));
+                                height: calc(100vw * (18 / 1300));
+                            }
+                            &:hover {
+                                border: dotted calc(100vw * (2 / 1300)) #3c3c3c;
+                            }
+                            &.active {
+                                border: dotted calc(100vw * (2 / 1300)) #f23920;
+                            }
+                        }
+                        .drag_handler_div {
+                            width: calc(100vw * (34 / 1300));
+                            margin: calc(100vw * (6 / 1300));
+                            .drag_handler_icon {
+                                width: calc(100vw * (32 / 1300));
+                                height: calc(100vw * (32 / 1300));
+                            }
+                        }
+                        .place_list_div {
+                            width: calc(100vw * (300 / 1300));
+                            .place {
+                                font-size: calc(100vw * (16 / 1300));
+                            }
+                            .address {
+                                font-size: calc(100vw * (12 / 1300));
+                            }
+                        }
+                        .close_div {
+                            width: calc(100vw * (32 / 1300));
+                            margin-left: calc(100vw * (30 / 1300));
+                            .close_icon {
+                                width: calc(100vw * (20 / 1300));
+                                height: calc(100vw * (20 / 1300));
+                            }
+                        }
+                    }
+                }
+                .all_road_section {
+                    max-height: calc(100vh - (100vw * (210 / 1300)));
+                    padding: calc(100vw * (20 / 1300));
+                    .place_control_section {
+                        height: calc(100vw * (74 / 1300));
+                        gap: calc(100vw * (10 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        margin-bottom: calc(100vw * (10 / 1300));
+                        .place_control_div {
+                            width: calc(100vw * (280 / 1300));
+                            margin: 0 calc(100vw * (23 / 1300));
+                            .remove,
+                            .search {
+                                font-size: calc(100vw * (14 / 1300));
+                                width: calc(100vw * (130 / 1300));
+                                height: calc(100vw * (40 / 1300));
+                                border-radius: calc(100vw * (12 / 1300));
+                                border: solid calc(100vw * (1 / 1300)) #f4f4f4;
+                                box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #dfdfdf, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #fbfbfb;
+                            }
+                        }
+                    }
+                    .place_list_section {
+                        height: calc(100vw * (74 / 1300));
+                        gap: calc(100vw * (10 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        box-shadow: calc(100vw * (11 / 1300)) calc(100vw * (11 / 1300)) calc(100vw * (21 / 1300)) #c9c9c9, calc(100vw * (-11 / 1300)) calc(100vw * (-11 / 1300)) calc(100vw * (21 / 1300)) #ffffff;
+                        margin-bottom: calc(100vw * (10 / 1300));
+                        .place_list_div {
+                            width: calc(100vw * (160 / 1300));
+                            .place {
+                                font-size: calc(100vw * (16 / 1300));
+                            }
+                            .address {
+                                font-size: calc(100vw * (12 / 1300));
+                            }
+                        }
+                    }
+                    .place_road_section {
+                        height: calc(100vw * (74 / 1300));
+                        gap: calc(100vw * (10 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        .place_list_div {
+                            gap: calc(100vw * (5 / 1300));
+                            width: calc(100vw * (160 / 1300));
+                            .place {
+                                font-size: calc(100vw * (16 / 1300));
+                                max-width: calc(100vw * (64 / 1300));
+                            }
+                            .arrow {
+                                width: calc(100vw * (18 / 1300));
+                                height: calc(100vw * (18 / 1300));
+                            }
+                        }
+                    }
+                    .place_path_section {
+                        height: calc(100vw * (148 / 1300));
+                        .place_path_start {
+                            height: calc(100vw * (74 / 1300));
+                            gap: calc(100vw * (10 / 1300));
+                            border-radius: calc(100vw * (20 / 1300));
+                        }
+                        .place_path_end {
+                            height: calc(100vw * (74 / 1300));
+                            gap: calc(100vw * (10 / 1300));
+                            border-radius: calc(100vw * (20 / 1300));
+                        }
+                        .place_list_div {
+                            gap: calc(100vw * (5 / 1300));
+                            width: calc(100vw * (160 / 1300));
+                            margin-right: calc(100vw * (110 / 1300));
+                            .place {
+                                max-width: calc(100vw * (120 / 1300));
+                                font-size: calc(100vw * (16 / 1300));
+                            }
+                            .arrow {
+                                width: calc(100vw * (18 / 1300));
+                                height: calc(100vw * (18 / 1300));
+                            }
+                        }
+                    }
+                    .place_path_hide_btn {
+                        height: calc(100vw * (20 / 1300));
+                        margin-bottom: calc(100vw * (10 / 1300));
+                        .place_path_hide_icon {
+                            width: calc(100vw * (18 / 1300));
+                            height: calc(100vw * (18 / 1300));
+                        }
+                    }
+                    .place_amount_div {
+                        width: calc(100vw * (100 / 1300));
+                        .amount_type {
+                            font-size: calc(100vw * (10 / 1300));
+                        }
+                        .amount_input_div {
+                            .amount_unit {
+                                font-size: calc(100vw * (10 / 1300));
+                                margin-left: calc(100vw * (5 / 1300));
+                            }
+                            .amount {
+                                font-size: calc(100vw * (24 / 1300));
+                                line-height: calc(100vw * (26 / 1300));
+                                width: calc(100vw * (72 / 1300));
+                            }
+                        }
+                    }
+                    .place_stay_time_div {
+                        width: calc(100vw * (100 / 1300));
+                        .time_type {
+                            font-size: calc(100vw * (10 / 1300));
+                        }
+                        .time_input_div {
+                            .stay_time {
+                                font-size: calc(100vw * (24 / 1300));
+                                line-height: calc(100vw * (26 / 1300));
+                            }
+                        }
+                    }
+                    .place_move_time_div {
+                        width: calc(100vw * (100 / 1300));
+                        .time_type {
+                            font-size: calc(100vw * (10 / 1300));
+                        }
+                        .time_input_div {
+                            .move_time {
+                                font-size: calc(100vw * (24 / 1300));
+                                line-height: calc(100vw * (26 / 1300));
+                            }
+                        }
+                    }
+                    .select_place_div,
+                    .select_vehicle_div {
+                        width: calc(100vw * (34 / 1300));
+                        height: calc(100vw * (34 / 1300));
+                        margin: calc(100vw * (6 / 1300));
+                        border-radius: calc(100vw * (150 / 1300));
+                        border: solid calc(100vw * (2 / 1300)) #fff;
+                        .select_vehicle_icon {
+                            width: calc(100vw * (18 / 1300));
+                            height: calc(100vw * (18 / 1300));
+                        }
+                    }
+                    .select_place_tab,
+                    .select_vehicle_tab {
+                        gap: calc(100vw * (2 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        border: solid calc(100vw * (1 / 1300)) #fff;
+                        .select_place_div,
+                        .select_vehicle_div {
+                            &.active {
+                                border: solid calc(100vw * (2 / 1300)) #f23920;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .travel_list_button {
+            width: calc(100vw * (20 / 1300));
+            height: calc(100vw * (100 / 1300));
+            border-radius: 0 calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300)) 0;
+            box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (6 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        }
     }
 
     .travel_search_section {
@@ -311,120 +300,116 @@
         left: calc(100vw * (510 / 1300));
         border-radius: calc(100vw * (20 / 1300));
         box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
-    }
-
-    .travel_search_section .search_button_div {
-        padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
-        gap: calc(100vw * (10 / 1300));
-        border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
-    }
-
-    .travel_search_section .close_div {
-        height: calc(100vw * (30 / 1300));
-    }
-
-    .travel_search_section .close_icon {
-        width: calc(100vw * (24 / 1300));
-        height: calc(100vw * (24 / 1300));
-    }
-
-    .travel_search_section .keyword_input_div {
-        width: calc(100vw * (360 / 1300));
-        height: calc(100vw * (30 / 1300));
-        gap: calc(100vw * (10 / 1300));
-        border-radius: calc(100vw * (12 / 1300));
-        border: solid calc(100vw * (1 / 1300)) #ececec;
-    }
-
-    .travel_search_section .keyword_input_div .keyword_input {
-        width: calc(100vw * (340 / 1300));
-        line-height: calc(100vw * (30 / 1300));
-        margin: 0 calc(100vw * (10 / 1300));
-        font-size: calc(100vw*(16 / 1300));
-    }
-
-    .travel_search_section .search_btn_keyword,
-    .travel_search_section .search_btn_recommend {
-        width: calc(100vw * (360 / 1300));
-        height: calc(100vw * (30 / 1300));
-        gap: calc(100vw * (10 / 1300));
-        border-radius: calc(100vw * (12 / 1300));
-        border: solid calc(100vw * (1 / 1300)) #ececec;
-        box-shadow:  calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #ebebeb, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
-    }
-
-    .travel_search_section .search_btn_keyword .keyword_icon,
-    .travel_search_section .search_btn_recommend .recommend_icon {
-        width: calc(100vw * (18 / 1300));
-        height: calc(100vw * (18 / 1300));
-    }
-
-    .travel_search_section .search_btn_keyword span,
-    .travel_search_section .search_btn_recommend span {
-        font-size: calc(100vw * (16 / 1300));
-    }
-
-    .travel_search_section .search_btn_keyword:hover,
-    .travel_search_section .search_btn_recommend:hover {
-        border: solid calc(100vw * (1 / 1300)) #f23920;
-    }
-
-    .travel_search_section .search_list_div {
-        padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
-        gap: calc(100vw * (10 / 1300));
-        height: calc(100vh - (100vw * (320 / 1300)));
-    }
-
-    .travel_search_section .search_list_div .search_item_section {
-        width: calc(100vw * (360 / 1300));
-        height: calc(100vw * (100 / 1300));
-        gap: calc(100vw * (10 / 1300));
-        border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
-        border-top: solid calc(100vw * (1 / 1300)) #ececec;
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_img_div {
-        width: calc(100vw * (50 / 130));
-        height: calc(100vw * (100 / 1300));
-        border-right: solid calc(100vw * (1 / 1300)) #ececec;
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_img_div .num {
-        font-size: calc(100vw * (16 / 1300));
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_info_div {
-        width: calc(100vw * (260 / 1300));
-        height: calc(100vw * (100 / 1300));
-        gap: calc(100vw * (5 / 1300));
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_info_div .place {
-        font-size: calc(100vw * (16 / 1300));
-        width: calc(100vw*(260 / 1300));
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_info_div .address {
-        font-size: calc(100vw * (12 / 1300));
-        width: calc(100vw*(260 / 1300));
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {
-        font-size: calc(100vw * (12 / 1300));
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_add_div {
-        width: calc(100vw * (30 / 1300));
-        height: calc(100vw * (100 / 1300));
-        border-left: solid calc(100vw * (1 / 1300)) #ececec;
-    }
-
-    .travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button {
-        width: calc(100vw * (20 / 1300));
-        height: calc(100vw * (20 / 1300));
-    }
-
-    .travel_search_section .search_list_div .search_list_nothing {
-        font-size: calc(100vw * (16 / 1300));
+        .search_button_div {
+            padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
+            gap: calc(100vw * (10 / 1300));
+            border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
+            .close_div {
+                height: calc(100vw * (30 / 1300));
+                .close_icon {
+                    width: calc(100vw * (24 / 1300));
+                    height: calc(100vw * (24 / 1300));
+                }
+            }
+            .keyword_input_div {
+                width: calc(100vw * (360 / 1300));
+                height: calc(100vw * (30 / 1300));
+                gap: calc(100vw * (10 / 1300));
+                border-radius: calc(100vw * (12 / 1300));
+                border: solid calc(100vw * (1 / 1300)) #ececec;
+                .keyword_input {
+                    width: calc(100vw * (340 / 1300));
+                    line-height: calc(100vw * (30 / 1300));
+                    margin: 0 calc(100vw * (10 / 1300));
+                    font-size: calc(100vw * (16 / 1300));
+                }
+            }
+            .search_btn_keyword {
+                width: calc(100vw * (360 / 1300));
+                height: calc(100vw * (30 / 1300));
+                gap: calc(100vw * (10 / 1300));
+                border-radius: calc(100vw * (12 / 1300));
+                border: solid calc(100vw * (1 / 1300)) #ececec;
+                box-shadow:  calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #ebebeb, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
+                .keyword_icon {
+                    width: calc(100vw * (18 / 1300));
+                    height: calc(100vw * (18 / 1300));
+                }
+                & span {
+                    font-size: calc(100vw * (16 / 1300));
+                }
+                &:hover {
+                    border: solid calc(100vw * (1 / 1300)) #f23920;
+                }
+            }
+            .search_btn_recommend {
+                width: calc(100vw * (360 / 1300));
+                height: calc(100vw * (30 / 1300));
+                gap: calc(100vw * (10 / 1300));
+                border-radius: calc(100vw * (12 / 1300));
+                border: solid calc(100vw * (1 / 1300)) #ececec;
+                box-shadow:  calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #ebebeb, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
+                .recommend_icon {
+                    width: calc(100vw * (18 / 1300));
+                    height: calc(100vw * (18 / 1300));
+                }
+                & span {
+                    font-size: calc(100vw * (16 / 1300));
+                }
+                &:hover {
+                    border: solid calc(100vw * (1 / 1300)) #f23920;
+                }
+            }
+        }
+        .search_list_div {
+            padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
+            gap: calc(100vw * (10 / 1300));
+            height: calc(100vh - (100vw * (320 / 1300)));
+            .search_item_section {
+                width: calc(100vw * (360 / 1300));
+                height: calc(100vw * (100 / 1300));
+                gap: calc(100vw * (10 / 1300));
+                border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
+                border-top: solid calc(100vw * (1 / 1300)) #ececec;
+                .item_img_div {
+                    width: calc(100vw * (50 / 1300));
+                    height: calc(100vw * (100 / 1300));
+                    border-right: solid calc(100vw * (1 / 1300)) #ececec;
+                    .num {
+                        font-size: calc(100vw * (16 / 1300));
+                    }
+                }
+                .item_info_div {
+                    width: calc(100vw * (260 / 1300));
+                    height: calc(100vw * (100 / 1300));
+                    gap: calc(100vw * (5 / 1300));
+                    .place {
+                        width: calc(100vw * (260 / 1300));
+                        font-size: calc(100vw * (16 / 1300));
+                    }
+                    .address {
+                        width: calc(100vw * (260 / 1300));
+                        font-size: calc(100vw * (12 / 1300));
+                    }
+                    .to_url {
+                        .to_url_span {
+                            font-size: calc(100vw * (12 / 1300));
+                        }
+                    }
+                }
+                .item_add_div {
+                    width: calc(100vw * (30 / 1300));
+                    height: calc(100vw * (100 / 1300));
+                    border-left: solid calc(100vw * (1 / 1300)) #ececec;
+                    .item_add_button {
+                        width: calc(100vw * (20 / 1300));
+                        height: calc(100vw * (20 / 1300));
+                    }
+                }
+            }
+            .search_list_nothing {
+                font-size: calc(100vw * (16 / 1300));
+            }
+        }
     }
 }

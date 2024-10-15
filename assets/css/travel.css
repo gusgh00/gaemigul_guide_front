@@ -5,76 +5,57 @@
     position: fixed;
     z-index: 97;
     box-shadow:  2px 2px 4px #bfbfbf;
-
     margin-top: 64px;
+    .banner_inner {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        .banner_inner_info {
+            & span {
+                margin-right: 40px;
+                font-size: 14px;
+            }
+        }
+        .banner_inner_button {
+            display: flex;
+            flex-direction: row;
+        }
+        .banner_button_clear {
+            width: 100px;
+            height: 32px;
+            border-radius: 18px;
+            text-align: center;
+            background: #3c3c3c;
+            box-shadow:  2px 2px 4px #bfbfbf,
+            -2px -2px 4px #ffffff;
+            margin-right: 14px;
+            cursor: pointer;
+            & span {
+                font-size: 12px;
+                font-weight: 900;
+                line-height: 32px;
+                color: #fff;
+            }
+        }
+        .banner_button_save {
+            width: 100px;
+            height: 32px;
+            border-radius: 18px;
+            text-align: center;
+            background: #f23920;
+            box-shadow:  2px 2px 4px #bfbfbf,
+            -2px -2px 4px #ffffff;
+            cursor: pointer;
+            & span {
+                font-size: 12px;
+                font-weight: 900;
+                line-height: 32px;
+                color: #fff;
+            }
+        }
+    }
 }
-
-.travel_top_banner .banner_inner {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.travel_top_banner .banner_inner .banner_inner_info span {
-    margin-right: 40px;
-    font-size: 14px;
-}
-
-.travel_top_banner .banner_inner .banner_inner_button {
-    display: flex;
-    flex-direction: row;
-}
-
-.travel_top_banner .banner_inner .banner_button_clear {
-    width: 100px;
-    height: 32px;
-    border-radius: 18px;
-    text-align: center;
-
-    background: #3c3c3c;
-    box-shadow:  2px 2px 4px #bfbfbf,
-    -2px -2px 4px #ffffff;
-
-    margin-right: 14px;
-
-    cursor: pointer;
-}
-
-.travel_top_banner .banner_inner .banner_button_save {
-    width: 100px;
-    height: 32px;
-    border-radius: 18px;
-    text-align: center;
-
-    background: #f23920;
-    box-shadow:  2px 2px 4px #bfbfbf,
-    -2px -2px 4px #ffffff;
-
-    cursor: pointer;
-}
-
-.travel_top_banner .banner_inner .banner_button_clear span,
-.travel_top_banner .banner_inner .banner_button_save span {
-    font-size: 12px;
-    font-weight: 900;
-    line-height: 32px;
-    color: #fff;
-}
-
-.travel_map {
-    width: 1920px !important;
-    height: 100vh !important;
-    margin: 0;
-    position: fixed;
-}
-
-/*.travel_map.active {*/
-/*    width: 1440px !important;*/
-/*    height: 100vh !important;*/
-/*    margin-left: 480px !important;*/
-/*    position: fixed;*/
-/*}*/
 
 .travel_list_section {
     width: 500px;
@@ -82,473 +63,467 @@
     position: fixed;
     display: flex;
     z-index: 96;
-
     transition: 500ms;
     align-items: center;
-}
-
-.travel_list_section_no_hide {
-    left: 0;
-}
-
-.travel_list_section_hide {
-    left: -480px;
-}
-
-.travel_list_box {
-    background: #ededed;
-    box-shadow:  2px 2px 4px #bfbfbf;
-    width: 480px;
-    height: 100%;
-}
-
-.travel_list_box .travel_list_box_section {
-    width: 480px;
-    height: 100vh;
-    padding-top: 114px;
-}
-
-.travel_list_button {
-    width: 20px;
-    height: 100px;
-    background: linear-gradient(315deg, #ff3d22, #da331d);;
-    border-radius: 0 20px 20px 0;
-    box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
-    cursor: pointer;
-}
-
-.travel_list_box .travel_list_box_menu {
-    width: 100%;
-    height: 96px;
-    background: #fafafa;
-    box-shadow:  2px 2px 4px #bfbfbf, -2px -2px 4px #ffffff;
-}
-
-.travel_list_box .travel_list_box_menu .travel_list_box_menu_top {
-    width: 100%;
-    height: 48px;
-    padding: 0 20px;
-    border-bottom: solid 1px #e9e9e9;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.travel_list_box .travel_list_box_menu .travel_list_box_menu_top .select_date {
-    width: 150px;
-    height: 30px;
-    font-size: 14px;
-    background: transparent;
-}
-
-.travel_list_box .travel_list_box_menu .travel_list_box_menu_top .current_clear_button {
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.travel_list_box .travel_list_box_menu .travel_list_box_menu_top .current_clear_button .current_clear_icon {
-    width: 18px;
-    height: 18px;
-}
-
-.travel_list_box .travel_list_box_menu .travel_list_box_menu_bottom {
-    width: 100%;
-    height: 48px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.travel_list_box .travel_list_box_menu .travel_list_box_menu_bottom .tab_button {
-    font-size: 14px;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section,
-.travel_list_box .travel_list_box_section .all_road_section
-{
-    width: 100%;
-    height: auto;
-    max-height: calc(100vh - 210px);
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section,
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_path_start,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_path_end {
-    width: 100%;
-    height: 74px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    border-radius: 20px;
-    background: transparent;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button {
-    position: absolute;
-    width: 100%;
-    height: 30px;
-    bottom: -30px;
-    z-index: 20;
-    border-radius: 20px;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: dotted 2px transparent;
-    transition: 200ms;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button .add_icon {
-    width: 18px;
-    height: 18px;
-    color: #3c3c3c;
-    transition: 200ms;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button:hover {
-    border: dotted 2px #3c3c3c;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button.active {
-    border: dotted 2px #f23920;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .add_button.active .add_icon {
-    color: #f23920;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section {
-    box-shadow:  11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
-    margin-bottom: 30px;
-    position: relative;
-    cursor: pointer;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section_is_dragging {
-    background: linear-gradient(145deg, #d5d5d5, #fefefe);
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div {
-    width: 34px;
-    margin: 6px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .drag_handler_div .drag_handler_icon {
-    width: 32px;
-    height: 32px;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .place,
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div .place,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .place,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
-    font-size: 16px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 2;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .place_list_div .address,
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div .address {
-    font-size: 12px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 2;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div {
-    width: 32px;
-    margin-left: 30px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.travel_list_box .travel_list_box_section .all_place_section .place_list_section .close_div .close_icon {
-    width: 20px;
-    height: 20px;
-    color: #3c3c3c;
-
-    cursor: pointer;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section {
-    box-shadow: 11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
-    margin-bottom: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div {
-    width: 34px;
-    height: 34px;
-    margin: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 150px;
-    border: solid 2px #fff;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section {
-    position: relative;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab {
-    display: flex;
-    gap: 2px;
-    position: absolute;
-    z-index: 20;
-    border-radius: 20px;
-    background: #fafafa;
-    border: solid 1px #fff;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab .select_place_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab .select_vehicle_div {
-    cursor: pointer;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_tab .select_place_div.active,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_tab .select_vehicle_div.active {
-    border: solid 2px #f23920;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .default {
-    background: #CBCBCB;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section  .hotel {
-    background: #F05650;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .restaurant {
-    background: #FFD400;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .museum {
-    background: #E7A2E7;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .leisure {
-    background: #4DCEB8;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .rest {
-    background: #7ABD76;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .shopping {
-    background: #FFA048;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .select_place_div .select_place_icon,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_place_div .select_place_icon,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .select_place_div .select_place_icon,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .arrow,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .arrow {
-    width: 18px;
-    height: 18px;
-    color: #3c3c3c;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div {
-    width: 34px;
-    height: 34px;
-    margin: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 150px;
-    border: solid 2px #fff;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .select_vehicle_div .select_vehicle_icon {
-    width: 18px;
-    height: 18px;
-    color: #ffffff;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_list_div {
-    display: flex;
-    flex-direction: column;
-    width: 160px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_type {
-    font-size: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div {
-    display: flex;
-    width: 100%;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div .amount_unit,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div .amount_unit {
-    font-size: 10px;
-    display: flex;
-    align-items: flex-end;
-    margin-left: 5px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_amount_div .amount_input_div .amount,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_input_div .amount {
-    background: transparent;
-    font-size: 24px;
-    line-height: 26px;
-    width: 72px;
-    overflow: hidden;
-    text-align: right;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_type {
-    font-size: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_input_div {
-    display: block;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_list_section .place_stay_time_div .time_input_div .stay_time,
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_input_div .move_time,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_input_div .move_time {
-    background: transparent;
-    font-size: 24px;
-    line-height: 26px;
-    width: 100%;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .default {
-    background: #CBCBCB;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section  .walk {
-    background: #7430ec;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .car {
-    background: #3f8ec7;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .bus {
-    background: #5bb025;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .cycle {
-    background: #c71365;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div,
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: 160px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_list_div .place {
-    max-width: 64px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_amount_div .amount_type {
-    font-size: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_type {
-    font-size: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_road_section .place_move_time_div .time_input_div {
-    display: block;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_hide_btn {
-    width: 100%;
-    height: 20px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_hide_icon {
-    width: 18px;
-    height: 18px;
-    transition: 400ms;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_hide_icon.active {
-    transform: rotate(-180deg);
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section {
-    width: 100%;
-    height: 148px;
-    display: block;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .default {
-    background: #CBCBCB;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_list_div .place {
-    max-width: 120px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div {
-    margin-left: 110px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_type {
-    font-size: 10px;
-}
-
-.travel_list_box .travel_list_box_section .all_road_section .place_path_section .place_move_time_div .time_input_div {
-    display: block;
+    &.travel_list_section_no_hide {
+        left: 0;
+    }
+    &.travel_list_section_hide {
+        left: -480px;
+    }
+    .travel_list_box {
+        background: #ededed;
+        box-shadow:  2px 2px 4px #bfbfbf;
+        width: 480px;
+        height: 100%;
+        .travel_list_box_section {
+            width: 480px;
+            height: 100vh;
+            padding-top: 114px;
+            .travel_list_box_menu {
+                width: 100%;
+                height: 96px;
+                background: #fafafa;
+                box-shadow:  2px 2px 4px #bfbfbf, -2px -2px 4px #ffffff;
+                .travel_list_box_menu_top {
+                    width: 100%;
+                    height: 48px;
+                    padding: 0 20px;
+                    border-bottom: solid 1px #e9e9e9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    .select_date {
+                        width: 150px;
+                        height: 30px;
+                        font-size: 14px;
+                        background: transparent;
+                    }
+                    .current_clear_button {
+                        font-size: 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        .current_clear_icon {
+                            width: 18px;
+                            height: 18px;
+                        }
+                    }
+                }
+                .travel_list_box_menu_bottom {
+                    width: 100%;
+                    height: 48px;
+                    padding: 0 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    .tab_button {
+                        font-size: 14px;
+                    }
+                }
+            }
+            .all_place_section {
+                width: 100%;
+                height: auto;
+                max-height: calc(100vh - 210px);
+                padding: 20px;
+                overflow-y: auto;
+                .place_list_section {
+                    width: 100%;
+                    height: 74px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 20px;
+                    background: transparent;
+                    box-shadow:  11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
+                    margin-bottom: 30px;
+                    position: relative;
+                    cursor: pointer;
+                    .add_button {
+                        position: absolute;
+                        width: 100%;
+                        height: 30px;
+                        bottom: -30px;
+                        z-index: 20;
+                        border-radius: 20px;
+                        background: transparent;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: dotted 2px transparent;
+                        transition: 200ms;
+                        .add_icon {
+                            width: 18px;
+                            height: 18px;
+                            color: #3c3c3c;
+                            transition: 200ms;
+                        }
+                        &:hover {
+                            border: dotted 2px #3c3c3c;
+                        }
+                        &.active {
+                            border: dotted 2px #f23920;
+                            .add_icon {
+                                color: #f23920;
+                            }
+                        }
+                    }
+                    &.place_list_section_is_dragging {
+                        background: linear-gradient(145deg, #d5d5d5, #fefefe);
+                    }
+                    .drag_handler_div {
+                        width: 34px;
+                        margin: 6px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .drag_handler_icon {
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
+                    .place_list_div {
+                        display: flex;
+                        flex-direction: column;
+                        width: 300px;
+                        .place {
+                            font-size: 16px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            -webkit-line-clamp: 2;
+                        }
+                        .address {
+                            font-size: 12px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            -webkit-line-clamp: 2;
+                        }
+                    }
+                    .close_div {
+                        width: 32px;
+                        margin-left: 30px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .close_icon {
+                            width: 20px;
+                            height: 20px;
+                            color: #3c3c3c;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .all_road_section {
+                width: 100%;
+                height: auto;
+                max-height: calc(100vh - 210px);
+                padding: 20px;
+                overflow-y: auto;
+                .place_control_section {
+                    width: 100%;
+                    height: 74px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 20px;
+                    background: transparent;
+                    margin-bottom: 10px;
+                    position: relative;
+                    .place_control_div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 280px;
+                        margin: 0 23px;
+                        .remove,
+                        .search {
+                            font-size: 14px;
+                            color: #909090;
+                            width: 130px;
+                            height: 40px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            border-radius: 12px;
+                            border: solid 1px #f4f4f4;
+                            background: transparent;
+                            box-shadow: 4px 4px 9px #dfdfdf, -4px -4px 9px #fbfbfb;
+                            transition: 300ms;
+                            &:hover {
+                                background: #f23920;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+                .place_list_section {
+                    width: 100%;
+                    height: 74px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 20px;
+                    background: transparent;
+                    box-shadow: 11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
+                    margin-bottom: 10px;
+                    position: relative;
+                    .place_list_div {
+                        display: flex;
+                        flex-direction: column;
+                        width: 160px;
+                        .place {
+                            font-size: 16px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            -webkit-line-clamp: 2;
+                        }
+                        .address {
+                            font-size: 12px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            -webkit-line-clamp: 2;
+                        }
+                    }
+                }
+                .place_road_section {
+                    width: 100%;
+                    height: 74px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 20px;
+                    background: transparent;
+                    position: relative;
+                    .place_list_div {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        width: 160px;
+                        .place {
+                            font-size: 16px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            -webkit-line-clamp: 2;
+                            max-width: 64px;
+                        }
+                        .arrow {
+                            width: 18px;
+                            height: 18px;
+                            color: #3c3c3c;
+                        }
+                    }
+                }
+                .place_path_section {
+                    width: 100%;
+                    height: 148px;
+                    display: block;
+                    .place_path_start {
+                        width: 100%;
+                        height: 74px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        border-radius: 20px;
+                        background: transparent;
+                    }
+                    .place_path_end {
+                        width: 100%;
+                        height: 74px;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        border-radius: 20px;
+                        background: transparent;
+                    }
+                    .place_list_div {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                        width: 160px;
+                        margin-right: 110px;
+                        .place {
+                            max-width: 120px;
+                            font-size: 16px;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            -webkit-line-clamp: 2;
+                        }
+                        .arrow {
+                            width: 18px;
+                            height: 18px;
+                            color: #3c3c3c;
+                        }
+                    }
+                }
+                .place_path_hide_btn {
+                    width: 100%;
+                    height: 20px;
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .place_path_hide_icon {
+                        width: 18px;
+                        height: 18px;
+                        transition: 400ms;
+                        &.active {
+                            transform: rotate(-180deg);
+                        }
+                    }
+                }
+                .place_amount_div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100px;
+                    .amount_type {
+                        font-size: 10px;
+                    }
+                    .amount_input_div {
+                        display: flex;
+                        width: 100%;
+                        .amount_unit {
+                            font-size: 10px;
+                            display: flex;
+                            align-items: flex-end;
+                            margin-left: 5px;
+                        }
+                        .amount {
+                            background: transparent;
+                            font-size: 24px;
+                            line-height: 26px;
+                            width: 72px;
+                            overflow: hidden;
+                            text-align: right;
+                        }
+                    }
+                }
+                .place_stay_time_div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100px;
+                    .time_type {
+                        font-size: 10px;
+                    }
+                    .time_input_div {
+                        display: block;
+                        .stay_time {
+                            background: transparent;
+                            font-size: 24px;
+                            line-height: 26px;
+                            width: 100%;
+                        }
+                    }
+                }
+                .place_move_time_div {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100px;
+                    .time_type {
+                        font-size: 10px;
+                    }
+                    .time_input_div {
+                        display: block;
+                        .move_time {
+                            background: transparent;
+                            font-size: 24px;
+                            line-height: 26px;
+                            width: 100%;
+                        }
+                    }
+                }
+                .select_place_div,
+                .select_vehicle_div {
+                    width: 34px;
+                    height: 34px;
+                    margin: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 150px;
+                    border: solid 2px #fff;
+                    cursor: pointer;
+                    .select_vehicle_icon {
+                        width: 18px;
+                        height: 18px;
+                        color: #fff;
+                    }
+                }
+                .select_place_tab,
+                .select_vehicle_tab {
+                    display: flex;
+                    gap: 2px;
+                    position: absolute;
+                    z-index: 20;
+                    border-radius: 20px;
+                    background: #fafafa;
+                    border: solid 1px #fff;
+                    .select_place_div,
+                    .select_vehicle_div {
+                        &.active {
+                            border: solid 2px #f23920;
+                        }
+                    }
+                }
+                .default {
+                    background: #CBCBCB;
+                }
+                .hotel {
+                    background: #F05650;
+                }
+                .restaurant {
+                    background: #FFD400;
+                }
+                .museum {
+                    background: #E7A2E7;
+                }
+                .leisure {
+                    background: #4DCEB8;
+                }
+                .rest {
+                    background: #7ABD76;
+                }
+                .shopping {
+                    background: #FFA048;
+                }
+                .walk {
+                    background: #7430ec;
+                }
+                .car {
+                    background: #3f8ec7;
+                }
+                .bus {
+                    background: #5bb025;
+                }
+                .cycle {
+                    background: #c71365;
+                }
+            }
+        }
+    }
+    .travel_list_button {
+        width: 20px;
+        height: 100px;
+        background: linear-gradient(315deg, #ff3d22, #da331d);;
+        border-radius: 0 20px 20px 0;
+        box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
+        cursor: pointer;
+    }
 }
 
 .travel_search_section {
@@ -560,239 +535,205 @@
     position: fixed;
     left: 510px;
     z-index: 96;
-
     border-radius: 20px;
     box-shadow: 2px 2px 4px #bfbfbf, -2px -2px 4px #bfbfbf;
+    .search_button_div {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-bottom: solid 1px #ececec;
+        .close_div {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            .close_icon {
+                width: 24px;
+                height: 24px;
+                color: #909090;
+                cursor: pointer;
+            }
+        }
+        .keyword_input_div {
+            width: 360px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 12px;
+            border: solid 1px #ececec;
+            background: #fff;
+            .keyword_input {
+                width: 340px;
+                height: 100%;
+                line-height: 30px;
+                margin: 0 10px;
+                background: #fff;
+                font-size: 16px;
+            }
+        }
+        .search_btn_keyword {
+            width: 360px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 12px;
+            border: solid 1px #ececec;
+            background: transparent;
+            box-shadow:  4px 4px 9px #ebebeb, -4px -4px 9px #ffffff;
+            transition: 300ms;
+            .keyword_icon {
+                color: #909090;
+                width: 18px;
+                height: 18px;
+                transition: 300ms;
+            }
+            & span {
+                font-size: 16px;
+                color: #909090;
+                transition: 300ms;
+            }
+            &:hover {
+                border: solid 1px #f23920;
+                & span,
+                & .keyword_icon {
+                    color: #f23920;
+                }
+            }
+        }
+        .search_btn_recommend {
+            width: 360px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 12px;
+            border: solid 1px #ececec;
+            background: transparent;
+            box-shadow:  4px 4px 9px #ebebeb, -4px -4px 9px #ffffff;
+            transition: 300ms;
+            .recommend_icon {
+                color: #909090;
+                width: 18px;
+                height: 18px;
+                transition: 300ms;
+            }
+            & span {
+                font-size: 16px;
+                color: #909090;
+                transition: 300ms;
+            }
+            &:hover {
+                border: solid 1px #f23920;
+                & span,
+                & .recommend_icon {
+                    color: #f23920;
+                }
+            }
+        }
+    }
+    .search_list_div {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: calc(100vh - 320px);
+        overflow-y: auto;
+        .search_item_section {
+            width: 360px;
+            height: 100px;
+            display: flex;
+            gap: 10px;
+            border-bottom: solid 1px #ececec;
+            border-top: solid 1px #ececec;
+            .item_img_div {
+                width: 50px;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-right: solid 1px #ececec;
+                cursor: pointer;
+                .num {
+                    font-size: 16px;
+                }
+            }
+            .item_info_div {
+                width: 260px;
+                height: 100px;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                justify-content: center;
+                cursor: pointer;
+                .place {
+                    width: 260px;
+                    font-size: 16px;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    -webkit-line-clamp: 2;
+                }
+                .address {
+                    width: 260px;
+                    font-size: 12px;
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    -webkit-line-clamp: 2;
+                }
+                .to_url {
+                    margin-right: auto;
+                    .to_url_span {
+                        font-size: 12px;
+                    }
+                }
+            }
+            .item_add_div {
+                width: 30px;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-left: solid 1px #ececec;
+                .item_add_button {
+                    width: 20px;
+                    height: 20px;
+                    color: #3c3c3c;
+                    transition: 300ms;
+                    cursor: pointer;
+                    &:hover {
+                        color: #f23920;
+                    }
+                    &.disabled {
+                        color: #909090
+                    }
+                }
+            }
+        }
+        .search_list_nothing {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
 }
 
-.travel_search_section .search_button_div {
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border-bottom: solid 1px #ececec;
-}
-
-.travel_search_section .close_div {
-    width: 100%;
-    height: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-
-.travel_search_section .close_icon {
-    width: 24px;
-    height: 24px;
-    color: #909090;
-    cursor: pointer;
-}
-
-.travel_search_section .keyword_input_div {
-    width: 360px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 12px;
-    border: solid 1px #ececec;
-    background: #fff;
-}
-
-.travel_search_section .keyword_input_div .keyword_input {
-    width: 340px;
-    height: 100%;
-    line-height: 30px;
-    margin: 0 10px;
-    background: #fff;
-    font-size: 16px;
-}
-
-.travel_search_section .search_btn_keyword {
-    width: 360px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 12px;
-    border: solid 1px #ececec;
-    background: transparent;
-
-    box-shadow:  4px 4px 9px #ebebeb, -4px -4px 9px #ffffff;
-
-    transition: 300ms;
-}
-
-.travel_search_section .search_btn_keyword .keyword_icon {
-    color: #909090;
-    width: 18px;
-    height: 18px;
-    transition: 300ms;
-}
-
-.travel_search_section .search_btn_keyword span {
-    font-size: 16px;
-    color: #909090;
-    transition: 300ms;
-}
-
-.travel_search_section .search_btn_keyword:hover {
-    border: solid 1px #f23920;
-}
-
-.travel_search_section .search_btn_keyword:hover .keyword_icon,
-.travel_search_section .search_btn_keyword:hover span {
-    color: #f23920;
-}
-
-.travel_search_section .search_btn_recommend {
-    width: 360px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 12px;
-    border: solid 1px #ececec;
-    background: transparent;
-
-    box-shadow:  4px 4px 9px #ebebeb, -4px -4px 9px #ffffff;
-
-    transition: 300ms;
-}
-
-.travel_search_section .search_btn_recommend .recommend_icon {
-    color: #909090;
-    width: 18px;
-    height: 18px;
-    transition: 300ms;
-}
-
-.travel_search_section .search_btn_recommend span {
-    font-size: 16px;
-    color: #909090;
-    transition: 300ms;
-}
-
-.travel_search_section .search_btn_recommend:hover {
-    border: solid 1px #f23920;
-}
-
-.travel_search_section .search_btn_recommend:hover .recommend_icon,
-.travel_search_section .search_btn_recommend:hover span {
-    color: #f23920;
-}
-
-.travel_search_section .search_list_div {
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    height: calc(100vh - 320px);
-    overflow-y: auto;
-}
-
-.travel_search_section .search_list_div .search_item_section {
-    width: 360px;
-    height: 100px;
-    display: flex;
-    gap: 10px;
-    border-bottom: solid 1px #ececec;
-    border-top: solid 1px #ececec;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_img_div {
-    width: 50px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: solid 1px #ececec;
-
-    cursor: pointer;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_img_div .num {
-    font-size: 16px;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_info_div {
-    width: 260px;
-    height: 100px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    justify-content: center;
-
-    cursor: pointer;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_info_div .place {
-    width: 260px;
-    font-size: 16px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 2;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_info_div .address {
-    width: 260px;
-    font-size: 12px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    -webkit-line-clamp: 2;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_info_div .to_url {
-    margin-right: auto;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_info_div .to_url_span {
-    font-size: 12px;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_add_div {
-    width: 30px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-left: solid 1px #ececec;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button {
-    width: 20px;
-    height: 20px;
-    color: #3c3c3c;
-    transition: 300ms;
-    cursor: pointer;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button:hover {
-    color: #f23920;
-}
-
-.travel_search_section .search_list_div .search_item_section .item_add_div .item_add_button.disabled {
-    color: #909090
-}
-
-.travel_search_section .search_list_div .search_list_nothing {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.travel_search_section .search_list_div .search_list_nothing {
-    font-size: 16px;
+.travel_map {
+    width: 100% !important;
+    height: 100vh !important;
+    margin: 0;
+    position: fixed;
 }

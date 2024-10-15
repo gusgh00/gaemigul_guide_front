@@ -35,9 +35,12 @@ import {GrPowerReset} from "react-icons/gr";
 import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import Link from "next/link";
 import axios from "axios";
+import {UseFloatingOptions} from "@floating-ui/react";
 require('react-datepicker/dist/react-datepicker.css')
 
 const Travel = () => {
+    type OptionsWithoutMiddleware = Omit<UseFloatingOptions, 'middleware'>;
+    const options: OptionsWithoutMiddleware = {strategy: "fixed"} as OptionsWithoutMiddleware
     interface placeListInterface {
         id: number,
         place: string,
@@ -113,138 +116,6 @@ const Travel = () => {
             path: [],
             path_color: "#3c3c3c",
         },
-        {
-            id: 2,
-            place: "영등포역",
-            lat: "37.5154133",
-            lng: "126.9071288",
-            address: "서울특별시 영등포구 영등포본동",
-            place_type: 1,
-            place_name: "hotel",
-            place_icon: <FaBed className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 1,
-            vehicle_icon: <FaWalking className="select_vehicle_icon"/>,
-            vehicle_name: "walk",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#7430ec",
-        },
-        {
-            id: 3,
-            place: "홍대입구역",
-            lat: "37.557527",
-            lng: "126.9244669",
-            address: "서울특별시 마포구 양화로 지하 160",
-            place_type: 2,
-            place_name: "restaurant",
-            place_icon: <IoRestaurant className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 2,
-            vehicle_icon: <FaCar className="select_vehicle_icon"/>,
-            vehicle_name: "car",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#3f8ec7",
-        },
-        {
-            id: 4,
-            place: "홍익대학교 서울캠퍼스",
-            lat: "37.5507563",
-            lng: "126.9254901",
-            address: "서울특별시 마포구 와우산로 94",
-            place_type: 3,
-            place_name: "museum",
-            place_icon: <MdMuseum className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 4,
-            vehicle_icon: <FaBicycle className="select_vehicle_icon"/>,
-            vehicle_name: "cycle",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#c71365",
-        },
-        {
-            id: 5,
-            place: "젠틀몬스터 홍대 플래그십스토어",
-            lat: "37.5499122",
-            lng: "126.9200131",
-            address: "서울특별시 마포구 독막로7길 54",
-            place_type: 4,
-            place_name: "leisure",
-            place_icon: <TbBeach className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 3,
-            vehicle_icon: <FaBus className="select_vehicle_icon"/>,
-            vehicle_name: "bus",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#5bb025",
-        },
-        {
-            id: 6,
-            place: "63빌딩",
-            lat: "37.5197159",
-            lng: "126.9401255",
-            address: "서울특별시 영등포구 63로 50",
-            place_type: 5,
-            place_name: "rest",
-            place_icon: <MdForest className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 0,
-            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
-            vehicle_name: "default",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#3c3c3c",
-        },
-        {
-            id: 7,
-            place: "탬버린즈 신사 플래그십스토어",
-            lat: "37.5206264",
-            lng: "127.0220599",
-            address: "서울특별시 강남구 압구정로10길 44",
-            place_type: 6,
-            place_name: "shopping",
-            place_icon: <FaShoppingCart className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 0,
-            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
-            vehicle_name: "default",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#3c3c3c",
-        },
     ];
 
     const dropdownIconPlace: dropdownIconPlaceInterface[] = [
@@ -284,7 +155,6 @@ const Travel = () => {
             place_name: "shopping"
         },
     ]
-
     const dropdownIconVehicle: dropdownIconVehicleInterface[] = [
         {
             vehicle_type: 0,
@@ -346,6 +216,8 @@ const Travel = () => {
 
     const [vehicleTab, setVehicleTab] = useState<dropdownIconVehicleInterface[]>(dropdownIconVehicle)
     const [isChangeVehicleTab, setChangeVehicleTab] = useState({vehicle_type: 0, item_id: 0, status: false})
+
+    const [startTime, setStartTime] = useState<Date | null | undefined>(new Date(new Date().setHours(0,0)))
 
     useEffect(() => {
         setListReady(true)
@@ -445,6 +317,7 @@ const Travel = () => {
             ...tempPlace.filter(item => item.place_type !== type)
         ])
         setChangePlaceTab({place_type: type, item_id: id, status: true})
+        setChangeVehicleTab({vehicle_type: 0, item_id: 0, status: false})
     }
 
     const changePlaceType = (id: number, type: number, name: string, icon: JSX.Element) => {
@@ -469,6 +342,7 @@ const Travel = () => {
             ...tempVehicle.filter(item => item.vehicle_type !== type)
         ])
         setChangeVehicleTab({vehicle_type: type, item_id: id, status: true})
+        setChangePlaceTab({place_type: 0, item_id: 0, status: false})
     }
 
     const changeVehicleType = (id: number, type: number, name: string, icon: JSX.Element, color: string) => {
@@ -699,6 +573,14 @@ const Travel = () => {
         }
     }
 
+    const removeDirectionGeometry = () => {
+        let items = [...placeList];
+        for (let i = 0; i < placeList.length; i++) {
+            items[i].path = []
+        }
+        setPlaceList(items)
+    }
+
     const showTab = () => {
         switch (isTab) {
             case 0:
@@ -765,8 +647,30 @@ const Travel = () => {
                     </Droppable>
                 </DragDropContext>
             case 1:
-                return <div
-                    className="all_road_section">
+                return <div className="all_road_section">
+                    <div className="place_control_section">
+                        <div className="place_control_div">
+                            <button className="scoredream-700 remove" onClick={() => removeDirectionGeometry()}>경로 삭제</button>
+                            <button className="scoredream-700 search" onClick={() => getDirectionGeometry()}>경로 찾기</button>
+                        </div>
+                        <div className="place_stay_time_div">
+                            <span className="scoredream-700 grey_text time_type">시작 시간</span>
+                            <div className="time_input_div">
+                                <DatePicker
+                                    selected={startTime}
+                                    onChange={(date: Date | null) => date && setStartTime(date)}
+                                    showTimeSelect
+                                    showTimeSelectOnly
+                                    showTimeCaption={false}
+                                    timeIntervals={5}
+                                    dateFormat="HH:mm"
+                                    timeFormat="HH:mm"
+                                    className="scoredream-700 default_text stay_time"
+                                    popperProps={options}
+                                />
+                            </div>
+                        </div>
+                    </div>
                     {placeList.map((item: any, index: number) => {
                         return (
                             <div key={index}>
@@ -812,12 +716,69 @@ const Travel = () => {
                                                 dateFormat="HH:mm"
                                                 timeFormat="HH:mm"
                                                 className="scoredream-700 default_text stay_time"
+                                                popperProps={options}
                                             />
                                         </div>
                                     </div>
                                 </div>
                                 {index === placeList.length - 1 ? null :
                                     <>
+                                        <div
+                                            className={item.path_hide ? "place_path_section display_none" : "place_path_section"}
+                                        >
+                                            <div className="place_path_start">
+                                                <div className="select_place_div default">
+                                                    <FaRegCirclePlay className="select_place_icon"/>
+                                                </div>
+                                                <div className="place_list_div">
+                                                    <span className="scoredream-700 default_text place">{item.place}</span>
+                                                    <span className="scoredream-700 grey_text place">출발</span>
+                                                </div>
+                                                <div className="place_move_time_div">
+                                                    <span className="scoredream-700 grey_text time_type">출발 시간</span>
+                                                    <div className="time_input_div">
+                                                        <DatePicker
+                                                            selected={item.start_time}
+                                                            onChange={(date: Date | null) => date && changePlaceStartTime(item.id, date)}
+                                                            showTimeSelect
+                                                            showTimeSelectOnly
+                                                            showTimeCaption={false}
+                                                            timeIntervals={5}
+                                                            dateFormat="HH:mm"
+                                                            timeFormat="HH:mm"
+                                                            className="scoredream-700 default_text move_time"
+                                                            popperProps={options}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="place_path_end">
+                                                <div className="select_place_div default">
+                                                    <FaRegCircleStop className="select_place_icon"/>
+                                                </div>
+                                                <div className="place_list_div">
+                                                    <span className="scoredream-700 default_text place">{placeList.find((val, valIndex) => valIndex == index + 1)?.place}</span>
+                                                    <span className="scoredream-700 grey_text place">도착</span>
+                                                </div>
+                                                <div className="place_move_time_div">
+                                                    <span className="scoredream-700 grey_text time_type">도착 시간</span>
+                                                    <div className="time_input_div">
+                                                        <DatePicker
+                                                            selected={item.end_time}
+                                                            onChange={(date: Date | null) => date && changePlaceEndTime(item.id, date)}
+                                                            showTimeSelect
+                                                            showTimeSelectOnly
+                                                            showTimeCaption={false}
+                                                            timeIntervals={5}
+                                                            dateFormat="HH:mm"
+                                                            timeFormat="HH:mm"
+                                                            className="scoredream-700 default_text move_time"
+                                                            popperProps={options}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div
                                             className="place_road_section"
                                         >
@@ -861,61 +822,8 @@ const Travel = () => {
                                                         dateFormat="HH:mm"
                                                         timeFormat="HH:mm"
                                                         className="scoredream-700 default_text move_time"
+                                                        popperProps={options}
                                                     />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            className={item.path_hide ? "place_path_section display_none" : "place_path_section"}
-                                        >
-                                            <div className="place_path_start">
-                                                <div className="select_place_div default">
-                                                    <FaRegCirclePlay className="select_place_icon"/>
-                                                </div>
-                                                <div className="place_list_div">
-                                                    <span className="scoredream-700 default_text place">{item.place}</span>
-                                                    <span className="scoredream-700 grey_text place">출발</span>
-                                                </div>
-                                                <div className="place_move_time_div">
-                                                    <span className="scoredream-700 grey_text time_type">출발 시간</span>
-                                                    <div className="time_input_div">
-                                                        <DatePicker
-                                                            selected={item.start_time}
-                                                            onChange={(date: Date | null) => date && changePlaceStartTime(item.id, date)}
-                                                            showTimeSelect
-                                                            showTimeSelectOnly
-                                                            showTimeCaption={false}
-                                                            timeIntervals={5}
-                                                            dateFormat="HH:mm"
-                                                            timeFormat="HH:mm"
-                                                            className="scoredream-700 default_text move_time"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="place_path_end">
-                                                <div className="select_place_div default">
-                                                    <FaRegCircleStop className="select_place_icon"/>
-                                                </div>
-                                                <div className="place_list_div">
-                                                    <span className="scoredream-700 default_text place">{placeList.find((val, valIndex) => valIndex == index + 1)?.place}</span>
-                                                    <span className="scoredream-700 grey_text place">도착</span>
-                                                </div>
-                                                <div className="place_move_time_div">
-                                                    <span className="scoredream-700 grey_text time_type">도착 시간</span>
-                                                    <div className="time_input_div">
-                                                        <DatePicker
-                                                            selected={item.end_time}
-                                                            onChange={(date: Date | null) => date && changePlaceEndTime(item.id, date)}
-                                                            showTimeSelect
-                                                            showTimeSelectOnly
-                                                            showTimeCaption={false}
-                                                            timeIntervals={5}
-                                                            dateFormat="HH:mm"
-                                                            timeFormat="HH:mm"
-                                                            className="scoredream-700 default_text move_time"
-                                                        />
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -953,7 +861,7 @@ const Travel = () => {
                             {/*<div className="banner_button_clear">*/}
                             {/*    <span className="scoredream-700 white_text">처음부터</span>*/}
                             {/*</div>*/}
-                            <div className="banner_button_save" onClick={() => getDirectionGeometry()}>
+                            <div className="banner_button_save">
                                 {/*임시*/}
                                 <span className="scoredream-700 white_text">저장하기</span>
                             </div>
