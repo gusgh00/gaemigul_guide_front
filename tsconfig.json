@@ -22,7 +22,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@images/*": ["./assets/images/*"],
-      "@css/*": ["./assets/css/*"]
+      "@css/*": ["./assets/css/*"],
+      "@fonts/*": ["./assets/fonts/*"],
     },
     "types": [
       "kakao.maps.d.ts"
