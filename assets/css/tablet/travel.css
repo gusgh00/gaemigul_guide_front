@@ -131,6 +131,25 @@
                 .all_road_section {
                     max-height: calc(100vh - (100vw * (210 / 1300)));
                     padding: calc(100vw * (20 / 1300));
+                    .place_control_section {
+                        height: calc(100vw * (74 / 1300));
+                        gap: calc(100vw * (10 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        margin-bottom: calc(100vw * (10 / 1300));
+                        .place_control_div {
+                            width: calc(100vw * (280 / 1300));
+                            margin: 0 calc(100vw * (23 / 1300));
+                            .remove,
+                            .search {
+                                font-size: calc(100vw * (14 / 1300));
+                                width: calc(100vw * (130 / 1300));
+                                height: calc(100vw * (40 / 1300));
+                                border-radius: calc(100vw * (12 / 1300));
+                                border: solid calc(100vw * (1 / 1300)) #f4f4f4;
+                                box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #dfdfdf, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #fbfbfb;
+                            }
+                        }
+                    }
                     .place_list_section {
                         height: calc(100vw * (74 / 1300));
                         gap: calc(100vw * (10 / 1300));
@@ -179,6 +198,7 @@
                         .place_list_div {
                             gap: calc(100vw * (5 / 1300));
                             width: calc(100vw * (160 / 1300));
+                            margin-right: calc(100vw * (110 / 1300));
                             .place {
                                 max-width: calc(100vw * (120 / 1300));
                                 font-size: calc(100vw * (16 / 1300));
@@ -187,9 +207,6 @@
                                 width: calc(100vw * (18 / 1300));
                                 height: calc(100vw * (18 / 1300));
                             }
-                        }
-                        .place_move_time_div {
-                            margin-left: calc(100vw * (110 / 1300));
                         }
                     }
                     .place_path_hide_btn {
