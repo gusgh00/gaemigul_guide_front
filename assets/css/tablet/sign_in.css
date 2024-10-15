@@ -1,32 +1,32 @@
 @media screen and (max-width: 1300px) {
-    .sign_in_modal {
-        width: calc(100vw * (460 / 1300));
-        height: calc(100vw * (300 / 1300));
-        box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (10 / 1300)) rgba(0, 0, 0, 0.4);
-    }
-
-    .sign_in_modal .sign_in_span {
-        font-size: calc(100vw * (24 / 1300));
-        line-height: calc(100vw * (64 / 1300));
-        margin-bottom: calc(100vw * (30 / 1300));
-        box-shadow: inset 0 calc(100vw * (-2 / 1300)) 0 rgb(242, 57, 32);
-    }
-
-    .sign_in_modal .sign_in_desc {
-        font-size: calc(100vw * (16 / 1300));
-        line-height: calc(100vw * (24 / 1300));
-        margin-bottom: calc(100vw * (30 / 1300));
-    }
-
-    .sign_in_modal .sign_in_close .sign_in_close_text {
-        font-size: calc(100vw * (14 / 1300));
-        line-height: calc(100vw * (16 / 1300));
-        margin-bottom: calc(100vw * (30 / 1300));
-    }
-
-    .sign_in_modal .btn_kakao_login {
-        width: calc(100vw * (300 / 1300));
-        height: calc(100vw * (45 / 1300));
-        margin-bottom: calc(100vw * (30 / 1300));
+    #sign_in_background {
+        .sign_in_modal {
+            width: calc(100vw * (460 / 1300));
+            height: calc(100vw * (300 / 1300));
+            box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (10 / 1300)) rgba(0, 0, 0, 0.4);
+            .sign_in_span {
+                font-size: calc(100vw * (24 / 1300));
+                line-height: calc(100vw * (64 / 1300));
+                margin-bottom: calc(100vw * (30 / 1300));
+                box-shadow: inset 0 calc(100vw * (-2 / 1300)) 0 rgb(242, 57, 32);
+            }
+            .sign_in_desc {
+                font-size: calc(100vw * (16 / 1300));
+                line-height: calc(100vw * (24 / 1300));
+                margin-bottom: calc(100vw * (30 / 1300));
+            }
+            .sign_in_close {
+                .sign_in_close_text {
+                    font-size: calc(100vw * (14 / 1300));
+                    line-height: calc(100vw * (16 / 1300));
+                    margin-bottom: calc(100vw * (30 / 1300));
+                }
+            }
+            .btn_kakao_login {
+                width: calc(100vw * (300 / 1300));
+                height: calc(100vw * (45 / 1300));
+                margin-bottom: calc(100vw * (30 / 1300));
+            }
+        }
     }
 }

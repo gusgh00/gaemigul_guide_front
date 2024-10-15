@@ -1,205 +1,184 @@
 @media screen and (max-width: 1300px) {
     .main_page_section {
+        /*width: 100%;*/
         margin-bottom: calc(100vw * (20 / 1300));
-    }
 
-    .main_board {
-        height: calc(100vw * (700 / 1300));
-    }
+        &.main_introduce {
+            height: calc(100vw * (800 / 1300));
+            box-shadow: inset 0 calc(100vw * (-1 / 1300)) 0 #E8E8E8;
 
-    .main_introduce {
-        height: calc(100vw * (800 / 1300));
-        box-shadow: inset 0 calc(100vw * (-1 / 1300)) 0 #E8E8E8;
-    }
+            .introduce_display {
+                .introduce_title {
+                    margin-top: calc(100vw * (460 / 1300));
 
-    .main_introduce .introduce_display .introduce_title {
-        margin-top: calc(100vw * (460 / 1300));
-    }
+                    .introduce_title_span {
+                        font-size: calc(100vw * (60 / 1300));
+                        line-height: calc(100vw * (80 / 1300));
+                    }
 
-    .main_introduce .introduce_display .introduce_title .introduce_title_span {
-        font-size: calc(100vw * (60 / 1300));
-        line-height: calc(100vw * (80 / 1300));
-    }
+                    .introduce_title_span_highlight {
+                        color: rgb(242, 57, 32);
+                    }
+                }
 
-    /*.main_introduce .introduce_display .introduce_link .introduce_link_button {*/
-    /*    box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (8 / 1300)) #bfbfbf,*/
-    /*    calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (8 / 1300)) #ffffff;*/
-    /*    width: calc(100vw * (240 / 1300));*/
-    /*    height: calc(100vw * (46 / 1300));*/
-    /*    border-radius: calc(100vw * (20 / 1300));*/
-    /*}*/
-    /*.main_introduce .introduce_display .introduce_link .introduce_link_button .introduce_link_span {*/
-    /*    font-size: calc(100vw * (18 / 1300));*/
-    /*    line-height: calc(100vw * (46 / 1300));*/
-    /*}*/
+                .introduce_ticket {
+                    width: calc(100vw * (600 / 1300));
 
-    .main_introduce .introduce_display .introduce_ticket {
-        width: calc(100vw * (600 / 1300));
-    }
+                    .ticket_top {
+                        width: calc(100vw * (400 / 1300));
+                        height: calc(100vw * (500 / 1300));
+                        border-radius: 0 0 calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300));
+                        border: solid calc(100vw * (2 / 1300)) #fff;
+                        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4, calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top {
-        width: calc(100vw * (400 / 1300));
-        height: calc(100vw * (500 / 1300));
-        border-radius: 0 0 calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300));
-        border: solid calc(100vw * (2 / 1300)) #fff;
-        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4,
-        calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
-    }
+                        .ticket_place {
+                            width: calc(100vw * (260 / 1300));
+                            height: calc(100vw * (100 / 1300));
+                            margin: calc(100vw * (70 / 1300)) auto 0;
+                            gap: calc(100vw * (30 / 1300));
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place {
-        width: calc(100vw * (260 / 1300));
-        height: calc(100vw * (100 / 1300));
-        margin: calc(100vw * (70 / 1300)) auto 0;
-        gap: calc(100vw * (30 / 1300));
-    }
+                            .ticket_place_from {
+                                width: calc(100vw * (118 / 1300));
+                                height: calc(100vw * (80 / 1300));
+                                line-height: calc(100vw * (80 / 1300));
+                                font-size: calc(100vw * (34 / 1300));
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from {
-        width: calc(100vw * (118 / 1300));
-        height: calc(100vw * (80 / 1300));
-        line-height: calc(100vw * (80 / 1300));
-        font-size: calc(100vw * (34 / 1300));
-    }
+                                &:before {
+                                    width: calc(100vw * (20 / 1300));
+                                    height: calc(100vw * (20 / 1300));
+                                }
+                            }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to {
-        width: calc(100vw * (110 / 1300));
-        height: calc(100vw * (60 / 1300));
-        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece,
-        inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
-        border-radius: calc(100vw * (20 / 1300));
-        line-height: calc(100vw * (60 / 1300));
-        font-size: calc(100vw * (34 / 1300));
-        margin-top: calc(100vw * (10 / 1300));
-    }
+                            .ticket_place_to {
+                                width: calc(100vw * (110 / 1300));
+                                height: calc(100vw * (60 / 1300));
+                                box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece, inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
+                                border-radius: calc(100vw * (20 / 1300));
+                                line-height: calc(100vw * (60 / 1300));
+                                font-size: calc(100vw * (34 / 1300));
+                                margin-top: calc(100vw * (10 / 1300));
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_from:after,
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_place .ticket_place_to:after {
-        width: calc(100vw * (20 / 1300));
-        height: calc(100vw * (20 / 1300));
-    }
+                                &:before {
+                                    width: calc(100vw * (20 / 1300));
+                                    height: calc(100vw * (20 / 1300));
+                                }
+                            }
+                        }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start,
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end {
-        width: calc(100vw * (260 / 1300));
-        height: calc(100vw * (40 / 1300));
-        margin: calc(100vw * (10 / 1300)) auto calc(100vw * (40 / 1300));
-        gap: calc(100vw * (10 / 1300));
-    }
+                        .ticket_start,
+                        .ticket_end {
+                            width: calc(100vw * (260 / 1300));
+                            height: calc(100vw * (40 / 1300));
+                            margin: calc(100vw * (10 / 1300)) auto calc(100vw * (40 / 1300));
+                            gap: calc(100vw * (10 / 1300));
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start .date_icon,
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end .date_icon {
-        width: calc(100vw * (24 / 1300));
-        height: calc(100vw * (24 / 1300));
-        padding: calc(100vw * (8 / 1300));
-    }
+                            .date_icon {
+                                width: calc(100vw * (24 / 1300));
+                                height: calc(100vw * (24 / 1300));
+                                padding: calc(100vw * (8 / 1300));
+                            }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_start .ticket_date_text,
-    .main_introduce .introduce_display .introduce_ticket .ticket_top .ticket_end .ticket_date_text {
-        width: calc(100vw * (220 / 1300));
-        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece,
-        inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
-        border-radius: calc(100vw * (20 / 1300));
-        padding: 0 0 0 calc(100vw * (36 / 1300));
-        font-size: calc(100vw * (20 / 1300));
-    }
+                            .ticket_date_text {
+                                width: calc(100vw * (220 / 1300));
+                                box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece, inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
+                                border-radius: calc(100vw * (20 / 1300));
+                                padding: 0 0 0 calc(100vw * (36 / 1300));
+                                font-size: calc(100vw * (20 / 1300));
+                            }
+                        }
+                    }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_bottom {
-        width: calc(100vw * (400 / 1300));
-        height: calc(100vw * (200 / 1300));
-        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-        border: solid calc(100vw * (2 / 1300)) #fff;
-        box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
-    }
+                    .ticket_bottom {
+                        width: calc(100vw * (400 / 1300));
+                        height: calc(100vw * (200 / 1300));
+                        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+                        border: solid calc(100vw * (2 / 1300)) #fff;
+                        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
+                    }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_bottom .ticket_qr {
-        width: calc(100vw * (100 / 1300));
-        height: calc(100vw * (100 / 1300));
-    }
+                    .ticket_button {
+                        width: calc(100vw * (400 / 1300));
+                        height: calc(100vw * (200 / 1300));
+                        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+                        top: calc(100vw * (500 / 1300));
+                        border: dashed calc(100vw * (3 / 1300)) transparent;
+                    }
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_button {
-        width: calc(100vw * (400 / 1300));
-        height: calc(100vw * (200 / 1300));
-        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-        top: calc(100vw * (500 / 1300));
-        border: dashed calc(100vw * (3 / 1300)) transparent;
-    }
+                    .ticket_back {
+                        width: calc(100vw * (400 / 1300));
+                        height: calc(100vw * (200 / 1300));
+                        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+                        top: calc(100vw * (500 / 1300));
+                        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (13 / 1300)) #ab2e00, inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (13 / 1300)) #ff5c00;
 
-    .main_introduce .introduce_display .introduce_ticket .ticket_back {
-        width: calc(100vw * (400 / 1300));
-        height: calc(100vw * (200 / 1300));
-        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-        top: calc(100vw * (500 / 1300));
-        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (13 / 1300)) #ab2e00,
-        inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (13 / 1300)) #ff5c00;
-    }
-
-    .main_introduce .introduce_display .introduce_ticket .ticket_back span {
-        font-size: calc(100vw * (30 / 1300));
-    }
-
-    .main_contact {
-        height: calc(100vw * (360 / 1300));
-    }
-
-    .main_contact .contact_display .contact_title {
-        margin-bottom: calc(100vw * (60 / 1300));
-    }
-
-    .main_contact .contact_display .contact_title .contact_title_span {
-        font-size: calc(100vw * (20 / 1300));
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_donate_button {
-        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4,
-        calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
-        width: calc(100vw * (240 / 1300));
-        height: calc(100vw * (46 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
-        margin: 0 calc(100vw * (20 / 1300));
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_inquiry_button {
-        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4,
-        calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
-        width: calc(100vw * (240 / 1300));
-        height: calc(100vw * (46 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
-        margin: 0 calc(100vw * (20 / 1300));
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_donate_button .contact_donate_span {
-        font-size: calc(100vw * (18 / 1300));
-        line-height: calc(100vw * (46 / 1300));
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_inquiry_button .contact_inquiry_span {
-        font-size: calc(100vw * (18 / 1300));
-        line-height: calc(100vw * (46 / 1300));
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_donate_button:hover {
-        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4,
-        calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_inquiry_button:hover {
-        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4,
-        calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_donate_button:hover .contact_donate_span:before {
-        font-size: calc(100vw * (12 / 1300));
-    }
-
-    .main_contact .contact_display .contact_button_section .contact_inquiry_button:hover .contact_inquiry_span:before {
-        font-size: calc(100vw * (12 / 1300));
-    }
-
-    @keyframes contact_button_color {
-        from {
-            background: linear-gradient(145deg, #ffffff, #e1e1e1);
+                        & span {
+                            font-size: calc(100vw * (30 / 1300));
+                        }
+                    }
+                }
+            }
         }
-        to {
-            background: linear-gradient(145deg, #e1e1e1, #ffffff);
+
+        &.main_contact {
+            height: calc(100vw * (360 / 1300));
+
+            .contact_display {
+                .contact_title {
+                    margin-bottom: calc(100vw * (60 / 1300));
+
+                    .contact_title_span {
+                        font-size: calc(100vw * (20 / 1300));
+                    }
+                }
+
+                .contact_button_section {
+                    .contact_donate_button {
+                        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4, calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
+                        width: calc(100vw * (240 / 1300));
+                        height: calc(100vw * (46 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        margin: 0 calc(100vw * (20 / 1300));
+
+                        .contact_donate_span {
+                            font-size: calc(100vw * (18 / 1300));
+                            line-height: calc(100vw * (46 / 1300));
+                        }
+
+                        &:hover {
+                            box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4, calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+
+                            .contact_donate_span:before {
+                                font-size: calc(100vw * (12 / 1300));
+                            }
+                        }
+                    }
+
+                    .contact_inquiry_button {
+                        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4, calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
+                        width: calc(100vw * (240 / 1300));
+                        height: calc(100vw * (46 / 1300));
+                        border-radius: calc(100vw * (20 / 1300));
+                        margin: 0 calc(100vw * (20 / 1300));
+
+                        .contact_inquiry_span {
+                            font-size: calc(100vw * (18 / 1300));
+                            line-height: calc(100vw * (46 / 1300));
+                        }
+
+                        &:hover {
+                            box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4, calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+
+                            .contact_inquiry_span:before {
+                                font-size: calc(100vw * (12 / 1300));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.main_board {
+            height: calc(100vw * (700 / 1300));
         }
     }
 }

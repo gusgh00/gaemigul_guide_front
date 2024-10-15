@@ -3,89 +3,81 @@
     position: fixed;
     top: 0;
     z-index: 99;
+
+    .header_section {
+        position: relative;
+        width: 100%;
+        background: #fff;
+        box-shadow:  -4px -4px 8px #bfbfbf,
+        4px 4px 8px #ffffff;
+
+        .inner_section {
+            width: 1260px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: auto;
+
+            .header_sign_in_div {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .header_sign_in_button {
+                    width: 20px;
+                    height: 20px;
+                    color: #3c3c3c;
+                    &:hover {
+                        animation-name: navi_color;
+                        animation-duration: 250ms;
+                        animation-fill-mode: forwards;
+                    }
+                }
+            }
+
+            .navigation {
+                height: 64px;
+                display: flex;
+                align-items: center;
+                gap: 90px;
+
+                .header_logo {
+                    width: 240px;
+                    height: auto;
+                }
+                .navigation_text {
+                    margin: 0;
+                    display: inline;
+                    line-height: 64px;
+                    color: #3c3c3c;
+                    font-size: 16px;
+                    &:after {
+                        display: block;
+                        content: '';
+                        border-bottom: solid 3px rgb(242, 57, 32);
+                        transform: scaleX(0);
+                        transition: transform 250ms ease-in-out;
+                    }
+                    &:hover {
+                        animation-name: navi_color;
+                        animation-duration: 250ms;
+                        animation-fill-mode: forwards;
+                        &:after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+                .navigation_text_selected {
+                    color: rgb(242, 57, 32);
+                }
+            }
+        }
+    }
 }
 
-#header_pc .inner_section {
-    width: 1260px;
-    margin: auto;
-}
-
-#header_pc .header_section {
-    position: relative;
-    width: 100%;
-    background: #fff;
-    box-shadow:  -4px -4px 8px #bfbfbf,
-    4px 4px 8px #ffffff;
-}
-
-#header_pc .header_section .inner_section {
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-#header_pc .header_section .inner_section .header_sign_in_div {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#header_pc .header_section .inner_section .header_sign_in_div .header_sign_in_button {
-    width: 20px;
-    height: 20px;
-    color: #3c3c3c;
-}
-
-#header_pc .header_section .inner_section .header_sign_in_div .header_sign_in_button:hover {
-    animation-name: navi_color;
-    animation-duration: 250ms;
-    animation-fill-mode: forwards;
-}
-
-#header_pc .header_section .inner_section .navigation {
-    height: 64px;
-    display: flex;
-    align-items: center;
-    gap: 90px;
-}
-
-#header_pc .header_section .inner_section .navigation .header_logo {
-    width: 240px;
-    height: auto;
-}
-
-#header_pc .header_section .inner_section .navigation .navigation_text {
-    margin: 0;
-    display: inline;
-    line-height: 64px;
-    color: #3c3c3c;
-    font-size: 16px;
-}
-
-#header_pc .header_section .inner_section .navigation .navigation_text_selected {
-    color: rgb(242, 57, 32);
-}
-
-#header_pc .header_section .inner_section .navigation .navigation_text:after {
-    display: block;
-    content: '';
-    border-bottom: solid 3px rgb(242, 57, 32);
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-
-#header_pc .header_section .inner_section .navigation .navigation_text:hover {
-    animation-name: navi_color;
-    animation-duration: 250ms;
-    animation-fill-mode: forwards;
-}
-
-#header_pc .header_section .inner_section .navigation .navigation_text:hover:after {
-    transform: scaleX(1);
-}
 
 @keyframes navi_color {
     from {
