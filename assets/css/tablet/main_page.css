@@ -117,10 +117,9 @@
                             border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
                             border: solid calc(100vw * (2 / 1300)) #fff;
                             box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
-                            &:before {
-                                border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                            }
                             & span {
+                                border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300)) !important;
+                                line-height: calc(100vw * (200 / 1300));
                                 font-size: calc(100vw * (30 / 1300));
                             }
                         }
