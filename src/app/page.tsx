@@ -38,9 +38,9 @@ export default function Home() {
         <div className="main_page_section main_introduce main_inner">
           <div className="introduce_display">
             <div className="introduce_title">
-              <span className="scoredream-700 introduce_title_span">멋진 여행을 원하시나요?</span>
-              <span className="scoredream-700 introduce_title_span"><span className="scoredream introduce_title_span_highlight">개미굴 가이드</span>에서</span>
-              <span className="scoredream-700 introduce_title_span">도와드립니다!</span>
+              <span className="scoredream-900 introduce_title_span">멋진 여행을 원하시나요?</span>
+              <span className="scoredream-900 introduce_title_span"><span className="scoredream-900 introduce_title_span_highlight">개미굴 가이드</span>에서</span>
+              <span className="scoredream-900 introduce_title_span">도와드립니다!</span>
             </div>
             <div className="introduce_ticket">
               <div className="ticket_top">
@@ -99,11 +99,12 @@ export default function Home() {
               <div className="ticket_button">
                 <Link href="/travel"></Link>
               </div>
-              <div className="ticket_back">
-                <span className="scoredream-500 white_text">여행 계획하러 가기</span>
-              </div>
               <div className="ticket_bottom">
-                {/*<Image src={QrCode} alt="qr 코드" className="ticket_qr"/>*/}
+                <div className="ticket_front">
+                </div>
+                <div className="ticket_back">
+                  <span className="scoredream-500 white_text">여행 계획하러 가기</span>
+                </div>
               </div>
             </div>
           </div>
