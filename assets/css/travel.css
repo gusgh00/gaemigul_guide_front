@@ -622,7 +622,7 @@
             backdrop-filter: blur(10px);
             transition: 300ms;
         }
-        &:hover:after {
+        &:hover {
             background: rgba(242, 57, 32, 0.8);
             backdrop-filter: blur(10px);
         }

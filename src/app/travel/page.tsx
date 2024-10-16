@@ -604,7 +604,6 @@ const Travel = () => {
                                                         ref={provided.innerRef}
                                                         className={snapshot2.isDragging ? "place_list_section place_list_section_is_dragging" : "place_list_section"}
                                                         {...provided.draggableProps}
-                                                        onClick={() => setCenter({lat: Number(item.lat), lng: Number(item.lng)})}
                                                     >
                                                         <div
                                                             className="drag_handler_div"
@@ -612,7 +611,7 @@ const Travel = () => {
                                                         >
                                                             <RxDragHandleHorizontal className="drag_handler_icon"/>
                                                         </div>
-                                                        <div className="place_list_div">
+                                                        <div className="place_list_div" onClick={() => setCenter({lat: Number(item.lat), lng: Number(item.lng)})}>
                                                             <span className="scoredream-700 default_text place">{"[" + (index + 1) + "] "}{item.place}</span>
                                                             <span className="scoredream-500 grey_text address">{item.address}</span>
                                                         </div>
