@@ -87,32 +87,42 @@
                             }
                         }
                     }
-
-                    .ticket_bottom {
-                        width: calc(100vw * (400 / 1300));
-                        height: calc(100vw * (200 / 1300));
-                        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                        border: solid calc(100vw * (2 / 1300)) #fff;
-                        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
-                    }
-
                     .ticket_button {
                         width: calc(100vw * (400 / 1300));
                         height: calc(100vw * (200 / 1300));
                         border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
                         top: calc(100vw * (500 / 1300));
                         border: dashed calc(100vw * (3 / 1300)) transparent;
+                        &:hover {
+                            & ~ .ticket_bottom {
+                                transform: perspective(calc(100vw * (800 / 1300))) rotateY(180deg);
+                            }
+                        }
                     }
-
-                    .ticket_back {
+                    .ticket_bottom {
                         width: calc(100vw * (400 / 1300));
                         height: calc(100vw * (200 / 1300));
                         border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                        top: calc(100vw * (500 / 1300));
-                        box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (13 / 1300)) #ab2e00, inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (13 / 1300)) #ff5c00;
-
-                        & span {
-                            font-size: calc(100vw * (30 / 1300));
+                        transform: perspective(calc(100vw * (800 / 1300))) rotateY(0deg);
+                        .ticket_front {
+                            width: calc(100vw * (400 / 1300));
+                            height: calc(100vw * (200 / 1300));
+                            border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+                            border: solid calc(100vw * (2 / 1300)) #fff;
+                            box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
+                        }
+                        .ticket_back {
+                            width: calc(100vw * (400 / 1300));
+                            height: calc(100vw * (200 / 1300));
+                            border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+                            border: solid calc(100vw * (2 / 1300)) #fff;
+                            box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
+                            &:before {
+                                border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
+                            }
+                            & span {
+                                font-size: calc(100vw * (30 / 1300));
+                            }
                         }
                     }
                 }
