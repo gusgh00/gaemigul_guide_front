@@ -186,9 +186,9 @@
                             left: 0;
                             right: 0;
                             bottom: 0;
-                            border-radius: 10px 10px 20px 20px;
                             background-color: #f23920;
                             opacity: 0.8;
+                            border-radius: 10px 10px 20px 20px;
                         }
                         & span {
                             font-size: 30px;
