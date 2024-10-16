@@ -1,7 +1,7 @@
 .travel_top_banner {
     width: 100%;
     height: 50px;
-    background-color: #fff;
+    background-color: #fcfcfc;
     position: fixed;
     z-index: 97;
     box-shadow:  2px 2px 4px #bfbfbf;
@@ -43,15 +43,23 @@
             height: 32px;
             border-radius: 18px;
             text-align: center;
-            background: #f23920;
-            box-shadow:  2px 2px 4px #bfbfbf,
+            background: transparent;
+            box-shadow:  2px 2px 4px #dbdbdb,
             -2px -2px 4px #ffffff;
+            border: solid 1px #f0f0f0;
             cursor: pointer;
+            transition: 300ms;
             & span {
                 font-size: 12px;
                 font-weight: 900;
-                line-height: 32px;
-                color: #fff;
+                line-height: 30px;
+                color: #909090;
+            }
+            &:hover {
+                background: #f23920;
+                & span {
+                    color: #fff;
+                }
             }
         }
     }
@@ -136,10 +144,33 @@
                     gap: 10px;
                     border-radius: 20px;
                     background: transparent;
-                    box-shadow:  11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
+                    border: solid 1px #f4f4f4;
+                    box-shadow: 8px 8px 16px #dfdfdf, -8px -8px 16px #fbfbfb;
                     margin-bottom: 30px;
                     position: relative;
-                    cursor: pointer;
+                    transition: 300ms;
+                    &:hover {
+                        background: #f23920;
+                        .drag_handler_div {
+                            .drag_handler_icon {
+                                color: #fff;
+                            }
+                        }
+                        .place_list_div {
+                            cursor: pointer;
+                            .place {
+                                color: #fff;
+                            }
+                            .address {
+                                color: #fff;
+                            }
+                        }
+                        .close_div {
+                            .close_icon {
+                                color: #fff;
+                            }
+                        }
+                    }
                     .add_button {
                         position: absolute;
                         width: 100%;
@@ -170,7 +201,25 @@
                         }
                     }
                     &.place_list_section_is_dragging {
-                        background: linear-gradient(145deg, #d5d5d5, #fefefe);
+                        background: #f23920;
+                        .drag_handler_div {
+                            .drag_handler_icon {
+                                color: #fff;
+                            }
+                        }
+                        .place_list_div {
+                            .place {
+                                color: #fff;
+                            }
+                            .address {
+                                color: #fff;
+                            }
+                        }
+                        .close_div {
+                            .close_icon {
+                                color: #fff;
+                            }
+                        }
                     }
                     .drag_handler_div {
                         width: 34px;
@@ -182,6 +231,7 @@
                         .drag_handler_icon {
                             width: 32px;
                             height: 32px;
+                            color: #3c3c3c;
                         }
                     }
                     .place_list_div {
@@ -272,9 +322,46 @@
                     gap: 10px;
                     border-radius: 20px;
                     background: transparent;
-                    box-shadow: 11px 11px 21px #c9c9c9, -11px -11px 21px #ffffff;
+                    border: solid 1px #f4f4f4;
+                    box-shadow: 8px 8px 16px #dfdfdf, -8px -8px 16px #fbfbfb;
                     margin-bottom: 10px;
                     position: relative;
+                    transition: 300ms;
+                    &:hover {
+                        background: #f23920;
+                        .place_list_div {
+                            cursor: pointer;
+                            .place {
+                                color: #fff;
+                            }
+                            .address {
+                                color: #fff;
+                            }
+                        }
+                        .place_amount_div {
+                            .amount_type {
+                                color: #fff;
+                            }
+                            .amount_input_div {
+                                .amount_unit {
+                                    color: #fff;
+                                }
+                                .amount {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                        .place_stay_time_div {
+                            .time_type {
+                                color: #fff;
+                            }
+                            .time_input_div {
+                                .stay_time {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
                     .place_list_div {
                         display: flex;
                         flex-direction: column;
@@ -518,11 +605,27 @@
     }
     .travel_list_button {
         width: 20px;
-        height: 100px;
-        background: linear-gradient(315deg, #ff3d22, #da331d);;
-        border-radius: 0 20px 20px 0;
-        box-shadow: 4px 4px 6px #bfbfbf, -2px -2px 4px #bfbfbf;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 300ms;
+        &:after {
+            content: "";
+            width: 10px;
+            height: 100px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: 300ms;
+        }
+        &:hover:after {
+            background: rgba(242, 57, 32, 0.8);
+            backdrop-filter: blur(10px);
+        }
     }
 }
 
@@ -652,6 +755,28 @@
             gap: 10px;
             border-bottom: solid 1px #ececec;
             border-top: solid 1px #ececec;
+            background: transparent;
+            transition: 300ms;
+            &:hover {
+                .item_img_div {
+                    .num {
+                        color: #f23920;
+                    }
+                }
+                .item_info_div {
+                    .place {
+                        color: #f23920;
+                    }
+                    .address {
+                        color: #f23920;
+                    }
+                    .to_url {
+                        .to_url_span {
+                            color: #f23920;
+                        }
+                    }
+                }
+            }
             .item_img_div {
                 width: 50px;
                 height: 100px;

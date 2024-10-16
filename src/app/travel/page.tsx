@@ -676,6 +676,7 @@ const Travel = () => {
                             <div key={index}>
                                 <div
                                     className="place_list_section"
+                                    onClick={() => setCenter({lat: Number(item.lat), lng: Number(item.lng)})}
                                 >
                                     {/*기본 (default), 숙박, 맛집, 관람, 레저, 쉼터, 쇼핑*/}
                                     <div className={"select_place_div " + item.place_name} onClick={() => changePlaceTypeTab(item.id, item.place_type)}>
