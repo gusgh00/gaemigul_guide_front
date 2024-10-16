@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from "@/app/_components/header";
 import Footer from "@/app/_components/footer";
-import AuthProvider from "@/lib/next-auth";
 import React, {Suspense} from "react";
 import Script from "next/script";
 
@@ -25,7 +24,6 @@ export default function RootLayout({
     const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`
 
   return (
-      <AuthProvider>
         <html lang="en">
         <body>
         <Script
@@ -39,6 +37,5 @@ export default function RootLayout({
         <Footer/>
         </body>
         </html>
-      </AuthProvider>
   )
 }

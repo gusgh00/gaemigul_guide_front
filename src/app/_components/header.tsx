@@ -1,20 +1,7 @@
 "use client"
-import Link from 'next/link';
-import { FaUserLarge } from "react-icons/fa6";
-import {useState} from "react";
-import SignUpSignIn from "@/app/_components/SignUpSignIn";
-import Image from "next/image";
-import {useSession} from "next-auth/react";
 import Navigation from "@/app/_components/Navigation";
 
 const Header = () => {
-    const [showSignModal, setShowSignModal] = useState<boolean>(false)
-    const setSignInSignUp = () => {
-        setShowSignModal(!showSignModal)
-    }
-
-    const { data: session } = useSession()
-
     return (
         <>
             <header id="header_pc">
@@ -24,14 +11,10 @@ const Header = () => {
                             <Navigation/>
                         </div>
                         <div className="header_sign_in_div">
-                            <FaUserLarge className="header_sign_in_button" onClick={setSignInSignUp} style={{
-                                cursor: "pointer"
-                            }}/>
                         </div>
                     </div>
                 </div>
             </header>
-            {showSignModal && <SignUpSignIn clickModal={setSignInSignUp}/>}
         </>
     );
 };
