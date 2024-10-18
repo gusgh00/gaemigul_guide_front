@@ -1,3 +1,166 @@
+.control_background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    backdrop-filter: blur(10px);
+    .control_section {
+        padding: 20px;
+        background: #fff;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .control_title {
+            width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & span {
+                font-size: 18px;
+            }
+        }
+        .control_region {
+            width: 600px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 20px;
+            .region_title {
+                width: 80px;
+                .title_span {
+                    font-size: 14px;
+                }
+            }
+            .region_content {
+                width: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .region {
+                    width: 120px;
+                    font-size: 14px;
+                }
+            }
+        }
+        .control_people {
+            width: 600px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 20px;
+            .people_title {
+                width: 80px;
+                .title_span {
+                    font-size: 14px;
+                }
+            }
+            .people_content {
+                width: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                gap: 20px;
+                .people_plus_btn {
+                    width: 20px;
+                    height: 20px;
+                    .people_plus_icon {
+                        width: 20px;
+                        height: 20px;
+                        color: #f23920;
+                        &.disabled {
+                            color: #909090;
+                        }
+                    }
+                }
+                .people_minus_btn {
+                    width: 20px;
+                    height: 20px;
+                    .people_minus_icon {
+                        width: 20px;
+                        height: 20px;
+                        color: #f23920;
+                        &.disabled {
+                            color: #909090;
+                        }
+                    }
+                }
+                & input[type="text"] {
+                    width: 30px;
+                }
+                .people {
+                    font-size: 14px;
+                }
+            }
+        }
+        .control_date {
+            width: 600px;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 20px;
+            .date_title {
+                width: 80px;
+                .title_span {
+                    font-size: 14px;
+                }
+            }
+            .date_content {
+                width: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .date_start {
+                    display: flex;
+                    flex-direction: column;
+                }
+                .date_end {
+                    display: flex;
+                    flex-direction: column;
+                }
+                .date_sub_title {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                    .date {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        .control_button {
+            width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .button_submit {
+                background: transparent;
+                border-radius: 30px;
+                box-shadow: 4px 4px 9px #dedede, -4px -4px 9px #ffffff;
+                border: solid 2px #f6f6f6;
+                font-size: 14px;
+                padding: 4px 30px;
+                transition: 300ms;
+                &:hover {
+                    background: #f23920;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
 .travel_top_banner {
     width: 100%;
     height: 50px;
@@ -20,6 +183,7 @@
         .banner_inner_button {
             display: flex;
             flex-direction: row;
+            gap: 10px;
         }
         .banner_button_clear {
             width: 100px;
@@ -39,8 +203,8 @@
             }
         }
         .banner_button_save {
-            width: 100px;
             height: 32px;
+            padding: 0 20px;
             border-radius: 18px;
             text-align: center;
             background: transparent;

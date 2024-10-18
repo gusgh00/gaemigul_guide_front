@@ -3,35 +3,123 @@ import Link from 'next/link';
 import React, {forwardRef, useEffect, useState} from "react";
 import DatePicker from "react-datepicker";
 import {MdOutlineDateRange} from "react-icons/md";
+import axios from "axios";
+import {addDays} from "date-fns";
 require('react-datepicker/dist/react-datepicker.css')
 
 export default function Home() {
+  interface regionListInterface {
+    y_coor: string,
+    full_addr: string,
+    x_coor: string,
+    addr_name: string,
+    region_name: string,
+    cd: string
+  }
+
   const selectList = ["서울", "부산", "제주도", "대구", "광주", "대전"];
+  const [regionTopList, setRegionTopList] = useState<regionListInterface[]>([{
+    addr_name: "서울특별시",
+    region_name: "서울",
+    cd: "11",
+    full_addr: "서울특별시",
+    x_coor: "953932",
+    y_coor: "1952053"
+  }])
+  const [regionTop, setRegionTop] = useState<regionListInterface>({
+    addr_name: "서울특별시",
+    region_name: "서울",
+    cd: "11",
+    full_addr: "서울특별시",
+    x_coor: "953932",
+    y_coor: "1952053"
+  })
+
   const [startSelected, setStartSelected] = useState("");
-  const [endSelected, setEndSelected] = useState("");
+  const [endSelected, setEndSelected] = useState("서울");
 
   const [startDate, setStartDate] = useState<Date | null | undefined>(new Date());
   const [endDate, setEndDate] = useState<Date | null | undefined>(new Date());
   const [maxDate, setMaxDate] = useState<Date | null | undefined>(new Date());
-  const handleChangeStartSelect = (e: React.ChangeEvent<any>) => {
-    setStartSelected(e.target.value);
-  }
 
   const handleChangeEndSelect = (e: React.ChangeEvent<any>) => {
     setEndSelected(e.target.value);
   }
 
-  useEffect(() => {
-    const temp: Date = startDate ? new Date(startDate) : new Date()
-    setEndDate(temp)
-    setMaxDate(temp)
-  }, [startDate]);
+  const handleChangeDate = (date: Date) => {
+    setStartDate(date)
+    setEndDate(date)
+  }
+
+  const getAccessKey = async () => {
+    const url = process.env.NEXT_PUBLIC_SGIS_ACCESS_URL as string
+    const serviceId = process.env.NEXT_PUBLIC_SGIS_SERVICE_ID as string
+    const securityKey = process.env.NEXT_PUBLIC_SGIS_SECURITY_KEY as string
+    let accessToken: string = ""
+    await axios.get(url, {
+      params: {
+        consumer_key: serviceId,
+        consumer_secret: securityKey
+      }
+    })
+        .then(response => {
+          if (response.data.errCd === 0) {
+            accessToken = response.data.result.accessToken
+          }
+        })
+    return accessToken
+  }
+
+  const replaceRegionName = (name: string) => {
+    if (name.includes("특별")) {
+      return name.split("특별")[0]
+    }
+    else if (name.includes("광역")) {
+      return name.split("광역")[0]
+    }
+    else if (name.includes("남도") || name.includes("북도")) {
+      let tempArray = Array.from(name)
+      return tempArray[0] + tempArray[2]
+    }
+    else {
+      return name.split("도")[0]
+    }
+  }
+
+  const getRegionTop = async () => {
+    const url = process.env.NEXT_PUBLIC_SGIS_URL as string
+    const accessToken = await getAccessKey()
+    await axios.get(url, {
+      params: {
+        accessToken: accessToken
+      }
+    })
+        .then(response => {
+          if (response.data.errCd === 0) {
+            let data = response.data.result
+            let resultData: regionListInterface[] = []
+            for (let i = 0; i < data.length; i++) {
+              resultData.push({
+                y_coor: data[i].y_coor,
+                full_addr: data[i].full_addr,
+                x_coor: data[i].x_coor,
+                addr_name: data[i].addr_name,
+                region_name: replaceRegionName(data[i].addr_name),
+                cd: data[i].cd
+              })
+            }
+            setRegionTopList(resultData)
+          }
+        })
+  }
 
   useEffect(() => {
-    const max = maxDate
-    max?.setDate(max?.getDate() + 4)
-    setMaxDate(max)
-  }, [maxDate]);
+    getRegionTop().then()
+  }, [])
+
+  useEffect(() => {
+    setRegionTop(regionTopList.filter(item => item.region_name === endSelected)[0])
+  }, [endSelected]);
 
   return (
       <div id="main_content">
@@ -55,9 +143,9 @@ export default function Home() {
                   <span className="scoredream-700 default_text ticket_place_from">개미굴</span>
 
                   <select className="scoredream-700 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
-                    {selectList.map((item) => (
-                        <option value={item} key={item}>
-                          {item}
+                    {regionTopList.map((item, index) => (
+                        <option value={item.region_name} key={index}>
+                          {item.region_name}
                         </option>
                     ))}
                   </select>
@@ -70,7 +158,7 @@ export default function Home() {
                       dateFormat="yyyy년 MM월 dd일"
                       id="start_date_picker"
                       selected={startDate}
-                      onChange={(date: Date | null) => date && setStartDate(date)}
+                      onChange={(date: Date | null) => date && handleChangeDate(date)}
                       minDate={new Date()}
                       className="scoredream-700 default_text ticket_date_text datepicker"
                       icon={
@@ -88,7 +176,7 @@ export default function Home() {
                       selected={endDate}
                       onChange={(date: Date | null) => date && setEndDate(date)}
                       minDate={startDate ? startDate : new Date(new Date().setDate(new Date().getDate() + 4))}
-                      maxDate={maxDate ? maxDate : new Date()}
+                      maxDate={addDays(startDate ? startDate : new Date(), 4)}
                       className="scoredream-700 default_text ticket_date_text datepicker"
                       icon={
                         <MdOutlineDateRange className="date_icon"/>
@@ -97,7 +185,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="ticket_button">
-                <Link href="/travel"></Link>
+                <Link href={{
+                  pathname: "/travel",
+                  query: {
+                    region: JSON.stringify(regionTop),
+                    start: startDate && new Date(startDate).toISOString(),
+                    end: endDate && new Date(endDate).toISOString()
+                  }}}></Link>
               </div>
               <div className="ticket_bottom">
                 <div className="ticket_front">

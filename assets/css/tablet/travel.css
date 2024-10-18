@@ -1,4 +1,104 @@
 @media screen and (max-width: 1300px) {
+    .control_background {
+        .control_section {
+            padding: calc(100vw * (20 / 1300));
+            border-radius: calc(100vw * (20 / 1300));
+            gap: calc(100vw * (20 / 1300));
+            .control_title {
+                width: calc(100vw * (600 / 1300));
+                & span {
+                    font-size: calc(100vw * (18 / 1300));
+                }
+            }
+            .control_region {
+                width: calc(100vw * (600 / 1300));
+                height: calc(100vw * (40 / 1300));
+                gap: calc(100vw * (20 / 1300));
+                .region_title {
+                    width: calc(100vw * (80 / 1300));
+                    .title_span {
+                        font-size: calc(100vw * (14 / 1300));
+                    }
+                }
+                .region_content {
+                    width: calc(100vw * (500 / 1300));
+                    .region {
+                        width: calc(100vw * (120 / 1300));
+                        font-size: calc(100vw * (14 / 1300));
+                    }
+                }
+            }
+            .control_people {
+                width: calc(100vw * (600 / 1300));
+                height: calc(100vw * (40 / 1300));
+                gap: calc(100vw * (20 / 1300));
+                .people_title {
+                    width: calc(100vw * (80 / 1300));
+                    .title_span {
+                        font-size: calc(100vw * (14 / 1300));
+                    }
+                }
+                .people_content {
+                    width: calc(100vw * (500 / 1300));
+                    gap: calc(100vw * (20 / 1300));
+                    .people_plus_btn {
+                        width: calc(100vw * (20 / 1300));
+                        height: calc(100vw * (20 / 1300));
+                        .people_plus_icon {
+                            width: calc(100vw * (20 / 1300));
+                            height: calc(100vw * (20 / 1300));
+                        }
+                    }
+                    .people_minus_btn {
+                        width: calc(100vw * (20 / 1300));
+                        height: calc(100vw * (20 / 1300));
+                        .people_minus_icon {
+                            width: calc(100vw * (20 / 1300));
+                            height: calc(100vw * (20 / 1300));
+                        }
+                    }
+                    & input[type="text"] {
+                        width: calc(100vw * (30 / 1300));
+                    }
+                    .people {
+                        font-size: calc(100vw * (14 / 1300));
+                    }
+                }
+            }
+            .control_date {
+                width: calc(100vw * (600 / 1300));
+                gap: calc(100vw * (20 / 1300));
+                .date_title {
+                    width: calc(100vw * (80 / 1300));
+                    .title_span {
+                        font-size: calc(100vw * (14 / 1300));
+                    }
+                }
+                .date_content {
+                    width: calc(100vw * (500 / 1300));
+                    .date_sub_title {
+                        gap: calc(100vw * (10 / 1300));
+                        font-size: calc(100vw * (14 / 1300));
+                        margin-bottom: calc(100vw * (10 / 1300));
+                        .date {
+                            font-size: calc(100vw * (14 / 1300));
+                        }
+                    }
+                }
+            }
+            .control_button {
+                width: calc(100vw * (600 / 1300));
+                .button_submit {
+                    border-radius: calc(100vw * (30 / 1300));
+                    box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #dedede, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
+                    border: solid calc(100vw * (2 / 1300)) #f6f6f6;
+                    font-size: calc(100vw * (14 / 1300));
+                    padding: calc(100vw * (4 / 1300)) calc(100vw * (30 / 1300));
+                }
+            }
+        }
+    }
+    
     .travel_top_banner {
         height: calc(100vw * (50 / 1300));
         box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
@@ -10,21 +110,24 @@
                     font-size: calc(100vw * (14 / 1300));
                 }
             }
-            .banner_button_clear {
-                width: calc(100vw * (100 / 1300));
-                height: calc(100vw * (32 / 1300));
-                border-radius: calc(100vw * (18 / 1300));
-                box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,
-                calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
-                margin-right: calc(100vw * (14 / 1300));
-                & span {
-                    font-size: calc(100vw * (12 / 1300));
-                    line-height: calc(100vw * (32 / 1300));
-                }
+            .banner_inner_button {
+                gap: calc(100vw * (10 / 1300));
             }
+            /*.banner_button_clear {*/
+            /*    width: calc(100vw * (100 / 1300));*/
+            /*    height: calc(100vw * (32 / 1300));*/
+            /*    border-radius: calc(100vw * (18 / 1300));*/
+            /*    box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,*/
+            /*    calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;*/
+            /*    margin-right: calc(100vw * (14 / 1300));*/
+            /*    & span {*/
+            /*        font-size: calc(100vw * (12 / 1300));*/
+            /*        line-height: calc(100vw * (32 / 1300));*/
+            /*    }*/
+            /*}*/
             .banner_button_save {
-                width: calc(100vw * (100 / 1300));
                 height: calc(100vw * (32 / 1300));
+                padding: 0 calc(100vw * (20 / 1300));
                 border-radius: calc(100vw * (18 / 1300));
                 box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #dbdbdb,
                 calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
