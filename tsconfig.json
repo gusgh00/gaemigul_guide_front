@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,11 +25,9 @@
       "@/*": ["./src/*"],
       "@images/*": ["./assets/images/*"],
       "@css/*": ["./assets/css/*"],
-      "@fonts/*": ["./assets/fonts/*"],
+      "@fonts/*": ["./assets/fonts/*"]
     },
-    "types": [
-      "kakao.maps.d.ts"
-    ]
+    "typeRoots": ["./node_modules/@types", "./@types"],
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

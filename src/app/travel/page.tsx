@@ -1,6 +1,6 @@
 'use client'
 import {Map, MapMarker, Polyline} from "react-kakao-maps-sdk";
-import React, {useEffect, useRef, useState} from "react";
+import React, {Suspense, useEffect, useRef, useState} from "react";
 import {
     DragDropContext,
     Draggable, DraggableProvided, DraggableStateSnapshot,
@@ -13,8 +13,8 @@ import { RxDragHandleHorizontal } from "react-icons/rx";
 import {
     FaArrowRight,
     FaBed, FaBicycle,
-    FaCar,
-    FaPlus,
+    FaCar, FaMinusCircle,
+    FaPlus, FaPlusCircle,
     FaQuestion,
     FaSearch,
     FaShoppingCart,
@@ -36,11 +36,19 @@ import {FaBus, FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import Link from "next/link";
 import axios from "axios";
 import {UseFloatingOptions} from "@floating-ui/react";
+import ControlTravel from "@/app/_components/ControlTravel";
 require('react-datepicker/dist/react-datepicker.css')
 
 const Travel = () => {
     type OptionsWithoutMiddleware = Omit<UseFloatingOptions, 'middleware'>;
     const options: OptionsWithoutMiddleware = {strategy: "fixed"} as OptionsWithoutMiddleware
+
+    interface dateListInterface {
+        date: string,
+        destination: string,
+        people: number,
+        place_list: placeListInterface[],
+    }
     interface placeListInterface {
         id: number,
         place: string,
@@ -115,6 +123,21 @@ const Travel = () => {
             end_time: new Date(new Date().setHours(0,0)),
             path: [],
             path_color: "#3c3c3c",
+        },
+    ];
+
+    const initialDateLists: dateListInterface[] = [
+        {
+            date: "2024년 01월 01일",
+            destination: "서울특별시",
+            people: 1,
+            place_list: initialPlaceLists,
+        },
+        {
+            date: "2024년 01월 05일",
+            destination: "서울특별시",
+            people: 1,
+            place_list: initialPlaceLists,
         },
     ];
 
@@ -193,15 +216,18 @@ const Travel = () => {
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
 
+    const [isHideControl, setHideControl] = useState(false)
+
     const [isHideList, setHideList] = useState(false)
     const [isListReady, setListReady] = useState(false)
+    const [dateList, setDateList] = useState<dateListInterface[]>(initialDateLists);
     const [placeList, setPlaceList] = useState<placeListInterface[]>(initialPlaceLists);
 
     const tabList = ['경유지 탐색', '경유지 상세', '최종 계획']
     const [isTab, setTab] = useState(0)
 
-    const dateList = ["2024년 10월 12일", "2024년 10월 13일", "2024년 10월 14일", "2024년 10월 15일"]
-    const [dateSelected, setDateSelected] = useState("2024년 10월 12일")
+    // const dateList = ["2024년 10월 12일", "2024년 10월 13일", "2024년 10월 14일", "2024년 10월 15일"]
+    const [dateSelected, setDateSelected] = useState<string>("")
 
     const [searchValue, setSearchValue] = useState("")
     const [searchList, setSearchList] = useState<searchListInterface[]>();
@@ -844,26 +870,48 @@ const Travel = () => {
     }
 
     const handleChangeDateSelect= (e: React.ChangeEvent<any>) => {
+        setDateList(dateList.map(item => {
+            if (item.date === dateSelected) {
+                return { ...item, place_list: placeList }
+            } else {
+                return item
+            }
+        }))
         setDateSelected(e.target.value);
+        let tempDateList = dateList.filter(item => item.date === e.target.value)[0]
+        setPlaceList(tempDateList.place_list)
+        setCenter({lat: Number(tempDateList.place_list[0].lat), lng: Number(tempDateList.place_list[0].lng)})
+    }
+
+    const updateControlTravel = (dateList: dateListInterface[]) => {
+        setHideControl(true)
+        setDateList(dateList)
+        setDateSelected(dateList[0].date)
+        setPlaceList(dateList[0].place_list)
+        setCenter({lat: Number(dateList[0].place_list[0].lat), lng: Number(dateList[0].place_list[0].lng)})
     }
 
     return (
         <>
             <div>
+                {!isHideControl ?
+                    <Suspense>
+                        <ControlTravel setControlTravel={updateControlTravel}/>
+                    </Suspense>
+                    : null}
                 <div className="travel_top_banner">
                     <div className="banner_inner main_inner">
                         <div className="banner_inner_info">
-                            <span className="scoredream-500 default_text">날짜 : <span className="scoredream-500 grey_text">2024월 10월 12일 ~ 2024년 10월 15일</span></span>
-                            <span className="scoredream-500 default_text">대표지역 : <span className="scoredream-500 grey_text">제주도</span></span>
-                            <span className="scoredream-500 default_text">인원 : <span className="scoredream-500 grey_text">3명</span></span>
+                            <span className="scoredream-500 default_text">날짜 : <span className="scoredream-500 grey_text">{dateList && dateList[0].date + " ~ " + dateList[dateList.length - 1].date}</span></span>
+                            <span className="scoredream-500 default_text">대표지역 : <span className="scoredream-500 grey_text">{dateList && dateList[0].destination}</span></span>
+                            <span className="scoredream-500 default_text">인원 : <span className="scoredream-500 grey_text">{dateList && dateList[0].people}명</span></span>
                         </div>
                         <div className="banner_inner_button">
-                            {/*<div className="banner_button_clear">*/}
-                            {/*    <span className="scoredream-700 white_text">처음부터</span>*/}
-                            {/*</div>*/}
                             <div className="banner_button_save">
-                                {/*임시*/}
-                                <span className="scoredream-700 white_text">저장하기</span>
+                                <span className="scoredream-700 white_text">게시하기</span>
+                            </div>
+                            <div className="banner_button_save">
+                                <span className="scoredream-700 white_text">엑셀로 저장하기</span>
                             </div>
                         </div>
                     </div>
@@ -874,9 +922,9 @@ const Travel = () => {
                             <div className="travel_list_box_menu">
                                 <div className="travel_list_box_menu_top">
                                     <select className="scoredream-500 grey_text select_date" onChange={(event) => handleChangeDateSelect(event)} value={dateSelected}>
-                                        {dateList.map((item) => (
-                                            <option value={item} key={item}>
-                                                {item}
+                                        {dateList.map((item, index) => (
+                                            <option value={item.date} key={index}>
+                                                {item.date}
                                             </option>
                                         ))}
                                     </select>
