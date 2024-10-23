@@ -1,11 +1,12 @@
 "use client"
 import Link from 'next/link';
 import React, {forwardRef, useEffect, useState} from "react";
-import DatePicker from "react-datepicker";
 import {MdOutlineDateRange} from "react-icons/md";
 import axios from "axios";
 import {addDays} from "date-fns";
-require('react-datepicker/dist/react-datepicker.css')
+import dayjs from "dayjs";
+import DatePicker from "@/app/_components/GMGDatePicker";
+require('dayjs')
 
 export default function Home() {
   interface regionListInterface {
@@ -46,8 +47,12 @@ export default function Home() {
     setEndSelected(e.target.value);
   }
 
-  const handleChangeDate = (date: Date) => {
+  const handleChangeStartDate = (date: Date) => {
     setStartDate(date)
+    setEndDate(date)
+  }
+
+  const handleChangeEndDate = (date: Date) => {
     setEndDate(date)
   }
 
@@ -133,14 +138,7 @@ export default function Home() {
             <div className="introduce_ticket">
               <div className="ticket_top">
                 <div className="ticket_place">
-                  {/*<select className="scoredream-700 default_text ticket_place_from" onChange={(event) => handleChangeStartSelect(event)} value={startSelected}>*/}
-                  {/*  {selectList.map((item) => (*/}
-                  {/*      <option value={item} key={item}>*/}
-                  {/*        {item}*/}
-                  {/*      </option>*/}
-                  {/*  ))}*/}
-                  {/*</select>*/}
-                  <span className="scoredream-700 default_text ticket_place_from">개미굴</span>
+                  <span className="scoredream-700 default_text ticket_place_from">개미국</span>
 
                   <select className="scoredream-700 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
                     {regionTopList.map((item, index) => (
@@ -150,39 +148,25 @@ export default function Home() {
                     ))}
                   </select>
                 </div>
-                <div className="ticket_start">
-                  {/*<span className="scoredream-700 default_text no_select">{startDate && startDate?.getFullYear()}년 {startDate && startDate?.getMonth() + 1}월 {startDate && startDate?.getDate()}일</span>*/}
-                  <DatePicker
-                      showIcon
-                      toggleCalendarOnIconClick
-                      dateFormat="yyyy년 MM월 dd일"
-                      id="start_date_picker"
-                      selected={startDate}
-                      onChange={(date: Date | null) => date && handleChangeDate(date)}
-                      minDate={new Date()}
-                      className="scoredream-700 default_text ticket_date_text datepicker"
-                      icon={
-                        <MdOutlineDateRange className="date_icon"/>
-                      }
-                  />
-                </div>
-                <div className="ticket_end">
-                  {/*<span className="scoredream-700 default_text no_select">{endDate && endDate?.getFullYear()}년 {endDate && endDate?.getMonth() + 1}월 {endDate && endDate?.getDate()}일</span>*/}
-                  <DatePicker
-                      showIcon
-                      toggleCalendarOnIconClick
-                      dateFormat="yyyy년 MM월 dd일"
-                      id="end_date_picker"
-                      selected={endDate}
-                      onChange={(date: Date | null) => date && setEndDate(date)}
-                      minDate={startDate ? startDate : new Date(new Date().setDate(new Date().getDate() + 4))}
-                      maxDate={addDays(startDate ? startDate : new Date(), 4)}
-                      className="scoredream-700 default_text ticket_date_text datepicker"
-                      icon={
-                        <MdOutlineDateRange className="date_icon"/>
-                      }
-                  />
-                </div>
+                <DatePicker
+                    inline={false}
+                    onChange={(date: Date) => date && handleChangeStartDate(date)}
+                    minDate={new Date()}
+                    selectDate={startDate ? startDate : new Date()}
+                    boxClassName="ticket_start"
+                    inputClassName="scoredream-700 default_text ticket_date_text datepicker"
+                    iconClassName="date_icon"
+                />
+                <DatePicker
+                    inline={false}
+                    onChange={(date: Date) => date && handleChangeEndDate(date)}
+                    minDate={startDate ? startDate : new Date(new Date().setDate(new Date().getDate() + 4))}
+                    maxDate={addDays(startDate ? startDate : new Date(), 4)}
+                    selectDate={endDate ? endDate : new Date()}
+                    boxClassName="ticket_end"
+                    inputClassName="scoredream-700 default_text ticket_date_text datepicker"
+                    iconClassName="date_icon"
+                />
               </div>
               <div className="ticket_button">
                 <Link href={{

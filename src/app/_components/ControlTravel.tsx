@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {FaMinusCircle, FaPlusCircle, FaQuestion} from "react-icons/fa";
 import {MdPlace} from "react-icons/md";
-import DatePicker from "react-datepicker";
 import {addDays} from "date-fns";
 import dayjs from "dayjs";
 import proj4 from "proj4";
 import { useSearchParams } from 'next/navigation'
+import DatePicker from "@/app/_components/GMGDatePicker";
 
 const ControlTravel = (props: any) => {
     interface placeListPath {
@@ -342,14 +342,10 @@ const ControlTravel = (props: any) => {
                                     <span className="scoredream-700 default_text date">{dayjs(startDate).format("YYYY년 MM월 DD일")}</span>
                                 </span>
                                 <DatePicker
-                                    showIcon
-                                    toggleCalendarOnIconClick
-                                    dateFormat="yyyy년 MM월 dd일"
-                                    id="start_date_picker"
-                                    selected={startDate}
+                                    inline={true}
+                                    onChange={(date: Date) => date && handleChangeDate(date)}
                                     minDate={new Date()}
-                                    onChange={(date: Date | null) => date && handleChangeDate(date)}
-                                    inline
+                                    selectDate={startDate ? startDate : new Date()}
                                 />
                             </div>
                             <div className="date_end">
@@ -358,15 +354,11 @@ const ControlTravel = (props: any) => {
                                     <span className="scoredream-700 default_text date">{dayjs(endDate).format("YYYY년 MM월 DD일")}</span>
                                 </span>
                                 <DatePicker
-                                    showIcon
-                                    toggleCalendarOnIconClick
-                                    dateFormat="yyyy년 MM월 dd일"
-                                    id="start_date_picker"
-                                    selected={endDate}
+                                    inline={true}
+                                    onChange={(date: Date) => date && setEndDate(date)}
                                     minDate={startDate ? startDate : new Date(new Date().setDate(new Date().getDate() + 4))}
-                                    maxDate={addDays(startDate, 4)}
-                                    onChange={(date: Date | null) => date && setEndDate(date)}
-                                    inline
+                                    maxDate={addDays(startDate ? startDate : new Date(), 4)}
+                                    selectDate={endDate ? endDate : new Date()}
                                 />
                             </div>
                         </div>

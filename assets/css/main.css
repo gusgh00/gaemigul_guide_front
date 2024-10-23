@@ -14,6 +14,34 @@
     font-family: 'S-CoreDream-900', 'serif';
 }
 
+.gaemigul_guide {
+    color: #f23920;
+}
+
+.default_text {
+    color: #3c3c3c;
+}
+
+.grey_text {
+    color: #909090;
+}
+
+.light_grey_text {
+    color: #d8d8d8;
+}
+
+.white_text {
+    color: #fff;
+}
+
+.cursor_pointer {
+    cursor: pointer;
+}
+
+.cursor_not_allowed {
+    cursor: not-allowed;
+}
+
 #main_content {
     padding-top: 64px;
 }
@@ -21,4 +49,84 @@
 .main_inner {
     width: 1260px;
     margin: auto;
+}
+
+.gmg_date_picker_section {
+    position: relative;
+    .gmg_calendar {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 999;
+    }
+}
+
+.gmg_calendar {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    border: solid 1px #f23920;
+    .gmg_calendar_control {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 220px;
+        height: 20px;
+        margin-bottom: 10px;
+        .control_prev_btn {
+            width: 20px;
+            height: 20px;
+            .control_prev_icon {
+                width: 20px;
+                height: 20px;
+                color: #3c3c3c;
+            }
+        }
+        .control_date_div {
+            width: 120px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .control_date_text {
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+        .control_next_btn {
+            width: 20px;
+            height: 20px;
+            .control_next_icon {
+                width: 20px;
+                height: 20px;
+                color: #3c3c3c;
+            }
+        }
+    }
+    .gmg_calendar_days_section {
+        display: grid;
+        width: 220px;
+        grid-template-columns: repeat(7, 1fr);
+        .days {
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    .gmg_calendar_date_section {
+        display: grid;
+        width: 220px;
+        grid-template-columns: repeat(7, 1fr);
+        .date {
+            line-height: 30px;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 30px;
+            background: transparent;
+            transition: 300ms;
+            &.active_date {
+                color: #fff;
+                background: #f23920;
+            }
+        }
+    }
 }
