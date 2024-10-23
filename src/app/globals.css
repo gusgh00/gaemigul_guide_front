@@ -64,22 +64,6 @@ button:focus {
     outline:none;
 }
 
-.gaemigul_guide {
-    color: rgb(242, 57, 32)
-}
-
-.default_text {
-    color: #3c3c3c
-}
-
-.grey_text {
-    color: #909090
-}
-
-.white_text {
-    color: #fff
-}
-
 .no_select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
