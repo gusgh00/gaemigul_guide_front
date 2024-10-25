@@ -55,4 +55,39 @@
             }
         }
     }
+
+    .gmg_timer {
+        padding: calc(100vw * (10 / 1300)) 0;
+        border-radius: calc(100vw * (10 / 1300));
+        border: solid calc(100vw * (1 / 1300)) #f23920;
+        .gmg_timer_control {
+            width: calc(100vw * (100 / 1300));
+            height: calc(100vw * (40 / 1300));
+            .control_submit_btn {
+                width: calc(100vw * (80 / 1300));
+                height: calc(100vw * (30 / 1300));
+                font-size: calc(100vw * (14 / 1300));
+                border-radius: calc(100vw * (20 / 1300));
+                box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #dedede, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+                border: solid calc(100vw * (2 / 1300)) #f6f6f6;
+            }
+        }
+        .gmg_timer_time_section {
+            width: calc(100vw * (100 / 1300));
+            height: calc(100vw * (200 / 1300));
+            .gmg_timer_hour_section {
+                border-right: solid calc(100vw * (1 / 1300)) #f6f6f6;
+            }
+            .gmg_timer_hour_section,
+            .gmg_timer_min_section {
+                width: calc(100vw * (50 / 1300));
+                height: calc(100vw * (200 / 1300));
+                border-top: solid calc(100vw * (1 / 1300)) #f6f6f6;
+                border-bottom: solid calc(100vw * (1 / 1300)) #f6f6f6;
+                .times {
+                    font-size: calc(100vw * (16 / 1300));
+                }
+            }
+        }
+    }
 }
