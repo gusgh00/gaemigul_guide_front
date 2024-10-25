@@ -5,7 +5,7 @@ import {MdOutlineDateRange} from "react-icons/md";
 import axios from "axios";
 import {addDays} from "date-fns";
 import dayjs from "dayjs";
-import DatePicker from "@/app/_components/GMGDatePicker";
+import DatePicker from "@/app/_components/travel/GMGDatePicker";
 require('dayjs')
 
 export default function Home() {
@@ -126,6 +126,15 @@ export default function Home() {
     setRegionTop(regionTopList.filter(item => item.region_name === endSelected)[0])
   }, [endSelected]);
 
+  useEffect(() => {
+    let travelParams = {
+      region: regionTop,
+      start: startDate && new Date(startDate).toISOString(),
+      end: endDate && new Date(endDate).toISOString()
+    }
+    localStorage.setItem("travel", JSON.stringify(travelParams))
+  }, [regionTop, startDate, endDate]);
+
   return (
       <div id="main_content">
         <div className="main_page_section main_introduce main_inner">
@@ -169,13 +178,7 @@ export default function Home() {
                 />
               </div>
               <div className="ticket_button">
-                <Link href={{
-                  pathname: "/travel",
-                  query: {
-                    region: JSON.stringify(regionTop),
-                    start: startDate && new Date(startDate).toISOString(),
-                    end: endDate && new Date(endDate).toISOString()
-                  }}}></Link>
+                <Link href="/travel"></Link>
               </div>
               <div className="ticket_bottom">
                 <div className="ticket_front">

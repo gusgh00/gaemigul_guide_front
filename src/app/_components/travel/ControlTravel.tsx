@@ -5,8 +5,7 @@ import {MdPlace} from "react-icons/md";
 import {addDays} from "date-fns";
 import dayjs from "dayjs";
 import proj4 from "proj4";
-import { useSearchParams } from 'next/navigation'
-import DatePicker from "@/app/_components/GMGDatePicker";
+import DatePicker from "@/app/_components/travel/GMGDatePicker";
 
 const ControlTravel = (props: any) => {
     interface placeListPath {
@@ -53,8 +52,6 @@ const ControlTravel = (props: any) => {
     }
     // const [dateList, setDateList] = useState<dateListInterface[]>([]);
     // const [placeList, setPlaceList] = useState<placeListInterface[]>([]);
-
-    const searchParams = useSearchParams()
 
     const [regionTopList, setRegionTopList] = useState<regionListInterface[]>([{
         y_coor: "",
@@ -270,16 +267,17 @@ const ControlTravel = (props: any) => {
     }
 
     useEffect(() => {
-        let tempRegion = JSON.parse(searchParams.get('region') as string)
-        let tempStart = new Date(searchParams.get('start') as string)
-        let tempEnd = new Date(searchParams.get('end') as string)
+        let travelParams = JSON.parse(localStorage.getItem("travel") as string)
+        let tempRegion = travelParams.region
+        let tempStart = new Date(travelParams.start as string)
+        let tempEnd = new Date(travelParams.end as string)
 
         setRegionTop(tempRegion.addr_name)
         setStartDate(tempStart)
         setEndDate(tempEnd)
 
         getRegionMiddle(tempRegion).then()
-    }, [searchParams]);
+    }, []);
 
     return (
         <>

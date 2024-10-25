@@ -61,6 +61,16 @@
     }
 }
 
+.gmg_time_picker_section {
+    position: relative;
+    .gmg_timer {
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: 999;
+    }
+}
+
 .gmg_calendar {
     padding: 10px;
     background: #fff;
@@ -126,6 +136,66 @@
             &.active_date {
                 color: #fff;
                 background: #f23920;
+            }
+        }
+    }
+}
+
+.gmg_timer {
+    padding: 10px 0;
+    background: #fff;
+    border-radius: 10px;
+    border: solid 1px #f23920;
+    .gmg_timer_control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 40px;
+        .control_submit_btn {
+            background: transparent;
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            font-size: 14px;
+            transition: 300ms;
+            border-radius: 20px;
+            box-shadow: 2px 2px 4px #dedede, -2px -2px 4px #ffffff;
+            border: solid 2px #f6f6f6;
+            &:hover {
+                background: #f23920;
+                color: #fff;
+            }
+        }
+    }
+    .gmg_timer_time_section {
+        display: flex;
+        width: 100px;
+        height: 200px;
+        .gmg_timer_hour_section {
+            border-right: solid 1px #f6f6f6;
+        }
+        .gmg_timer_hour_section,
+        .gmg_timer_min_section {
+            width: 50px;
+            height: 200px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            border-top: solid 1px #f6f6f6;
+            border-bottom: solid 1px #f6f6f6;
+            .times {
+                font-size: 16px;
+                text-align: center;
+                background: transparent;
+                transition: 300ms;
+                &.active_date {
+                    color: #fff;
+                    background: #f23920;
+                }
+                &:hover {
+                    color: #f23920;
+                }
             }
         }
     }
