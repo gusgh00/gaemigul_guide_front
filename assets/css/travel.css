@@ -437,8 +437,7 @@
             }
             .all_road_section {
                 width: 100%;
-                height: auto;
-                max-height: calc(100vh - 210px);
+                height: calc(100vh - 210px);
                 padding: 20px;
                 overflow-y: auto;
                 .place_control_section {
