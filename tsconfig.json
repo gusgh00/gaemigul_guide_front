@@ -25,7 +25,9 @@
       "@/*": ["./src/*"],
       "@images/*": ["./assets/images/*"],
       "@css/*": ["./assets/css/*"],
-      "@fonts/*": ["./assets/fonts/*"]
+      "@fonts/*": ["./assets/fonts/*"],
+      "@module/*": ["./src/module/*"],
+      "@interface/*": ["./src/interface/*"]
     },
     "typeRoots": ["./node_modules/@types", "./@types"],
   },

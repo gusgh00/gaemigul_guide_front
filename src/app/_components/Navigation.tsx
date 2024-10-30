@@ -10,17 +10,17 @@ const Navigation = () => {
                 <Link href="/">
                     <Image src={GaemigulGuideMain} alt="개미굴 가이드 메인" className="header_logo" width={2560} height={740}/>
                 </Link>
-                <Link href="/travel">
+                <Link href={"/travel"}>
                     <div>
                         <span className={usePathname() === "/travel" ? "scoredream-700 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>여행 계획하기</span>
                     </div>
                 </Link>
-                <Link href="/mytrip">
+                <Link href={"/mytrip"}>
                     <div>
                         <span className={usePathname() === "/mytrip" ? "scoredream-700 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>나의 여행 계획</span>
                     </div>
                 </Link>
-                <Link href="/board">
+                <Link href={"/board"}>
                     <div>
                         <span className={usePathname() === "/board" ? "scoredream-700 navigation_text navigation_text_selected" : "scoredream-500 navigation_text"}>모두의 여행 계획</span>
                     </div>

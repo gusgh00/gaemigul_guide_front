@@ -57,12 +57,12 @@
     }
 
     .gmg_timer {
-        padding: calc(100vw * (10 / 1300)) 0;
+        padding: calc(100vw * (10 / 1300)) 0 0;
         border-radius: calc(100vw * (10 / 1300));
         border: solid calc(100vw * (1 / 1300)) #f23920;
         .gmg_timer_control {
             width: calc(100vw * (100 / 1300));
-            height: calc(100vw * (40 / 1300));
+            height: calc(100vw * (50 / 1300));
             .control_submit_btn {
                 width: calc(100vw * (80 / 1300));
                 height: calc(100vw * (30 / 1300));

@@ -1,47 +1,20 @@
 "use client"
 import Link from 'next/link';
-import React, {forwardRef, useEffect, useState} from "react";
-import {MdOutlineDateRange} from "react-icons/md";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {addDays} from "date-fns";
-import dayjs from "dayjs";
 import DatePicker from "@/app/_components/travel/GMGDatePicker";
+import {regionListInterface} from "@interface/TravelInterface";
+import {getAccessKey, replaceRegionName} from "@module/TravelModule";
+import {dummyRegionSeoulData} from '@module/DataArrayModule'
 require('dayjs')
 
 export default function Home() {
-  interface regionListInterface {
-    y_coor: string,
-    full_addr: string,
-    x_coor: string,
-    addr_name: string,
-    region_name: string,
-    cd: string
-  }
-
-  const selectList = ["서울", "부산", "제주도", "대구", "광주", "대전"];
-  const [regionTopList, setRegionTopList] = useState<regionListInterface[]>([{
-    addr_name: "서울특별시",
-    region_name: "서울",
-    cd: "11",
-    full_addr: "서울특별시",
-    x_coor: "953932",
-    y_coor: "1952053"
-  }])
-  const [regionTop, setRegionTop] = useState<regionListInterface>({
-    addr_name: "서울특별시",
-    region_name: "서울",
-    cd: "11",
-    full_addr: "서울특별시",
-    x_coor: "953932",
-    y_coor: "1952053"
-  })
-
-  const [startSelected, setStartSelected] = useState("");
+  const [regionTopList, setRegionTopList] = useState<regionListInterface[]>([dummyRegionSeoulData])
+  const [regionTop, setRegionTop] = useState<regionListInterface>(dummyRegionSeoulData)
   const [endSelected, setEndSelected] = useState("서울");
-
   const [startDate, setStartDate] = useState<Date | null | undefined>(new Date());
   const [endDate, setEndDate] = useState<Date | null | undefined>(new Date());
-  const [maxDate, setMaxDate] = useState<Date | null | undefined>(new Date());
 
   const handleChangeEndSelect = (e: React.ChangeEvent<any>) => {
     setEndSelected(e.target.value);
@@ -54,41 +27,6 @@ export default function Home() {
 
   const handleChangeEndDate = (date: Date) => {
     setEndDate(date)
-  }
-
-  const getAccessKey = async () => {
-    const url = process.env.NEXT_PUBLIC_SGIS_ACCESS_URL as string
-    const serviceId = process.env.NEXT_PUBLIC_SGIS_SERVICE_ID as string
-    const securityKey = process.env.NEXT_PUBLIC_SGIS_SECURITY_KEY as string
-    let accessToken: string = ""
-    await axios.get(url, {
-      params: {
-        consumer_key: serviceId,
-        consumer_secret: securityKey
-      }
-    })
-        .then(response => {
-          if (response.data.errCd === 0) {
-            accessToken = response.data.result.accessToken
-          }
-        })
-    return accessToken
-  }
-
-  const replaceRegionName = (name: string) => {
-    if (name.includes("특별")) {
-      return name.split("특별")[0]
-    }
-    else if (name.includes("광역")) {
-      return name.split("광역")[0]
-    }
-    else if (name.includes("남도") || name.includes("북도")) {
-      let tempArray = Array.from(name)
-      return tempArray[0] + tempArray[2]
-    }
-    else {
-      return name.split("도")[0]
-    }
   }
 
   const getRegionTop = async () => {
@@ -147,7 +85,7 @@ export default function Home() {
             <div className="introduce_ticket">
               <div className="ticket_top">
                 <div className="ticket_place">
-                  <span className="scoredream-700 default_text ticket_place_from">개미국</span>
+                  <span className="scoredream-700 default_text ticket_place_from">개미굴</span>
 
                   <select className="scoredream-700 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
                     {regionTopList.map((item, index) => (
@@ -178,7 +116,7 @@ export default function Home() {
                 />
               </div>
               <div className="ticket_button">
-                <Link href="/travel"></Link>
+                <Link href={"/travel"}></Link>
               </div>
               <div className="ticket_bottom">
                 <div className="ticket_front">
