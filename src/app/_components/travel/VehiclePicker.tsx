@@ -1,62 +1,13 @@
 "use client"
 import React, {useEffect, useRef, useState} from "react";
-import {FaBicycle, FaCar, FaQuestion, FaWalking} from "react-icons/fa";
-import {FaBus} from "react-icons/fa6";
-
-interface vehicleListInterface {
-    id: number,
-    vehicle_type: number,
-    vehicle_icon: JSX.Element,
-    vehicle_name: string,
-    path_color: string
-}
+import {dropdownIconVehicleInterface, vehicleListInterface} from "@interface/TravelInterface";
+import {dropdownIconVehicle} from "@module/DataArrayModule";
 
 const VehiclePicker = (props: {
     vehicleItem: vehicleListInterface,
     onChange: (id: number, type: number, name: string, icon: JSX.Element, color: string) => void,
 }) => {
-    interface dropdownIconVehicleInterface {
-        vehicle_type: number,
-        vehicle_icon: JSX.Element,
-        vehicle_name: string,
-        path_color: string
-    }
-
     const vehicleRef = useRef<HTMLDivElement | null>(null);
-
-    const dropdownIconVehicle: dropdownIconVehicleInterface[] = [
-        {
-            vehicle_type: 0,
-            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
-            vehicle_name: "default",
-            path_color: "#3c3c3c",
-        },
-        {
-            vehicle_type: 1,
-            vehicle_icon: <FaWalking className="select_vehicle_icon"/>,
-            vehicle_name: "walk",
-            path_color: "#7430ec",
-        },
-        {
-            vehicle_type: 2,
-            vehicle_icon: <FaCar className="select_vehicle_icon"/>,
-            vehicle_name: "car",
-            path_color: "#3f8ec7",
-        },
-        {
-            vehicle_type: 3,
-            vehicle_icon: <FaBus className="select_vehicle_icon"/>,
-            vehicle_name: "bus",
-            path_color: "#5bb025",
-        },
-        {
-            vehicle_type: 4,
-            vehicle_icon: <FaBicycle className="select_vehicle_icon"/>,
-            vehicle_name: "cycle",
-            path_color: "#c71365",
-        },
-    ]
-
     const [vehicleTab, setVehicleTab] = useState<dropdownIconVehicleInterface[]>(dropdownIconVehicle)
     const [isChangeVehicleTab, setChangeVehicleTab] = useState({vehicle_type: 0, item_id: 0, status: false})
 

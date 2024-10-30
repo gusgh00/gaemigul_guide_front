@@ -6,74 +6,13 @@ import {addDays} from "date-fns";
 import dayjs from "dayjs";
 import proj4 from "proj4";
 import DatePicker from "@/app/_components/travel/GMGDatePicker";
+import {dateListInterface, regionListInterface} from "@interface/TravelInterface";
+import {dummyPlaceData, dummyRegionData} from "@module/DataArrayModule";
 
 const ControlTravel = (props: any) => {
-    interface placeListPath {
-        lat: number,
-        lng: number,
-    }
-
-    interface placeListInterface {
-        id: number,
-        place: string,
-        lat: string,
-        lng: string,
-        address: string,
-        place_type: number,
-        place_name: string,
-        place_icon: JSX.Element,
-        stay_time: Date | null | undefined
-        stay_amount: string,
-        vehicle_type: number,
-        vehicle_icon: JSX.Element,
-        vehicle_name: string,
-        move_time: Date | null | undefined,
-        move_amount: string,
-        path_hide: boolean,
-        start_time: Date | null | undefined,
-        end_time: Date | null | undefined,
-        path: placeListPath[],
-        path_color: string
-    }
-
-    interface dateListInterface {
-        date: string,
-        destination: string,
-        people: number,
-        place_list: placeListInterface[],
-    }
-
-    interface regionListInterface {
-        y_coor: string,
-        full_addr: string,
-        x_coor: string,
-        addr_name: string,
-        cd: string
-    }
-    // const [dateList, setDateList] = useState<dateListInterface[]>([]);
-    // const [placeList, setPlaceList] = useState<placeListInterface[]>([]);
-
-    const [regionTopList, setRegionTopList] = useState<regionListInterface[]>([{
-        y_coor: "",
-        full_addr: "",
-        x_coor: "",
-        addr_name: "선택해주세요",
-        cd: "0"
-    }])
-    const [regionMiddleList, setRegionMiddleList] = useState<regionListInterface[]>([{
-        y_coor: "",
-        full_addr: "",
-        x_coor: "",
-        addr_name: "선택해주세요",
-        cd: "0"
-    }])
-    const [regionBottomList, setRegionBottomList] = useState<regionListInterface[]>([{
-        y_coor: "",
-        full_addr: "",
-        x_coor: "",
-        addr_name: "선택해주세요",
-        cd: "0"
-    }])
+    const [regionTopList, setRegionTopList] = useState<regionListInterface[]>([dummyRegionData])
+    const [regionMiddleList, setRegionMiddleList] = useState<regionListInterface[]>([dummyRegionData])
+    const [regionBottomList, setRegionBottomList] = useState<regionListInterface[]>([dummyRegionData])
 
     const [regionTop, setRegionTop] = useState<string>("선택해주세요")
     const [regionMiddle, setRegionMiddle] = useState<string>("선택해주세요")
@@ -113,13 +52,7 @@ const ControlTravel = (props: any) => {
         })
             .then(response => {
                 if (response.data.errCd === 0) {
-                    setRegionTopList([{
-                        y_coor: "",
-                        full_addr: "",
-                        x_coor: "",
-                        addr_name: "선택해주세요",
-                        cd: "0"
-                    }, ...response.data.result])
+                    setRegionTopList([dummyRegionData, ...response.data.result])
                 }
             })
     }
@@ -135,13 +68,7 @@ const ControlTravel = (props: any) => {
         })
             .then(response => {
                 if (response.data.errCd === 0) {
-                    setRegionMiddleList([{
-                        y_coor: "",
-                        full_addr: "",
-                        x_coor: "",
-                        addr_name: "선택해주세요",
-                        cd: "0"
-                    }, ...response.data.result])
+                    setRegionMiddleList([dummyRegionData, ...response.data.result])
                 }
             })
     }
@@ -157,13 +84,7 @@ const ControlTravel = (props: any) => {
         })
             .then(response => {
                 if (response.data.errCd === 0) {
-                    setRegionBottomList([{
-                        y_coor: "",
-                        full_addr: "",
-                        x_coor: "",
-                        addr_name: "선택해주세요",
-                        cd: "0"
-                    }, ...response.data.result])
+                    setRegionBottomList([dummyRegionData, ...response.data.result])
                 }
             })
     }
@@ -177,13 +98,7 @@ const ControlTravel = (props: any) => {
         setRegionTop(currentRegionTop.addr_name)
         setRegionMiddle("선택해주세요")
         setRegionBottom("선택해주세요")
-        setRegionBottomList([{
-            y_coor: "",
-            full_addr: "",
-            x_coor: "",
-            addr_name: "선택해주세요",
-            cd: "0"
-        }])
+        setRegionBottomList([dummyRegionData])
 
         await getRegionMiddle(currentRegionTop)
     }
@@ -237,27 +152,18 @@ const ControlTravel = (props: any) => {
                 date: dayjs(currentDate).format("YYYY년 MM월 DD일"),
                 destination: currentRegion.addr_name,
                 people: Number(peopleNum),
+                id: 1,
+                place: currentRegion.addr_name,
+                lat: lat.toString(),
+                lng: lng.toString(),
+                address: currentRegion.full_addr,
                 place_list: [{
                     id: 1,
                     place: currentRegion.addr_name,
                     lat: lat.toString(),
                     lng: lng.toString(),
                     address: currentRegion.full_addr,
-                    place_type: 0,
-                    place_name: "default",
-                    place_icon: <MdPlace className="select_place_icon"/>,
-                    stay_time: new Date(new Date().setHours(0, 0)),
-                    stay_amount: "0",
-                    vehicle_type: 0,
-                    vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
-                    vehicle_name: "default",
-                    move_time: new Date(new Date().setHours(0, 0)),
-                    move_amount: "0",
-                    path_hide: true,
-                    start_time: new Date(new Date().setHours(0, 0)),
-                    end_time: new Date(new Date().setHours(0, 0)),
-                    path: [],
-                    path_color: "#CBCBCB",
+                    ...dummyPlaceData
                 }]
             })
             currentDate = currentDate.add(1, "day")

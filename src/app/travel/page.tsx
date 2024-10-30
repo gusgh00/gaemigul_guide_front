@@ -15,129 +15,54 @@ import {RxDragHandleHorizontal} from "react-icons/rx";
 import {
     FaArrowRight,
     FaPlus,
-    FaQuestion,
 } from "react-icons/fa";
-import {MdClose, MdOutlineKeyboardArrowDown, MdPlace} from "react-icons/md";
+import {MdClose, MdOutlineKeyboardArrowDown} from "react-icons/md";
 import {GrPowerReset} from "react-icons/gr";
 import {FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
-import axios from "axios";
 import ControlTravel from "@/app/_components/travel/ControlTravel";
 import TimePicker from "@/app/_components/travel/GMGTimePicker";
 import dayjs from "dayjs";
-import {addSeconds, set} from "date-fns";
+import {addSeconds} from "date-fns";
 import PlacePicker from "@/app/_components/travel/PlacePicker";
 import VehiclePicker from "@/app/_components/travel/VehiclePicker";
 import TravelSearch from "@/app/_components/travel/TravelSearch";
+import {
+    findMaxIdLocation,
+    getRouteCar,
+    getRouteCycleAndWalking,
+    getRoutePublicTransport
+} from "@module/TravelModule";
+import {
+    dummyPlaceData,
+    initialDateLists,
+    initialPlaceLists
+} from '@module/DataArrayModule'
+import {
+    changeDurationTime,
+    changeTimeToSeconds
+} from "@module/TimeModule"
+import {
+    dateListInterface,
+    placeListInterface,
+    searchListInterface
+} from "@interface/TravelInterface";
 
 const Travel = () => {
-    interface dateListInterface {
-        date: string,
-        destination: string,
-        people: number,
-        place_list: placeListInterface[],
-    }
-    interface placeListInterface {
-        id: number,
-        place: string,
-        lat: string,
-        lng: string,
-        address: string,
-        place_type: number,
-        place_name: string,
-        place_icon: JSX.Element,
-        stay_time: Date,
-        stay_amount: string,
-        vehicle_type: number,
-        vehicle_icon: JSX.Element,
-        vehicle_name: string,
-        move_time: Date,
-        move_amount: string,
-        path_hide: boolean,
-        start_time: Date,
-        end_time: Date,
-        path: placeListPath[],
-        path_color: string
-    }
-
-    interface placeListPath {
-        lat: number,
-        lng: number,
-    }
-
-    interface searchListInterface {
-        id: number,
-        place: string,
-        lat: string,
-        lng: string,
-        address: string,
-        url: string,
-        img: string,
-        social: string,
-    }
-
-    const initialPlaceLists: placeListInterface[] = [
-        {
-            id: 1,
-            place: "서울역",
-            lat: "37.5547125",
-            lng: "126.9707878",
-            address: "서울특별시 용산구 한강대로 405",
-            place_type: 0,
-            place_name: "default",
-            place_icon: <MdPlace className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0,0)),
-            stay_amount: "0",
-            vehicle_type: 0,
-            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
-            vehicle_name: "default",
-            move_time: new Date(new Date().setHours(0,0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0,0)),
-            end_time: new Date(new Date().setHours(0,0)),
-            path: [],
-            path_color: "#3c3c3c",
-        },
-    ];
-
-    const initialDateLists: dateListInterface[] = [
-        {
-            date: "2024년 01월 01일",
-            destination: "서울특별시",
-            people: 1,
-            place_list: initialPlaceLists,
-        },
-        {
-            date: "2024년 01월 05일",
-            destination: "서울특별시",
-            people: 1,
-            place_list: initialPlaceLists,
-        },
-    ];
-
     const [isCenter, setCenter] = useState({lat: 37.5547125, lng: 126.9707878})
-
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
-
     const [isHideControl, setHideControl] = useState(false)
-
     const [isHideList, setHideList] = useState(false)
     const [isListReady, setListReady] = useState(false)
     const [dateList, setDateList] = useState<dateListInterface[]>(initialDateLists);
     const [placeList, setPlaceList] = useState<placeListInterface[]>(initialPlaceLists);
+    const [isTab, setTab] = useState(0)
+    const [dateSelected, setDateSelected] = useState<string>("")
+    const [searchList, setSearchList] = useState<searchListInterface[]>();
+    const [isMarkerInfo, setMarkerInfo] = useState(false)
+    const [startTime, setStartTime] = useState<Date>(new Date(new Date().setHours(0,0)))
 
     const tabList = ['경유지 탐색', '경유지 상세', '최종 계획']
-    const [isTab, setTab] = useState(0)
-
-    // const dateList = ["2024년 10월 12일", "2024년 10월 13일", "2024년 10월 14일", "2024년 10월 15일"]
-    const [dateSelected, setDateSelected] = useState<string>("")
-
-    const [searchList, setSearchList] = useState<searchListInterface[]>();
-
-    const [isMarkerInfo, setMarkerInfo] = useState(false)
-
-    const [startTime, setStartTime] = useState<Date>(new Date(new Date().setHours(0,0)))
 
     useEffect(() => {
         setListReady(true)
@@ -169,27 +94,24 @@ const Travel = () => {
             }
         }))
     }
-
     const changePlaceStayAmount = (id: number, amount: string) => {
         setPlaceList(placeList.map(item => {
             if (item.id === id) {
-                return { ...item, stay_amount: amount }
+                return { ...item, stay_amount: Number(amount) }
             } else {
                 return item
             }
         }))
     }
-
     const changePlaceMoveAmount = (id: number, amount: string) => {
         setPlaceList(placeList.map(item => {
             if (item.id === id) {
-                return { ...item, move_amount: amount }
+                return { ...item, move_amount: Number(amount) }
             } else {
                 return item
             }
         }))
     }
-
     const changePlacePathHide = (id: number) => {
         setPlaceList(placeList.map(item => {
             if (item.id === id) {
@@ -199,21 +121,19 @@ const Travel = () => {
             }
         }))
     }
-
     const changePlaceType = (id: number, type: number, name: string, icon: JSX.Element) => {
         setPlaceList(placeList.map(item => {
             if (item.id === id) {
                 return { ...item,
                     place_icon: icon,
                     place_type: type,
-                    place_name: name
+                    place_name: name,
                 }
             } else {
                 return item
             }
         }))
     }
-
     const changeVehicleType = (id: number, type: number, name: string, icon: JSX.Element, color: string) => {
         setPlaceList(placeList.map(item => {
             if (item.id === id) {
@@ -222,19 +142,18 @@ const Travel = () => {
                     vehicle_type: type,
                     vehicle_name: name,
                     path_color: color,
-                    path: []
+                    path: [],
+                    public_path: [],
+                    move_amount: 0,
+                    move_time: new Date(new Date().setHours(0, 0)),
+                    start_time: new Date(new Date().setHours(0, 0)),
+                    end_time: new Date(new Date().setHours(0, 0))
                 }
             } else {
                 return item
             }
         }))
     }
-
-    const findMaxIdLocation = (locations: placeListInterface[]) => {
-        return locations.reduce((max, location) => {
-            return (location.id > max.id) ? location : max;
-        }, locations[0]); // 초기값으로 첫 번째 요소를 사용
-    };
 
     const addSearchList = (place: string, lat: string, lng: string, address: string) => {
         const tempPlaceList = [...placeList]
@@ -246,92 +165,40 @@ const Travel = () => {
             lat: lat,
             lng: lng,
             address: address,
-            place_type: 0,
-            place_name: "default",
-            place_icon: <MdPlace className="select_place_icon"/>,
-            stay_time: new Date(new Date().setHours(0, 0)),
-            stay_amount: "0",
-            vehicle_type: 0,
-            vehicle_icon: <FaQuestion className="select_vehicle_icon"/>,
-            vehicle_name: "default",
-            move_time: new Date(new Date().setHours(0, 0)),
-            move_amount: "0",
-            path_hide: true,
-            start_time: new Date(new Date().setHours(0, 0)),
-            end_time: new Date(new Date().setHours(0, 0)),
-            path: [],
-            path_color: "#CBCBCB",
+            ...dummyPlaceData
         }
         tempPlaceList.splice(frontPlaceIndex + 1, 0, newPlaceItem)
         setPlaceList(tempPlaceList)
     }
 
-    const changeDurationTime = (time: number) => {
-        let tempHour = Math.trunc(time / 3600)
-        let tempMin = Math.trunc((time % 3600) / 60)
-        let tempSec = Math.trunc(time % 60)
-        return set(new Date(), {
-            hours: tempHour,
-            minutes: tempMin,
-            seconds: tempSec,
-        })
-    }
-
-    const changeTimeToSeconds = (time: Date) => {
-        let tempHour = time.getHours()
-        let tempMin = time.getMinutes()
-        let tempSec = time.getSeconds()
-        return (tempHour * 3600) + (tempMin * 60) + tempSec
-    }
-
-    const changePlacePath = async (coordinates: any[], time: number, index: number) => {
-        let paths: placeListPath[] = []
-        for (let i = 0; i < coordinates.length; i++) {
-            paths.push({
-                lat: coordinates[i][1],
-                lng: coordinates[i][0]
-            })
-        }
-
+    const changePlacePath = async (paths: any[], time: number, payment: number, index: number, type: number) => {
         const items = [...placeList];
-        items[index].path = paths
+        if (type === 3) {
+            items[index].public_path = paths
+        } else {
+            items[index].path = paths
+        }
         items[index].start_time = index === 0 ? addSeconds(startTime, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
         items[index].end_time = addSeconds(items[index].start_time, time)
         items[index].move_time = changeDurationTime(time)
+        items[index].move_amount = payment
         setPlaceList(items)
     }
 
     const getDirectionGeometry = async () => {
+        removeDirectionGeometry()
         for (let i = 0; i < placeList.length; i++) {
-            let profiles = ""
-            if (placeList[i].vehicle_type === 1) {
-                profiles = "walking/"
+            let endPlace: placeListInterface = placeList.find((val, valIndex) => valIndex == i + 1) as placeListInterface
+            if (placeList[i].vehicle_type === 1 || placeList[i].vehicle_type === 4) {
+                let routeData = await getRouteCycleAndWalking(placeList[i], endPlace)
+                await changePlacePath(routeData.paths, routeData.time, routeData.payment, i, placeList[i].vehicle_type)
             } else if (placeList[i].vehicle_type === 2) {
-                profiles = "driving-traffic/"
-            } else if (placeList[i].vehicle_type === 4) {
-                profiles = "cycling/"
-            } else {
-                continue;
+                let routeData = await getRouteCar(placeList[i], endPlace)
+                await changePlacePath(routeData.paths, routeData.time, routeData.payment, i, placeList[i].vehicle_type)
+            } else if (placeList[i].vehicle_type === 3) {
+                let routeData = await getRoutePublicTransport(placeList[i], endPlace)
+                await changePlacePath(routeData.paths, routeData.time, routeData.payment * dateList[0].people, i, placeList[i].vehicle_type)
             }
-
-            const url = process.env.NEXT_PUBLIC_MAPBOX_URL
-            let endPlace = placeList.find((val, valIndex) => valIndex == i + 1)
-            let startPosition = placeList[i].lng + "," + placeList[i].lat
-            let endPosition = endPlace?.lng + "," + endPlace?.lat
-
-            await axios.get(url + profiles + startPosition + ";" + endPosition, {
-                params: {
-                    geometries: "geojson",
-                    access_token: process.env.NEXT_PUBLIC_MAPBOX_KEY
-                }
-            })
-                .then(async response => {
-                    if (response.data.code === "Ok") {
-                        let coordinates: any[] = response.data.routes[0].geometry.coordinates
-                        let time: number = response.data.routes[0].duration
-                        await changePlacePath(coordinates, time, i)
-                    }
-                })
         }
     }
 
@@ -339,6 +206,9 @@ const Travel = () => {
         let items = [...placeList];
         for (let i = 0; i < placeList.length; i++) {
             items[i].path = []
+            items[i].public_path = []
+            items[i].move_amount = 0
+            items[i].move_time = new Date(new Date().setHours(0, 0))
         }
         setPlaceList(items)
     }
@@ -540,6 +410,20 @@ const Travel = () => {
         setCenter({lat: Number(tempDateList.place_list[0].lat), lng: Number(tempDateList.place_list[0].lng)})
     }
 
+    const handleResetDateSelected = () => {
+        let tempDateList = dateList.filter(item => item.date === dateSelected)[0]
+        const newPlaceItem: placeListInterface = {
+            id: tempDateList.id,
+            place: tempDateList.place,
+            lat: tempDateList.lat,
+            lng: tempDateList.lng,
+            address: tempDateList.address,
+            ...dummyPlaceData
+        }
+        setPlaceList([newPlaceItem])
+        setCenter({lat: Number(tempDateList.lat), lng: Number(tempDateList.lng)})
+    }
+
     const updateControlTravel = (dateList: dateListInterface[]) => {
         setHideControl(true)
         setDateList(dateList)
@@ -585,7 +469,7 @@ const Travel = () => {
                                             </option>
                                         ))}
                                     </select>
-                                    <button className="scoredream-500 grey_text current_clear_button">
+                                    <button className="scoredream-500 grey_text current_clear_button" onClick={() => handleResetDateSelected()}>
                                         <GrPowerReset className="current_clear_icon"/>
                                         초기화하기
                                     </button>
@@ -621,6 +505,7 @@ const Travel = () => {
                     placeId={isAddPlaceId}
                     setCenter={(lat: number, lng: number) => setCenter({lat: lat, lng: lng})}
                     setPlaceList={(place: string, lat: string, lng: string, address: string) => addSearchList(place, lat, lng, address)}
+                    setSearchList={(data: searchListInterface[]) => setSearchList(data)}
                     setAddList={(status: boolean) => setAddList(status)}
                 />}
                 <Map
@@ -654,7 +539,6 @@ const Travel = () => {
                         >
                         </MapMarker>
                     ))}
-
                     {(isTab === 1 || isTab === 2) && placeList && placeList.map((item, index) => (
                         <MapMarker
                             key={index}
@@ -675,7 +559,6 @@ const Travel = () => {
                         >
                         </MapMarker>
                     ))}
-
                     {isTab === 0 && searchList && searchList.map((item, index) => (
                         <MapMarker
                             key={index}
@@ -699,17 +582,28 @@ const Travel = () => {
                         >
                         </MapMarker>
                     ))}
-
                     {isTab === 1 && placeList && placeList.map((item, index) => (
-                        <Polyline
-                            key={index}
-                            path={[item.path]}
-                            strokeWeight={5} // 선의 두께 입니다
-                            strokeColor={item.path_color} // 선의 색깔입니다
-                            strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-                            strokeStyle={"solid"} // 선의 스타일입니다
-                        >
-                        </Polyline>
+                        item.vehicle_type === 3 ?
+                            item.public_path.map((value, idx) => (
+                                <Polyline
+                                    key={idx}
+                                    path={[value.path]}
+                                    strokeWeight={value.type === 0 ? 7 : 5} // 선의 두께 입니다
+                                    strokeColor={value.path_color} // 선의 색깔입니다
+                                    strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                                    strokeStyle={value.type === 0 ? "shortdashdot" : "solid"} // 선의 스타일입니다
+                                >
+                                </Polyline>
+                            )) :
+                            <Polyline
+                                key={index}
+                                path={[item.path]}
+                                strokeWeight={5} // 선의 두께 입니다
+                                strokeColor={item.path_color} // 선의 색깔입니다
+                                strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                                strokeStyle={"solid"} // 선의 스타일입니다
+                            >
+                            </Polyline>
                     ))}
                 </Map>
             </div>

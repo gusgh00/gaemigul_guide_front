@@ -1,55 +1,18 @@
 "use client"
-import React, {useEffect, useRef, useState} from "react";
-import {MdAutoAwesome, MdClose, MdPlace} from "react-icons/md";
-import {FaPlus, FaQuestion, FaSearch} from "react-icons/fa";
+import React, {useEffect, useState} from "react";
+import {MdAutoAwesome, MdClose} from "react-icons/md";
+import {FaPlus, FaSearch} from "react-icons/fa";
 import Link from "next/link";
-
-interface placeListPath {
-    lat: number,
-    lng: number,
-}
-
-interface placeListInterface {
-    id: number,
-    place: string,
-    lat: string,
-    lng: string,
-    address: string,
-    place_type: number,
-    place_name: string,
-    place_icon: JSX.Element,
-    stay_time: Date,
-    stay_amount: string,
-    vehicle_type: number,
-    vehicle_icon: JSX.Element,
-    vehicle_name: string,
-    move_time: Date,
-    move_amount: string,
-    path_hide: boolean,
-    start_time: Date,
-    end_time: Date,
-    path: placeListPath[],
-    path_color: string
-}
+import {placeListInterface, searchListInterface} from "@interface/TravelInterface";
 
 const TravelSearch = (props: {
     placeList: placeListInterface[],
     placeId: number,
     setCenter: (lat: number, lng: number) => void,
     setPlaceList: (place: string, lat: string, lng: string, address: string) => void
+    setSearchList: (data: searchListInterface[]) => void
     setAddList: (status: boolean) => void
 }) => {
-    interface searchListInterface {
-        id: number,
-        place: string,
-        lat: string,
-        lng: string,
-        address: string,
-        url: string,
-        img: string,
-        social: string,
-    }
-
     const [searchValue, setSearchValue] = useState("")
     const [searchList, setSearchList] = useState<searchListInterface[]>([]);
 
@@ -129,6 +92,7 @@ const TravelSearch = (props: {
                 }
 
                 setSearchList(keywordSearchList)
+                props.setSearchList(keywordSearchList)
             }
         }, options)
     }
@@ -160,6 +124,7 @@ const TravelSearch = (props: {
                     })
                 }
                 setSearchList(keywordSearchList)
+                props.setSearchList(keywordSearchList)
             }
         }, options)
     }
@@ -170,6 +135,7 @@ const TravelSearch = (props: {
 
     useEffect(() => {
         setSearchList([])
+        props.setSearchList([])
     }, [props.placeId]);
 
     return (

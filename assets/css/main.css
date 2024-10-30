@@ -142,7 +142,7 @@
 }
 
 .gmg_timer {
-    padding: 10px 0;
+    padding: 10px 0 0;
     background: #fff;
     border-radius: 10px;
     border: solid 1px #f23920;
@@ -155,7 +155,7 @@
         .control_submit_btn {
             background: transparent;
             width: 80px;
-            height: 30px;
+            height: 50px;
             text-align: center;
             font-size: 14px;
             transition: 300ms;
