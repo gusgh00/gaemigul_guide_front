@@ -58,6 +58,7 @@ export interface searchListInterface {
     url: string,
     img: string,
     social: string,
+    place_icon: dropdownIconPlaceInterface
 }
 
 export interface vehicleListInterface {

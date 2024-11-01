@@ -33,6 +33,7 @@ import {
     getRoutePublicTransport
 } from "@module/TravelModule";
 import {
+    dropdownIconPlace,
     dummyPlaceData,
     initialDateLists,
     initialPlaceLists
@@ -42,7 +43,7 @@ import {
     changeTimeToSeconds
 } from "@module/TimeModule"
 import {
-    dateListInterface,
+    dateListInterface, dropdownIconPlaceInterface,
     placeListInterface,
     searchListInterface
 } from "@interface/TravelInterface";
@@ -155,17 +156,20 @@ const Travel = () => {
         }))
     }
 
-    const addSearchList = (place: string, lat: string, lng: string, address: string) => {
+    const addSearchList = (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface) => {
         const tempPlaceList = [...placeList]
         const frontPlaceIndex = placeList.findIndex(item => item.id === isAddPlaceId)
         const maxPlaceId = findMaxIdLocation(tempPlaceList).id
         const newPlaceItem: placeListInterface = {
+            ...dummyPlaceData,
             id: maxPlaceId + 1,
             place: place,
             lat: lat,
             lng: lng,
             address: address,
-            ...dummyPlaceData
+            place_icon: place_icon.place_icon,
+            place_type: place_icon.place_type,
+            place_name: place_icon.place_name,
         }
         tempPlaceList.splice(frontPlaceIndex + 1, 0, newPlaceItem)
         setPlaceList(tempPlaceList)
@@ -504,7 +508,7 @@ const Travel = () => {
                     placeList={placeList}
                     placeId={isAddPlaceId}
                     setCenter={(lat: number, lng: number) => setCenter({lat: lat, lng: lng})}
-                    setPlaceList={(place: string, lat: string, lng: string, address: string) => addSearchList(place, lat, lng, address)}
+                    setPlaceList={(place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface) => addSearchList(place, lat, lng, address, place_icon)}
                     setSearchList={(data: searchListInterface[]) => setSearchList(data)}
                     setAddList={(status: boolean) => setAddList(status)}
                 />}
@@ -577,7 +581,7 @@ const Travel = () => {
                             onMouseOver={() => setMarkerInfo(true)}
                             onMouseOut={() => setMarkerInfo(false)}
                             onClick={() => {
-                                if (!!placeList && placeList?.length < 10) addSearchList(item.place, item.lat, item.lng, item.address)
+                                if (!!placeList && placeList?.length < 10) addSearchList(item.place, item.lat, item.lng, item.address, item.place_icon)
                             }}
                         >
                         </MapMarker>

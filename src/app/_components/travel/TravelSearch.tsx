@@ -3,18 +3,74 @@ import React, {useEffect, useState} from "react";
 import {MdAutoAwesome, MdClose} from "react-icons/md";
 import {FaPlus, FaSearch} from "react-icons/fa";
 import Link from "next/link";
-import {placeListInterface, searchListInterface} from "@interface/TravelInterface";
+import {dropdownIconPlaceInterface, placeListInterface, searchListInterface} from "@interface/TravelInterface";
+import CategoryCode = kakao.maps.CategoryCode;
+import {dropdownIconPlace} from "@module/DataArrayModule";
 
 const TravelSearch = (props: {
     placeList: placeListInterface[],
     placeId: number,
     setCenter: (lat: number, lng: number) => void,
-    setPlaceList: (place: string, lat: string, lng: string, address: string) => void
+    setPlaceList: (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface) => void
     setSearchList: (data: searchListInterface[]) => void
     setAddList: (status: boolean) => void
 }) => {
     const [searchValue, setSearchValue] = useState("")
     const [searchList, setSearchList] = useState<searchListInterface[]>([]);
+    const [dummyPlaceIdArr, setDummyPlaceIdArr] = useState<number[]>([])
+
+    const getConvertCodeToType = (code: CategoryCode) => {
+        const categoryCodeArr = [
+            {
+                code: "AD5" as kakao.maps.CategoryCode, //숙박
+                type: 1
+            },
+            {
+                code: "CS2" as kakao.maps.CategoryCode, //편의점
+                type: 6
+            },
+            {
+                code: "MT1" as kakao.maps.CategoryCode, //대형마트
+                type: 6
+            },
+            {
+                code: "PK6" as kakao.maps.CategoryCode, //주차장
+                type: 0
+            },
+            {
+                code: "OL7" as kakao.maps.CategoryCode, //주유소
+                type: 0
+            },
+            {
+                code: "CT1" as kakao.maps.CategoryCode, //문화시설
+                type: 3
+            },
+            {
+                code: "AT4" as kakao.maps.CategoryCode, //관광명소
+                type: 4
+            },
+            {
+                code: "FD6" as kakao.maps.CategoryCode, //음식점
+                type: 2
+            },
+            {
+                code: "CE7" as kakao.maps.CategoryCode, //카페
+                type: 2
+            },
+            {
+                code: "SW8" as kakao.maps.CategoryCode, //지하철역
+                type: 0
+            },
+            {
+                code: "" as kakao.maps.CategoryCode, //기타
+                type: 0
+            },
+        ]
+
+        let type = categoryCodeArr.filter(item => item.code === code)[0].type
+
+        return dropdownIconPlace.filter(item => item.place_type === type)[0]
+    }
 
     const getRandomCode = () => {
         const categoryCodeArr = [
@@ -27,22 +83,39 @@ const TravelSearch = (props: {
             "CT1" as kakao.maps.CategoryCode, //문화시설
             "AT4" as kakao.maps.CategoryCode, //관광명소
             "FD6" as kakao.maps.CategoryCode, //음식점
-            "CE7" as kakao.maps.CategoryCode //카페
+            "CE7" as kakao.maps.CategoryCode, //카페
+            "SW8" as kakao.maps.CategoryCode, //지하철역
         ]
-        const defaultPbtArr = [12, 11, 11, 11, 11, 11, 11, 11, 11]
-        const carPbtArr = [10, 0, 10, 20, 20, 10, 10, 10, 10]
-        const cyclePbtArr = [10, 30, 0, 12, 0, 12, 12, 12, 12]
-        const BusPbtArr = [0, 10, 10, 0, 0, 20, 20, 20, 20]
-        const WalkingPbtArr = [0, 10, 10, 0, 0, 20, 20, 20, 20]
-        const lastPbtArr = [40, 20, 20, 10, 0, 0, 0, 10, 0]
+        const defaultPbtArr = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+        const carPbtArr = [10, 0, 10, 20, 20, 10, 10, 10, 10, 0]
+        const cyclePbtArr = [10, 30, 0, 10, 0, 10, 10, 10, 10, 10]
+        const BusPbtArr = [0, 10, 0, 0, 0, 20, 20, 20, 20, 10]
+        const WalkingPbtArr = [0, 10, 0, 0, 0, 20, 20, 20, 20, 10]
+        const lastPbtArr = [40, 20, 20, 10, 0, 0, 0, 10, 0, 0]
 
-        /*기본 (default), 도보, 자가용, 대중교통, 자전거*/
-        /*기본 (default), 숙박, 맛집, 관람, 레저, 쉼터, 쇼핑*/
         const currentPlace = props.placeList.find(item => item.id === props.placeId)
 
         const weights: { [key: string]: number } = {};
         categoryCodeArr.forEach((category, index) => {
-            weights[category] = carPbtArr[index];
+            if (props.placeList.length > 3 && props.placeList.findIndex(item => item.id === props.placeId) + 1 === props.placeList.length) {
+                weights[category] = lastPbtArr[index]
+            } else {
+                if (currentPlace?.vehicle_type === 1) {
+                    weights[category] = WalkingPbtArr[index];
+                }
+                else if (currentPlace?.vehicle_type === 2) {
+                    weights[category] = carPbtArr[index];
+                }
+                else if (currentPlace?.vehicle_type === 3) {
+                    weights[category] = BusPbtArr[index];
+                }
+                else if (currentPlace?.vehicle_type === 4) {
+                    weights[category] = cyclePbtArr[index];
+                }
+                else {
+                    weights[category] = defaultPbtArr[index];
+                }
+            }
         });
 
         let res: kakao.maps.CategoryCode[] = []
@@ -51,13 +124,51 @@ const TravelSearch = (props: {
             let cumulativeWeight = 0
 
             for (const category of categoryCodeArr) {
+                if (res.length == 10) {
+                    break
+                }
                 cumulativeWeight += weights[category];
                 if (randNum < cumulativeWeight) {
-                    return category
+                    res.push(category)
                 }
             }
         }
-        return "AD5"
+        return res
+    }
+
+    const getCategoryRoute = (code: kakao.maps.CategoryCode): Promise<searchListInterface> => {
+        return new Promise((resolve) => {
+            const place = new kakao.maps.services.Places()
+            const options = {
+                size: 10,
+                page: 1,
+                location: new kakao.maps.LatLng(Number(props.placeList.find(item => item.id === props.placeId)?.lat), Number(props.placeList.find(item => item.id === props.placeId)?.lng)),
+                sort: kakao.maps.services.SortBy.DISTANCE,
+                radius: 10000,
+            }
+
+            place.categorySearch(code as kakao.maps.CategoryCode, (data, status) => {
+                if (status === kakao.maps.services.Status.OK) {
+                    for (let i = 0; i < data.slice(0, 10).length; i++) {
+                        if (!dummyPlaceIdArr.includes(Number(data[i].id))) {
+                            const keywordSearchList: searchListInterface = {
+                                id: Number(data[i].id),
+                                place: data[i].place_name,
+                                lat: data[i].y,
+                                lng: data[i].x,
+                                address: data[i].address_name,
+                                url: data[i].place_url,
+                                img: "",
+                                social: "카카오맵",
+                                place_icon: getConvertCodeToType(data[i].category_group_code as CategoryCode)
+                            }
+                            setDummyPlaceIdArr([...dummyPlaceIdArr, Number(data[i].id)])
+                            resolve(keywordSearchList)
+                        }
+                    }
+                }
+            }, options)
+        })
     }
 
     const changeSearchValue = (value: string) => {
@@ -65,13 +176,11 @@ const TravelSearch = (props: {
     }
 
     const setKeywordList = () => {
+        setDummyPlaceIdArr([])
         const place = new kakao.maps.services.Places()
         const options = {
             size: 10,
             page: 1,
-            // location: new kakao.maps.LatLng(Number(placeList.find(item => item.id === props.placeId)?.lat), Number(placeList.find(item => item.id === props.placeId)?.lng)),
-            // sort: kakao.maps.services.SortBy.DISTANCE,
-            // radius: 20000,
         }
 
         place.keywordSearch(searchValue, (data, status) => {
@@ -88,6 +197,7 @@ const TravelSearch = (props: {
                         url: data[i].place_url,
                         img: "",
                         social: "카카오맵",
+                        place_icon: getConvertCodeToType(data[i].category_group_code as CategoryCode)
                     })
                 }
 
@@ -97,40 +207,22 @@ const TravelSearch = (props: {
         }, options)
     }
 
-    const setRecommendList = () => {
-        const place = new kakao.maps.services.Places()
-        const options = {
-            size: 10,
-            page: 1,
-            location: new kakao.maps.LatLng(Number(props.placeList.find(item => item.id === props.placeId)?.lat), Number(props.placeList.find(item => item.id === props.placeId)?.lng)),
-            sort: kakao.maps.services.SortBy.DISTANCE,
-            radius: 1000,
+    const setRecommendList = async () => {
+        let keywordSearchList: searchListInterface[] = []
+
+        const codes = getRandomCode()
+
+        for (const code of codes) {
+            let tempSearchList: searchListInterface = await getCategoryRoute(code)
+            keywordSearchList.push(tempSearchList)
         }
 
-        const code = getRandomCode()
-        place.categorySearch(code as kakao.maps.CategoryCode, (data, status, pagination) => {
-            if (status === kakao.maps.services.Status.OK) {
-                let keywordSearchList: searchListInterface[] = []
-                for (let i = 0; i < data.slice(0, 10).length; i++) {
-                    keywordSearchList.push({
-                        id: Number(data[i].id),
-                        place: data[i].place_name,
-                        lat: data[i].y,
-                        lng: data[i].x,
-                        address: data[i].address_name,
-                        url: data[i].place_url,
-                        img: "",
-                        social: "카카오맵",
-                    })
-                }
-                setSearchList(keywordSearchList)
-                props.setSearchList(keywordSearchList)
-            }
-        }, options)
+        setSearchList(keywordSearchList)
+        props.setSearchList(keywordSearchList)
     }
 
     const addSearchList = (params: searchListInterface) => {
-        props.setPlaceList(params.place, params.lat, params.lng, params.address)
+        props.setPlaceList(params.place, params.lat, params.lng, params.address, params.place_icon)
     }
 
     useEffect(() => {
@@ -145,6 +237,7 @@ const TravelSearch = (props: {
                     <div className="close_div">
                         <MdClose className="close_icon" onClick={() => {
                             props.setAddList(false)
+                            props.setSearchList([])
                         }}/>
                     </div>
                     <div className="keyword_input_div">
