@@ -1,6 +1,4 @@
 "use client"
-import Link from 'next/link';
-import { FaUserLarge } from "react-icons/fa6";
 import {usePathname} from "next/navigation";
 
 const Footer = () => {

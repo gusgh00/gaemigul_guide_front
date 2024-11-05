@@ -1,4 +1,5 @@
 "use client"
+import type {JSX} from 'react'
 import React, {useEffect, useRef, useState} from "react";
 import {dropdownIconPlaceInterface, placePickListInterface} from "@interface/TravelInterface";
 import {dropdownIconPlace} from "@module/DataArrayModule";

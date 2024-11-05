@@ -9,9 +9,10 @@ import {dropdownIconPlace} from "@module/DataArrayModule";
 
 const TravelSearch = (props: {
     placeList: placeListInterface[],
+    searchList: searchListInterface[],
     placeId: number,
     setCenter: (lat: number, lng: number) => void,
-    setPlaceList: (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface) => void
+    setPlaceList: (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface, index: number) => void
     setSearchList: (data: searchListInterface[]) => void
     setAddList: (status: boolean) => void
 }) => {
@@ -67,7 +68,13 @@ const TravelSearch = (props: {
             },
         ]
 
-        let type = categoryCodeArr.filter(item => item.code === code)[0].type
+        let type: number = 0
+
+        if (categoryCodeArr.some(item => item.code === code)) {
+            type = categoryCodeArr.filter(item => item.code === code)[0].type
+        } else {
+            type = 0
+        }
 
         return dropdownIconPlace.filter(item => item.place_type === type)[0]
     }
@@ -221,14 +228,18 @@ const TravelSearch = (props: {
         props.setSearchList(keywordSearchList)
     }
 
-    const addSearchList = (params: searchListInterface) => {
-        props.setPlaceList(params.place, params.lat, params.lng, params.address, params.place_icon)
+    const addSearchList = (params: searchListInterface, index: number) => {
+        props.setPlaceList(params.place, params.lat, params.lng, params.address, params.place_icon, index)
     }
 
     useEffect(() => {
         setSearchList([])
         props.setSearchList([])
     }, [props.placeId]);
+
+    useEffect(() => {
+        setSearchList(props.searchList)
+    }, [props.searchList]);
 
     return (
         <>
@@ -284,7 +295,7 @@ const TravelSearch = (props: {
                                 </div>
                                 <div className="item_add_div">
                                     <FaPlus className={!!props.placeList && props.placeList?.length < 10 ? "item_add_button" : "item_add_button disabled"} onClick={() => {
-                                        if (!!props.placeList && props.placeList?.length < 10) addSearchList(item)
+                                        if (!!props.placeList && props.placeList?.length < 10) addSearchList(item, index)
                                     }}/>
                                 </div>
                             </div>

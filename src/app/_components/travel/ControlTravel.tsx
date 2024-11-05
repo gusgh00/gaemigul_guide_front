@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {FaMinusCircle, FaPlusCircle, FaQuestion} from "react-icons/fa";
-import {MdPlace} from "react-icons/md";
+import {FaMinusCircle, FaPlusCircle} from "react-icons/fa";
 import {addDays} from "date-fns";
 import dayjs from "dayjs";
 import proj4 from "proj4";
@@ -51,7 +50,7 @@ const ControlTravel = (props: any) => {
             }
         })
             .then(response => {
-                if (response.data.errCd === 0) {
+                if (response.data?.errCd === 0) {
                     setRegionTopList([dummyRegionData, ...response.data.result])
                 }
             })

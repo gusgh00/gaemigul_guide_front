@@ -11,7 +11,6 @@ const TimePicker = (props: {
 }) => {
     const [isOpenCalendar, setOpenCalendar] = useState(false)
     const [height, setHeight] = useState(0)
-    const [popupHeight, setPopupHeight] = useState(0)
     const [resultHeight, setResultHeight] = useState(0)
     const parentRef = useRef<HTMLDivElement | null>(null)
     const timerRef = useRef<HTMLDivElement | null>(null)
@@ -94,10 +93,6 @@ const TimePicker = (props: {
     useEffect(() => {
         setHeight(Number(parentRef.current?.clientHeight))
         setResultHeight(Number(parentRef.current?.clientHeight))
-    }, [])
-
-    useEffect(() => {
-        setPopupHeight(Number(timerRef.current?.clientHeight))
     }, [])
 
     useEffect(() => {

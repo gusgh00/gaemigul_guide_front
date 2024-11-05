@@ -1,4 +1,5 @@
 'use client'
+import type {JSX} from 'react'
 import {Map, MapMarker, Polyline} from "react-kakao-maps-sdk";
 import React, {Suspense, useEffect, useState} from "react";
 import {
@@ -33,7 +34,6 @@ import {
     getRoutePublicTransport
 } from "@module/TravelModule";
 import {
-    dropdownIconPlace,
     dummyPlaceData,
     initialDateLists,
     initialPlaceLists
@@ -49,7 +49,6 @@ import {
 } from "@interface/TravelInterface";
 
 const Travel = () => {
-    const [isCenter, setCenter] = useState({lat: 37.5547125, lng: 126.9707878})
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
     const [isHideControl, setHideControl] = useState(false)
@@ -59,9 +58,15 @@ const Travel = () => {
     const [placeList, setPlaceList] = useState<placeListInterface[]>(initialPlaceLists);
     const [isTab, setTab] = useState(0)
     const [dateSelected, setDateSelected] = useState<string>("")
-    const [searchList, setSearchList] = useState<searchListInterface[]>();
-    const [isMarkerInfo, setMarkerInfo] = useState(false)
+    const [searchList, setSearchList] = useState<searchListInterface[]>([]);
+    const [isPlaceMarkerInfo, setPlaceMarkerInfo] = useState(false)
+    const [isPlaceMarkerInfoId, setPlaceMarkerInfoId] = useState(0)
+    const [isSearchMarkerInfo, setSearchMarkerInfo] = useState(false)
+    const [isSearchMarkerInfoId, setSearchMarkerInfoId] = useState(0)
     const [startTime, setStartTime] = useState<Date>(new Date(new Date().setHours(0,0)))
+    const [isMapDraggable, setMapDraggable] = useState(true)
+    const [isMapZoomable, setMapZoomable] = useState(true)
+    const [map, setMap] = useState<kakao.maps.Map>()
 
     const tabList = ['경유지 탐색', '경유지 상세', '최종 계획']
 
@@ -156,8 +161,8 @@ const Travel = () => {
         }))
     }
 
-    const addSearchList = (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface) => {
-        const tempPlaceList = [...placeList]
+    const addSearchList = (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface, index: number) => {
+        const tempPlaceList: placeListInterface[] = [...placeList]
         const frontPlaceIndex = placeList.findIndex(item => item.id === isAddPlaceId)
         const maxPlaceId = findMaxIdLocation(tempPlaceList).id
         const newPlaceItem: placeListInterface = {
@@ -173,6 +178,12 @@ const Travel = () => {
         }
         tempPlaceList.splice(frontPlaceIndex + 1, 0, newPlaceItem)
         setPlaceList(tempPlaceList)
+
+        if (searchList) {
+            const tempSearchList: searchListInterface[] = [...searchList]
+            tempSearchList.splice(index, 1)
+            setSearchList(tempSearchList)
+        }
     }
 
     const changePlacePath = async (paths: any[], time: number, payment: number, index: number, type: number) => {
@@ -247,7 +258,7 @@ const Travel = () => {
                                                         >
                                                             <RxDragHandleHorizontal className="drag_handler_icon"/>
                                                         </div>
-                                                        <div className="place_list_div" onClick={() => setCenter({lat: Number(item.lat), lng: Number(item.lng)})}>
+                                                        <div className="place_list_div" onClick={() => map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))}>
                                                             <span className="scoredream-700 default_text place">{"[" + (index + 1) + "] "}{item.place}</span>
                                                             <span className="scoredream-500 grey_text address">{item.address}</span>
                                                         </div>
@@ -264,7 +275,7 @@ const Travel = () => {
                                                             setAddList(true)
                                                             setAddPlaceId(item.id)
                                                             setSearchList([])
-                                                            setCenter({lat: Number(item.lat), lng: Number(item.lng)})
+                                                            map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
                                                         }}>
                                                             <FaPlus className="add_icon"/>
                                                         </button>}
@@ -301,7 +312,7 @@ const Travel = () => {
                             <div key={index}>
                                 <div
                                     className="place_list_section"
-                                    onClick={() => setCenter({lat: Number(item.lat), lng: Number(item.lng)})}
+                                    onClick={() => map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))}
                                 >
                                     <PlacePicker placeItem={item} onChange={(id: number, type: number, name: string, icon: JSX.Element) => changePlaceType(id, type, name, icon)}/>
                                     <div className="place_list_div">
@@ -395,8 +406,6 @@ const Travel = () => {
                 </div>
             case 2:
                 return <></>
-            case 3:
-                return <></>
         }
     }
 
@@ -411,7 +420,7 @@ const Travel = () => {
         setDateSelected(e.target.value);
         let tempDateList = dateList.filter(item => item.date === e.target.value)[0]
         setPlaceList(tempDateList.place_list)
-        setCenter({lat: Number(tempDateList.place_list[0].lat), lng: Number(tempDateList.place_list[0].lng)})
+        map?.panTo(new kakao.maps.LatLng(Number(tempDateList.place_list[0].lat), Number(tempDateList.place_list[0].lng)))
     }
 
     const handleResetDateSelected = () => {
@@ -425,7 +434,7 @@ const Travel = () => {
             ...dummyPlaceData
         }
         setPlaceList([newPlaceItem])
-        setCenter({lat: Number(tempDateList.lat), lng: Number(tempDateList.lng)})
+        map?.panTo(new kakao.maps.LatLng(Number(tempDateList.lat), Number(tempDateList.lng)))
     }
 
     const updateControlTravel = (dateList: dateListInterface[]) => {
@@ -433,8 +442,41 @@ const Travel = () => {
         setDateList(dateList)
         setDateSelected(dateList[0].date)
         setPlaceList(dateList[0].place_list)
-        setCenter({lat: Number(dateList[0].place_list[0].lat), lng: Number(dateList[0].place_list[0].lng)})
+        map?.panTo(new kakao.maps.LatLng(Number(dateList[0].place_list[0].lat), Number(dateList[0].place_list[0].lng)))
     }
+
+    useEffect(() => {
+        if (!map) return
+        else {
+            if (isTab === 2) {
+                let bounds = new kakao.maps.LatLngBounds()
+
+                placeList.forEach((item) => {
+                    bounds.extend(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
+                })
+
+                map.setBounds(bounds)
+                setMapDraggable(false)
+                setMapZoomable(false)
+            } else {
+                setMapDraggable(true)
+                setMapZoomable(true)
+            }
+        }
+    }, [isTab, placeList, map]);
+
+    useEffect(() => {
+        let infoTitle = document.querySelectorAll('.marker_info');
+        infoTitle.forEach(function(value: Element) {
+            if (value.parentElement && value.parentElement.parentElement) {
+                value.parentElement.parentElement.style.border = "0px";
+                value.parentElement.parentElement.style.background = "unset";
+                value.parentElement.parentElement.style.width = "100%";
+                let bubbleBottom: HTMLElement = value.parentElement.previousElementSibling as HTMLElement
+                bubbleBottom.style.display = "none";
+            }
+        });
+    }, [isSearchMarkerInfo, isPlaceMarkerInfo]);
 
     return (
         <>
@@ -506,22 +548,26 @@ const Travel = () => {
                 {isAddList &&
                 <TravelSearch
                     placeList={placeList}
+                    searchList={searchList}
                     placeId={isAddPlaceId}
-                    setCenter={(lat: number, lng: number) => setCenter({lat: lat, lng: lng})}
-                    setPlaceList={(place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface) => addSearchList(place, lat, lng, address, place_icon)}
+                    setCenter={(lat: number, lng: number) => map?.panTo(new kakao.maps.LatLng(lat, lng))}
+                    setPlaceList={(place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface, index: number) => addSearchList(place, lat, lng, address, place_icon, index)}
                     setSearchList={(data: searchListInterface[]) => setSearchList(data)}
                     setAddList={(status: boolean) => setAddList(status)}
                 />}
                 <Map
                     id="map"
-                    center={isCenter}
+                    center={{lat: 37.5547125, lng: 126.9707878}}
                     isPanto={true}
                     style={{
                         width: "1920px",
                         height: "866px",
                     }}
                     className={!isHideList ? "travel_map active" : "travel_map"}
+                    draggable={isMapDraggable}
+                    zoomable={isMapZoomable}
                     level={3}
+                    onCreate={(map: kakao.maps.Map) => setMap(map)}
                 >
                     {isTab === 0 && placeList && placeList.map((item, index) => (
                         <MapMarker
@@ -530,6 +576,7 @@ const Travel = () => {
                                 lat: Number(item.lat),
                                 lng: Number(item.lng)
                             }}
+                            zIndex={60}
                             image={{
                                 src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/list_marker_" + index + ".png",
                                 size: {
@@ -537,10 +584,25 @@ const Travel = () => {
                                     height: 64
                                 }
                             }}
-                            clickable={false}
-                            onMouseOver={() => setMarkerInfo(true)}
-                            onMouseOut={() => setMarkerInfo(false)}
+                            clickable={true}
+                            onClick={() => {
+                                map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
+                            }}
+                            onMouseOver={() => {
+                                setPlaceMarkerInfo(true)
+                                setPlaceMarkerInfoId(item.id)
+                            }}
+                            onMouseOut={() => {
+                                setPlaceMarkerInfo(false)
+                                setPlaceMarkerInfoId(0)
+                            }}
                         >
+                            {isPlaceMarkerInfoId === item.id && isPlaceMarkerInfo &&
+                                <div className="marker_info">
+                                    <span className="scoredream-700 default_text place">{item.place}</span>
+                                    <span className="scoredream-500 grey_text address">{item.address}</span>
+                                </div>
+                            }
                         </MapMarker>
                     ))}
                     {(isTab === 1 || isTab === 2) && placeList && placeList.map((item, index) => (
@@ -558,9 +620,24 @@ const Travel = () => {
                                 }
                             }}
                             clickable={true}
-                            onMouseOver={() => setMarkerInfo(true)}
-                            onMouseOut={() => setMarkerInfo(false)}
+                            onClick={() => {
+                                map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
+                            }}
+                            onMouseOver={() => {
+                                setPlaceMarkerInfo(true)
+                                setPlaceMarkerInfoId(item.id)
+                            }}
+                            onMouseOut={() => {
+                                setPlaceMarkerInfo(false)
+                                setPlaceMarkerInfoId(0)
+                            }}
                         >
+                            {isPlaceMarkerInfoId === item.id && isPlaceMarkerInfo &&
+                                <div className="marker_info">
+                                    <span className="scoredream-700 default_text place">{item.place}</span>
+                                    <span className="scoredream-500 grey_text address">{item.address}</span>
+                                </div>
+                            }
                         </MapMarker>
                     ))}
                     {isTab === 0 && searchList && searchList.map((item, index) => (
@@ -578,15 +655,30 @@ const Travel = () => {
                                 }
                             }}
                             clickable={true}
-                            onMouseOver={() => setMarkerInfo(true)}
-                            onMouseOut={() => setMarkerInfo(false)}
                             onClick={() => {
-                                if (!!placeList && placeList?.length < 10) addSearchList(item.place, item.lat, item.lng, item.address, item.place_icon)
+                                if (!!placeList && placeList?.length < 10) {
+                                    map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
+                                    addSearchList(item.place, item.lat, item.lng, item.address, item.place_icon, index)
+                                }
+                            }}
+                            onMouseOver={() => {
+                                setSearchMarkerInfo(true)
+                                setSearchMarkerInfoId(item.id)
+                            }}
+                            onMouseOut={() => {
+                                setSearchMarkerInfo(false)
+                                setSearchMarkerInfoId(0)
                             }}
                         >
+                            {isSearchMarkerInfoId === item.id && isSearchMarkerInfo &&
+                                <div className="marker_info">
+                                    <span className="scoredream-700 default_text place">{item.place}</span>
+                                    <span className="scoredream-500 grey_text address">{item.address}</span>
+                                </div>
+                            }
                         </MapMarker>
                     ))}
-                    {isTab === 1 && placeList && placeList.map((item, index) => (
+                    {(isTab === 1 || isTab === 2) && placeList && placeList.map((item, index) => (
                         item.vehicle_type === 3 ?
                             item.public_path.map((value, idx) => (
                                 <Polyline

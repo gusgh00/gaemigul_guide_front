@@ -1022,6 +1022,35 @@
 .travel_map {
     width: 100% !important;
     height: 100vh !important;
-    margin: 0;
+    margin-top: 114px;
     position: fixed;
+}
+
+.marker_info {
+    width: 100%;
+    height: 74px;
+    padding: 0 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: solid 1px #f4f4f4;
+    display: flex;
+    box-shadow: 2px 2px 4px #8f8f8f, -2px -2px 4px #8f8f8f;
+    flex-direction: column;
+    justify-content: center;
+    .place {
+        font-size: 16px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -webkit-line-clamp: 2;
+    }
+    .address {
+        font-size: 12px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -webkit-line-clamp: 2;
+    }
 }
