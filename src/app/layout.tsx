@@ -1,9 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Header from "@/app/_components/header";
 import Footer from "@/app/_components/footer";
-import React, {Suspense} from "react";
+import React from "react";
 import Script from "next/script";
 
 // const inter = Inter({ subsets: ['latin'] })

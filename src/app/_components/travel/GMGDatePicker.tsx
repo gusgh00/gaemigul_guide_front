@@ -24,7 +24,6 @@ const DatePicker = (props: {
 
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth())
-    const [currentDate, setCurrentDate] = useState(new Date().getDate())
 
     const [selectedDate, setSelectedDate] = useState(startOfDay(new  Date()))
 
@@ -51,7 +50,6 @@ const DatePicker = (props: {
     }
 
     const handleDateClick = (dateNum: number) => {
-        setCurrentDate(toDate(dateNum).getDate())
         setSelectedDate(toDate(dateNum))
         props.onChange(toDate(dateNum))
         setOpenCalendar(false)
@@ -60,14 +58,12 @@ const DatePicker = (props: {
     const handleAnotherDateClick = (dateNum: number) => {
         setCurrentYear(toDate(dateNum).getFullYear())
         setCurrentMonth(toDate(dateNum).getMonth())
-        setCurrentDate(toDate(dateNum).getDate())
         setSelectedDate(toDate(dateNum))
         props.onChange(toDate(dateNum))
         setOpenCalendar(false)
     }
 
     const handleDateActiveStyle = (dateNum: number) => {
-        let tempDate = toDate(dateNum)
         if ((props.minDate && dateNum < startOfDay(props.minDate).valueOf()) || (props.maxDate && dateNum > startOfDay(props.maxDate).valueOf())) {
             return "light_grey_text cursor_not_allowed"
         } else {
@@ -141,7 +137,6 @@ const DatePicker = (props: {
         setSelectedDate(tempDate)
         setCurrentYear(tempDate.getFullYear())
         setCurrentMonth(tempDate.getMonth())
-        setCurrentDate(tempDate.getDate())
     }, [props.selectDate]);
 
     useEffect(() => {

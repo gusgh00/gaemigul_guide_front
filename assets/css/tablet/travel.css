@@ -520,4 +520,8 @@
             }
         }
     }
+
+    .travel_map {
+        margin-top: calc(100vw * (114 / 1300));
+    }
 }
