@@ -20,7 +20,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-    const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`
+    const API = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&libraries=services,clusterer&autoload=false`
 
   return (
         <html lang="en">
