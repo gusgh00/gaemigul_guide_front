@@ -73,9 +73,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: npm install
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: npm run build
         env:
           NEXT_PUBLIC_KAKAO_MOBILITY_URL: ${{ secrets.NEXT_PUBLIC_KAKAO_MOBILITY_URL}}
           NEXT_PUBLIC_KAKAO_REST_KEY: ${{ secrets.NEXT_PUBLIC_KAKAO_REST_KEY}}
