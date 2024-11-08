@@ -4,7 +4,7 @@ const nextConfig = {
     swcMinify: true,
     trailingSlash: true,
     output: "export",
-    distDir: 'dist',
+    distDir: 'next',
     async rewrites() {
         return [
             {
