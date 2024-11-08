@@ -2,13 +2,16 @@
   "name": "gaemigul_guide_front",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/gusgh00/gaemigul_guide_front/",
   "scripts": {
     "dev": "next dev -p 3019",
     "build": "next build",
     "start": "next start -p 3000",
     "dev-start": "next start -p 3030",
     "hyno-start": "next start -p 3019",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
@@ -25,6 +28,7 @@
     "dayjs": "^1.11.13",
     "eslint": "8.57.0",
     "eslint-config-next": "14.2.7",
+    "gh-pages": "^6.2.0",
     "next": "^14.2.13",
     "next-auth": "^4.24.7",
     "postcss": "8.4.44",
