@@ -85,7 +85,7 @@ export default function Home() {
             <div className="introduce_ticket">
               <div className="ticket_top">
                 <div className="ticket_place">
-                  <span className="scoredream-700 default_text ticket_place_from">개미굴</span>
+                  <span className="scoredream-700 default_text ticket_place_from">개미국</span>
 
                   <select className="scoredream-700 default_text ticket_place_to" onChange={(event) => handleChangeEndSelect(event)} value={endSelected}>
                     {regionTopList.map((item, index) => (
