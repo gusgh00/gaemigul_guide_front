@@ -73,23 +73,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: npm install
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./next
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Build
         run: npm run build
         env:
           NEXT_PUBLIC_KAKAO_MOBILITY_URL: ${{ secrets.NEXT_PUBLIC_KAKAO_MOBILITY_URL}}
@@ -106,6 +91,21 @@ jobs:
           NEXT_PUBLIC_ODSAY_ROAD_URL: ${{ secrets.NEXT_PUBLIC_ODSAY_ROAD_URL}}
           NEXT_PUBLIC_KAKAO_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_KAKAO_CLIENT_ID}}
           NEXT_PUBLIC_KAKAO_CLIENT_SECRET: ${{ secrets.NEXT_PUBLIC_KAKAO_CLIENT_SECRET}}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./next
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
