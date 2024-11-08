@@ -29,11 +29,6 @@ export default function Home() {
     setEndDate(date)
   }
 
-  useEffect(() => {
-    console.log(process.env.KAKAO_LOGIN_URI as string)
-    console.log(process.env.NEXT_PUBLIC_MAPBOX_URL as string)
-  }, []);
-
   const getRegionTop = async () => {
     const url = process.env.NEXT_PUBLIC_SGIS_URL as string
     const accessToken = await getAccessKey()
