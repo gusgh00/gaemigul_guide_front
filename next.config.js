@@ -2,6 +2,8 @@
 const nextConfig = {
     reactStrictMode: false,
     swcMinify: true,
+    output: "export",
+    distDir: 'dist',
     async rewrites() {
         return [
             {
@@ -10,6 +12,10 @@ const nextConfig = {
             },
         ];
     },
+    assetPrefix:
+        process.env.NODE_ENV === "production"
+            ? "https://github.com/gusgh00/gaemigul_guide_front"
+            : "",
     images: {
         remotePatterns: [
             {
