@@ -15,7 +15,7 @@ const nextConfig = {
     },
     assetPrefix:
         process.env.NODE_ENV === "production"
-            ? "https://gusgh00.github.io/gaemigul_guide_front"
+            ? "https://gaemigul-guide.com"
             : "",
     images: {
         remotePatterns: [
