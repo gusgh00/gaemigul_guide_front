@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
@@ -22,15 +26,38 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@images/*": ["./assets/images/*"],
-      "@css/*": ["./assets/css/*"],
-      "@fonts/*": ["./assets/fonts/*"],
-      "@module/*": ["./src/module/*"],
-      "@interface/*": ["./src/interface/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@images/*": [
+        "./assets/images/*"
+      ],
+      "@css/*": [
+        "./assets/css/*"
+      ],
+      "@fonts/*": [
+        "./assets/fonts/*"
+      ],
+      "@module/*": [
+        "./src/module/*"
+      ],
+      "@interface/*": [
+        "./src/interface/*"
+      ]
     },
-    "typeRoots": ["./node_modules/@types", "./@types"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./@types"
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
