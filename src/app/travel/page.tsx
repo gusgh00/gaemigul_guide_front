@@ -495,9 +495,6 @@ const Travel = () => {
                         </div>
                         <div className="banner_inner_button">
                             <div className="banner_button_save">
-                                <span className="scoredream-700 white_text">게시하기</span>
-                            </div>
-                            <div className="banner_button_save">
                                 <span className="scoredream-700 white_text">엑셀로 저장하기</span>
                             </div>
                         </div>
