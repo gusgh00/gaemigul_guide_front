@@ -578,7 +578,7 @@ const Travel = () => {
                             }}
                             zIndex={60}
                             image={{
-                                src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/list_marker_" + index + ".png",
+                                src: "https://raw.githubusercontent.com/gusgh00/gaemigul_guide_img/refs/heads/main/list_marker_" + index + ".png",
                                 size: {
                                     width: 43,
                                     height: 64
@@ -613,7 +613,7 @@ const Travel = () => {
                                 lng: Number(item.lng)
                             }}
                             image={{
-                                src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/place_marker_" + item.place_type + ".png",
+                                src: "https://raw.githubusercontent.com/gusgh00/gaemigul_guide_img/refs/heads/main/place_marker_" + item.place_type + ".png",
                                 size: {
                                     width: 43,
                                     height: 64
@@ -648,7 +648,7 @@ const Travel = () => {
                                 lng: Number(item.lng)
                             }}
                             image={{
-                                src: "https://raw.githubusercontent.com/SsapTPandSsapFJ/gaemigul_guide_img/refs/heads/main/search_list_marker.png",
+                                src: "https://raw.githubusercontent.com/gusgh00/gaemigul_guide_img/refs/heads/main/search_list_marker.png",
                                 size: {
                                     width: 43,
                                     height: 64
