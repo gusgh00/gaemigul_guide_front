@@ -2,6 +2,7 @@
 const nextConfig = {
     reactStrictMode: false,
     swcMinify: true,
+    trailingSlash: true,
     output: "export",
     distDir: 'dist',
     async rewrites() {
