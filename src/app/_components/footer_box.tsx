@@ -1,8 +1,8 @@
 "use client"
 
-const Footer = () => {
+const FooterBox = () => {
     return (
-        <footer id="footer_pc">
+        <footer id="footer_box">
             <div className="footer_section">
                 <div className="inner_section">
                     <span className="scoredream-300 footer_copyright">© 2024 Gaemigul-Guide. All Rights Reserved.</span>
@@ -12,4 +12,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default FooterBox;

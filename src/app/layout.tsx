@@ -1,7 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Header from "@/app/_components/header";
-import Footer from "@/app/_components/footer";
 import React from "react";
 import Script from "next/script";
 
@@ -33,7 +32,6 @@ export default function RootLayout({
         <main>
             {children}
         </main>
-        <Footer/>
         </body>
         </html>
   )

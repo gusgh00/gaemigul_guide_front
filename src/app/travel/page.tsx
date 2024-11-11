@@ -47,6 +47,7 @@ import {
     placeListInterface,
     searchListInterface
 } from "@interface/TravelInterface";
+import FooterBox from "@/app/_components/footer_box";
 
 const Travel = () => {
     const [isAddList, setAddList] = useState(false)
@@ -224,6 +225,8 @@ const Travel = () => {
             items[i].public_path = []
             items[i].move_amount = 0
             items[i].move_time = new Date(new Date().setHours(0, 0))
+            items[i].start_time = new Date(new Date().setHours(0, 0))
+            items[i].end_time = new Date(new Date().setHours(0, 0))
         }
         setPlaceList(items)
     }
@@ -534,6 +537,7 @@ const Travel = () => {
                                 </div>
                             </div>
                             {!isListReady ? null : showTab()}
+                            <FooterBox/>
                         </div>
                     </div>
                     <div className="travel_list_button" onClick={() => {
