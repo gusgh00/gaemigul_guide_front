@@ -21,3 +21,27 @@
         }
     }
 }
+
+#footer_box {
+    width: 100%;
+    bottom: 0;
+    z-index: 99;
+    .footer_section {
+        position: relative;
+        width: 100%;
+        background: #FAFAFA;
+        box-shadow: inset 0 1px 0 #E8E8E8;
+        .inner_section {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            .footer_copyright {
+                font-size: 12px;
+                color: #9b9b9b;
+            }
+        }
+    }
+}

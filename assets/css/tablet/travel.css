@@ -181,7 +181,7 @@
                     }
                 }
                 .all_place_section {
-                    max-height: calc(100vh - (100vw * (210 / 1300)));
+                    max-height: calc(100vh - (100vw * (280 / 1300)));
                     padding: calc(100vw * (20 / 1300));
                     .place_list_section {
                         height: calc(100vw * (74 / 1300));
@@ -234,7 +234,7 @@
                     }
                 }
                 .all_road_section {
-                    height: calc(100vh - (100vw * (210 / 1300)));
+                    height: calc(100vh - (100vw * (280 / 1300)));
                     padding: calc(100vw * (20 / 1300));
                     .place_control_section {
                         height: calc(100vw * (74 / 1300));
