@@ -141,13 +141,13 @@ export default function Home() {
                 <span className="scoredream-700 contact_title_span">여러분들의 응원을 기다리고 있습니다!</span>
               </div>
               <div className="contact_button_section">
-                <div className="contact_donate">
-                  <Link href="https://toon.at/donate/gaemigul" target="_blank">
-                    <div className="contact_donate_button">
-                      <span className="scoredream-500 contact_donate_span">후원</span><br/>
-                    </div>
-                  </Link>
-                </div>
+                {/*<div className="contact_donate">*/}
+                {/*  <Link href="https://toon.at/donate/gaemigul" target="_blank">*/}
+                {/*    <div className="contact_donate_button">*/}
+                {/*      <span className="scoredream-500 contact_donate_span">후원</span><br/>*/}
+                {/*    </div>*/}
+                {/*  </Link>*/}
+                {/*</div>*/}
                 <div className="contact_inquiry">
                   <Link href="mailto:gaemigul.guide@gmail.com" target="_blank">
                     <div className="contact_inquiry_button">
