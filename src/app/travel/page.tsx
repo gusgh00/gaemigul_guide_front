@@ -403,10 +403,13 @@ const Travel = () => {
                                                     <span className="scoredream-700 grey_text amount_unit">만원</span>
                                                 </div>
                                             </div>
-                                            <div className="place_move_time_div">
+                                            <div className="place_stay_time_div">
                                                 <span className="scoredream-700 grey_text time_type">이동 시간</span>
                                                 <div className="time_input_div">
-                                                    <input className="scoredream-700 default_text move_time" value={dayjs(item.move_time).format("HH:mm")} readOnly={true}/>
+                                                    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
+                                                    <span className="scoredream-700 grey_text time_unit">시간</span>
+                                                    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
+                                                    <span className="scoredream-700 grey_text time_unit">분</span>
                                                 </div>
                                             </div>
                                         </div>

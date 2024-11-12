@@ -174,7 +174,7 @@ const TimePicker = (props: {
                         <span className={props.unitClassName}>시간</span>
                         <input className={props.inputClassName} readOnly={true} onClick={() => {
                             setOpenCalendar(!isOpenCalendar)
-                        }} value={dayjs(selectedTime).format("HH")}/>
+                        }} value={dayjs(selectedTime).format("mm")}/>
                         <span className={props.unitClassName}>분</span>
                     </>
                 }
