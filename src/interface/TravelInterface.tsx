@@ -47,6 +47,7 @@ export interface dateListInterface {
     lat: string,
     lng: string,
     address: string,
+    start_time: Date,
     place_list: placeListInterface[],
 }
 export interface searchListInterface {

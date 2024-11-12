@@ -64,7 +64,6 @@ const Travel = () => {
     const [isPlaceMarkerInfoId, setPlaceMarkerInfoId] = useState(0)
     const [isSearchMarkerInfo, setSearchMarkerInfo] = useState(false)
     const [isSearchMarkerInfoId, setSearchMarkerInfoId] = useState(0)
-    const [startTime, setStartTime] = useState<Date>(new Date(new Date().setHours(0,0)))
     const [isMapDraggable, setMapDraggable] = useState(true)
     const [isMapZoomable, setMapZoomable] = useState(true)
     const [map, setMap] = useState<kakao.maps.Map>()
@@ -194,7 +193,7 @@ const Travel = () => {
         } else {
             items[index].path = paths
         }
-        items[index].start_time = index === 0 ? addSeconds(startTime, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
+        items[index].start_time = index === 0 ? addSeconds(dateList.filter(item => item.date === dateSelected)[0].start_time, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
         items[index].end_time = addSeconds(items[index].start_time, time)
         items[index].move_time = changeDurationTime(time)
         items[index].move_amount = payment
@@ -229,6 +228,16 @@ const Travel = () => {
             items[i].end_time = new Date(new Date().setHours(0, 0))
         }
         setPlaceList(items)
+    }
+
+    const setStartTime = (date: Date) => {
+        setDateList(dateList.map(item => {
+            if (item.date === dateSelected) {
+                return { ...item, start_time: date }
+            } else {
+                return item
+            }
+        }))
     }
 
     const showTab = () => {
@@ -304,9 +313,10 @@ const Travel = () => {
                             <span className="scoredream-700 grey_text time_type">시작 시간</span>
                             <TimePicker
                                 onChange={(date: Date | null) => date && setStartTime(date)}
-                                selectTime={startTime}
+                                type={1}
+                                selectTime={dateList.filter(item => item.date === dateSelected)[0].start_time}
                                 boxClassName={"time_input_div"}
-                                inputClassName={"scoredream-700 default_text stay_time"}
+                                inputClassName={"scoredream-700 default_text stay_time stay_time_times"}
                             />
                         </div>
                     </div>
@@ -333,9 +343,11 @@ const Travel = () => {
                                         <span className="scoredream-700 grey_text time_type">머무는 시간</span>
                                         <TimePicker
                                             onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date)}
+                                            type={0}
                                             selectTime={item.stay_time}
                                             boxClassName={"time_input_div"}
-                                            inputClassName={"scoredream-700 default_text stay_time"}
+                                            inputClassName={"scoredream-700 default_text stay_time stay_time_hours"}
+                                            unitClassName={"scoredream-700 grey_text time_unit"}
                                         />
                                     </div>
                                 </div>

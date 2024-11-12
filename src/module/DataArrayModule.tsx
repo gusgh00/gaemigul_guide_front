@@ -310,6 +310,7 @@ export const initialDateLists: dateListInterface[] = [
         lat: "",
         lng: "",
         address: "",
+        start_time: new Date(new Date().setHours(0,0)),
         place_list: initialPlaceLists,
     },
     {
@@ -321,6 +322,7 @@ export const initialDateLists: dateListInterface[] = [
         lat: "",
         lng: "",
         address: "",
+        start_time: new Date(new Date().setHours(0,0)),
         place_list: initialPlaceLists,
     },
 ];

@@ -6,7 +6,9 @@ import dayjs from "dayjs";
 const TimePicker = (props: {
     boxClassName?: string,
     inputClassName?: string,
+    unitClassName?: string,
     onChange: (date: Date) => void,
+    type: number,
     selectTime: Date
 }) => {
     const [isOpenCalendar, setOpenCalendar] = useState(false)
@@ -159,9 +161,23 @@ const TimePicker = (props: {
     return (
         <>
             <div className={"gmg_time_picker_section " + props.boxClassName} ref={parentRef}>
-                <input className={props.inputClassName} readOnly={true} onClick={() => {
-                    setOpenCalendar(!isOpenCalendar)
-                }} value={dayjs(selectedTime).format("HH:mm")}/>
+                {props.type === 1
+                    ?
+                    <input className={props.inputClassName} readOnly={true} onClick={() => {
+                        setOpenCalendar(!isOpenCalendar)
+                    }} value={dayjs(selectedTime).format("HH:mm")}/>
+                    :
+                    <>
+                        <input className={props.inputClassName} readOnly={true} onClick={() => {
+                            setOpenCalendar(!isOpenCalendar)
+                        }} value={dayjs(selectedTime).format("HH")}/>
+                        <span className={props.unitClassName}>시간</span>
+                        <input className={props.inputClassName} readOnly={true} onClick={() => {
+                            setOpenCalendar(!isOpenCalendar)
+                        }} value={dayjs(selectedTime).format("HH")}/>
+                        <span className={props.unitClassName}>분</span>
+                    </>
+                }
                 {isOpenCalendar && <Timer/>}
             </div>
         </>

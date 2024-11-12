@@ -156,6 +156,7 @@ const ControlTravel = (props: any) => {
                 lat: lat.toString(),
                 lng: lng.toString(),
                 address: currentRegion.full_addr,
+                start_time: new Date(new Date().setHours(0,0)),
                 place_list: [{
                     id: 1,
                     place: currentRegion.addr_name,

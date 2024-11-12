@@ -346,9 +346,17 @@
                             font-size: calc(100vw * (10 / 1300));
                         }
                         .time_input_div {
-                            .stay_time {
+                            .stay_time_times {
                                 font-size: calc(100vw * (24 / 1300));
                                 line-height: calc(100vw * (26 / 1300));
+                            }
+                            .stay_time_hours {
+                                font-size: calc(100vw * (24 / 1300));
+                                line-height: calc(100vw * (26 / 1300));
+                                width: calc(100vw * (30 / 1300));
+                            }
+                            .time_unit {
+                                font-size: calc(100vw * (10 / 1300));
                             }
                         }
                     }
