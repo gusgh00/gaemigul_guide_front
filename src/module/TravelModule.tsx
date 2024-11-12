@@ -240,16 +240,3 @@ export const getRoutePublicTransport = async (startPlace: placeListInterface, en
 
     return {paths, time, payment}
 }
-
-export const getTotalAmount = (dateList: dateListInterface[]) => {
-    let totalAmount = 0
-    let people = dateList[0].people
-    for (let i = 0; i < dateList.length; i++) {
-        for (let j = 0; j < dateList[i].place_list.length; j++) {
-            let move_amount = dateList[i].place_list[j].move_amount * 10000
-            let stay_amount = dateList[i].place_list[j].stay_amount * 10000
-            totalAmount += (move_amount + stay_amount)
-        }
-    }
-    return totalAmount / people + "원 / " + totalAmount + '원'
-}
