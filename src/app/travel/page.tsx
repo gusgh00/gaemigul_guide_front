@@ -67,6 +67,7 @@ const Travel = () => {
     const [isMapDraggable, setMapDraggable] = useState(true)
     const [isMapZoomable, setMapZoomable] = useState(true)
     const [map, setMap] = useState<kakao.maps.Map>()
+    const [totalAmount, setTotalAmount] = useState<string>("")
 
     const tabList = ['경유지 탐색', '경유지 상세', '최종 계획']
 
@@ -496,6 +497,26 @@ const Travel = () => {
         });
     }, [isSearchMarkerInfo, isPlaceMarkerInfo]);
 
+    useEffect(() => {
+        let totalAmount = 0
+        let people = dateList[0].people
+        for (let k = 0; k < placeList.length; k++) {
+            let move_amount = placeList[k].move_amount * 10000
+            let stay_amount = placeList[k].stay_amount * 10000
+            totalAmount += (move_amount + stay_amount)
+        }
+        for (let i = 0; i < dateList.length; i++) {
+            if (dateList[i].date !== dateSelected) {
+                for (let j = 0; j < dateList[i].place_list.length; j++) {
+                    let move_amount = dateList[i].place_list[j].move_amount * 10000
+                    let stay_amount = dateList[i].place_list[j].stay_amount * 10000
+                    totalAmount += (move_amount + stay_amount)
+                }
+            }
+        }
+        setTotalAmount(Math.floor(totalAmount / people) + "원 / " + totalAmount + '원')
+    }, [dateList, placeList, dateSelected]);
+
     return (
         <>
             <div>
@@ -510,6 +531,7 @@ const Travel = () => {
                             <span className="scoredream-500 default_text">날짜 : <span className="scoredream-500 grey_text">{dateList && dateList[0].date + " ~ " + dateList[dateList.length - 1].date}</span></span>
                             <span className="scoredream-500 default_text">대표지역 : <span className="scoredream-500 grey_text">{dateList && dateList[0].destination}</span></span>
                             <span className="scoredream-500 default_text">인원 : <span className="scoredream-500 grey_text">{dateList && dateList[0].people}명</span></span>
+                            <span className="scoredream-500 default_text">총 금액 : <span className="scoredream-500 grey_text">{totalAmount}</span></span>
                         </div>
                         <div className="banner_inner_button">
                             <div className="banner_button_save">
