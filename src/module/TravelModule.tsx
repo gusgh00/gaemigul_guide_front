@@ -6,6 +6,7 @@ import {
 } from "@interface/TravelInterface";
 import axios from "axios";
 import {busRouteType, subwayRouteType} from "@module/DataArrayModule";
+import exp from "constants";
 
 export const findMaxIdLocation = (locations: placeListInterface[]) => {
     return locations.reduce((max, location) => {

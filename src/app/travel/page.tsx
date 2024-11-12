@@ -64,10 +64,10 @@ const Travel = () => {
     const [isPlaceMarkerInfoId, setPlaceMarkerInfoId] = useState(0)
     const [isSearchMarkerInfo, setSearchMarkerInfo] = useState(false)
     const [isSearchMarkerInfoId, setSearchMarkerInfoId] = useState(0)
-    const [startTime, setStartTime] = useState<Date>(new Date(new Date().setHours(0,0)))
     const [isMapDraggable, setMapDraggable] = useState(true)
     const [isMapZoomable, setMapZoomable] = useState(true)
     const [map, setMap] = useState<kakao.maps.Map>()
+    const [totalAmount, setTotalAmount] = useState<string>("")
 
     const tabList = ['경유지 탐색', '경유지 상세', '최종 계획']
 
@@ -194,7 +194,7 @@ const Travel = () => {
         } else {
             items[index].path = paths
         }
-        items[index].start_time = index === 0 ? addSeconds(startTime, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
+        items[index].start_time = index === 0 ? addSeconds(dateList.filter(item => item.date === dateSelected)[0].start_time, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
         items[index].end_time = addSeconds(items[index].start_time, time)
         items[index].move_time = changeDurationTime(time)
         items[index].move_amount = payment
@@ -229,6 +229,16 @@ const Travel = () => {
             items[i].end_time = new Date(new Date().setHours(0, 0))
         }
         setPlaceList(items)
+    }
+
+    const setStartTime = (date: Date) => {
+        setDateList(dateList.map(item => {
+            if (item.date === dateSelected) {
+                return { ...item, start_time: date }
+            } else {
+                return item
+            }
+        }))
     }
 
     const showTab = () => {
@@ -304,9 +314,10 @@ const Travel = () => {
                             <span className="scoredream-700 grey_text time_type">시작 시간</span>
                             <TimePicker
                                 onChange={(date: Date | null) => date && setStartTime(date)}
-                                selectTime={startTime}
+                                type={1}
+                                selectTime={dateList.filter(item => item.date === dateSelected)[0].start_time}
                                 boxClassName={"time_input_div"}
-                                inputClassName={"scoredream-700 default_text stay_time"}
+                                inputClassName={"scoredream-700 default_text stay_time stay_time_times"}
                             />
                         </div>
                     </div>
@@ -333,9 +344,11 @@ const Travel = () => {
                                         <span className="scoredream-700 grey_text time_type">머무는 시간</span>
                                         <TimePicker
                                             onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date)}
+                                            type={0}
                                             selectTime={item.stay_time}
                                             boxClassName={"time_input_div"}
-                                            inputClassName={"scoredream-700 default_text stay_time"}
+                                            inputClassName={"scoredream-700 default_text stay_time stay_time_hours"}
+                                            unitClassName={"scoredream-700 grey_text time_unit"}
                                         />
                                     </div>
                                 </div>
@@ -391,10 +404,13 @@ const Travel = () => {
                                                     <span className="scoredream-700 grey_text amount_unit">만원</span>
                                                 </div>
                                             </div>
-                                            <div className="place_move_time_div">
+                                            <div className="place_stay_time_div">
                                                 <span className="scoredream-700 grey_text time_type">이동 시간</span>
                                                 <div className="time_input_div">
-                                                    <input className="scoredream-700 default_text move_time" value={dayjs(item.move_time).format("HH:mm")} readOnly={true}/>
+                                                    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
+                                                    <span className="scoredream-700 grey_text time_unit">시간</span>
+                                                    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
+                                                    <span className="scoredream-700 grey_text time_unit">분</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -481,6 +497,26 @@ const Travel = () => {
         });
     }, [isSearchMarkerInfo, isPlaceMarkerInfo]);
 
+    useEffect(() => {
+        let totalAmount = 0
+        let people = dateList[0].people
+        for (let k = 0; k < placeList.length; k++) {
+            let move_amount = placeList[k].move_amount * 10000
+            let stay_amount = placeList[k].stay_amount * 10000
+            totalAmount += (move_amount + stay_amount)
+        }
+        for (let i = 0; i < dateList.length; i++) {
+            if (dateList[i].date !== dateSelected) {
+                for (let j = 0; j < dateList[i].place_list.length; j++) {
+                    let move_amount = dateList[i].place_list[j].move_amount * 10000
+                    let stay_amount = dateList[i].place_list[j].stay_amount * 10000
+                    totalAmount += (move_amount + stay_amount)
+                }
+            }
+        }
+        setTotalAmount(Math.floor(totalAmount / people) + "원 / " + totalAmount + '원')
+    }, [dateList, placeList, dateSelected]);
+
     return (
         <>
             <div>
@@ -495,6 +531,7 @@ const Travel = () => {
                             <span className="scoredream-500 default_text">날짜 : <span className="scoredream-500 grey_text">{dateList && dateList[0].date + " ~ " + dateList[dateList.length - 1].date}</span></span>
                             <span className="scoredream-500 default_text">대표지역 : <span className="scoredream-500 grey_text">{dateList && dateList[0].destination}</span></span>
                             <span className="scoredream-500 default_text">인원 : <span className="scoredream-500 grey_text">{dateList && dateList[0].people}명</span></span>
+                            <span className="scoredream-500 default_text">총 금액 : <span className="scoredream-500 grey_text">{totalAmount}</span></span>
                         </div>
                         <div className="banner_inner_button">
                             <div className="banner_button_save">
