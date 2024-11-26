@@ -1,12 +1,12 @@
 @media screen and (max-width: 1300px) {
     #footer_pc {
         .footer_section {
-            box-shadow: inset 0 calc(100vw * (1 / 1300)) 0 #E8E8E8;
+            box-shadow: inset 0 calc(1024px * (1 / 1300)) 0 #E8E8E8;
             .inner_section {
                 width: 100%;
-                height: calc(100vw * (120 / 1300));
+                height: calc(1024px * (120 / 1300));
                 .footer_copyright {
-                    font-size: calc(100vw * (12 / 1300));
+                    font-size: calc(1024px * (12 / 1300));
                 }
             }
         }
@@ -14,11 +14,11 @@
 
     #footer_box {
         .footer_section {
-            box-shadow: inset 0 calc(100vw * (1 / 1300)) 0 #E8E8E8;
+            box-shadow: inset 0 calc(1024px * (1 / 1300)) 0 #E8E8E8;
             .inner_section {
-                height: calc(100vw * (70 / 1300));
+                height: calc(1024px * (70 / 1300));
                 .footer_copyright {
-                    font-size: calc(100vw * (12 / 1300));
+                    font-size: calc(1024px * (12 / 1300));
                 }
             }
         }
