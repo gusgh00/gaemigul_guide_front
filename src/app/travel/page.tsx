@@ -144,6 +144,7 @@ const Travel = () => {
     useEffect(() => {
         if (!map) return
         else {
+            map.setCopyrightPosition(kakao.maps.CopyrightPosition.BOTTOMRIGHT, true)
             if (isTab === 2) {
                 let bounds = new kakao.maps.LatLngBounds()
 
