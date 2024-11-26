@@ -130,11 +130,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/*<div className="main_page_section main_board main_inner">*/}
-          {/*  <div className="board_display">*/}
-
-          {/*  </div>*/}
-          {/*</div>*/}
           <div className="main_page_section main_contact main_inner">
             <div className="contact_display">
               <div className="contact_title">
