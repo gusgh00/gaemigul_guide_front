@@ -1,29 +1,29 @@
 @media screen and (max-width: 1300px) {
     #header_pc {
         .header_section {
-            box-shadow:  calc(1024px * (-4 / 1300)) calc(1024px * (-4 / 1300)) calc(1024px * (8 / 1300)) #bfbfbf, calc(1024px * (4 / 1300)) calc(1024px * (4 / 1300)) calc(1024px * (8 / 1300)) #ffffff;
+            box-shadow:  calc(768px * (-4 / 1300)) calc(768px * (-4 / 1300)) calc(768px * (8 / 1300)) #bfbfbf, calc(768px * (4 / 1300)) calc(768px * (4 / 1300)) calc(768px * (8 / 1300)) #ffffff;
             .inner_section {
                 width: 100%;
-                height: calc(1024px * (64 / 1300));
+                height: calc(768px * (64 / 1300));
                 .header_sign_in_div {
-                    width: calc(1024px * (40 / 1300));
-                    height: calc(1024px * (40 / 1300));
+                    width: calc(768px * (40 / 1300));
+                    height: calc(768px * (40 / 1300));
                     .header_sign_in_button {
-                        width: calc(1024px * (20 / 1300));
-                        height: calc(1024px * (20 / 1300));
+                        width: calc(768px * (20 / 1300));
+                        height: calc(768px * (20 / 1300));
                     }
                 }
                 .navigation {
-                    height: calc(1024px * (64 / 1300));
-                    gap: calc(1024px * (90 / 1300));
+                    height: calc(768px * (64 / 1300));
+                    gap: calc(768px * (90 / 1300));
                     .header_logo {
-                        width: calc(1024px * (240 / 1300));
+                        width: calc(768px * (240 / 1300));
                     }
                     .navigation_text {
-                        line-height: calc(1024px * (64 / 1300));
-                        font-size: calc(1024px * (16 / 1300));
+                        line-height: calc(768px * (64 / 1300));
+                        font-size: calc(768px * (16 / 1300));
                         &:after {
-                            border-bottom: solid calc(1024px * (3 / 1300)) rgb(242, 57, 32);
+                            border-bottom: solid calc(768px * (3 / 1300)) rgb(242, 57, 32);
                         }
                     }
                 }
