@@ -175,6 +175,10 @@
         align-items: center;
         justify-content: space-between;
         .banner_inner_info {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             & span {
                 margin-right: 40px;
                 font-size: 14px;
@@ -203,6 +207,9 @@
             }
         }
         .banner_button_save {
+            display: flex;
+            align-items: center;
+
             height: 32px;
             padding: 0 20px;
             border-radius: 18px;
@@ -216,7 +223,6 @@
             & span {
                 font-size: 12px;
                 font-weight: 900;
-                line-height: 30px;
                 color: #909090;
             }
             &:hover {
@@ -290,8 +296,13 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-around;
-                    .tab_button {
-                        font-size: 14px;
+                    & div {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        .tab_button {
+                            font-size: 14px;
+                        }
                     }
                 }
             }
@@ -1320,7 +1331,6 @@
 .travel_map {
     width: 100% !important;
     height: 100vh !important;
-    margin-top: 114px;
     position: fixed;
 }
 
