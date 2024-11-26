@@ -1,37 +1,11 @@
 'use client'
-import type {JSX} from 'react'
 import {Map, MapMarker, Polyline} from "react-kakao-maps-sdk";
 import React, {Suspense, useEffect, useState} from "react";
-import {
-    DragDropContext,
-    Draggable,
-    DraggableProvided,
-    DraggableStateSnapshot,
-    Droppable,
-    DroppableProvided,
-    DroppableStateSnapshot,
-    DropResult
-} from "@hello-pangea/dnd";
-import {RxDragHandleHorizontal} from "react-icons/rx";
-import {
-    FaArrowRight,
-    FaPlus,
-} from "react-icons/fa";
-import {MdClose, MdOutlineKeyboardArrowDown} from "react-icons/md";
 import {GrPowerReset} from "react-icons/gr";
-import {FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import ControlTravel from "@/app/_components/travel/ControlTravel";
-import TimePicker from "@/app/_components/travel/GMGTimePicker";
-import dayjs from "dayjs";
-import {addSeconds} from "date-fns";
-import PlacePicker from "@/app/_components/travel/PlacePicker";
-import VehiclePicker from "@/app/_components/travel/VehiclePicker";
 import TravelSearch from "@/app/_components/travel/TravelSearch";
 import {
     findMaxIdLocation,
-    getRouteCar,
-    getRouteCycleAndWalking,
-    getRoutePublicTransport
 } from "@module/TravelModule";
 import {
     dummyPlaceData,
@@ -39,15 +13,14 @@ import {
     initialPlaceLists
 } from '@module/DataArrayModule'
 import {
-    changeDurationTime,
-    changeTimeToSeconds
-} from "@module/TimeModule"
-import {
     dateListInterface, dropdownIconPlaceInterface,
     placeListInterface,
     searchListInterface
 } from "@interface/TravelInterface";
 import FooterBox from "@/app/_components/footer_box";
+import ShowTabSearch from "@/app/_components/travel/tab/ShowTabSearch";
+import ShowTabDetail from "@/app/_components/travel/tab/ShowTabDetail";
+import ShowTabResult from "@/app/_components/travel/tab/ShowTabResult";
 
 const Travel = () => {
     const [isAddList, setAddList] = useState(false)
@@ -75,93 +48,6 @@ const Travel = () => {
         setListReady(true)
     }, [])
 
-    const handleDragEnd = ({source, destination}: DropResult) => {
-        if (!destination) return;
-
-        const items = Array.from(placeList);
-        const [reorderedItem] = items.splice(source.index, 1);
-        items.splice(destination.index, 0, reorderedItem);
-
-        setPlaceList(items);
-    }
-
-    const closePlaceList = (index: number) => {
-        const items = Array.from(placeList);
-        items.splice(index, 1);
-
-        setPlaceList(items);
-    }
-
-    const changePlaceStayTime = (id: number, date: Date) => {
-        setPlaceList(placeList.map(item => {
-            if (item.id === id) {
-                return { ...item, stay_time: date }
-            } else {
-                return item
-            }
-        }))
-    }
-    const changePlaceStayAmount = (id: number, amount: string) => {
-        setPlaceList(placeList.map(item => {
-            if (item.id === id) {
-                return { ...item, stay_amount: Number(amount) }
-            } else {
-                return item
-            }
-        }))
-    }
-    const changePlaceMoveAmount = (id: number, amount: string) => {
-        setPlaceList(placeList.map(item => {
-            if (item.id === id) {
-                return { ...item, move_amount: Number(amount) }
-            } else {
-                return item
-            }
-        }))
-    }
-    const changePlacePathHide = (id: number) => {
-        setPlaceList(placeList.map(item => {
-            if (item.id === id) {
-                return { ...item, path_hide: !item.path_hide }
-            } else {
-                return item
-            }
-        }))
-    }
-    const changePlaceType = (id: number, type: number, name: string, icon: JSX.Element) => {
-        setPlaceList(placeList.map(item => {
-            if (item.id === id) {
-                return { ...item,
-                    place_icon: icon,
-                    place_type: type,
-                    place_name: name,
-                }
-            } else {
-                return item
-            }
-        }))
-    }
-    const changeVehicleType = (id: number, type: number, name: string, icon: JSX.Element, color: string) => {
-        setPlaceList(placeList.map(item => {
-            if (item.id === id) {
-                return { ...item,
-                    vehicle_icon: icon,
-                    vehicle_type: type,
-                    vehicle_name: name,
-                    path_color: color,
-                    path: [],
-                    public_path: [],
-                    move_amount: 0,
-                    move_time: new Date(new Date().setHours(0, 0)),
-                    start_time: new Date(new Date().setHours(0, 0)),
-                    end_time: new Date(new Date().setHours(0, 0))
-                }
-            } else {
-                return item
-            }
-        }))
-    }
-
     const addSearchList = (place: string, lat: string, lng: string, address: string, place_icon: dropdownIconPlaceInterface, index: number) => {
         const tempPlaceList: placeListInterface[] = [...placeList]
         const frontPlaceIndex = placeList.findIndex(item => item.id === isAddPlaceId)
@@ -187,244 +73,35 @@ const Travel = () => {
         }
     }
 
-    const changePlacePath = async (paths: any[], time: number, payment: number, index: number, type: number) => {
-        const items = [...placeList];
-        if (type === 3) {
-            items[index].public_path = paths
-        } else {
-            items[index].path = paths
-        }
-        items[index].start_time = index === 0 ? addSeconds(dateList.filter(item => item.date === dateSelected)[0].start_time, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
-        items[index].end_time = addSeconds(items[index].start_time, time)
-        items[index].move_time = changeDurationTime(time)
-        items[index].move_amount = payment
-        setPlaceList(items)
-    }
-
-    const getDirectionGeometry = async () => {
-        removeDirectionGeometry()
-        for (let i = 0; i < placeList.length; i++) {
-            let endPlace: placeListInterface = placeList.find((val, valIndex) => valIndex == i + 1) as placeListInterface
-            if (placeList[i].vehicle_type === 1 || placeList[i].vehicle_type === 4) {
-                let routeData = await getRouteCycleAndWalking(placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.payment, i, placeList[i].vehicle_type)
-            } else if (placeList[i].vehicle_type === 2) {
-                let routeData = await getRouteCar(placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.payment, i, placeList[i].vehicle_type)
-            } else if (placeList[i].vehicle_type === 3) {
-                let routeData = await getRoutePublicTransport(placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.payment * dateList[0].people, i, placeList[i].vehicle_type)
-            }
-        }
-    }
-
-    const removeDirectionGeometry = () => {
-        let items = [...placeList];
-        for (let i = 0; i < placeList.length; i++) {
-            items[i].path = []
-            items[i].public_path = []
-            items[i].move_amount = 0
-            items[i].move_time = new Date(new Date().setHours(0, 0))
-            items[i].start_time = new Date(new Date().setHours(0, 0))
-            items[i].end_time = new Date(new Date().setHours(0, 0))
-        }
-        setPlaceList(items)
-    }
-
-    const setStartTime = (date: Date) => {
-        setDateList(dateList.map(item => {
-            if (item.date === dateSelected) {
-                return { ...item, start_time: date }
-            } else {
-                return item
-            }
-        }))
-    }
-
     const showTab = () => {
         switch (isTab) {
             case 0:
-                return <DragDropContext onDragEnd={handleDragEnd}>
-                    <Droppable droppableId="placeList">
-                        {(provided: DroppableProvided, snapshot: DroppableStateSnapshot) => (
-                            <div
-                                ref={provided.innerRef}
-                                className={snapshot.isDraggingOver ? "all_place_section all_place_section_is_dragging" : "all_place_section"}
-                                {...provided.droppableProps}>
-                                {placeList.map((item: any, index: number) => {
-                                    return (
-                                        <Draggable
-                                            key={item.id}
-                                            draggableId={item.id.toString()}
-                                            index={index}
-                                        >
-                                            {(provided: DraggableProvided, snapshot2: DraggableStateSnapshot) => (
-                                                <>
-                                                    <div
-                                                        ref={provided.innerRef}
-                                                        className={snapshot2.isDragging ? "place_list_section place_list_section_is_dragging" : "place_list_section"}
-                                                        {...provided.draggableProps}
-                                                    >
-                                                        <div
-                                                            className="drag_handler_div"
-                                                            {...provided.dragHandleProps}
-                                                        >
-                                                            <RxDragHandleHorizontal className="drag_handler_icon"/>
-                                                        </div>
-                                                        <div className="place_list_div" onClick={() => map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))}>
-                                                            <span className="scoredream-700 default_text place">{"[" + (index + 1) + "] "}{item.place}</span>
-                                                            <span className="scoredream-500 grey_text address">{item.address}</span>
-                                                        </div>
-                                                        <div className={placeList.length > 1 ? "close_div" : "display_none"}>
-                                                            <MdClose className="close_icon" onClick={() => {
-                                                                closePlaceList(index)
-                                                                if (item.id === isAddPlaceId) {
-                                                                    setAddList(false)
-                                                                }
-                                                            }}/>
-                                                        </div>
-                                                        {placeList.length >= 10 ? null :
-                                                        <button className={isAddPlaceId === item.id && isAddList ? "add_button active" : "add_button"} onClick={() => {
-                                                            setAddList(true)
-                                                            setAddPlaceId(item.id)
-                                                            setSearchList([])
-                                                            map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
-                                                        }}>
-                                                            <FaPlus className="add_icon"/>
-                                                        </button>}
-                                                    </div>
-                                                </>
-                                            )}
-                                        </Draggable>
-                                    );
-                                })}
-                                {provided.placeholder}
-                            </div>
-                        )}
-                    </Droppable>
-                </DragDropContext>
+                return <ShowTabSearch
+                    map={map as kakao.maps.Map}
+                    placeList={placeList}
+                    setPlaceList={(list: placeListInterface[]) => setPlaceList(list)}
+                    setSearchList={(list: searchListInterface[]) => setSearchList(list)}
+                    isAddList={isAddList}
+                    setAddList={(type: boolean) => setAddList(type)}
+                    isAddPlaceId={isAddPlaceId}
+                    setAddPlaceId={(id: number) => setAddPlaceId(id)}
+                />
             case 1:
-                return <div className="all_road_section">
-                    <div className="place_control_section">
-                        <div className="place_control_div">
-                            <button className="scoredream-700 remove" onClick={() => removeDirectionGeometry()}>경로 삭제</button>
-                            <button className="scoredream-700 search" onClick={() => getDirectionGeometry()}>경로 찾기</button>
-                        </div>
-                        <div className="place_stay_time_div">
-                            <span className="scoredream-700 grey_text time_type">시작 시간</span>
-                            <TimePicker
-                                onChange={(date: Date | null) => date && setStartTime(date)}
-                                type={1}
-                                selectTime={dateList.filter(item => item.date === dateSelected)[0].start_time}
-                                boxClassName={"time_input_div"}
-                                inputClassName={"scoredream-700 default_text stay_time stay_time_times"}
-                            />
-                        </div>
-                    </div>
-                    {placeList.map((item: any, index: number) => {
-                        return (
-                            <div key={index}>
-                                <div
-                                    className="place_list_section"
-                                    onClick={() => map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))}
-                                >
-                                    <PlacePicker placeItem={item} onChange={(id: number, type: number, name: string, icon: JSX.Element) => changePlaceType(id, type, name, icon)}/>
-                                    <div className="place_list_div">
-                                        <span className="scoredream-700 default_text place">{item.place}</span>
-                                        <span className="scoredream-500 grey_text address">{item.address}</span>
-                                    </div>
-                                    <div className="place_amount_div">
-                                        <span className="scoredream-700 grey_text amount_type">이용 비용</span>
-                                        <div className="amount_input_div">
-                                            <input type="text" maxLength={4} className="scoredream-700 default_text amount" value={item.stay_amount} onChange={(event) => changePlaceStayAmount(item.id, event.target.value)}/>
-                                            <span className="scoredream-700 grey_text amount_unit">만원</span>
-                                        </div>
-                                    </div>
-                                    <div className="place_stay_time_div">
-                                        <span className="scoredream-700 grey_text time_type">머무는 시간</span>
-                                        <TimePicker
-                                            onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date)}
-                                            type={0}
-                                            selectTime={item.stay_time}
-                                            boxClassName={"time_input_div"}
-                                            inputClassName={"scoredream-700 default_text stay_time stay_time_hours"}
-                                            unitClassName={"scoredream-700 grey_text time_unit"}
-                                        />
-                                    </div>
-                                </div>
-                                {index === placeList.length - 1 ? null :
-                                    <>
-                                        <div
-                                            className={item.path_hide ? "place_path_section display_none" : "place_path_section"}
-                                        >
-                                            <div className="place_path_start">
-                                                <div className="select_place_div default">
-                                                    <FaRegCirclePlay className="select_place_icon"/>
-                                                </div>
-                                                <div className="place_list_div">
-                                                    <span className="scoredream-700 default_text place">{item.place}</span>
-                                                    <span className="scoredream-700 grey_text place">출발</span>
-                                                </div>
-                                                <div className="place_move_time_div">
-                                                    <span className="scoredream-700 grey_text time_type">출발 시간</span>
-                                                    <div className="time_input_div">
-                                                        <input className="scoredream-700 default_text move_time" value={dayjs(item.start_time).format("HH:mm")} readOnly={true}/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="place_path_end">
-                                                <div className="select_place_div default">
-                                                    <FaRegCircleStop className="select_place_icon"/>
-                                                </div>
-                                                <div className="place_list_div">
-                                                    <span className="scoredream-700 default_text place">{placeList.find((val, valIndex) => valIndex == index + 1)?.place}</span>
-                                                    <span className="scoredream-700 grey_text place">도착</span>
-                                                </div>
-                                                <div className="place_move_time_div">
-                                                    <span className="scoredream-700 grey_text time_type">도착 시간</span>
-                                                    <div className="time_input_div">
-                                                        <input className="scoredream-700 default_text move_time" value={dayjs(item.end_time).format("HH:mm")} readOnly={true}/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            className="place_road_section"
-                                        >
-                                            <VehiclePicker vehicleItem={item} onChange={(id: number, type: number, name: string, icon: JSX.Element, color: string) => changeVehicleType(id, type, name, icon, color)}/>
-                                            <div className="place_list_div">
-                                                <span className="scoredream-700 default_text place">{item.place}</span>
-                                                <FaArrowRight className="arrow"/>
-                                                <span className="scoredream-700 default_text place">{placeList.find((val, valIndex )=> valIndex == index + 1)?.place}</span>
-                                            </div>
-                                            <div className="place_amount_div">
-                                                <span className="scoredream-700 grey_text amount_type">이용 비용</span>
-                                                <div className="amount_input_div">
-                                                    <input type="text" maxLength={4} className="scoredream-700 default_text amount" value={item.move_amount} onChange={(event) => changePlaceMoveAmount(item.id, event.target.value)}/>
-                                                    <span className="scoredream-700 grey_text amount_unit">만원</span>
-                                                </div>
-                                            </div>
-                                            <div className="place_stay_time_div">
-                                                <span className="scoredream-700 grey_text time_type">이동 시간</span>
-                                                <div className="time_input_div">
-                                                    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
-                                                    <span className="scoredream-700 grey_text time_unit">시간</span>
-                                                    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
-                                                    <span className="scoredream-700 grey_text time_unit">분</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button className="place_path_hide_btn" onClick={() => changePlacePathHide(item.id)}>
-                                            <MdOutlineKeyboardArrowDown className={item.path_hide ? "place_path_hide_icon" : "place_path_hide_icon active"}/>
-                                        </button>
-                                    </>
-                                }
-                            </div>
-                        );
-                    })}
-                </div>
+                return <ShowTabDetail
+                    map={map as kakao.maps.Map}
+                    placeList={placeList}
+                    dateList={dateList}
+                    setPlaceList={(list: placeListInterface[]) => setPlaceList(list)}
+                    setDateList={(list: dateListInterface[]) => setDateList(list)}
+                    dateSelected={dateSelected}
+                />
             case 2:
-                return <></>
+                return <ShowTabResult
+                    map={map as kakao.maps.Map}
+                    placeList={placeList}
+                    dateList={dateList}
+                    dateSelected={dateSelected}
+                />
         }
     }
 
@@ -495,7 +172,7 @@ const Travel = () => {
                 bubbleBottom.style.display = "none";
             }
         });
-    }, [isSearchMarkerInfo, isPlaceMarkerInfo]);
+    }, [isSearchMarkerInfo, isSearchMarkerInfoId, isPlaceMarkerInfo, isPlaceMarkerInfoId]);
 
     useEffect(() => {
         let totalAmount = 0
@@ -614,7 +291,7 @@ const Travel = () => {
                                 lat: Number(item.lat),
                                 lng: Number(item.lng)
                             }}
-                            zIndex={60}
+                            zIndex={0}
                             image={{
                                 src: "https://raw.githubusercontent.com/gusgh00/gaemigul_guide_img/refs/heads/main/list_marker_" + index + ".png",
                                 size: {

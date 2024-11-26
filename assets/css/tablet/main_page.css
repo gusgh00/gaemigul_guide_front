@@ -1,19 +1,19 @@
 @media screen and (max-width: 1300px) {
     .main_page_section {
         /*width: 100%;*/
-        margin-bottom: calc(100vw * (20 / 1300));
+        margin-bottom: calc(1024px * (20 / 1300));
 
         &.main_introduce {
-            height: calc(100vw * (800 / 1300));
-            box-shadow: inset 0 calc(100vw * (-1 / 1300)) 0 #E8E8E8;
+            height: calc(1024px * (800 / 1300));
+            box-shadow: inset 0 calc(1024px * (-1 / 1300)) 0 #E8E8E8;
 
             .introduce_display {
                 .introduce_title {
-                    margin-top: calc(100vw * (460 / 1300));
+                    margin-top: calc(1024px * (460 / 1300));
 
                     .introduce_title_span {
-                        font-size: calc(100vw * (60 / 1300));
-                        line-height: calc(100vw * (80 / 1300));
+                        font-size: calc(1024px * (60 / 1300));
+                        line-height: calc(1024px * (80 / 1300));
                     }
 
                     .introduce_title_span_highlight {
@@ -22,103 +22,103 @@
                 }
 
                 .introduce_ticket {
-                    width: calc(100vw * (600 / 1300));
+                    width: calc(1024px * (600 / 1300));
 
                     .ticket_top {
-                        width: calc(100vw * (400 / 1300));
-                        height: calc(100vw * (500 / 1300));
-                        border-radius: 0 0 calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300));
-                        border: solid calc(100vw * (2 / 1300)) #fff;
-                        box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4, calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+                        width: calc(1024px * (400 / 1300));
+                        height: calc(1024px * (500 / 1300));
+                        border-radius: 0 0 calc(1024px * (10 / 1300)) calc(1024px * (10 / 1300));
+                        border: solid calc(1024px * (2 / 1300)) #fff;
+                        box-shadow: calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (7 / 1300)) #e4e4e4, calc(1024px * (-5 / 1300)) calc(1024px * (-5 / 1300)) calc(1024px * (7 / 1300)) #ffffff;
 
                         .ticket_place {
-                            width: calc(100vw * (260 / 1300));
-                            height: calc(100vw * (100 / 1300));
-                            margin: calc(100vw * (70 / 1300)) auto 0;
-                            gap: calc(100vw * (30 / 1300));
+                            width: calc(1024px * (260 / 1300));
+                            height: calc(1024px * (100 / 1300));
+                            margin: calc(1024px * (70 / 1300)) auto 0;
+                            gap: calc(1024px * (30 / 1300));
 
                             .ticket_place_from {
-                                width: calc(100vw * (118 / 1300));
-                                height: calc(100vw * (80 / 1300));
-                                line-height: calc(100vw * (80 / 1300));
-                                font-size: calc(100vw * (34 / 1300));
+                                width: calc(1024px * (118 / 1300));
+                                height: calc(1024px * (80 / 1300));
+                                line-height: calc(1024px * (80 / 1300));
+                                font-size: calc(1024px * (34 / 1300));
 
                                 &:before {
-                                    width: calc(100vw * (20 / 1300));
-                                    height: calc(100vw * (20 / 1300));
+                                    width: calc(1024px * (20 / 1300));
+                                    height: calc(1024px * (20 / 1300));
                                 }
                             }
 
                             .ticket_place_to {
-                                width: calc(100vw * (110 / 1300));
-                                height: calc(100vw * (60 / 1300));
-                                box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece, inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
-                                border-radius: calc(100vw * (20 / 1300));
-                                line-height: calc(100vw * (60 / 1300));
-                                font-size: calc(100vw * (34 / 1300));
-                                margin-top: calc(100vw * (10 / 1300));
+                                width: calc(1024px * (110 / 1300));
+                                height: calc(1024px * (60 / 1300));
+                                box-shadow: inset calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (10 / 1300)) #cecece, inset calc(1024px * (-5 / 1300)) calc(1024px * (-5 / 1300)) calc(1024px * (10 / 1300)) #ffffff;
+                                border-radius: calc(1024px * (20 / 1300));
+                                line-height: calc(1024px * (60 / 1300));
+                                font-size: calc(1024px * (34 / 1300));
+                                margin-top: calc(1024px * (10 / 1300));
 
                                 &:before {
-                                    width: calc(100vw * (20 / 1300));
-                                    height: calc(100vw * (20 / 1300));
+                                    width: calc(1024px * (20 / 1300));
+                                    height: calc(1024px * (20 / 1300));
                                 }
                             }
                         }
 
                         .ticket_start,
                         .ticket_end {
-                            width: calc(100vw * (260 / 1300));
-                            height: calc(100vw * (40 / 1300));
-                            margin: calc(100vw * (10 / 1300)) auto calc(100vw * (40 / 1300));
-                            box-shadow: inset calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (10 / 1300)) #cecece, inset calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (10 / 1300)) #ffffff;
-                            border-radius: calc(100vw * (20 / 1300));
-                            padding: 0 calc(100vw * (20 / 1300));
+                            width: calc(1024px * (260 / 1300));
+                            height: calc(1024px * (40 / 1300));
+                            margin: calc(1024px * (10 / 1300)) auto calc(1024px * (40 / 1300));
+                            box-shadow: inset calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (10 / 1300)) #cecece, inset calc(1024px * (-5 / 1300)) calc(1024px * (-5 / 1300)) calc(1024px * (10 / 1300)) #ffffff;
+                            border-radius: calc(1024px * (20 / 1300));
+                            padding: 0 calc(1024px * (20 / 1300));
 
                             .date_icon {
-                                width: calc(100vw * (24 / 1300));
-                                height: calc(100vw * (24 / 1300));
+                                width: calc(1024px * (24 / 1300));
+                                height: calc(1024px * (24 / 1300));
                             }
 
                             .ticket_date_text {
-                                width: calc(100vw * (180 / 1300));
-                                font-size: calc(100vw * (20 / 1300));
+                                width: calc(1024px * (180 / 1300));
+                                font-size: calc(1024px * (20 / 1300));
                             }
                         }
                     }
                     .ticket_button {
-                        width: calc(100vw * (400 / 1300));
-                        height: calc(100vw * (200 / 1300));
-                        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                        top: calc(100vw * (500 / 1300));
-                        border: dashed calc(100vw * (3 / 1300)) transparent;
+                        width: calc(1024px * (400 / 1300));
+                        height: calc(1024px * (200 / 1300));
+                        border-radius: calc(1024px * (10 / 1300)) calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300)) calc(1024px * (20 / 1300));
+                        top: calc(1024px * (500 / 1300));
+                        border: dashed calc(1024px * (3 / 1300)) transparent;
                         &:hover {
                             & ~ .ticket_bottom {
-                                transform: perspective(calc(100vw * (800 / 1300))) rotateY(180deg);
+                                transform: perspective(calc(1024px * (800 / 1300))) rotateY(180deg);
                             }
                         }
                     }
                     .ticket_bottom {
-                        width: calc(100vw * (400 / 1300));
-                        height: calc(100vw * (200 / 1300));
-                        border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                        transform: perspective(calc(100vw * (800 / 1300))) rotateY(0deg);
+                        width: calc(1024px * (400 / 1300));
+                        height: calc(1024px * (200 / 1300));
+                        border-radius: calc(1024px * (10 / 1300)) calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300)) calc(1024px * (20 / 1300));
+                        transform: perspective(calc(1024px * (800 / 1300))) rotateY(0deg);
                         .ticket_front {
-                            width: calc(100vw * (400 / 1300));
-                            height: calc(100vw * (200 / 1300));
-                            border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                            border: solid calc(100vw * (2 / 1300)) #fff;
-                            box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
+                            width: calc(1024px * (400 / 1300));
+                            height: calc(1024px * (200 / 1300));
+                            border-radius: calc(1024px * (10 / 1300)) calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300)) calc(1024px * (20 / 1300));
+                            border: solid calc(1024px * (2 / 1300)) #fff;
+                            box-shadow:  calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (7 / 1300)) #e4e4e4;
                         }
                         .ticket_back {
-                            width: calc(100vw * (400 / 1300));
-                            height: calc(100vw * (200 / 1300));
-                            border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300));
-                            border: solid calc(100vw * (2 / 1300)) #fff;
-                            box-shadow:  calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4;
+                            width: calc(1024px * (400 / 1300));
+                            height: calc(1024px * (200 / 1300));
+                            border-radius: calc(1024px * (10 / 1300)) calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300)) calc(1024px * (20 / 1300));
+                            border: solid calc(1024px * (2 / 1300)) #fff;
+                            box-shadow:  calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (7 / 1300)) #e4e4e4;
                             & span {
-                                border-radius: calc(100vw * (10 / 1300)) calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300)) calc(100vw * (20 / 1300)) !important;
-                                line-height: calc(100vw * (200 / 1300));
-                                font-size: calc(100vw * (30 / 1300));
+                                border-radius: calc(1024px * (10 / 1300)) calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300)) calc(1024px * (20 / 1300)) !important;
+                                line-height: calc(1024px * (200 / 1300));
+                                font-size: calc(1024px * (30 / 1300));
                             }
                         }
                     }
@@ -127,56 +127,56 @@
         }
 
         &.main_contact {
-            height: calc(100vw * (360 / 1300));
+            height: calc(1024px * (360 / 1300));
 
             .contact_display {
                 .contact_title {
-                    margin-bottom: calc(100vw * (60 / 1300));
+                    margin-bottom: calc(1024px * (60 / 1300));
 
                     .contact_title_span {
-                        font-size: calc(100vw * (20 / 1300));
+                        font-size: calc(1024px * (20 / 1300));
                     }
                 }
 
                 .contact_button_section {
                     .contact_donate_button {
-                        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4, calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
-                        width: calc(100vw * (240 / 1300));
-                        height: calc(100vw * (46 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
-                        margin: 0 calc(100vw * (20 / 1300));
+                        box-shadow: calc(1024px * (6 / 1300)) calc(1024px * (6 / 1300)) calc(1024px * (12 / 1300)) #e4e4e4, calc(1024px * (-6 / 1300)) calc(1024px * (-6 / 1300)) calc(1024px * (12 / 1300)) #ffffff;
+                        width: calc(1024px * (240 / 1300));
+                        height: calc(1024px * (46 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        margin: 0 calc(1024px * (20 / 1300));
 
                         .contact_donate_span {
-                            font-size: calc(100vw * (18 / 1300));
-                            line-height: calc(100vw * (46 / 1300));
+                            font-size: calc(1024px * (18 / 1300));
+                            line-height: calc(1024px * (46 / 1300));
                         }
 
                         &:hover {
-                            box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4, calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+                            box-shadow: calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (7 / 1300)) #e4e4e4, calc(1024px * (-5 / 1300)) calc(1024px * (-5 / 1300)) calc(1024px * (7 / 1300)) #ffffff;
 
                             .contact_donate_span:before {
-                                font-size: calc(100vw * (12 / 1300));
+                                font-size: calc(1024px * (12 / 1300));
                             }
                         }
                     }
 
                     .contact_inquiry_button {
-                        box-shadow: calc(100vw * (6 / 1300)) calc(100vw * (6 / 1300)) calc(100vw * (12 / 1300)) #e4e4e4, calc(100vw * (-6 / 1300)) calc(100vw * (-6 / 1300)) calc(100vw * (12 / 1300)) #ffffff;
-                        width: calc(100vw * (240 / 1300));
-                        height: calc(100vw * (46 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
-                        margin: 0 calc(100vw * (20 / 1300));
+                        box-shadow: calc(1024px * (6 / 1300)) calc(1024px * (6 / 1300)) calc(1024px * (12 / 1300)) #e4e4e4, calc(1024px * (-6 / 1300)) calc(1024px * (-6 / 1300)) calc(1024px * (12 / 1300)) #ffffff;
+                        width: calc(1024px * (240 / 1300));
+                        height: calc(1024px * (46 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        margin: 0 calc(1024px * (20 / 1300));
 
                         .contact_inquiry_span {
-                            font-size: calc(100vw * (18 / 1300));
-                            line-height: calc(100vw * (46 / 1300));
+                            font-size: calc(1024px * (18 / 1300));
+                            line-height: calc(1024px * (46 / 1300));
                         }
 
                         &:hover {
-                            box-shadow: calc(100vw * (5 / 1300)) calc(100vw * (5 / 1300)) calc(100vw * (7 / 1300)) #e4e4e4, calc(100vw * (-5 / 1300)) calc(100vw * (-5 / 1300)) calc(100vw * (7 / 1300)) #ffffff;
+                            box-shadow: calc(1024px * (5 / 1300)) calc(1024px * (5 / 1300)) calc(1024px * (7 / 1300)) #e4e4e4, calc(1024px * (-5 / 1300)) calc(1024px * (-5 / 1300)) calc(1024px * (7 / 1300)) #ffffff;
 
                             .contact_inquiry_span:before {
-                                font-size: calc(100vw * (12 / 1300));
+                                font-size: calc(1024px * (12 / 1300));
                             }
                         }
                     }
@@ -185,7 +185,7 @@
         }
 
         &.main_board {
-            height: calc(100vw * (700 / 1300));
+            height: calc(1024px * (700 / 1300));
         }
     }
 }

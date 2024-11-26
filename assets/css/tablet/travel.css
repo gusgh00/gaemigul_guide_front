@@ -1,398 +1,551 @@
 @media screen and (max-width: 1300px) {
     .control_background {
         .control_section {
-            padding: calc(100vw * (20 / 1300));
-            border-radius: calc(100vw * (20 / 1300));
-            gap: calc(100vw * (20 / 1300));
+            padding: calc(1024px * (20 / 1300));
+            border-radius: calc(1024px * (20 / 1300));
+            gap: calc(1024px * (20 / 1300));
             .control_title {
-                width: calc(100vw * (600 / 1300));
+                width: calc(1024px * (600 / 1300));
                 & span {
-                    font-size: calc(100vw * (18 / 1300));
+                    font-size: calc(1024px * (18 / 1300));
                 }
             }
             .control_region {
-                width: calc(100vw * (600 / 1300));
-                height: calc(100vw * (40 / 1300));
-                gap: calc(100vw * (20 / 1300));
+                width: calc(1024px * (600 / 1300));
+                height: calc(1024px * (40 / 1300));
+                gap: calc(1024px * (20 / 1300));
                 .region_title {
-                    width: calc(100vw * (80 / 1300));
+                    width: calc(1024px * (80 / 1300));
                     .title_span {
-                        font-size: calc(100vw * (14 / 1300));
+                        font-size: calc(1024px * (14 / 1300));
                     }
                 }
                 .region_content {
-                    width: calc(100vw * (500 / 1300));
+                    width: calc(1024px * (500 / 1300));
                     .region {
-                        width: calc(100vw * (120 / 1300));
-                        font-size: calc(100vw * (14 / 1300));
+                        width: calc(1024px * (120 / 1300));
+                        font-size: calc(1024px * (14 / 1300));
                     }
                 }
             }
             .control_people {
-                width: calc(100vw * (600 / 1300));
-                height: calc(100vw * (40 / 1300));
-                gap: calc(100vw * (20 / 1300));
+                width: calc(1024px * (600 / 1300));
+                height: calc(1024px * (40 / 1300));
+                gap: calc(1024px * (20 / 1300));
                 .people_title {
-                    width: calc(100vw * (80 / 1300));
+                    width: calc(1024px * (80 / 1300));
                     .title_span {
-                        font-size: calc(100vw * (14 / 1300));
+                        font-size: calc(1024px * (14 / 1300));
                     }
                 }
                 .people_content {
-                    width: calc(100vw * (500 / 1300));
-                    gap: calc(100vw * (20 / 1300));
+                    width: calc(1024px * (500 / 1300));
+                    gap: calc(1024px * (20 / 1300));
                     .people_plus_btn {
-                        width: calc(100vw * (20 / 1300));
-                        height: calc(100vw * (20 / 1300));
+                        width: calc(1024px * (20 / 1300));
+                        height: calc(1024px * (20 / 1300));
                         .people_plus_icon {
-                            width: calc(100vw * (20 / 1300));
-                            height: calc(100vw * (20 / 1300));
+                            width: calc(1024px * (20 / 1300));
+                            height: calc(1024px * (20 / 1300));
                         }
                     }
                     .people_minus_btn {
-                        width: calc(100vw * (20 / 1300));
-                        height: calc(100vw * (20 / 1300));
+                        width: calc(1024px * (20 / 1300));
+                        height: calc(1024px * (20 / 1300));
                         .people_minus_icon {
-                            width: calc(100vw * (20 / 1300));
-                            height: calc(100vw * (20 / 1300));
+                            width: calc(1024px * (20 / 1300));
+                            height: calc(1024px * (20 / 1300));
                         }
                     }
                     & input[type="text"] {
-                        width: calc(100vw * (30 / 1300));
+                        width: calc(1024px * (30 / 1300));
                     }
                     .people {
-                        font-size: calc(100vw * (14 / 1300));
+                        font-size: calc(1024px * (14 / 1300));
                     }
                 }
             }
             .control_date {
-                width: calc(100vw * (600 / 1300));
-                gap: calc(100vw * (20 / 1300));
+                width: calc(1024px * (600 / 1300));
+                gap: calc(1024px * (20 / 1300));
                 .date_title {
-                    width: calc(100vw * (80 / 1300));
+                    width: calc(1024px * (80 / 1300));
                     .title_span {
-                        font-size: calc(100vw * (14 / 1300));
+                        font-size: calc(1024px * (14 / 1300));
                     }
                 }
                 .date_content {
-                    width: calc(100vw * (500 / 1300));
+                    width: calc(1024px * (500 / 1300));
                     .date_sub_title {
-                        gap: calc(100vw * (10 / 1300));
-                        font-size: calc(100vw * (14 / 1300));
-                        margin-bottom: calc(100vw * (10 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        font-size: calc(1024px * (14 / 1300));
+                        margin-bottom: calc(1024px * (10 / 1300));
                         .date {
-                            font-size: calc(100vw * (14 / 1300));
+                            font-size: calc(1024px * (14 / 1300));
                         }
                     }
                 }
             }
             .control_button {
-                width: calc(100vw * (600 / 1300));
+                width: calc(1024px * (600 / 1300));
                 .button_submit {
-                    border-radius: calc(100vw * (30 / 1300));
-                    box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #dedede, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
-                    border: solid calc(100vw * (2 / 1300)) #f6f6f6;
-                    font-size: calc(100vw * (14 / 1300));
-                    padding: calc(100vw * (4 / 1300)) calc(100vw * (30 / 1300));
+                    border-radius: calc(1024px * (30 / 1300));
+                    box-shadow: calc(1024px * (4 / 1300)) calc(1024px * (4 / 1300)) calc(1024px * (9 / 1300)) #dedede, calc(1024px * (-4 / 1300)) calc(1024px * (-4 / 1300)) calc(1024px * (9 / 1300)) #ffffff;
+                    border: solid calc(1024px * (2 / 1300)) #f6f6f6;
+                    font-size: calc(1024px * (14 / 1300));
+                    padding: calc(1024px * (4 / 1300)) calc(1024px * (30 / 1300));
                 }
             }
         }
     }
-    
+
     .travel_top_banner {
-        height: calc(100vw * (50 / 1300));
-        box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
-        margin-top: calc(100vw * (64 / 1300));
+        height: calc(1024px * (50 / 1300));
+        box-shadow:  calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #bfbfbf;
+        margin-top: calc(1024px * (64 / 1300));
         .banner_inner {
             .banner_inner_info {
                 & span {
-                    margin-right: calc(100vw * (40 / 1300));
-                    font-size: calc(100vw * (14 / 1300));
+                    margin-right: calc(1024px * (40 / 1300));
+                    font-size: calc(1024px * (14 / 1300));
                 }
             }
             .banner_inner_button {
-                gap: calc(100vw * (10 / 1300));
+                gap: calc(1024px * (10 / 1300));
             }
             /*.banner_button_clear {*/
-            /*    width: calc(100vw * (100 / 1300));*/
-            /*    height: calc(100vw * (32 / 1300));*/
-            /*    border-radius: calc(100vw * (18 / 1300));*/
-            /*    box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf,*/
-            /*    calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;*/
-            /*    margin-right: calc(100vw * (14 / 1300));*/
+            /*    width: calc(1024px * (100 / 1300));*/
+            /*    height: calc(1024px * (32 / 1300));*/
+            /*    border-radius: calc(1024px * (18 / 1300));*/
+            /*    box-shadow:  calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #bfbfbf,*/
+            /*    calc(1024px * (-2 / 1300)) calc(1024px * (-2 / 1300)) calc(1024px * (4 / 1300)) #ffffff;*/
+            /*    margin-right: calc(1024px * (14 / 1300));*/
             /*    & span {*/
-            /*        font-size: calc(100vw * (12 / 1300));*/
-            /*        line-height: calc(100vw * (32 / 1300));*/
+            /*        font-size: calc(1024px * (12 / 1300));*/
+            /*        line-height: calc(1024px * (32 / 1300));*/
             /*    }*/
             /*}*/
             .banner_button_save {
-                height: calc(100vw * (32 / 1300));
-                padding: 0 calc(100vw * (20 / 1300));
-                border-radius: calc(100vw * (18 / 1300));
-                box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #dbdbdb,
-                calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
-                border: solid calc(100vw * (1 / 1300)) #f0f0f0;
+                height: calc(1024px * (32 / 1300));
+                padding: 0 calc(1024px * (20 / 1300));
+                border-radius: calc(1024px * (18 / 1300));
+                box-shadow:  calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #dbdbdb,
+                calc(1024px * (-2 / 1300)) calc(1024px * (-2 / 1300)) calc(1024px * (4 / 1300)) #ffffff;
+                border: solid calc(1024px * (1 / 1300)) #f0f0f0;
                 & span {
-                    font-size: calc(100vw * (12 / 1300));
-                    line-height: calc(100vw * (30 / 1300));
+                    font-size: calc(1024px * (12 / 1300));
+                    line-height: calc(1024px * (30 / 1300));
                 }
             }
         }
     }
 
     .travel_list_section {
-        width: calc(100vw * (500 / 1300));
+        width: calc(1024px * (500 / 1300));
         &.travel_list_section_hide {
-            left: calc(100vw * (-480 / 1300));
+            left: calc(1024px * (-480 / 1300));
         }
         .travel_list_box {
-            box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
-            width: calc(100vw * (480 / 1300));
+            box-shadow:  calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #bfbfbf;
+            width: calc(1024px * (480 / 1300));
             .travel_list_box_section {
-                width: calc(100vw * (480 / 1300));
-                padding-top: calc(100vw * (114 / 1300));
+                width: calc(1024px * (480 / 1300));
+                padding-top: calc(1024px * (114 / 1300));
                 .travel_list_box_menu {
-                    height: calc(100vw * (96 / 1300));
-                    box-shadow:  calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
+                    height: calc(1024px * (96 / 1300));
+                    box-shadow:  calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #bfbfbf, calc(1024px * (-2 / 1300)) calc(1024px * (-2 / 1300)) calc(1024px * (4 / 1300)) #ffffff;
                     .travel_list_box_menu_top {
-                        height: calc(100vw * (48 / 1300));
-                        padding: 0 calc(100vw * (20 / 1300));
-                        border-bottom: solid calc(100vw * (1 / 1300)) #e9e9e9;
+                        height: calc(1024px * (48 / 1300));
+                        padding: 0 calc(1024px * (20 / 1300));
+                        border-bottom: solid calc(1024px * (1 / 1300)) #e9e9e9;
                         .select_date {
-                            width: calc(100vw * (150 / 1300));
-                            height: calc(100vw * (30 / 1300));
-                            font-size: calc(100vw * (14 / 1300));
+                            width: calc(1024px * (150 / 1300));
+                            height: calc(1024px * (30 / 1300));
+                            font-size: calc(1024px * (14 / 1300));
                         }
                         .current_clear_button {
-                            font-size: calc(100vw * (14 / 1300));
-                            gap: calc(100vw * (6 / 1300));
+                            font-size: calc(1024px * (14 / 1300));
+                            gap: calc(1024px * (6 / 1300));
                             .current_clear_icon {
-                                width: calc(100vw * (18 / 1300));
-                                height: calc(100vw * (18 / 1300));
+                                width: calc(1024px * (18 / 1300));
+                                height: calc(1024px * (18 / 1300));
                             }
                         }
                     }
                     .travel_list_box_menu_bottom {
-                        height: calc(100vw * (48 / 1300));
-                        padding: 0 calc(100vw * (20 / 1300));
+                        height: calc(1024px * (48 / 1300));
+                        padding: 0 calc(1024px * (20 / 1300));
                         .tab_button {
-                            font-size: calc(100vw * (14 / 1300));
+                            font-size: calc(1024px * (14 / 1300));
                         }
                     }
                 }
                 .all_place_section {
-                    max-height: calc(100vh - (100vw * (280 / 1300)));
-                    padding: calc(100vw * (20 / 1300));
+                    max-height: calc(100vh - (1024px * (280 / 1300)));
+                    padding: calc(1024px * (20 / 1300));
                     .place_list_section {
-                        height: calc(100vw * (74 / 1300));
-                        gap: calc(100vw * (10 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
-                        border: solid calc(100vw * (1 / 1300)) #f4f4f4;
-                        box-shadow:  calc(100vw * (8 / 1300)) calc(100vw * (8 / 1300)) calc(100vw * (16 / 1300)) #dfdfdf, calc(100vw * (-8 / 1300)) calc(100vw * (-8 / 1300)) calc(100vw * (16 / 1300)) #fbfbfb;
-                        margin-bottom: calc(100vw * (30 / 1300));
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        border: solid calc(1024px * (1 / 1300)) #f4f4f4;
+                        box-shadow:  calc(1024px * (8 / 1300)) calc(1024px * (8 / 1300)) calc(1024px * (16 / 1300)) #dfdfdf, calc(1024px * (-8 / 1300)) calc(1024px * (-8 / 1300)) calc(1024px * (16 / 1300)) #fbfbfb;
+                        margin-bottom: calc(1024px * (30 / 1300));
                         .add_button {
-                            height: calc(100vw * (30 / 1300));
-                            bottom: calc(100vw * (-30 / 1300));
-                            border-radius: calc(100vw * (20 / 1300));
-                            border: dotted calc(100vw * (2 / 1300)) transparent;
+                            height: calc(1024px * (30 / 1300));
+                            bottom: calc(1024px * (-30 / 1300));
+                            border-radius: calc(1024px * (20 / 1300));
+                            border: dotted calc(1024px * (2 / 1300)) transparent;
                             .add_icon {
-                                width: calc(100vw * (18 / 1300));
-                                height: calc(100vw * (18 / 1300));
+                                width: calc(1024px * (18 / 1300));
+                                height: calc(1024px * (18 / 1300));
                             }
                             &:hover {
-                                border: dotted calc(100vw * (2 / 1300)) #3c3c3c;
+                                border: dotted calc(1024px * (2 / 1300)) #3c3c3c;
                             }
                             &.active {
-                                border: dotted calc(100vw * (2 / 1300)) #f23920;
+                                border: dotted calc(1024px * (2 / 1300)) #f23920;
                             }
                         }
                         .drag_handler_div {
-                            width: calc(100vw * (34 / 1300));
-                            margin: calc(100vw * (6 / 1300));
+                            width: calc(1024px * (34 / 1300));
+                            margin: calc(1024px * (6 / 1300));
                             .drag_handler_icon {
-                                width: calc(100vw * (32 / 1300));
-                                height: calc(100vw * (32 / 1300));
+                                width: calc(1024px * (32 / 1300));
+                                height: calc(1024px * (32 / 1300));
                             }
                         }
                         .place_list_div {
-                            width: calc(100vw * (300 / 1300));
+                            width: calc(1024px * (300 / 1300));
                             .place {
-                                font-size: calc(100vw * (16 / 1300));
+                                font-size: calc(1024px * (16 / 1300));
                             }
                             .address {
-                                font-size: calc(100vw * (12 / 1300));
+                                font-size: calc(1024px * (12 / 1300));
                             }
                         }
                         .close_div {
-                            width: calc(100vw * (32 / 1300));
-                            margin-left: calc(100vw * (30 / 1300));
+                            width: calc(1024px * (32 / 1300));
+                            margin-left: calc(1024px * (30 / 1300));
                             .close_icon {
-                                width: calc(100vw * (20 / 1300));
-                                height: calc(100vw * (20 / 1300));
+                                width: calc(1024px * (20 / 1300));
+                                height: calc(1024px * (20 / 1300));
                             }
                         }
                     }
                 }
                 .all_road_section {
-                    height: calc(100vh - (100vw * (280 / 1300)));
-                    padding: calc(100vw * (20 / 1300));
+                    height: calc(100vh - (1024px * (280 / 1300)));
+                    padding: calc(1024px * (20 / 1300));
                     .place_control_section {
-                        height: calc(100vw * (74 / 1300));
-                        gap: calc(100vw * (10 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
-                        margin-bottom: calc(100vw * (10 / 1300));
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        margin-bottom: calc(1024px * (10 / 1300));
                         .place_control_div {
-                            width: calc(100vw * (280 / 1300));
-                            margin: 0 calc(100vw * (23 / 1300));
+                            width: calc(1024px * (280 / 1300));
+                            margin: 0 calc(1024px * (23 / 1300));
                             .remove,
                             .search {
-                                font-size: calc(100vw * (14 / 1300));
-                                width: calc(100vw * (130 / 1300));
-                                height: calc(100vw * (40 / 1300));
-                                border-radius: calc(100vw * (12 / 1300));
-                                border: solid calc(100vw * (1 / 1300)) #f4f4f4;
-                                box-shadow: calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #dfdfdf, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #fbfbfb;
+                                font-size: calc(1024px * (14 / 1300));
+                                width: calc(1024px * (130 / 1300));
+                                height: calc(1024px * (40 / 1300));
+                                border-radius: calc(1024px * (12 / 1300));
+                                border: solid calc(1024px * (1 / 1300)) #f4f4f4;
+                                box-shadow: calc(1024px * (4 / 1300)) calc(1024px * (4 / 1300)) calc(1024px * (9 / 1300)) #dfdfdf, calc(1024px * (-4 / 1300)) calc(1024px * (-4 / 1300)) calc(1024px * (9 / 1300)) #fbfbfb;
                             }
                         }
                     }
                     .place_list_section {
-                        height: calc(100vw * (74 / 1300));
-                        gap: calc(100vw * (10 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
-                        border: solid calc(100vw * (1 / 1300)) #f4f4f4;
-                        box-shadow:  calc(100vw * (8 / 1300)) calc(100vw * (8 / 1300)) calc(100vw * (16 / 1300)) #dfdfdf, calc(100vw * (-8 / 1300)) calc(100vw * (-8 / 1300)) calc(100vw * (16 / 1300)) #fbfbfb;
-                        margin-bottom: calc(100vw * (10 / 1300));
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        border: solid calc(1024px * (1 / 1300)) #f4f4f4;
+                        box-shadow:  calc(1024px * (8 / 1300)) calc(1024px * (8 / 1300)) calc(1024px * (16 / 1300)) #dfdfdf, calc(1024px * (-8 / 1300)) calc(1024px * (-8 / 1300)) calc(1024px * (16 / 1300)) #fbfbfb;
+                        margin-bottom: calc(1024px * (10 / 1300));
                         .place_list_div {
-                            width: calc(100vw * (160 / 1300));
+                            width: calc(1024px * (160 / 1300));
                             .place {
-                                font-size: calc(100vw * (16 / 1300));
+                                font-size: calc(1024px * (16 / 1300));
                             }
                             .address {
-                                font-size: calc(100vw * (12 / 1300));
+                                font-size: calc(1024px * (12 / 1300));
                             }
                         }
                     }
                     .place_road_section {
-                        height: calc(100vw * (74 / 1300));
-                        gap: calc(100vw * (10 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
                         .place_list_div {
-                            gap: calc(100vw * (5 / 1300));
-                            width: calc(100vw * (160 / 1300));
+                            gap: calc(1024px * (5 / 1300));
+                            width: calc(1024px * (160 / 1300));
                             .place {
-                                font-size: calc(100vw * (16 / 1300));
-                                max-width: calc(100vw * (64 / 1300));
+                                font-size: calc(1024px * (16 / 1300));
+                                max-width: calc(1024px * (64 / 1300));
                             }
                             .arrow {
-                                width: calc(100vw * (18 / 1300));
-                                height: calc(100vw * (18 / 1300));
+                                width: calc(1024px * (18 / 1300));
+                                height: calc(1024px * (18 / 1300));
                             }
                         }
                     }
                     .place_path_section {
-                        height: calc(100vw * (148 / 1300));
+                        height: calc(1024px * (148 / 1300));
                         .place_path_start {
-                            height: calc(100vw * (74 / 1300));
-                            gap: calc(100vw * (10 / 1300));
-                            border-radius: calc(100vw * (20 / 1300));
+                            height: calc(1024px * (74 / 1300));
+                            gap: calc(1024px * (10 / 1300));
+                            border-radius: calc(1024px * (20 / 1300));
                         }
                         .place_path_end {
-                            height: calc(100vw * (74 / 1300));
-                            gap: calc(100vw * (10 / 1300));
-                            border-radius: calc(100vw * (20 / 1300));
+                            height: calc(1024px * (74 / 1300));
+                            gap: calc(1024px * (10 / 1300));
+                            border-radius: calc(1024px * (20 / 1300));
                         }
                         .place_list_div {
-                            gap: calc(100vw * (5 / 1300));
-                            width: calc(100vw * (160 / 1300));
-                            margin-right: calc(100vw * (110 / 1300));
+                            gap: calc(1024px * (5 / 1300));
+                            width: calc(1024px * (240 / 1300));
+                            margin-right: calc(1024px * (30 / 1300));
                             .place {
-                                max-width: calc(100vw * (120 / 1300));
-                                font-size: calc(100vw * (16 / 1300));
+                                max-width: calc(1024px * (220 / 1300));
+                                font-size: calc(1024px * (16 / 1300));
                             }
                             .arrow {
-                                width: calc(100vw * (18 / 1300));
-                                height: calc(100vw * (18 / 1300));
+                                width: calc(1024px * (18 / 1300));
+                                height: calc(1024px * (18 / 1300));
                             }
                         }
                     }
                     .place_path_hide_btn {
-                        height: calc(100vw * (20 / 1300));
-                        margin-bottom: calc(100vw * (10 / 1300));
+                        height: calc(1024px * (20 / 1300));
+                        margin-bottom: calc(1024px * (10 / 1300));
                         .place_path_hide_icon {
-                            width: calc(100vw * (18 / 1300));
-                            height: calc(100vw * (18 / 1300));
+                            width: calc(1024px * (18 / 1300));
+                            height: calc(1024px * (18 / 1300));
                         }
                     }
                     .place_amount_div {
-                        width: calc(100vw * (100 / 1300));
+                        width: calc(1024px * (100 / 1300));
                         .amount_type {
-                            font-size: calc(100vw * (10 / 1300));
+                            font-size: calc(1024px * (10 / 1300));
                         }
                         .amount_input_div {
                             .amount_unit {
-                                font-size: calc(100vw * (10 / 1300));
-                                margin-left: calc(100vw * (5 / 1300));
+                                font-size: calc(1024px * (10 / 1300));
+                                margin-left: calc(1024px * (5 / 1300));
                             }
                             .amount {
-                                font-size: calc(100vw * (24 / 1300));
-                                line-height: calc(100vw * (26 / 1300));
-                                width: calc(100vw * (72 / 1300));
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
+                                width: calc(1024px * (72 / 1300));
                             }
                         }
                     }
                     .place_stay_time_div {
-                        width: calc(100vw * (100 / 1300));
+                        width: calc(1024px * (100 / 1300));
                         .time_type {
-                            font-size: calc(100vw * (10 / 1300));
+                            font-size: calc(1024px * (10 / 1300));
                         }
                         .time_input_div {
                             .stay_time_times {
-                                font-size: calc(100vw * (24 / 1300));
-                                line-height: calc(100vw * (26 / 1300));
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
                             }
                             .stay_time_hours {
-                                font-size: calc(100vw * (24 / 1300));
-                                line-height: calc(100vw * (26 / 1300));
-                                width: calc(100vw * (30 / 1300));
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
+                                width: calc(1024px * (30 / 1300));
                             }
                             .time_unit {
-                                font-size: calc(100vw * (10 / 1300));
+                                font-size: calc(1024px * (10 / 1300));
                             }
                         }
                     }
                     .place_move_time_div {
-                        width: calc(100vw * (100 / 1300));
+                        width: calc(1024px * (100 / 1300));
                         .time_type {
-                            font-size: calc(100vw * (10 / 1300));
+                            font-size: calc(1024px * (10 / 1300));
                         }
                         .time_input_div {
                             .move_time {
-                                font-size: calc(100vw * (24 / 1300));
-                                line-height: calc(100vw * (26 / 1300));
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
                             }
                         }
                     }
                     .select_place_div,
                     .select_vehicle_div {
-                        width: calc(100vw * (34 / 1300));
-                        height: calc(100vw * (34 / 1300));
-                        margin: calc(100vw * (6 / 1300));
-                        border-radius: calc(100vw * (150 / 1300));
-                        border: solid calc(100vw * (2 / 1300)) #fff;
+                        width: calc(1024px * (34 / 1300));
+                        height: calc(1024px * (34 / 1300));
+                        margin: calc(1024px * (6 / 1300));
+                        border-radius: calc(1024px * (150 / 1300));
+                        border: solid calc(1024px * (2 / 1300)) #fff;
                         .select_vehicle_icon {
-                            width: calc(100vw * (18 / 1300));
-                            height: calc(100vw * (18 / 1300));
+                            width: calc(1024px * (18 / 1300));
+                            height: calc(1024px * (18 / 1300));
                         }
                     }
                     .select_place_tab,
                     .select_vehicle_tab {
-                        gap: calc(100vw * (2 / 1300));
-                        border-radius: calc(100vw * (20 / 1300));
-                        border: solid calc(100vw * (1 / 1300)) #fff;
+                        gap: calc(1024px * (2 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        border: solid calc(1024px * (1 / 1300)) #fff;
                         .select_place_div,
                         .select_vehicle_div {
                             &.active {
-                                border: solid calc(100vw * (2 / 1300)) #f23920;
+                                border: solid calc(1024px * (2 / 1300)) #f23920;
+                            }
+                        }
+                    }
+                }
+                .all_result_section {
+                    height: calc(100vh - (1024px * (280 / 1300)));
+                    padding: calc(1024px * (20 / 1300));
+                    .place_control_section {
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        margin-bottom: calc(1024px * (10 / 1300));
+                        .place_control_div {
+                            width: calc(1024px * (280 / 1300));
+                            margin: 0 calc(1024px * (23 / 1300));
+                            .title {
+                                font-size: calc(1024px * (14 / 1300));
+                                width: calc(1024px * (130 / 1300));
+                                height: calc(1024px * (40 / 1300));
+                                border-radius: calc(1024px * (12 / 1300));
+                            }
+                        }
+                    }
+                    .place_list_section {
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        border: solid calc(1024px * (1 / 1300)) #f4f4f4;
+                        box-shadow: calc(1024px * (8 / 1300)) calc(1024px * (8 / 1300)) calc(1024px * (16 / 1300)) #dfdfdf, calc(1024px * (-8 / 1300)) calc(1024px * (-8 / 1300)) calc(1024px * (16 / 1300)) #fbfbfb;
+                        margin-bottom: calc(1024px * (10 / 1300));
+                        .place_list_div {
+                            width: calc(1024px * (160 / 1300));
+                            .place {
+                                font-size: calc(1024px * (16 / 1300));
+                            }
+                            .address {
+                                font-size: calc(1024px * (12 / 1300));
+                            }
+                        }
+                    }
+                    .place_road_section {
+                        height: calc(1024px * (74 / 1300));
+                        gap: calc(1024px * (10 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        .place_list_div {
+                            gap: calc(1024px * (5 / 1300));
+                            width: calc(1024px * (160 / 1300));
+                            .place {
+                                font-size: calc(1024px * (16 / 1300));
+                                max-width: calc(1024px * (64 / 1300));
+                            }
+                            .arrow {
+                                width: calc(1024px * (18 / 1300));
+                                height: calc(1024px * (18 / 1300));
+                            }
+                        }
+                    }
+                    .place_path_section {
+                        height: calc(1024px * (148 / 1300));
+                        .place_path_start {
+                            height: calc(1024px * (74 / 1300));
+                            gap: calc(1024px * (10 / 1300));
+                            border-radius: calc(1024px * (20 / 1300));
+                        }
+                        .place_path_end {
+                            height: calc(1024px * (74 / 1300));
+                            gap: calc(1024px * (10 / 1300));
+                            border-radius: calc(1024px * (20 / 1300));
+                        }
+                        .place_list_div {
+                            gap: calc(1024px * (5 / 1300));
+                            width: calc(1024px * (240 / 1300));
+                            margin-right: calc(1024px * (30 / 1300));
+                            .place {
+                                max-width: calc(1024px * (220 / 1300));
+                                font-size: calc(1024px * (16 / 1300));
+                            }
+                            .arrow {
+                                width: calc(1024px * (18 / 1300));
+                                height: calc(1024px * (18 / 1300));
+                            }
+                        }
+                    }
+                    .place_amount_div {
+                        width: calc(1024px * (100 / 1300));
+                        .amount_type {
+                            font-size: calc(1024px * (10 / 1300));
+                        }
+                        .amount_input_div {
+                            .amount_unit {
+                                font-size: calc(1024px * (10 / 1300));
+                                margin-left: calc(1024px * (5 / 1300));
+                            }
+                            .amount {
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
+                                width: calc(1024px * (72 / 1300));
+                            }
+                        }
+                    }
+                    .place_stay_time_div {
+                        width: calc(1024px * (100 / 1300));
+                        .time_type {
+                            font-size: calc(1024px * (10 / 1300));
+                        }
+                        .time_input_div {
+                            .stay_time_times {
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
+                            }
+                            .stay_time_hours {
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
+                                width: calc(1024px * (30 / 1300));
+                            }
+                            .time_unit {
+                                font-size: calc(1024px * (10 / 1300));
+                            }
+                        }
+                    }
+                    .place_move_time_div {
+                        width: calc(1024px * (100 / 1300));
+                        .time_type {
+                            font-size: calc(1024px * (10 / 1300));
+                        }
+                        .time_input_div {
+                            .move_time {
+                                font-size: calc(1024px * (24 / 1300));
+                                line-height: calc(1024px * (26 / 1300));
+                            }
+                        }
+                    }
+                    .select_place_div,
+                    .select_vehicle_div {
+                        width: calc(1024px * (34 / 1300));
+                        height: calc(1024px * (34 / 1300));
+                        margin: calc(1024px * (6 / 1300));
+                        border-radius: calc(1024px * (150 / 1300));
+                        border: solid calc(1024px * (2 / 1300)) #fff;
+                        .select_vehicle_icon {
+                            width: calc(1024px * (18 / 1300));
+                            height: calc(1024px * (18 / 1300));
+                        }
+                    }
+                    .select_place_tab,
+                    .select_vehicle_tab {
+                        gap: calc(1024px * (2 / 1300));
+                        border-radius: calc(1024px * (20 / 1300));
+                        border: solid calc(1024px * (1 / 1300)) #fff;
+                        .select_place_div,
+                        .select_vehicle_div {
+                            &.active {
+                                border: solid calc(1024px * (2 / 1300)) #f23920;
                             }
                         }
                     }
@@ -400,136 +553,136 @@
             }
         }
         .travel_list_button {
-            width: calc(100vw * (20 / 1300));
+            width: calc(1024px * (20 / 1300));
             &:after {
-                width: calc(100vw * (10 / 1300));
-                height: calc(100vw * (100 / 1300));
-                border-radius: calc(100vw * (20 / 1300));
+                width: calc(1024px * (10 / 1300));
+                height: calc(1024px * (100 / 1300));
+                border-radius: calc(1024px * (20 / 1300));
             }
         }
     }
 
     .travel_search_section {
-        width: calc(100vw * (400 / 1300));
-        height: calc(100vh - (100vw * (150 / 1300)));
-        top: calc(100vw * (140 / 1300));
-        left: calc(100vw * (510 / 1300));
-        border-radius: calc(100vw * (20 / 1300));
-        box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #bfbfbf;
+        width: calc(1024px * (400 / 1300));
+        height: calc(100vh - (1024px * (150 / 1300)));
+        top: calc(1024px * (140 / 1300));
+        left: calc(1024px * (510 / 1300));
+        border-radius: calc(1024px * (20 / 1300));
+        box-shadow: calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #bfbfbf, calc(1024px * (-2 / 1300)) calc(1024px * (-2 / 1300)) calc(1024px * (4 / 1300)) #bfbfbf;
         .search_button_div {
-            padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
-            gap: calc(100vw * (10 / 1300));
-            border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
+            padding: calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300));
+            gap: calc(1024px * (10 / 1300));
+            border-bottom: solid calc(1024px * (1 / 1300)) #ececec;
             .close_div {
-                height: calc(100vw * (30 / 1300));
+                height: calc(1024px * (30 / 1300));
                 .close_icon {
-                    width: calc(100vw * (24 / 1300));
-                    height: calc(100vw * (24 / 1300));
+                    width: calc(1024px * (24 / 1300));
+                    height: calc(1024px * (24 / 1300));
                 }
             }
             .keyword_input_div {
-                width: calc(100vw * (360 / 1300));
-                height: calc(100vw * (30 / 1300));
-                gap: calc(100vw * (10 / 1300));
-                border-radius: calc(100vw * (12 / 1300));
-                border: solid calc(100vw * (1 / 1300)) #ececec;
+                width: calc(1024px * (360 / 1300));
+                height: calc(1024px * (30 / 1300));
+                gap: calc(1024px * (10 / 1300));
+                border-radius: calc(1024px * (12 / 1300));
+                border: solid calc(1024px * (1 / 1300)) #ececec;
                 .keyword_input {
-                    width: calc(100vw * (340 / 1300));
-                    line-height: calc(100vw * (30 / 1300));
-                    margin: 0 calc(100vw * (10 / 1300));
-                    font-size: calc(100vw * (16 / 1300));
+                    width: calc(1024px * (340 / 1300));
+                    line-height: calc(1024px * (30 / 1300));
+                    margin: 0 calc(1024px * (10 / 1300));
+                    font-size: calc(1024px * (16 / 1300));
                 }
             }
             .search_btn_keyword {
-                width: calc(100vw * (360 / 1300));
-                height: calc(100vw * (30 / 1300));
-                gap: calc(100vw * (10 / 1300));
-                border-radius: calc(100vw * (12 / 1300));
-                border: solid calc(100vw * (1 / 1300)) #ececec;
-                box-shadow:  calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #ebebeb, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
+                width: calc(1024px * (360 / 1300));
+                height: calc(1024px * (30 / 1300));
+                gap: calc(1024px * (10 / 1300));
+                border-radius: calc(1024px * (12 / 1300));
+                border: solid calc(1024px * (1 / 1300)) #ececec;
+                box-shadow:  calc(1024px * (4 / 1300)) calc(1024px * (4 / 1300)) calc(1024px * (9 / 1300)) #ebebeb, calc(1024px * (-4 / 1300)) calc(1024px * (-4 / 1300)) calc(1024px * (9 / 1300)) #ffffff;
                 .keyword_icon {
-                    width: calc(100vw * (18 / 1300));
-                    height: calc(100vw * (18 / 1300));
+                    width: calc(1024px * (18 / 1300));
+                    height: calc(1024px * (18 / 1300));
                 }
                 & span {
-                    font-size: calc(100vw * (16 / 1300));
+                    font-size: calc(1024px * (16 / 1300));
                 }
                 &:hover {
-                    border: solid calc(100vw * (1 / 1300)) #f23920;
+                    border: solid calc(1024px * (1 / 1300)) #f23920;
                 }
             }
             .search_btn_recommend {
-                width: calc(100vw * (360 / 1300));
-                height: calc(100vw * (30 / 1300));
-                gap: calc(100vw * (10 / 1300));
-                border-radius: calc(100vw * (12 / 1300));
-                border: solid calc(100vw * (1 / 1300)) #ececec;
-                box-shadow:  calc(100vw * (4 / 1300)) calc(100vw * (4 / 1300)) calc(100vw * (9 / 1300)) #ebebeb, calc(100vw * (-4 / 1300)) calc(100vw * (-4 / 1300)) calc(100vw * (9 / 1300)) #ffffff;
+                width: calc(1024px * (360 / 1300));
+                height: calc(1024px * (30 / 1300));
+                gap: calc(1024px * (10 / 1300));
+                border-radius: calc(1024px * (12 / 1300));
+                border: solid calc(1024px * (1 / 1300)) #ececec;
+                box-shadow:  calc(1024px * (4 / 1300)) calc(1024px * (4 / 1300)) calc(1024px * (9 / 1300)) #ebebeb, calc(1024px * (-4 / 1300)) calc(1024px * (-4 / 1300)) calc(1024px * (9 / 1300)) #ffffff;
                 .recommend_icon {
-                    width: calc(100vw * (18 / 1300));
-                    height: calc(100vw * (18 / 1300));
+                    width: calc(1024px * (18 / 1300));
+                    height: calc(1024px * (18 / 1300));
                 }
                 & span {
-                    font-size: calc(100vw * (16 / 1300));
+                    font-size: calc(1024px * (16 / 1300));
                 }
                 &:hover {
-                    border: solid calc(100vw * (1 / 1300)) #f23920;
+                    border: solid calc(1024px * (1 / 1300)) #f23920;
                 }
             }
         }
         .search_list_div {
-            padding: calc(100vw * (10 / 1300)) calc(100vw * (20 / 1300));
-            gap: calc(100vw * (10 / 1300));
-            height: calc(100vh - (100vw * (320 / 1300)));
+            padding: calc(1024px * (10 / 1300)) calc(1024px * (20 / 1300));
+            gap: calc(1024px * (10 / 1300));
+            height: calc(100vh - (1024px * (320 / 1300)));
             .search_item_section {
-                width: calc(100vw * (360 / 1300));
-                height: calc(100vw * (100 / 1300));
-                gap: calc(100vw * (10 / 1300));
-                border-bottom: solid calc(100vw * (1 / 1300)) #ececec;
-                border-top: solid calc(100vw * (1 / 1300)) #ececec;
+                width: calc(1024px * (360 / 1300));
+                height: calc(1024px * (100 / 1300));
+                gap: calc(1024px * (10 / 1300));
+                border-bottom: solid calc(1024px * (1 / 1300)) #ececec;
+                border-top: solid calc(1024px * (1 / 1300)) #ececec;
                 .item_img_div {
-                    width: calc(100vw * (50 / 1300));
-                    height: calc(100vw * (100 / 1300));
-                    border-right: solid calc(100vw * (1 / 1300)) #ececec;
+                    width: calc(1024px * (50 / 1300));
+                    height: calc(1024px * (100 / 1300));
+                    border-right: solid calc(1024px * (1 / 1300)) #ececec;
                     .num {
-                        font-size: calc(100vw * (16 / 1300));
+                        font-size: calc(1024px * (16 / 1300));
                     }
                 }
                 .item_info_div {
-                    width: calc(100vw * (260 / 1300));
-                    height: calc(100vw * (100 / 1300));
-                    gap: calc(100vw * (5 / 1300));
+                    width: calc(1024px * (260 / 1300));
+                    height: calc(1024px * (100 / 1300));
+                    gap: calc(1024px * (5 / 1300));
                     .place {
-                        width: calc(100vw * (260 / 1300));
-                        font-size: calc(100vw * (16 / 1300));
+                        width: calc(1024px * (260 / 1300));
+                        font-size: calc(1024px * (16 / 1300));
                     }
                     .address {
-                        width: calc(100vw * (260 / 1300));
-                        font-size: calc(100vw * (12 / 1300));
+                        width: calc(1024px * (260 / 1300));
+                        font-size: calc(1024px * (12 / 1300));
                     }
                     .to_url {
                         .to_url_span {
-                            font-size: calc(100vw * (12 / 1300));
+                            font-size: calc(1024px * (12 / 1300));
                         }
                     }
                 }
                 .item_add_div {
-                    width: calc(100vw * (30 / 1300));
-                    height: calc(100vw * (100 / 1300));
-                    border-left: solid calc(100vw * (1 / 1300)) #ececec;
+                    width: calc(1024px * (30 / 1300));
+                    height: calc(1024px * (100 / 1300));
+                    border-left: solid calc(1024px * (1 / 1300)) #ececec;
                     .item_add_button {
-                        width: calc(100vw * (20 / 1300));
-                        height: calc(100vw * (20 / 1300));
+                        width: calc(1024px * (20 / 1300));
+                        height: calc(1024px * (20 / 1300));
                     }
                 }
             }
             .search_list_nothing {
-                font-size: calc(100vw * (16 / 1300));
+                font-size: calc(1024px * (16 / 1300));
             }
         }
     }
 
     .travel_map {
-        margin-top: calc(100vw * (114 / 1300));
+        margin-top: calc(1024px * (114 / 1300));
     }
 }

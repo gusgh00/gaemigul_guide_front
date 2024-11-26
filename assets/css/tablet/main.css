@@ -1,91 +1,91 @@
 @media screen and (max-width: 1300px) {
     #main_content {
-        padding-top: calc(100vw * (64 / 1300));
+        padding-top: calc(1024px * (64 / 1300));
     }
 
     .main_inner {
-        width: calc(100vw * (1260 / 1300));
+        width: calc(1024px * (1260 / 1300));
     }
 
     .gmg_calendar {
-        padding: calc(100vw * (10 / 1300));
-        border-radius: calc(100vw * (10 / 1300));
-        border: solid calc(100vw * (1 / 1300)) #f23920;
+        padding: calc(1024px * (10 / 1300));
+        border-radius: calc(1024px * (10 / 1300));
+        border: solid calc(1024px * (1 / 1300)) #f23920;
         .gmg_calendar_control {
-            width: calc(100vw * (220 / 1300));
-            height: calc(100vw * (20 / 1300));
-            margin-bottom: calc(100vw * (10 / 1300));
+            width: calc(1024px * (220 / 1300));
+            height: calc(1024px * (20 / 1300));
+            margin-bottom: calc(1024px * (10 / 1300));
             .control_prev_btn {
-                width: calc(100vw * (20 / 1300));
-                height: calc(100vw * (20 / 1300));
+                width: calc(1024px * (20 / 1300));
+                height: calc(1024px * (20 / 1300));
                 .control_prev_icon {
-                    width: calc(100vw * (20 / 1300));
-                    height: calc(100vw * (20 / 1300));
+                    width: calc(1024px * (20 / 1300));
+                    height: calc(1024px * (20 / 1300));
                 }
             }
             .control_date_div {
-                width: calc(100vw * (120 / 1300));
-                height: calc(100vw * (20 / 1300));
+                width: calc(1024px * (120 / 1300));
+                height: calc(1024px * (20 / 1300));
                 .control_date_text {
-                    font-size: calc(100vw * (18 / 1300));
-                    line-height: calc(100vw * (20 / 1300));
+                    font-size: calc(1024px * (18 / 1300));
+                    line-height: calc(1024px * (20 / 1300));
                 }
             }
             .control_next_btn {
-                width: calc(100vw * (20 / 1300));
-                height: calc(100vw * (20 / 1300));
+                width: calc(1024px * (20 / 1300));
+                height: calc(1024px * (20 / 1300));
                 .control_next_icon {
-                    width: calc(100vw * (20 / 1300));
-                    height: calc(100vw * (20 / 1300));
+                    width: calc(1024px * (20 / 1300));
+                    height: calc(1024px * (20 / 1300));
                 }
             }
         }
         .gmg_calendar_days_section {
-            width: calc(100vw * (220 / 1300));
+            width: calc(1024px * (220 / 1300));
             .days {
-                font-size: calc(100vw * (16 / 1300));
+                font-size: calc(1024px * (16 / 1300));
             }
         }
         .gmg_calendar_date_section {
-            width: calc(100vw * (220 / 1300));
+            width: calc(1024px * (220 / 1300));
             .date {
-                line-height: calc(100vw * (30 / 1300));
-                font-size: calc(100vw * (16 / 1300));
-                border-radius: calc(100vw * (30 / 1300));
+                line-height: calc(1024px * (30 / 1300));
+                font-size: calc(1024px * (16 / 1300));
+                border-radius: calc(1024px * (30 / 1300));
             }
         }
     }
 
     .gmg_timer {
-        padding: calc(100vw * (10 / 1300)) 0 0;
-        border-radius: calc(100vw * (10 / 1300));
-        border: solid calc(100vw * (1 / 1300)) #f23920;
+        padding: calc(1024px * (10 / 1300)) 0 0;
+        border-radius: calc(1024px * (10 / 1300));
+        border: solid calc(1024px * (1 / 1300)) #f23920;
         .gmg_timer_control {
-            width: calc(100vw * (100 / 1300));
-            height: calc(100vw * (50 / 1300));
+            width: calc(1024px * (100 / 1300));
+            height: calc(1024px * (50 / 1300));
             .control_submit_btn {
-                width: calc(100vw * (80 / 1300));
-                height: calc(100vw * (30 / 1300));
-                font-size: calc(100vw * (14 / 1300));
-                border-radius: calc(100vw * (20 / 1300));
-                box-shadow: calc(100vw * (2 / 1300)) calc(100vw * (2 / 1300)) calc(100vw * (4 / 1300)) #dedede, calc(100vw * (-2 / 1300)) calc(100vw * (-2 / 1300)) calc(100vw * (4 / 1300)) #ffffff;
-                border: solid calc(100vw * (2 / 1300)) #f6f6f6;
+                width: calc(1024px * (80 / 1300));
+                height: calc(1024px * (30 / 1300));
+                font-size: calc(1024px * (14 / 1300));
+                border-radius: calc(1024px * (20 / 1300));
+                box-shadow: calc(1024px * (2 / 1300)) calc(1024px * (2 / 1300)) calc(1024px * (4 / 1300)) #dedede, calc(1024px * (-2 / 1300)) calc(1024px * (-2 / 1300)) calc(1024px * (4 / 1300)) #ffffff;
+                border: solid calc(1024px * (2 / 1300)) #f6f6f6;
             }
         }
         .gmg_timer_time_section {
-            width: calc(100vw * (100 / 1300));
-            height: calc(100vw * (200 / 1300));
+            width: calc(1024px * (100 / 1300));
+            height: calc(1024px * (200 / 1300));
             .gmg_timer_hour_section {
-                border-right: solid calc(100vw * (1 / 1300)) #f6f6f6;
+                border-right: solid calc(1024px * (1 / 1300)) #f6f6f6;
             }
             .gmg_timer_hour_section,
             .gmg_timer_min_section {
-                width: calc(100vw * (50 / 1300));
-                height: calc(100vw * (200 / 1300));
-                border-top: solid calc(100vw * (1 / 1300)) #f6f6f6;
-                border-bottom: solid calc(100vw * (1 / 1300)) #f6f6f6;
+                width: calc(1024px * (50 / 1300));
+                height: calc(1024px * (200 / 1300));
+                border-top: solid calc(1024px * (1 / 1300)) #f6f6f6;
+                border-bottom: solid calc(1024px * (1 / 1300)) #f6f6f6;
                 .times {
-                    font-size: calc(100vw * (16 / 1300));
+                    font-size: calc(1024px * (16 / 1300));
                 }
             }
         }
