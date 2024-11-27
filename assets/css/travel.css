@@ -465,17 +465,18 @@
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-                        width: 280px;
-                        margin: 0 23px;
-                        .title {
-                            font-size: 14px;
-                            width: 130px;
-                            height: 40px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            border-radius: 12px;
-                            background: transparent;
+                        width: 300px;
+                        margin: 0 13px;
+                        & div {
+                            .title {
+                                font-size: 14px;
+                                width: 130px;
+                                height: 40px;
+                                display: flex;
+                                align-items: center;
+                                border-radius: 12px;
+                                background: transparent;
+                            }
                         }
                     }
                 }
