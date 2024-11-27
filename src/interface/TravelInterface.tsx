@@ -31,6 +31,7 @@ export interface placeListInterface {
     vehicle_name: string,
     move_time: Date,
     move_amount: number,
+    distance: number,
     path_hide: boolean,
     start_time: Date,
     end_time: Date,

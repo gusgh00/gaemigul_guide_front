@@ -1,12 +1,8 @@
 import {
-    dateListInterface,
-    dropdownIconPlaceInterface,
-    dropdownIconVehicleInterface,
     placeListInterface, placeListPath, placeListPublicPath
 } from "@interface/TravelInterface";
 import axios from "axios";
 import {busRouteType, subwayRouteType} from "@module/DataArrayModule";
-import exp from "constants";
 
 export const findMaxIdLocation = (locations: placeListInterface[]) => {
     return locations.reduce((max, location) => {
@@ -118,6 +114,7 @@ export const getPublicTransportGeometry = async (mapObj: string) => {
 export const getRouteCycleAndWalking = async (startPlace: placeListInterface, endPlace: placeListInterface) => {
     let paths: placeListPath[] = []
     let time: number = 0
+    let distance: number = 0
     let payment: number = 0 //도보와 자전거는 통행요금이 청구되지 않음
 
     let profiles = ""
@@ -147,15 +144,17 @@ export const getRouteCycleAndWalking = async (startPlace: placeListInterface, en
                     })
                 }
                 time = response.data.routes[0].duration
+                distance = response.data.routes[0].distance / 1000
                 payment = 0 //도보와 자전거는 통행요금이 청구되지 않음
             }
         })
-    return {paths, time, payment}
+    return {paths, time, distance, payment}
 }
 
 export const getRouteCar = async (startPlace: placeListInterface, endPlace: placeListInterface) => {
     let paths: placeListPath[] = []
     let time: number = 0
+    let distance: number = 0
     let payment: number = 0
 
     const url = process.env.NEXT_PUBLIC_KAKAO_MOBILITY_URL as string
@@ -175,6 +174,7 @@ export const getRouteCar = async (startPlace: placeListInterface, endPlace: plac
         .then(async response => {
             if (response.data.routes[0].result_code === 0) {
                 time = response.data.routes[0].summary.duration
+                distance = response.data.routes[0].summary.distance / 1000
                 payment = response.data.routes[0].summary.fare.toll / 10000
 
                 response.data.routes[0].sections[0].roads.forEach((router: any) => {
@@ -189,12 +189,13 @@ export const getRouteCar = async (startPlace: placeListInterface, endPlace: plac
                 })
             }
         })
-    return {paths, time, payment}
+    return {paths, time, distance, payment}
 }
 
 export const getRoutePublicTransport = async (startPlace: placeListInterface, endPlace: placeListInterface) => {
     let paths: placeListPublicPath[] = []
     let time: number = 0
+    let distance: number = 0
     let payment: number = 0
     const url = process.env.NEXT_PUBLIC_ODSAY_PUBLICTRANS_URL as string
     await axios.get(url, {
@@ -209,6 +210,7 @@ export const getRoutePublicTransport = async (startPlace: placeListInterface, en
         .then(async response => {
             let tempWalkingArr: placeListPublicPath[] = []
             time = response.data.result.path[0].info.totalTime * 60
+            distance = response.data.result.path[0].info.totalDistance / 1000
             payment = response.data.result.path[0].info.payment / 10000
             for (let j = 0; j < response.data.result.path[0].subPath.length; j++) {
                 let walkingArr: placeListPublicPath[] = []
@@ -238,5 +240,5 @@ export const getRoutePublicTransport = async (startPlace: placeListInterface, en
             paths = publicPaths.concat(tempWalkingArr)
         })
 
-    return {paths, time, payment}
+    return {paths, time, distance, payment}
 }

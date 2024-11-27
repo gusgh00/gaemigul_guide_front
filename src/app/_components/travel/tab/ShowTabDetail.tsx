@@ -34,7 +34,7 @@ const TabDetail = (props: {
         props.setPlaceList(items)
     }
 
-    const changePlacePath = async (paths: any[], time: number, payment: number, index: number, type: number) => {
+    const changePlacePath = async (paths: any[], time: number, distance: number, payment: number, index: number, type: number) => {
         const items = [...props.placeList];
         if (type === 3) {
             items[index].public_path = paths
@@ -45,6 +45,8 @@ const TabDetail = (props: {
         items[index].end_time = addSeconds(items[index].start_time, time)
         items[index].move_time = changeDurationTime(time)
         items[index].move_amount = payment
+        items[index].distance = distance
+        console.log(distance)
         props.setPlaceList(items)
     }
 
@@ -54,13 +56,13 @@ const TabDetail = (props: {
             let endPlace: placeListInterface = props.placeList.find((val, valIndex) => valIndex == i + 1) as placeListInterface
             if (props.placeList[i].vehicle_type === 1 || props.placeList[i].vehicle_type === 4) {
                 let routeData = await getRouteCycleAndWalking(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.payment, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
             } else if (props.placeList[i].vehicle_type === 2) {
                 let routeData = await getRouteCar(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.payment, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
             } else if (props.placeList[i].vehicle_type === 3) {
                 let routeData = await getRoutePublicTransport(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
             }
         }
     }
@@ -255,7 +257,7 @@ const TabDetail = (props: {
                                             <div className="time_input_div">
                                                 <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
                                                 <span className="scoredream-700 grey_text time_unit">시간</span>
-                                                <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
+                                                <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("mm")}/>
                                                 <span className="scoredream-700 grey_text time_unit">분</span>
                                             </div>
                                         </div>

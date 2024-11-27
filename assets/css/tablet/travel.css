@@ -243,8 +243,8 @@
                         border-radius: calc(768px * (20 / 1300));
                         margin-bottom: calc(768px * (10 / 1300));
                         .place_control_div {
-                            width: calc(768px * (280 / 1300));
-                            margin: 0 calc(768px * (23 / 1300));
+                            width: calc(768px * (300 / 1300));
+                            margin: 0 calc(768px * (13 / 1300));
                             .remove,
                             .search {
                                 font-size: calc(768px * (14 / 1300));

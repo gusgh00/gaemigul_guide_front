@@ -2,8 +2,16 @@ import {set} from "date-fns";
 
 export const changeDurationTime = (time: number) => {
     let tempHour = Math.trunc(time / 3600)
+    console.log(tempHour)
     let tempMin = Math.trunc((time % 3600) / 60)
+    console.log(tempMin)
     let tempSec = Math.trunc(time % 60)
+    console.log(tempSec)
+    console.log(set(new Date(), {
+        hours: tempHour,
+        minutes: tempMin,
+        seconds: tempSec,
+    }))
     return set(new Date(), {
         hours: tempHour,
         minutes: tempMin,
