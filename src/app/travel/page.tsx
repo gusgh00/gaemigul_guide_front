@@ -302,6 +302,7 @@ const Travel = () => {
                             }}
                             clickable={true}
                             onClick={() => {
+                                map?.setLevel(5)
                                 map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
                             }}
                             onMouseOver={() => {
@@ -335,8 +336,9 @@ const Travel = () => {
                                     height: 64
                                 }
                             }}
-                            clickable={true}
+                            clickable={isTab === 1}
                             onClick={() => {
+                                map?.setLevel(5)
                                 map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
                             }}
                             onMouseOver={() => {
@@ -348,7 +350,7 @@ const Travel = () => {
                                 setPlaceMarkerInfoId(0)
                             }}
                         >
-                            {isPlaceMarkerInfoId === item.id && isPlaceMarkerInfo &&
+                            {isPlaceMarkerInfoId === item.id && isPlaceMarkerInfo && isTab === 1 &&
                                 <div className="marker_info">
                                     <span className="scoredream-700 default_text place">{item.place}</span>
                                     <span className="scoredream-500 grey_text address">{item.address}</span>
@@ -373,6 +375,7 @@ const Travel = () => {
                             clickable={true}
                             onClick={() => {
                                 if (!!placeList && placeList?.length < 10) {
+                                    map?.setLevel(5)
                                     map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
                                     addSearchList(item.place, item.lat, item.lng, item.address, item.place_icon, index)
                                 }

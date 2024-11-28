@@ -407,13 +407,15 @@
                         border-radius: calc(768px * (20 / 1300));
                         margin-bottom: calc(768px * (10 / 1300));
                         .place_control_div {
-                            width: calc(768px * (280 / 1300));
-                            margin: 0 calc(768px * (23 / 1300));
-                            .title {
-                                font-size: calc(768px * (14 / 1300));
-                                width: calc(768px * (130 / 1300));
-                                height: calc(768px * (40 / 1300));
-                                border-radius: calc(768px * (12 / 1300));
+                            width: calc(768px * (300 / 1300));
+                            margin: 0 calc(768px * (13 / 1300));
+                            & div {
+                                .title {
+                                    font-size: calc(768px * (14 / 1300));
+                                    width: calc(768px * (130 / 1300));
+                                    height: calc(768px * (40 / 1300));
+                                    border-radius: calc(768px * (12 / 1300));
+                                }
                             }
                         }
                     }
@@ -681,5 +683,9 @@
                 font-size: calc(768px * (16 / 1300));
             }
         }
+    }
+
+    .travel_map {
+        height: calc(100vh - (768px*(64 / 1300)) - (768px*(50 / 1300))) !important;
     }
 }
