@@ -21,10 +21,13 @@ import FooterBox from "@/app/_components/footer_box";
 import ShowTabSearch from "@/app/_components/travel/tab/ShowTabSearch";
 import ShowTabDetail from "@/app/_components/travel/tab/ShowTabDetail";
 import ShowTabResult from "@/app/_components/travel/tab/ShowTabResult";
+import RouteDetail from "@/app/_components/travel/RouteDetail";
 
 const Travel = () => {
     const [isAddList, setAddList] = useState(false)
     const [isAddPlaceId, setAddPlaceId] = useState(0)
+    const [isRouteDetail, setRouteDetail] = useState(false)
+    const [isRouteDetailId, setRouteDetailId] = useState(0)
     const [isHideControl, setHideControl] = useState(false)
     const [isHideList, setHideList] = useState(false)
     const [isListReady, setListReady] = useState(false)
@@ -91,8 +94,11 @@ const Travel = () => {
                     map={map as kakao.maps.Map}
                     placeList={placeList}
                     dateList={dateList}
+                    closeRouteDetail={isRouteDetail}
                     setPlaceList={(list: placeListInterface[]) => setPlaceList(list)}
                     setDateList={(list: dateListInterface[]) => setDateList(list)}
+                    setRouteDetail={(type: boolean) => setRouteDetail(type)}
+                    setPlaceId={(id: number) =>setRouteDetailId(id)}
                     dateSelected={dateSelected}
                 />
             case 2:
@@ -271,6 +277,12 @@ const Travel = () => {
                     setSearchList={(data: searchListInterface[]) => setSearchList(data)}
                     setAddList={(status: boolean) => setAddList(status)}
                 />}
+                {isRouteDetail &&
+                <RouteDetail
+                    placeList={placeList}
+                    placeId={isAddPlaceId}
+                    setRouteDetail={(status: boolean) => setRouteDetail(status)}
+                />}
                 <Map
                     id="map"
                     center={{lat: 37.5547125, lng: 126.9707878}}
@@ -335,7 +347,7 @@ const Travel = () => {
                                     height: 64
                                 }
                             }}
-                            clickable={true}
+                            clickable={isTab === 1}
                             onClick={() => {
                                 map?.panTo(new kakao.maps.LatLng(Number(item.lat), Number(item.lng)))
                             }}
@@ -348,7 +360,7 @@ const Travel = () => {
                                 setPlaceMarkerInfoId(0)
                             }}
                         >
-                            {isPlaceMarkerInfoId === item.id && isPlaceMarkerInfo &&
+                            {isPlaceMarkerInfoId === item.id && isPlaceMarkerInfo && isTab === 1 &&
                                 <div className="marker_info">
                                     <span className="scoredream-700 default_text place">{item.place}</span>
                                     <span className="scoredream-500 grey_text address">{item.address}</span>

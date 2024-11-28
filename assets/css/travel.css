@@ -516,11 +516,12 @@
                 }
                 .place_road_section {
                     width: 100%;
-                    height: 74px;
+                    height: 50px;
                     display: flex;
                     align-items: center;
                     gap: 10px;
                     border-radius: 20px;
+                    margin-bottom: 10px;
                     background: transparent;
                     position: relative;
                     .place_list_div {
@@ -546,11 +547,11 @@
                 }
                 .place_path_section {
                     width: 100%;
-                    height: 148px;
+                    height: 100px;
                     display: block;
                     .place_path_start {
                         width: 100%;
-                        height: 74px;
+                        height: 50px;
                         display: flex;
                         align-items: center;
                         gap: 10px;
@@ -559,7 +560,7 @@
                     }
                     .place_path_end {
                         width: 100%;
-                        height: 74px;
+                        height: 50px;
                         display: flex;
                         align-items: center;
                         gap: 10px;
@@ -875,20 +876,38 @@
                 }
                 .place_path_section {
                     width: 100%;
-                    height: 148px;
+                    height: 120px;
                     display: block;
                     .place_path_start {
                         width: 100%;
-                        height: 74px;
+                        height: 50px;
                         display: flex;
                         align-items: center;
                         gap: 10px;
                         border-radius: 20px;
                         background: transparent;
                     }
+                    .route_detail_hide_btn {
+                        width: 100%;
+                        height: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .route_detail_hide_icon {
+                            width: 18px;
+                            height: 18px;
+                            transition: 400ms;
+                            color: #909090;
+                        }
+                        &:hover {
+                            .route_detail_hide_icon {
+                                color: #f23920;
+                            }
+                        }
+                    }
                     .place_path_end {
                         width: 100%;
-                        height: 74px;
+                        height: 40px;
                         display: flex;
                         align-items: center;
                         gap: 10px;
@@ -1329,10 +1348,61 @@
     }
 }
 
+.route_detail_section {
+    display: block;
+    width: 400px;
+    height: calc(100vh - 150px);
+    background: #fafafa;
+    top: 140px;
+    position: fixed;
+    left: 510px;
+    z-index: 96;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #bfbfbf, -2px -2px 4px #bfbfbf;
+    .route_button_div {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-bottom: solid 1px #ececec;
+        .close_div {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            .close_icon {
+                width: 24px;
+                height: 24px;
+                color: #909090;
+                cursor: pointer;
+            }
+        }
+    }
+    .route_detail_div {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: calc(100vh - 320px);
+        overflow-y: auto;
+        .route_detail_nothing {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+}
+
 .travel_map {
     width: 100% !important;
-    height: 100vh !important;
+    height: calc(100vh - 114px) !important;
     position: fixed;
+    bottom: 0;
 }
 
 .marker_info {

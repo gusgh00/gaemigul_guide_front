@@ -291,14 +291,21 @@
                         }
                     }
                     .place_path_section {
-                        height: calc(768px * (148 / 1300));
+                        height: calc(768px * (120 / 1300));
                         .place_path_start {
-                            height: calc(768px * (74 / 1300));
+                            height: calc(768px * (50 / 1300));
                             gap: calc(768px * (10 / 1300));
                             border-radius: calc(768px * (20 / 1300));
                         }
+                        .route_detail_hide_btn {
+                            height: calc(768px * (20 / 1300));
+                            .route_detail_hide_icon {
+                                width: calc(768px * (18 / 1300));
+                                height: calc(768px * (18 / 1300));
+                            }
+                        }
                         .place_path_end {
-                            height: calc(768px * (74 / 1300));
+                            height: calc(768px * (50 / 1300));
                             gap: calc(768px * (10 / 1300));
                             border-radius: calc(768px * (20 / 1300));
                         }
@@ -407,13 +414,15 @@
                         border-radius: calc(768px * (20 / 1300));
                         margin-bottom: calc(768px * (10 / 1300));
                         .place_control_div {
-                            width: calc(768px * (280 / 1300));
-                            margin: 0 calc(768px * (23 / 1300));
-                            .title {
-                                font-size: calc(768px * (14 / 1300));
-                                width: calc(768px * (130 / 1300));
-                                height: calc(768px * (40 / 1300));
-                                border-radius: calc(768px * (12 / 1300));
+                            width: calc(768px * (300 / 1300));
+                            margin: 0 calc(768px * (13 / 1300));
+                            & div {
+                                .title {
+                                    font-size: calc(768px * (14 / 1300));
+                                    width: calc(768px * (130 / 1300));
+                                    height: calc(768px * (40 / 1300));
+                                    border-radius: calc(768px * (12 / 1300));
+                                }
                             }
                         }
                     }
@@ -435,9 +444,10 @@
                         }
                     }
                     .place_road_section {
-                        height: calc(768px * (74 / 1300));
+                        height: calc(768px * (50 / 1300));
                         gap: calc(768px * (10 / 1300));
                         border-radius: calc(768px * (20 / 1300));
+                        margin-bottom: calc(768px * (10 / 1300));
                         .place_list_div {
                             gap: calc(768px * (5 / 1300));
                             width: calc(768px * (160 / 1300));
@@ -452,14 +462,14 @@
                         }
                     }
                     .place_path_section {
-                        height: calc(768px * (148 / 1300));
+                        height: calc(768px * (100 / 1300));
                         .place_path_start {
-                            height: calc(768px * (74 / 1300));
+                            height: calc(768px * (50 / 1300));
                             gap: calc(768px * (10 / 1300));
                             border-radius: calc(768px * (20 / 1300));
                         }
                         .place_path_end {
-                            height: calc(768px * (74 / 1300));
+                            height: calc(768px * (50 / 1300));
                             gap: calc(768px * (10 / 1300));
                             border-radius: calc(768px * (20 / 1300));
                         }
@@ -681,5 +691,38 @@
                 font-size: calc(768px * (16 / 1300));
             }
         }
+    }
+
+    .route_detail_section {
+        width: calc(768px * (400 / 1300));
+        height: calc(100vh - (768px * (150 / 1300)));
+        top: calc(768px * (140 / 1300));
+        left: calc(768px * (510 / 1300));
+        border-radius: calc(768px * (20 / 1300));
+        box-shadow: calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #bfbfbf, calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #bfbfbf;
+        .route_button_div {
+            padding: calc(768px * (10 / 1300)) calc(768px * (20 / 1300));
+            gap: calc(768px * (10 / 1300));
+            border-bottom: solid calc(768px * (1 / 1300)) #ececec;
+            .close_div {
+                height: calc(768px * (30 / 1300));
+                .close_icon {
+                    width: calc(768px * (24 / 1300));
+                    height: calc(768px * (24 / 1300));
+                }
+            }
+        }
+        .route_detail_div {
+            padding: calc(768px * (10 / 1300)) calc(768px * (20 / 1300));
+            gap: calc(768px * (10 / 1300));
+            height: calc(100vh - (768px * (320 / 1300)));
+            .route_detail_nothing {
+                font-size: calc(768px * (16 / 1300));
+            }
+        }
+    }
+
+    .travel_map {
+        height: calc(100vh - (768px*(64 / 1300)) - (768px*(50 / 1300))) !important;
     }
 }
