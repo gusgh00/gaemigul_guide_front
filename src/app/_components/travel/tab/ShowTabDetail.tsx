@@ -1,5 +1,4 @@
 "use client"
-
 import TimePicker from "@/app/_components/travel/GMGTimePicker";
 import PlacePicker from "@/app/_components/travel/PlacePicker";
 import React, {JSX} from "react";
@@ -12,13 +11,17 @@ import {dateListInterface, placeListInterface} from "@interface/TravelInterface"
 import {getRouteCar, getRouteCycleAndWalking, getRoutePublicTransport} from "@module/TravelModule";
 import {addSeconds} from "date-fns";
 import {changeDurationTime, changeTimeToSeconds} from "@module/TimeModule";
+import {PiDotsThreeFill} from "react-icons/pi";
 
 const TabDetail = (props: {
     map: kakao.maps.Map,
     placeList: placeListInterface[],
     dateList: dateListInterface[],
+    closeRouteDetail: boolean,
     setPlaceList: (list: placeListInterface[]) => void,
     setDateList: (list: dateListInterface[]) => void,
+    setRouteDetail: (status: boolean) => void,
+    setPlaceId: (id: number) => void,
     dateSelected: string,
 }) => {
     const removeDirectionGeometry = () => {
@@ -220,6 +223,12 @@ const TabDetail = (props: {
                                                 </div>
                                             </div>
                                         </div>
+                                        <button className="route_detail_hide_btn" onClick={() => {
+                                            props.setRouteDetail(true)
+                                            props.setPlaceId(item.id)
+                                        }}>
+                                            <PiDotsThreeFill className="route_detail_hide_icon"/>
+                                        </button>
                                         <div className="place_path_end">
                                             <div className="select_place_div default">
                                                 <FaRegCircleStop className="select_place_icon"/>

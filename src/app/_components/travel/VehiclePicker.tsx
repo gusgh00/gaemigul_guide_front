@@ -44,7 +44,7 @@ const VehiclePicker = (props: {
                 {props.vehicleItem.vehicle_icon}
             </div>
             <div className={isChangeVehicleTab.status && props.vehicleItem.id === isChangeVehicleTab.item_id ? "select_vehicle_tab" : "display_none"} ref={vehicleRef} onClick={(e) => e.stopPropagation()}>
-                {vehicleTab.map((value, index) => (
+                {vehicleTab.filter(item => item.vehicle_type !== 0).map((value, index) => (
                     <div key={index} className={"select_vehicle_div " + value.vehicle_name + (value.vehicle_type === props.vehicleItem.vehicle_type ? " active" : "")}
                          onClick={() => {
                              changeVehicleType(props.vehicleItem.id, value.vehicle_type, value.vehicle_name, value.vehicle_icon, value.path_color)
