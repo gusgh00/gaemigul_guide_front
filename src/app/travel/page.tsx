@@ -283,6 +283,7 @@ const Travel = () => {
                     placeId={isAddPlaceId}
                     setRouteDetail={(status: boolean) => setRouteDetail(status)}
                 />}
+                <span className="scoredream-700 dark_text powered_odsay">powered by www.ODsay.com</span>
                 <Map
                     id="map"
                     center={{lat: 37.5547125, lng: 126.9707878}}

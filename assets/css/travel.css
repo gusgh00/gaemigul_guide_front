@@ -1405,6 +1405,15 @@
     bottom: 0;
 }
 
+.powered_odsay {
+    position: absolute;
+    bottom: 0;
+    right: 150px;
+    z-index: 1;
+    font-size: 10px;
+    height: 19px;
+}
+
 .marker_info {
     z-index: 99;
     /*width: 100%;*/
