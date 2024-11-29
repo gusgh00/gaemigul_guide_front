@@ -403,6 +403,7 @@
                         margin: calc(768px * (6 / 1300));
                         border-radius: calc(768px * (150 / 1300));
                         border: solid calc(768px * (2 / 1300)) #fff;
+                        .select_place_icon,
                         .select_vehicle_icon {
                             width: calc(768px * (18 / 1300));
                             height: calc(768px * (18 / 1300));
@@ -559,6 +560,7 @@
                         margin: calc(768px * (6 / 1300));
                         border-radius: calc(768px * (150 / 1300));
                         border: solid calc(768px * (2 / 1300)) #fff;
+                        .select_place_icon,
                         .select_vehicle_icon {
                             width: calc(768px * (18 / 1300));
                             height: calc(768px * (18 / 1300));
