@@ -735,36 +735,36 @@
             gap: calc(768px * (10 / 1300));
             height: calc(100vh - (768px * (220 / 1300)));
             .route_item_section {
-                width: calc(768px * (calc(768px * (360px / 1300)) / 1300));
-                height: calc(768px * (calc(768px * (60px / 1300)) / 1300));
+                width: calc(768px * (calc(768px * (360 / 1300)) / 1300));
+                height: calc(768px * (calc(768px * (60 / 1300)) / 1300));
                 .route_icon_div {
-                    height: calc(768px * (60px / 1300));
-                    width: calc(768px * (30px / 1300));
+                    height: calc(768px * (60 / 1300));
+                    width: calc(768px * (30 / 1300));
                     .line_top {
-                        width: calc(768px * (5px / 1300));
-                        height: calc(768px * (20px / 1300));
+                        width: calc(768px * (5 / 1300));
+                        height: calc(768px * (20 / 1300));
                     }
                     .circle {
-                        width: calc(768px * (20px / 1300));
-                        height: calc(768px * (20px / 1300));
-                        border: solid calc(768px * (5px / 1300)) #f23920;
+                        width: calc(768px * (20 / 1300));
+                        height: calc(768px * (20 / 1300));
+                        border: solid calc(768px * (5 / 1300)) #f23920;
                     }
                     .line_bottom {
-                        width: calc(768px * (5px / 1300));
-                        height: calc(768px * (20px / 1300));
+                        width: calc(768px * (5 / 1300));
+                        height: calc(768px * (20 / 1300));
                     }
                 }
                 .route_info_div {
-                    height: calc(768px * (60px / 1300));
-                    width: calc(768px * (330px / 1300));
-                    padding: 0 calc(768px * (10px / 1300)) 0;
+                    height: calc(768px * (60 / 1300));
+                    width: calc(768px * (330 / 1300));
+                    padding: 0 calc(768px * (10 / 1300)) 0;
                     .name {
-                        font-size: calc(768px * (16px / 1300));
+                        font-size: calc(768px * (16 / 1300));
                     }
                     .route_item_sub {
-                        gap: calc(768px * (10px / 1300));
+                        gap: calc(768px * (10 / 1300));
                         .sub {
-                            font-size: calc(768px * (12px / 1300));
+                            font-size: calc(768px * (12 / 1300));
                         }
                     }
                 }
@@ -776,6 +776,6 @@
     }
 
     .travel_map {
-        height: calc(100vh - (768px*(64 / 1300)) - (768px*(50 / 1300))) !important;
+        height: calc(100vh - (768px * (64 / 1300)) - (768px * (50 / 1300))) !important;
     }
 }
