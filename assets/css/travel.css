@@ -1402,9 +1402,54 @@
         padding: 10px 20px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        height: calc(100vh - 320px);
+        height: calc(100vh - 220px);
         overflow-y: auto;
+        .route_item_section {
+            width: 360px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            .route_icon_div {
+                height: 60px;
+                width: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .line_top {
+                    width: 5px;
+                    height: 20px;
+                }
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    border: solid 5px #f23920;
+                }
+                .line_bottom {
+                    width: 5px;
+                    height: 20px;
+                }
+            }
+            .route_info_div {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                height: 60px;
+                width: 330px;
+                padding: 0 10px 0;
+                .name {
+                    font-size: 16px;
+                }
+                .route_item_sub {
+                    display: flex;
+                    gap: 10px;
+                    .sub {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
         .route_detail_nothing {
             width: 100%;
             height: 100%;

@@ -1,7 +1,7 @@
 "use client"
 import TimePicker from "@/app/_components/travel/GMGTimePicker";
 import PlacePicker from "@/app/_components/travel/PlacePicker";
-import React, {JSX} from "react";
+import React, {JSX, useEffect} from "react";
 import {FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import dayjs from "dayjs";
 import VehiclePicker from "@/app/_components/travel/VehiclePicker";
@@ -37,13 +37,14 @@ const TabDetail = (props: {
         props.setPlaceList(items)
     }
 
-    const changePlacePath = async (paths: any[], time: number, distance: number, payment: number, index: number, type: number) => {
+    const changePlacePath = async (paths: any[], routes: any[], time: number, distance: number, payment: number, index: number, type: number) => {
         const items = [...props.placeList];
         if (type === 3) {
             items[index].public_path = paths
         } else {
             items[index].path = paths
         }
+        items[index].route = routes
         items[index].start_time = index === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
         items[index].end_time = addSeconds(items[index].start_time, time)
         items[index].move_time = changeDurationTime(time)
@@ -59,13 +60,13 @@ const TabDetail = (props: {
             let endPlace: placeListInterface = props.placeList.find((val, valIndex) => valIndex == i + 1) as placeListInterface
             if (props.placeList[i].vehicle_type === 1 || props.placeList[i].vehicle_type === 4) {
                 let routeData = await getRouteCycleAndWalking(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
             } else if (props.placeList[i].vehicle_type === 2) {
                 let routeData = await getRouteCar(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
             } else if (props.placeList[i].vehicle_type === 3) {
                 let routeData = await getRoutePublicTransport(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
             }
         }
     }

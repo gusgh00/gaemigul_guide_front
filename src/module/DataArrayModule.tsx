@@ -297,6 +297,7 @@ export const initialPlaceLists: placeListInterface[] = [
         start_time: new Date(new Date().setHours(0,0)),
         end_time: new Date(new Date().setHours(0,0)),
         path: [],
+        route: [],
         public_path: [],
         path_color: "#3c3c3c",
     },
@@ -343,6 +344,7 @@ export const dummyPlaceData = {
     start_time: new Date(new Date().setHours(0, 0)),
     end_time: new Date(new Date().setHours(0, 0)),
     path: [],
+    route: [],
     public_path: [],
     path_color: "#CBCBCB"
 }

@@ -249,6 +249,7 @@ const Travel = () => {
                                                 onClick={() => {
                                                     setTab(index)
                                                     setAddList(false)
+                                                    setRouteDetail(false)
                                                 }}>
                                                 {tab}
                                             </button>
@@ -264,6 +265,7 @@ const Travel = () => {
                     <div className="travel_list_button" onClick={() => {
                         setHideList(!isHideList)
                         setAddList(false)
+                        setRouteDetail(false)
                     }}>
                     </div>
                 </div>
@@ -280,7 +282,7 @@ const Travel = () => {
                 {isRouteDetail &&
                 <RouteDetail
                     placeList={placeList}
-                    placeId={isAddPlaceId}
+                    placeId={isRouteDetailId}
                     setRouteDetail={(status: boolean) => setRouteDetail(status)}
                 />}
                 <span className="scoredream-700 dark_text powered_odsay">powered by www.ODsay.com</span>
