@@ -263,6 +263,18 @@
                         border: solid calc(768px * (1 / 1300)) #f4f4f4;
                         box-shadow:  calc(768px * (8 / 1300)) calc(768px * (8 / 1300)) calc(768px * (16 / 1300)) #dfdfdf, calc(768px * (-8 / 1300)) calc(768px * (-8 / 1300)) calc(768px * (16 / 1300)) #fbfbfb;
                         margin-bottom: calc(768px * (10 / 1300));
+                        &:hover {
+                            .place_amount_div {
+                                .amount_input_div {
+                                    box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #e6361e, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #fe3c22;
+                                }
+                            }
+                            .place_stay_time_div {
+                                .time_input_div {
+                                    box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #e6361e, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #fe3c22;
+                                }
+                            }
+                        }
                         .place_list_div {
                             width: calc(768px * (160 / 1300));
                             .place {
@@ -337,6 +349,8 @@
                             font-size: calc(768px * (10 / 1300));
                         }
                         .amount_input_div {
+                            box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #cecece, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #ffffff;
+                            border-radius: calc(768px * (10 / 1300));
                             .amount_unit {
                                 font-size: calc(768px * (10 / 1300));
                                 margin-left: calc(768px * (5 / 1300));
@@ -354,6 +368,8 @@
                             font-size: calc(768px * (10 / 1300));
                         }
                         .time_input_div {
+                            box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #cecece, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #ffffff;
+                            border-radius: calc(768px * (10 / 1300));
                             .stay_time_times {
                                 font-size: calc(768px * (24 / 1300));
                                 line-height: calc(768px * (26 / 1300));
@@ -387,6 +403,7 @@
                         margin: calc(768px * (6 / 1300));
                         border-radius: calc(768px * (150 / 1300));
                         border: solid calc(768px * (2 / 1300)) #fff;
+                        .select_place_icon,
                         .select_vehicle_icon {
                             width: calc(768px * (18 / 1300));
                             height: calc(768px * (18 / 1300));
@@ -543,6 +560,7 @@
                         margin: calc(768px * (6 / 1300));
                         border-radius: calc(768px * (150 / 1300));
                         border: solid calc(768px * (2 / 1300)) #fff;
+                        .select_place_icon,
                         .select_vehicle_icon {
                             width: calc(768px * (18 / 1300));
                             height: calc(768px * (18 / 1300));
@@ -715,7 +733,42 @@
         .route_detail_div {
             padding: calc(768px * (10 / 1300)) calc(768px * (20 / 1300));
             gap: calc(768px * (10 / 1300));
-            height: calc(100vh - (768px * (320 / 1300)));
+            height: calc(100vh - (768px * (220 / 1300)));
+            .route_item_section {
+                width: calc(768px * (calc(768px * (360px / 1300)) / 1300));
+                height: calc(768px * (calc(768px * (60px / 1300)) / 1300));
+                .route_icon_div {
+                    height: calc(768px * (60px / 1300));
+                    width: calc(768px * (30px / 1300));
+                    .line_top {
+                        width: calc(768px * (5px / 1300));
+                        height: calc(768px * (20px / 1300));
+                    }
+                    .circle {
+                        width: calc(768px * (20px / 1300));
+                        height: calc(768px * (20px / 1300));
+                        border: solid calc(768px * (5px / 1300)) #f23920;
+                    }
+                    .line_bottom {
+                        width: calc(768px * (5px / 1300));
+                        height: calc(768px * (20px / 1300));
+                    }
+                }
+                .route_info_div {
+                    height: calc(768px * (60px / 1300));
+                    width: calc(768px * (330px / 1300));
+                    padding: 0 calc(768px * (10px / 1300)) 0;
+                    .name {
+                        font-size: calc(768px * (16px / 1300));
+                    }
+                    .route_item_sub {
+                        gap: calc(768px * (10px / 1300));
+                        .sub {
+                            font-size: calc(768px * (12px / 1300));
+                        }
+                    }
+                }
+            }
             .route_detail_nothing {
                 font-size: calc(768px * (16 / 1300));
             }

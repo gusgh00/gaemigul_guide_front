@@ -15,6 +15,14 @@ export interface placeListPath {
     lat: number,
     lng: number,
 }
+export interface routeListPath {
+    name: string,
+    count: number,
+    type: number,
+    color: string,
+    distance: number,
+    duration: number,
+}
 export interface placeListInterface {
     id: number,
     place: string,
@@ -36,6 +44,7 @@ export interface placeListInterface {
     start_time: Date,
     end_time: Date,
     path: placeListPath[],
+    route: routeListPath[],
     public_path: placeListPublicPath[],
     path_color: string
 }

@@ -1,7 +1,7 @@
 "use client"
 import TimePicker from "@/app/_components/travel/GMGTimePicker";
 import PlacePicker from "@/app/_components/travel/PlacePicker";
-import React, {JSX} from "react";
+import React, {JSX, useEffect} from "react";
 import {FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import dayjs from "dayjs";
 import VehiclePicker from "@/app/_components/travel/VehiclePicker";
@@ -37,13 +37,14 @@ const TabDetail = (props: {
         props.setPlaceList(items)
     }
 
-    const changePlacePath = async (paths: any[], time: number, distance: number, payment: number, index: number, type: number) => {
+    const changePlacePath = async (paths: any[], routes: any[], time: number, distance: number, payment: number, index: number, type: number) => {
         const items = [...props.placeList];
         if (type === 3) {
             items[index].public_path = paths
         } else {
             items[index].path = paths
         }
+        items[index].route = routes
         items[index].start_time = index === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[index].stay_time)) : addSeconds(items[index - 1].end_time, changeTimeToSeconds(items[index].stay_time))
         items[index].end_time = addSeconds(items[index].start_time, time)
         items[index].move_time = changeDurationTime(time)
@@ -59,13 +60,13 @@ const TabDetail = (props: {
             let endPlace: placeListInterface = props.placeList.find((val, valIndex) => valIndex == i + 1) as placeListInterface
             if (props.placeList[i].vehicle_type === 1 || props.placeList[i].vehicle_type === 4) {
                 let routeData = await getRouteCycleAndWalking(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
             } else if (props.placeList[i].vehicle_type === 2) {
                 let routeData = await getRouteCar(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
             } else if (props.placeList[i].vehicle_type === 3) {
                 let routeData = await getRoutePublicTransport(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
+                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
             }
         }
     }
@@ -114,14 +115,34 @@ const TabDetail = (props: {
         }))
     }
 
-    const changePlaceStayTime = (id: number, date: Date) => {
-        props.setPlaceList(props.placeList.map(item => {
-            if (item.id === id) {
-                return { ...item, stay_time: date }
-            } else {
-                return item
+    const changePlaceStayTime = (id: number, date: Date, index: number) => {
+        const items = [...props.placeList];
+        for (let i = 0; i < items.length; i++) {
+            if (i === index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(date)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(date))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(items[i].move_time))
+                items[i].stay_time = date
             }
-        }))
+            else if (i > index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[i].stay_time)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(items[i].stay_time))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(items[i].move_time))
+            }
+        }
+    }
+
+    const changePlaceMoveTime = (id: number, date: Date, index: number) => {
+        const items = [...props.placeList];
+        for (let i = 0; i < items.length; i++) {
+            if (i === index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[i].stay_time)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(items[i].stay_time))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(date))
+                items[i].move_time = date
+            }
+            else if (i > index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[i].stay_time)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(items[i].stay_time))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(items[i].move_time))
+            }
+        }
     }
     const changePlaceStayAmount = (id: number, amount: string) => {
         props.setPlaceList(props.placeList.map(item => {
@@ -194,7 +215,7 @@ const TabDetail = (props: {
                                 <div className="place_stay_time_div">
                                     <span className="scoredream-700 grey_text time_type">머무는 시간</span>
                                     <TimePicker
-                                        onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date)}
+                                        onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date, index)}
                                         type={0}
                                         selectTime={item.stay_time}
                                         boxClassName={"time_input_div"}
@@ -263,12 +284,20 @@ const TabDetail = (props: {
                                         </div>
                                         <div className="place_stay_time_div">
                                             <span className="scoredream-700 grey_text time_type">이동 시간</span>
-                                            <div className="time_input_div">
-                                                <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
-                                                <span className="scoredream-700 grey_text time_unit">시간</span>
-                                                <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("mm")}/>
-                                                <span className="scoredream-700 grey_text time_unit">분</span>
-                                            </div>
+                                            {/*<div className="time_input_div">*/}
+                                            {/*    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>*/}
+                                            {/*    <span className="scoredream-700 grey_text time_unit">시간</span>*/}
+                                            {/*    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("mm")}/>*/}
+                                            {/*    <span className="scoredream-700 grey_text time_unit">분</span>*/}
+                                            {/*</div>*/}
+                                            <TimePicker
+                                                onChange={(date: Date | null) => date && changePlaceMoveTime(item.id, date, index)}
+                                                type={0}
+                                                selectTime={item.move_time}
+                                                boxClassName={"time_input_div"}
+                                                inputClassName={"scoredream-700 default_text stay_time stay_time_hours"}
+                                                unitClassName={"scoredream-700 grey_text time_unit"}
+                                            />
                                         </div>
                                     </div>
                                     <button className="place_path_hide_btn" onClick={() => changePlacePathHide(item.id)}>

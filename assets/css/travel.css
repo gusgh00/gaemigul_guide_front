@@ -673,6 +673,11 @@
                     justify-content: center;
                     border-radius: 150px;
                     border: solid 2px #fff;
+                    .select_place_icon {
+                        width: 18px;
+                        height: 18px;
+                        color: #3c3c3c;
+                    }
                     .select_vehicle_icon {
                         width: 18px;
                         height: 18px;
@@ -800,6 +805,7 @@
                                 color: #fff;
                             }
                             .amount_input_div {
+                                box-shadow: inset 2px 2px 4px #e6361e, inset -2px -2px 4px #fe3c22;
                                 .amount_unit {
                                     color: #fff;
                                 }
@@ -813,6 +819,7 @@
                                 color: #fff;
                             }
                             .time_input_div {
+                                box-shadow: inset 2px 2px 4px #e6361e, inset -2px -2px 4px #fe3c22;
                                 .time_unit {
                                     color: #fff;
                                 }
@@ -878,6 +885,9 @@
                     width: 100%;
                     height: 120px;
                     display: block;
+                    .select_place_div, .select_vehicle_div {
+                        cursor: default;
+                    }
                     .place_path_start {
                         width: 100%;
                         height: 50px;
@@ -962,6 +972,8 @@
                     .amount_input_div {
                         display: flex;
                         width: 100%;
+                        box-shadow: inset 2px 2px 4px #cecece, inset -2px -2px 4px #ffffff;
+                        border-radius: 10px;
                         .amount_unit {
                             font-size: 10px;
                             display: flex;
@@ -988,6 +1000,8 @@
                     .time_input_div {
                         display: flex;
                         width: 100%;
+                        box-shadow: inset 2px 2px 4px #cecece, inset -2px -2px 4px #ffffff;
+                        border-radius: 10px;
                         .stay_time_times {
                             background: transparent;
                             font-size: 24px;
@@ -1037,6 +1051,11 @@
                     border-radius: 150px;
                     border: solid 2px #fff;
                     cursor: pointer;
+                    .select_place_icon {
+                        width: 18px;
+                        height: 18px;
+                        color: #3c3c3c;
+                    }
                     .select_vehicle_icon {
                         width: 18px;
                         height: 18px;
@@ -1383,9 +1402,54 @@
         padding: 10px 20px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        height: calc(100vh - 320px);
+        height: calc(100vh - 220px);
         overflow-y: auto;
+        .route_item_section {
+            width: 360px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            .route_icon_div {
+                height: 60px;
+                width: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .line_top {
+                    width: 5px;
+                    height: 20px;
+                }
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    border: solid 5px #f23920;
+                }
+                .line_bottom {
+                    width: 5px;
+                    height: 20px;
+                }
+            }
+            .route_info_div {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: center;
+                height: 60px;
+                width: 330px;
+                padding: 0 10px 0;
+                .name {
+                    font-size: 16px;
+                }
+                .route_item_sub {
+                    display: flex;
+                    gap: 10px;
+                    .sub {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
         .route_detail_nothing {
             width: 100%;
             height: 100%;
@@ -1403,6 +1467,15 @@
     height: calc(100vh - 114px) !important;
     position: fixed;
     bottom: 0;
+}
+
+.powered_odsay {
+    position: absolute;
+    bottom: 0;
+    right: 150px;
+    z-index: 1;
+    font-size: 10px;
+    height: 19px;
 }
 
 .marker_info {
