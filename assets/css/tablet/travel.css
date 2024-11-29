@@ -732,11 +732,10 @@
         }
         .route_detail_div {
             padding: calc(768px * (10 / 1300)) calc(768px * (20 / 1300));
-            gap: calc(768px * (10 / 1300));
             height: calc(100vh - (768px * (220 / 1300)));
             .route_item_section {
-                width: calc(768px * (calc(768px * (360 / 1300)) / 1300));
-                height: calc(768px * (calc(768px * (60 / 1300)) / 1300));
+                width: calc(768px * (360 / 1300));
+                height: calc(768px * (60 / 1300));
                 .route_icon_div {
                     height: calc(768px * (60 / 1300));
                     width: calc(768px * (30 / 1300));
