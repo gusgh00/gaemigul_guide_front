@@ -114,14 +114,34 @@ const TabDetail = (props: {
         }))
     }
 
-    const changePlaceStayTime = (id: number, date: Date) => {
-        props.setPlaceList(props.placeList.map(item => {
-            if (item.id === id) {
-                return { ...item, stay_time: date }
-            } else {
-                return item
+    const changePlaceStayTime = (id: number, date: Date, index: number) => {
+        const items = [...props.placeList];
+        for (let i = 0; i < items.length; i++) {
+            if (i === index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(date)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(date))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(items[i].move_time))
+                items[i].stay_time = date
             }
-        }))
+            else if (i > index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[i].stay_time)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(items[i].stay_time))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(items[i].move_time))
+            }
+        }
+    }
+
+    const changePlaceMoveTime = (id: number, date: Date, index: number) => {
+        const items = [...props.placeList];
+        for (let i = 0; i < items.length; i++) {
+            if (i === index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[i].stay_time)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(items[i].stay_time))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(date))
+                items[i].move_time = date
+            }
+            else if (i > index) {
+                items[i].start_time = i === 0 ? addSeconds(props.dateList.filter(item => item.date === props.dateSelected)[0].start_time, changeTimeToSeconds(items[i].stay_time)) : addSeconds(items[i - 1].end_time, changeTimeToSeconds(items[i].stay_time))
+                items[i].end_time = addSeconds(items[i].start_time, changeTimeToSeconds(items[i].move_time))
+            }
+        }
     }
     const changePlaceStayAmount = (id: number, amount: string) => {
         props.setPlaceList(props.placeList.map(item => {
@@ -194,7 +214,7 @@ const TabDetail = (props: {
                                 <div className="place_stay_time_div">
                                     <span className="scoredream-700 grey_text time_type">머무는 시간</span>
                                     <TimePicker
-                                        onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date)}
+                                        onChange={(date: Date | null) => date && changePlaceStayTime(item.id, date, index)}
                                         type={0}
                                         selectTime={item.stay_time}
                                         boxClassName={"time_input_div"}
@@ -263,12 +283,20 @@ const TabDetail = (props: {
                                         </div>
                                         <div className="place_stay_time_div">
                                             <span className="scoredream-700 grey_text time_type">이동 시간</span>
-                                            <div className="time_input_div">
-                                                <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>
-                                                <span className="scoredream-700 grey_text time_unit">시간</span>
-                                                <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("mm")}/>
-                                                <span className="scoredream-700 grey_text time_unit">분</span>
-                                            </div>
+                                            {/*<div className="time_input_div">*/}
+                                            {/*    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("HH")}/>*/}
+                                            {/*    <span className="scoredream-700 grey_text time_unit">시간</span>*/}
+                                            {/*    <input className="scoredream-700 default_text stay_time stay_time_hours" readOnly={true} value={dayjs(item.move_time).format("mm")}/>*/}
+                                            {/*    <span className="scoredream-700 grey_text time_unit">분</span>*/}
+                                            {/*</div>*/}
+                                            <TimePicker
+                                                onChange={(date: Date | null) => date && changePlaceMoveTime(item.id, date, index)}
+                                                type={0}
+                                                selectTime={item.move_time}
+                                                boxClassName={"time_input_div"}
+                                                inputClassName={"scoredream-700 default_text stay_time stay_time_hours"}
+                                                unitClassName={"scoredream-700 grey_text time_unit"}
+                                            />
                                         </div>
                                     </div>
                                     <button className="place_path_hide_btn" onClick={() => changePlacePathHide(item.id)}>
