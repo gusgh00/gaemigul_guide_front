@@ -800,6 +800,7 @@
                                 color: #fff;
                             }
                             .amount_input_div {
+                                box-shadow: inset 2px 2px 4px #e6361e, inset -2px -2px 4px #fe3c22;
                                 .amount_unit {
                                     color: #fff;
                                 }
@@ -813,6 +814,7 @@
                                 color: #fff;
                             }
                             .time_input_div {
+                                box-shadow: inset 2px 2px 4px #e6361e, inset -2px -2px 4px #fe3c22;
                                 .time_unit {
                                     color: #fff;
                                 }
@@ -962,6 +964,8 @@
                     .amount_input_div {
                         display: flex;
                         width: 100%;
+                        box-shadow: inset 2px 2px 4px #cecece, inset -2px -2px 4px #ffffff;
+                        border-radius: 10px;
                         .amount_unit {
                             font-size: 10px;
                             display: flex;
@@ -988,6 +992,8 @@
                     .time_input_div {
                         display: flex;
                         width: 100%;
+                        box-shadow: inset 2px 2px 4px #cecece, inset -2px -2px 4px #ffffff;
+                        border-radius: 10px;
                         .stay_time_times {
                             background: transparent;
                             font-size: 24px;

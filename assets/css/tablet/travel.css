@@ -263,6 +263,18 @@
                         border: solid calc(768px * (1 / 1300)) #f4f4f4;
                         box-shadow:  calc(768px * (8 / 1300)) calc(768px * (8 / 1300)) calc(768px * (16 / 1300)) #dfdfdf, calc(768px * (-8 / 1300)) calc(768px * (-8 / 1300)) calc(768px * (16 / 1300)) #fbfbfb;
                         margin-bottom: calc(768px * (10 / 1300));
+                        &:hover {
+                            .place_amount_div {
+                                .amount_input_div {
+                                    box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #e6361e, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #fe3c22;
+                                }
+                            }
+                            .place_stay_time_div {
+                                .time_input_div {
+                                    box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #e6361e, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #fe3c22;
+                                }
+                            }
+                        }
                         .place_list_div {
                             width: calc(768px * (160 / 1300));
                             .place {
@@ -337,6 +349,8 @@
                             font-size: calc(768px * (10 / 1300));
                         }
                         .amount_input_div {
+                            box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #cecece, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #ffffff;
+                            border-radius: calc(768px * (10 / 1300));
                             .amount_unit {
                                 font-size: calc(768px * (10 / 1300));
                                 margin-left: calc(768px * (5 / 1300));
@@ -354,6 +368,8 @@
                             font-size: calc(768px * (10 / 1300));
                         }
                         .time_input_div {
+                            box-shadow: inset calc(768px * (2 / 1300)) calc(768px * (2 / 1300)) calc(768px * (4 / 1300)) #cecece, inset calc(768px * (-2 / 1300)) calc(768px * (-2 / 1300)) calc(768px * (4 / 1300)) #ffffff;
+                            border-radius: calc(768px * (10 / 1300));
                             .stay_time_times {
                                 font-size: calc(768px * (24 / 1300));
                                 line-height: calc(768px * (26 / 1300));
