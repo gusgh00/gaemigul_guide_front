@@ -2,15 +2,18 @@
 @import "@css/footer.css";
 @import "@css/main.css";
 @import "@css/main_page.css";
-@import "@css/sign_in.css";
 @import "@css/loading.css";
 @import "@css/travel.css";
 @import "@css/tablet/header.css";
 @import "@css/tablet/footer.css";
 @import "@css/tablet/main.css";
 @import "@css/tablet/main_page.css";
-@import "@css/tablet/sign_in.css";
 @import "@css/tablet/travel.css";
+@import "@css/mobile/header.css";
+@import "@css/mobile/footer.css";
+@import "@css/mobile/main.css";
+@import "@css/mobile/main_page.css";
+@import "@css/mobile/travel.css";
 
 @tailwind base;
 @tailwind components;

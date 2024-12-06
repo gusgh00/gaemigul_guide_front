@@ -1,0 +1,28 @@
+@media screen and (max-width: 768px) {
+    #footer_pc {
+        width: calc(375px * (1260 / 768));
+        margin: unset;
+        .footer_section {
+            box-shadow: inset 0 calc(375px * (1 / 375)) 0 #E8E8E8;
+            .inner_section {
+                width: 100%;
+                height: calc(375px * (120 / 375));
+                .footer_copyright {
+                    font-size: calc(375px * (12 / 375));
+                }
+            }
+        }
+    }
+
+    #footer_box {
+        .footer_section {
+            box-shadow: inset 0 calc(375px * (1 / 375)) 0 #E8E8E8;
+            .inner_section {
+                height: calc(375px * (70 / 375));
+                .footer_copyright {
+                    font-size: calc(375px * (12 / 375));
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+@media screen and (max-width: 768px) {
+    #header_pc {
+        .header_section {
+            box-shadow:  calc(375px * (-4 / 375)) calc(375px * (-4 / 375)) calc(375px * (8 / 375)) #bfbfbf, calc(375px * (4 / 375)) calc(375px * (4 / 375)) calc(375px * (8 / 375)) #ffffff;
+            .inner_section {
+                width: 100%;
+                height: calc(375px * (64 / 375));
+                .header_sign_in_div {
+                    width: calc(375px * (40 / 375));
+                    height: calc(375px * (40 / 375));
+                    .header_sign_in_button {
+                        width: calc(375px * (20 / 375));
+                        height: calc(375px * (20 / 375));
+                    }
+                }
+                .navigation {
+                    height: calc(375px * (64 / 375));
+                    gap: calc(375px * (90 / 375));
+                    .header_logo {
+                        width: calc(375px * (240 / 375));
+                    }
+                    .navigation_text {
+                        line-height: calc(375px * (64 / 375));
+                        font-size: calc(375px * (16 / 375));
+                        &:after {
+                            border-bottom: solid calc(375px * (3 / 375)) rgb(242, 57, 32);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
