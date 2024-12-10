@@ -1,91 +1,91 @@
 @media screen and (max-width: 768px) {
     #main_content {
-        padding-top: calc(375px * (64 / 375));
+        padding-top: calc(375px * (64 / 384));
     }
 
     .main_inner {
-        width: calc(375px * (1260 / 768));
+        width: unset;
     }
 
     .gmg_calendar {
-        padding: calc(375px * (10 / 375));
-        border-radius: calc(375px * (10 / 375));
-        border: solid calc(375px * (1 / 375)) #f23920;
+        padding: calc(384px * (10 / 384));
+        border-radius: calc(384px * (10 / 384));
+        border: solid calc(384px * (1 / 384)) #f23920;
         .gmg_calendar_control {
-            width: calc(375px * (220 / 375));
-            height: calc(375px * (20 / 375));
-            margin-bottom: calc(375px * (10 / 375));
+            width: calc(384px * (220 / 384));
+            height: calc(384px * (20 / 384));
+            margin-bottom: calc(384px * (10 / 384));
             .control_prev_btn {
-                width: calc(375px * (20 / 375));
-                height: calc(375px * (20 / 375));
+                width: calc(384px * (20 / 384));
+                height: calc(384px * (20 / 384));
                 .control_prev_icon {
-                    width: calc(375px * (20 / 375));
-                    height: calc(375px * (20 / 375));
+                    width: calc(384px * (20 / 384));
+                    height: calc(384px * (20 / 384));
                 }
             }
             .control_date_div {
-                width: calc(375px * (120 / 375));
-                height: calc(375px * (20 / 375));
+                width: calc(384px * (120 / 384));
+                height: calc(384px * (20 / 384));
                 .control_date_text {
-                    font-size: calc(375px * (18 / 375));
-                    line-height: calc(375px * (20 / 375));
+                    font-size: calc(384px * (18 / 384));
+                    line-height: calc(384px * (20 / 384));
                 }
             }
             .control_next_btn {
-                width: calc(375px * (20 / 375));
-                height: calc(375px * (20 / 375));
+                width: calc(384px * (20 / 384));
+                height: calc(384px * (20 / 384));
                 .control_next_icon {
-                    width: calc(375px * (20 / 375));
-                    height: calc(375px * (20 / 375));
+                    width: calc(384px * (20 / 384));
+                    height: calc(384px * (20 / 384));
                 }
             }
         }
         .gmg_calendar_days_section {
-            width: calc(375px * (220 / 375));
+            width: calc(384px * (220 / 384));
             .days {
-                font-size: calc(375px * (16 / 375));
+                font-size: calc(384px * (16 / 384));
             }
         }
         .gmg_calendar_date_section {
-            width: calc(375px * (220 / 375));
+            width: calc(384px * (220 / 384));
             .date {
-                line-height: calc(375px * (30 / 375));
-                font-size: calc(375px * (16 / 375));
-                border-radius: calc(375px * (30 / 375));
+                line-height: calc(384px * (30 / 384));
+                font-size: calc(384px * (16 / 384));
+                border-radius: calc(384px * (30 / 384));
             }
         }
     }
 
     .gmg_timer {
-        padding: calc(375px * (10 / 375)) 0 0;
-        border-radius: calc(375px * (10 / 375));
-        border: solid calc(375px * (1 / 375)) #f23920;
+        padding: calc(100vw * (10 / 384)) 0 0;
+        border-radius: calc(100vw * (10 / 384));
+        border: solid calc(100vw * (1 / 384)) #f23920;
         .gmg_timer_control {
-            width: calc(375px * (100 / 375));
-            height: calc(375px * (50 / 375));
+            width: calc(100vw * (100 / 384));
+            height: calc(100vw * (50 / 384));
             .control_submit_btn {
-                width: calc(375px * (80 / 375));
-                height: calc(375px * (30 / 375));
-                font-size: calc(375px * (14 / 375));
-                border-radius: calc(375px * (20 / 375));
-                box-shadow: calc(375px * (2 / 375)) calc(375px * (2 / 375)) calc(375px * (4 / 375)) #dedede, calc(375px * (-2 / 375)) calc(375px * (-2 / 375)) calc(375px * (4 / 375)) #ffffff;
-                border: solid calc(375px * (2 / 375)) #f6f6f6;
+                width: calc(100vw * (80 / 384));
+                height: calc(100vw * (30 / 384));
+                font-size: calc(100vw * (14 / 384));
+                border-radius: calc(100vw * (20 / 384));
+                box-shadow: calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #dedede, calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #ffffff;
+                border: solid calc(100vw * (2 / 384)) #f6f6f6;
             }
         }
         .gmg_timer_time_section {
-            width: calc(375px * (100 / 375));
-            height: calc(375px * (200 / 375));
+            width: calc(100vw * (100 / 384));
+            height: calc(100vw * (200 / 384));
             .gmg_timer_hour_section {
-                border-right: solid calc(375px * (1 / 375)) #f6f6f6;
+                border-right: solid calc(100vw * (1 / 384)) #f6f6f6;
             }
             .gmg_timer_hour_section,
             .gmg_timer_min_section {
-                width: calc(375px * (50 / 375));
-                height: calc(375px * (200 / 375));
-                border-top: solid calc(375px * (1 / 375)) #f6f6f6;
-                border-bottom: solid calc(375px * (1 / 375)) #f6f6f6;
+                width: calc(100vw * (50 / 384));
+                height: calc(100vw * (200 / 384));
+                border-top: solid calc(100vw * (1 / 384)) #f6f6f6;
+                border-bottom: solid calc(100vw * (1 / 384)) #f6f6f6;
                 .times {
-                    font-size: calc(375px * (16 / 375));
+                    font-size: calc(100vw * (16 / 384));
                 }
             }
         }
