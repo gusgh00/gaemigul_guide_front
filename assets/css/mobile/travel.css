@@ -1,47 +1,57 @@
 @media screen and (max-width: 660px) {
     .control_background {
         .control_section {
-            padding: calc(375px * (10 / 375)) !important;
+            padding: calc(384px * (10 / 384)) !important;
+            height: calc(384px * (500 / 384)) !important;
+            overflow: auto !important;
             .control_title {
                 width: unset !important;
+                & span {
+                    font-size: calc(384px * (18 / 384)) !important;
+                }
             }
             .control_region {
                 width: unset !important;
-                gap: calc(375px * (10 / 375)) !important;
+                gap: calc(384px * (10 / 384)) !important;
                 .region_title {
-                    width: calc(375px * (40 / 375)) !important;
+                    font-size: calc(384px * (14 / 384)) !important;
+                    width: calc(384px * (40 / 384)) !important;
                 }
                 .region_content {
                     flex-direction: column !important;
-                    width: calc(375px * (250 / 375)) !important;
+                    width: calc(384px * (250 / 384)) !important;
                     .region {
-                        width: calc(375px * (240 / 375)) !important;
+                        width: calc(384px * (240 / 384)) !important;
+                        font-size: calc(384px * (14 / 384));
                     }
                 }
             }
             .control_people {
                 width: unset !important;
-                gap: calc(375px * (10 / 375)) !important;
+                gap: calc(384px * (10 / 384)) !important;
                 .people_title {
-                    width: calc(375px * (40 / 375)) !important;
+                    font-size: calc(384px * (14 / 384)) !important;
+                    width: calc(384px * (40 / 384)) !important;
                 }
                 .people_content {
-                    width: calc(375px * (250 / 375)) !important;
+                    width: calc(384px * (250 / 384)) !important;
                 }
             }
             .control_date {
                 width: unset !important;
-                gap: calc(375px * (10 / 375)) !important;
+                gap: calc(384px * (10 / 384)) !important;
                 .date_title {
-                    width: calc(375px * (40 / 375)) !important;
+                    font-size: calc(384px * (14 / 384)) !important;
+                    width: calc(384px * (40 / 384)) !important;
                 }
                 .date_content {
                     flex-direction: column !important;
-                    gap: calc(375px * (10 / 375)) !important;
-                    width: calc(375px * (250 / 375)) !important;
+                    gap: calc(384px * (10 / 384)) !important;
+                    width: calc(384px * (250 / 384)) !important;
                 }
             }
             .control_button {
+                font-size: calc(384px * (14 / 384)) !important;
                 width: unset !important;
             }
         }
@@ -50,757 +60,729 @@
 @media screen and (max-width: 768px) {
     .control_background {
         .control_section {
-            padding: calc(375px * (20 / 375));
-            border-radius: calc(375px * (20 / 375));
-            gap: calc(375px * (20 / 375));
+            padding: calc(384px * (20 / 384));
+            border-radius: calc(384px * (20 / 384));
+            gap: calc(384px * (20 / 384));
             .control_title {
-                width: calc(375px * (600 / 375));
+                width: calc(384px * (600 / 384));
                 & span {
-                    font-size: calc(375px * (18 / 375));
+                    font-size: calc(384px * (18 / 384));
                 }
             }
             .control_region {
-                width: calc(375px * (600 / 375));
-                height: calc(375px * (40 / 375));
-                gap: calc(375px * (20 / 375));
+                width: calc(384px * (600 / 384));
+                height: calc(384px * (40 / 384));
+                gap: calc(384px * (20 / 384));
                 .region_title {
-                    width: calc(375px * (80 / 375));
+                    width: calc(384px * (80 / 384));
                     .title_span {
-                        font-size: calc(375px * (14 / 375));
+                        font-size: calc(384px * (14 / 384));
                     }
                 }
                 .region_content {
-                    width: calc(375px * (500 / 375));
+                    width: calc(384px * (500 / 384));
                     .region {
-                        width: calc(375px * (120 / 375));
-                        font-size: calc(375px * (14 / 375));
+                        width: calc(384px * (120 / 384));
+                        font-size: calc(384px * (14 / 384));
                     }
                 }
             }
             .control_people {
-                width: calc(375px * (600 / 375));
-                height: calc(375px * (40 / 375));
-                gap: calc(375px * (20 / 375));
+                width: calc(384px * (600 / 384));
+                height: calc(384px * (40 / 384));
+                gap: calc(384px * (20 / 384));
                 .people_title {
-                    width: calc(375px * (80 / 375));
+                    width: calc(384px * (80 / 384));
                     .title_span {
-                        font-size: calc(375px * (14 / 375));
+                        font-size: calc(384px * (14 / 384));
                     }
                 }
                 .people_content {
-                    width: calc(375px * (500 / 375));
-                    gap: calc(375px * (20 / 375));
+                    width: calc(384px * (500 / 384));
+                    gap: calc(384px * (20 / 384));
                     .people_plus_btn {
-                        width: calc(375px * (20 / 375));
-                        height: calc(375px * (20 / 375));
+                        width: calc(384px * (20 / 384));
+                        height: calc(384px * (20 / 384));
                         .people_plus_icon {
-                            width: calc(375px * (20 / 375));
-                            height: calc(375px * (20 / 375));
+                            width: calc(384px * (20 / 384));
+                            height: calc(384px * (20 / 384));
                         }
                     }
                     .people_minus_btn {
-                        width: calc(375px * (20 / 375));
-                        height: calc(375px * (20 / 375));
+                        width: calc(384px * (20 / 384));
+                        height: calc(384px * (20 / 384));
                         .people_minus_icon {
-                            width: calc(375px * (20 / 375));
-                            height: calc(375px * (20 / 375));
+                            width: calc(384px * (20 / 384));
+                            height: calc(384px * (20 / 384));
                         }
                     }
                     & input[type="text"] {
-                        width: calc(375px * (30 / 375));
+                        width: calc(384px * (30 / 384));
                     }
                     .people {
-                        font-size: calc(375px * (14 / 375));
+                        font-size: calc(384px * (14 / 384));
                     }
                 }
             }
             .control_date {
-                width: calc(375px * (600 / 375));
-                gap: calc(375px * (20 / 375));
+                width: calc(384px * (600 / 384));
+                gap: calc(384px * (20 / 384));
                 .date_title {
-                    width: calc(375px * (80 / 375));
+                    width: calc(384px * (80 / 384));
                     .title_span {
-                        font-size: calc(375px * (14 / 375));
+                        font-size: calc(384px * (14 / 384));
                     }
                 }
                 .date_content {
-                    width: calc(375px * (500 / 375));
+                    width: calc(384px * (500 / 384));
                     .date_sub_title {
-                        gap: calc(375px * (10 / 375));
-                        font-size: calc(375px * (14 / 375));
-                        margin-bottom: calc(375px * (10 / 375));
+                        gap: calc(384px * (10 / 384));
+                        font-size: calc(384px * (14 / 384));
+                        margin-bottom: calc(384px * (10 / 384));
                         .date {
-                            font-size: calc(375px * (14 / 375));
+                            font-size: calc(384px * (14 / 384));
                         }
                     }
                 }
             }
             .control_button {
-                width: calc(375px * (600 / 375));
+                width: calc(384px * (600 / 384));
                 .button_submit {
-                    border-radius: calc(375px * (30 / 375));
-                    box-shadow: calc(375px * (4 / 375)) calc(375px * (4 / 375)) calc(375px * (9 / 375)) #dedede, calc(375px * (-4 / 375)) calc(375px * (-4 / 375)) calc(375px * (9 / 375)) #ffffff;
-                    border: solid calc(375px * (2 / 375)) #f6f6f6;
-                    font-size: calc(375px * (14 / 375));
-                    padding: calc(375px * (4 / 375)) calc(375px * (30 / 375));
+                    border-radius: calc(384px * (30 / 384));
+                    box-shadow: calc(384px * (4 / 384)) calc(384px * (4 / 384)) calc(384px * (9 / 384)) #dedede, calc(384px * (-4 / 384)) calc(384px * (-4 / 384)) calc(384px * (9 / 384)) #ffffff;
+                    border: solid calc(384px * (2 / 384)) #f6f6f6;
+                    font-size: calc(384px * (14 / 384));
+                    padding: calc(384px * (4 / 384)) calc(384px * (30 / 384));
                 }
             }
         }
     }
 
     .travel_top_banner {
-        height: calc(100vw * (50 / 768));
-        box-shadow:  calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #bfbfbf;
-        margin-top: calc(375px * (64 / 375));
-        .banner_inner {
-            .banner_inner_info {
-                & span {
-                    margin-right: calc(100vw * (10 / 768));
-                    font-size: calc(100vw * (14 / 768));
-                }
-            }
-            .banner_inner_button {
-                display: none;
-            }
-        }
+        display: none;
     }
 
     .travel_list_section {
-        width: calc(100vw * (500 / 768));
+        width: 100vw;
         &.travel_list_section_hide {
-            left: calc(100vw * (-480 / 768));
+            left: calc(-1 * (100vw - (100vw * (40 / 768))));
         }
         .travel_list_box {
             box-shadow:  calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #bfbfbf;
-            width: calc(100vw * (480 / 768));
+            width: calc(100vw - (100vw * (40 / 768)));
             .travel_list_box_section {
-                width: calc(100vw * (480 / 768));
-                padding-top: calc((100vw * (50 / 768)) + (375px * (64 / 375)));
+                width: calc(100vw - (100vw * (40 / 768)));
+                padding-top: calc((384px * (64 / 384)));
                 .travel_list_box_menu {
-                    height: calc(100vw * (96 / 768));
-                    box-shadow:  calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #bfbfbf, calc(100vw * (-2 / 768)) calc(100vw * (-2 / 768)) calc(100vw * (4 / 768)) #ffffff;
+                    height: calc(100vw * (96 / 384));
+                    box-shadow:  calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #bfbfbf, calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #ffffff;
                     .travel_list_box_menu_top {
-                        height: calc(100vw * (48 / 768));
-                        padding: 0 calc(100vw * (20 / 768));
-                        border-bottom: solid calc(100vw * (1 / 768)) #e9e9e9;
+                        height: calc(100vw * (48 / 384));
+                        padding: 0 calc(100vw * (20 / 384));
+                        border-bottom: solid calc(100vw * (1 / 384)) #e9e9e9;
                         .select_date {
-                            width: calc(100vw * (150 / 768));
-                            height: calc(100vw * (30 / 768));
-                            font-size: calc(100vw * (14 / 768));
+                            width: calc(100vw * (150 / 384));
+                            height: calc(100vw * (30 / 384));
+                            font-size: calc(100vw * (14 / 384));
                         }
                         .current_clear_button {
-                            font-size: calc(100vw * (14 / 768));
-                            gap: calc(100vw * (6 / 768));
+                            font-size: calc(100vw * (14 / 384));
+                            gap: calc(100vw * (6 / 384));
                             .current_clear_icon {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                         }
                     }
                     .travel_list_box_menu_bottom {
-                        height: calc(100vw * (48 / 768));
-                        padding: 0 calc(100vw * (20 / 768));
+                        height: calc(100vw * (48 / 384));
+                        padding: 0 calc(100vw * (20 / 384));
                         & div {
                             .tab_button {
-                                font-size: calc(100vw * (14 / 768));
+                                font-size: calc(100vw * (14 / 384));
                             }
                         }
                     }
                 }
                 .all_place_section {
-                    max-height: calc(100vh - (100vw * (280 / 768)));
-                    padding: calc(100vw * (20 / 768));
+                    height: calc(100vh - (100vw * (96 / 384)) - (100vw * (70 / 384)));
+                    max-height: calc(100vh - (100vw * (96 / 384)) - (100vw * (70 / 384)) - (384px * (64 / 384)));
+                    padding: calc(100vw * (20 / 384));
                     .place_list_section {
-                        height: calc(100vw * (74 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        border: solid calc(100vw * (1 / 768)) #f4f4f4;
-                        box-shadow:  calc(100vw * (8 / 768)) calc(100vw * (8 / 768)) calc(100vw * (16 / 768)) #dfdfdf, calc(100vw * (-8 / 768)) calc(100vw * (-8 / 768)) calc(100vw * (16 / 768)) #fbfbfb;
-                        margin-bottom: calc(100vw * (30 / 768));
+                        height: calc(100vw * (74 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        border: solid calc(100vw * (1 / 384)) #f4f4f4;
+                        box-shadow:  calc(100vw * (8 / 384)) calc(100vw * (8 / 384)) calc(100vw * (16 / 384)) #dfdfdf, calc(100vw * (-8 / 384)) calc(100vw * (-8 / 384)) calc(100vw * (16 / 384)) #fbfbfb;
+                        margin-bottom: calc(100vw * (30 / 384));
                         .add_button {
-                            height: calc(100vw * (30 / 768));
-                            bottom: calc(100vw * (-30 / 768));
-                            border-radius: calc(100vw * (20 / 768));
-                            border: dotted calc(100vw * (2 / 768)) transparent;
+                            height: calc(100vw * (30 / 384));
+                            bottom: calc(100vw * (-30 / 384));
+                            border-radius: calc(100vw * (20 / 384));
+                            border: dotted calc(100vw * (2 / 384)) transparent;
                             .add_icon {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                             &:hover {
-                                border: dotted calc(100vw * (2 / 768)) #3c3c3c;
+                                border: dotted calc(100vw * (2 / 384)) #3c3c3c;
                             }
                             &.active {
-                                border: dotted calc(100vw * (2 / 768)) #f23920;
+                                border: dotted calc(100vw * (2 / 384)) #f23920;
                             }
                         }
                         .drag_handler_div {
-                            width: calc(100vw * (34 / 768));
-                            margin: calc(100vw * (6 / 768));
+                            width: calc(100vw * (34 / 384));
+                            margin: calc(100vw * (6 / 384));
                             .drag_handler_icon {
-                                width: calc(100vw * (32 / 768));
-                                height: calc(100vw * (32 / 768));
+                                width: calc(100vw * (32 / 384));
+                                height: calc(100vw * (32 / 384));
                             }
                         }
                         .place_list_div {
-                            width: calc(100vw * (300 / 768));
+                            width: calc(100vw * (200 / 384));
                             .place {
-                                font-size: calc(100vw * (16 / 768));
+                                width: calc(100vw * (200 / 384));
+                                font-size: calc(100vw * (16 / 384));
                             }
                             .address {
-                                font-size: calc(100vw * (12 / 768));
+                                width: calc(100vw * (200 / 384));
+                                font-size: calc(100vw * (12 / 384));
                             }
                         }
                         .close_div {
-                            width: calc(100vw * (32 / 768));
-                            margin-left: calc(100vw * (30 / 768));
+                            width: calc(100vw * (32 / 384));
+                            margin-left: calc(100vw * (30 / 384));
                             .close_icon {
-                                width: calc(100vw * (20 / 768));
-                                height: calc(100vw * (20 / 768));
+                                width: calc(100vw * (20 / 384));
+                                height: calc(100vw * (20 / 384));
                             }
                         }
                     }
                 }
                 .all_road_section {
-                    height: calc(100vh - (100vw * (280 / 768)));
-                    padding: calc(100vw * (20 / 768));
+                    height: calc(100vh - (100vw * (96 / 384)) - (100vw * (70 / 384)));
+                    max-height: calc(100vh - (100vw * (96 / 384)) - (100vw * (70 / 384)) - (384px * (64 / 384)));
+                    padding: calc(100vw * (20 / 384));
                     .place_control_section {
-                        height: calc(100vw * (74 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        margin-bottom: calc(100vw * (10 / 768));
+                        width: 100%;
+                        height: calc(100vw * (74 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        margin-bottom: calc(100vw * (10 / 384));
                         .place_control_div {
-                            width: calc(100vw * (300 / 768));
-                            margin: 0 calc(100vw * (13 / 768));
+                            /*width: calc((100vw * (150 / 384)) + (100vw * (64 / 384)) + (100vw * (10 / 384)));*/
+                            width: calc(100vw * (180 / 384));
+                            margin: 0 calc(100vw * (13 / 384));
                             .remove,
                             .search {
-                                font-size: calc(100vw * (14 / 768));
-                                width: calc(100vw * (130 / 768));
-                                height: calc(100vw * (40 / 768));
-                                border-radius: calc(100vw * (12 / 768));
-                                border: solid calc(100vw * (1 / 768)) #f4f4f4;
-                                box-shadow: calc(100vw * (4 / 768)) calc(100vw * (4 / 768)) calc(100vw * (9 / 768)) #dfdfdf, calc(100vw * (-4 / 768)) calc(100vw * (-4 / 768)) calc(100vw * (9 / 768)) #fbfbfb;
+                                font-size: calc(100vw * (14 / 384));
+                                width: calc(100vw * (80 / 384));
+                                height: calc(100vw * (40 / 384));
+                                border-radius: calc(100vw * (12 / 384));
+                                border: solid calc(100vw * (1 / 384)) #f4f4f4;
+                                box-shadow: calc(100vw * (4 / 384)) calc(100vw * (4 / 384)) calc(100vw * (9 / 384)) #dfdfdf, calc(100vw * (-4 / 384)) calc(100vw * (-4 / 384)) calc(100vw * (9 / 384)) #fbfbfb;
                             }
                         }
                     }
                     .place_list_section {
-                        height: calc(100vw * (74 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        border: solid calc(100vw * (1 / 768)) #f4f4f4;
-                        box-shadow:  calc(100vw * (8 / 768)) calc(100vw * (8 / 768)) calc(100vw * (16 / 768)) #dfdfdf, calc(100vw * (-8 / 768)) calc(100vw * (-8 / 768)) calc(100vw * (16 / 768)) #fbfbfb;
-                        margin-bottom: calc(100vw * (10 / 768));
+                        height: calc(100vw * (74 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        border: solid calc(100vw * (1 / 384)) #f4f4f4;
+                        box-shadow:  calc(100vw * (8 / 384)) calc(100vw * (8 / 384)) calc(100vw * (16 / 384)) #dfdfdf, calc(100vw * (-8 / 384)) calc(100vw * (-8 / 384)) calc(100vw * (16 / 384)) #fbfbfb;
+                        margin-bottom: calc(100vw * (10 / 384));
                         &:hover {
                             .place_amount_div {
                                 .amount_input_div {
-                                    box-shadow: inset calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #e6361e, inset calc(100vw * (-2 / 768)) calc(100vw * (-2 / 768)) calc(100vw * (4 / 768)) #fe3c22;
+                                    box-shadow: inset calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #e6361e, inset calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #fe3c22;
                                 }
                             }
                             .place_stay_time_div {
                                 .time_input_div {
-                                    box-shadow: inset calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #e6361e, inset calc(100vw * (-2 / 768)) calc(100vw * (-2 / 768)) calc(100vw * (4 / 768)) #fe3c22;
+                                    box-shadow: inset calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #e6361e, inset calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #fe3c22;
                                 }
                             }
                         }
                         .place_list_div {
-                            width: calc(100vw * (160 / 768));
+                            width: calc(100vw * (150 / 384));
+                            /*width: calc(100% - (100vw * (34 / 384)) - (100vw * (12 / 384)) - (100vw * (100 / 384)));*/
                             .place {
-                                font-size: calc(100vw * (16 / 768));
+                                width: calc(100vw * (150 / 384));
+                                /*width: calc(100% - (100vw * (34 / 384)) - (100vw * (12 / 384)) - (100vw * (100 / 384)) - (100vw * (100 / 384)));*/
+                                font-size: calc(100vw * (16 / 384));
                             }
                             .address {
-                                font-size: calc(100vw * (12 / 768));
+                                width: calc(100vw * (150 / 384));
+                                /*width: calc(100% - (100vw * (34 / 384)) - (100vw * (12 / 384)) - (100vw * (100 / 384)) - (100vw * (100 / 384)));*/
+                                font-size: calc(100vw * (12 / 384));
                             }
                         }
                     }
                     .place_road_section {
-                        height: calc(100vw * (74 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
+                        height: calc(100vw * (74 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
                         .place_list_div {
-                            gap: calc(100vw * (5 / 768));
-                            width: calc(100vw * (160 / 768));
+                            gap: calc(100vw * (5 / 384));
+                            width: calc(100vw * (150 / 384));
                             .place {
-                                font-size: calc(100vw * (16 / 768));
-                                max-width: calc(100vw * (64 / 768));
+                                width: calc(100vw * (150 / 384));
+                                font-size: calc(100vw * (16 / 384));
+                                max-width: calc(100vw * (64 / 384));
                             }
                             .arrow {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                         }
                     }
                     .place_path_section {
-                        height: calc(100vw * (120 / 768));
+                        height: calc(100vw * (120 / 384));
                         .place_path_start {
-                            height: calc(100vw * (50 / 768));
-                            gap: calc(100vw * (10 / 768));
-                            border-radius: calc(100vw * (20 / 768));
+                            height: calc(100vw * (50 / 384));
+                            gap: calc(100vw * (10 / 384));
+                            border-radius: calc(100vw * (20 / 384));
                         }
                         .route_detail_hide_btn {
-                            height: calc(100vw * (20 / 768));
+                            height: calc(100vw * (20 / 384));
                             .route_detail_hide_icon {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                         }
                         .place_path_end {
-                            height: calc(100vw * (50 / 768));
-                            gap: calc(100vw * (10 / 768));
-                            border-radius: calc(100vw * (20 / 768));
+                            height: calc(100vw * (50 / 384));
+                            gap: calc(100vw * (10 / 384));
+                            border-radius: calc(100vw * (20 / 384));
                         }
                         .place_list_div {
-                            gap: calc(100vw * (5 / 768));
-                            width: calc(100vw * (240 / 768));
-                            margin-right: calc(100vw * (30 / 768));
+                            gap: calc(100vw * (5 / 384));
+                            width: calc(100vw * (150 / 384));
+                            margin-right: unset;
                             .place {
-                                max-width: calc(100vw * (220 / 768));
-                                font-size: calc(100vw * (16 / 768));
+                                max-width: unset;
+                                font-size: calc(100vw * (16 / 384));
                             }
                             .arrow {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                         }
                     }
                     .place_path_hide_btn {
-                        height: calc(100vw * (20 / 768));
-                        margin-bottom: calc(100vw * (10 / 768));
+                        height: calc(100vw * (20 / 384));
+                        margin-bottom: calc(100vw * (10 / 384));
                         .place_path_hide_icon {
-                            width: calc(100vw * (18 / 768));
-                            height: calc(100vw * (18 / 768));
+                            width: calc(100vw * (18 / 384));
+                            height: calc(100vw * (18 / 384));
                         }
                     }
                     .place_amount_div {
-                        width: calc(100vw * (100 / 768));
-                        .amount_type {
-                            font-size: calc(100vw * (10 / 768));
-                        }
-                        .amount_input_div {
-                            box-shadow: inset calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #cecece, inset calc(100vw * (-2 / 768)) calc(100vw * (-2 / 768)) calc(100vw * (4 / 768)) #ffffff;
-                            border-radius: calc(100vw * (10 / 768));
-                            .amount_unit {
-                                font-size: calc(100vw * (10 / 768));
-                                margin-left: calc(100vw * (5 / 768));
-                            }
-                            .amount {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
-                                width: calc(100vw * (72 / 768));
-                            }
-                        }
+                        display: none;
                     }
                     .place_stay_time_div {
-                        width: calc(100vw * (100 / 768));
+                        width: calc(100vw * (100 / 384));
                         .time_type {
-                            font-size: calc(100vw * (10 / 768));
+                            font-size: calc(100vw * (10 / 384));
                         }
                         .time_input_div {
-                            box-shadow: inset calc(100vw * (2 / 768)) calc(100vw * (2 / 768)) calc(100vw * (4 / 768)) #cecece, inset calc(100vw * (-2 / 768)) calc(100vw * (-2 / 768)) calc(100vw * (4 / 768)) #ffffff;
-                            border-radius: calc(100vw * (10 / 768));
+                            box-shadow: inset calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #cecece, inset calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #ffffff;
+                            border-radius: calc(100vw * (10 / 384));
                             .stay_time_times {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
+                                font-size: calc(100vw * (24 / 384));
+                                line-height: calc(100vw * (26 / 384));
                             }
                             .stay_time_hours {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
-                                width: calc(100vw * (30 / 768));
+                                font-size: calc(100vw * (24 / 384));
+                                line-height: calc(100vw * (26 / 384));
+                                width: calc(100vw * (30 / 384));
                             }
                             .time_unit {
-                                font-size: calc(100vw * (10 / 768));
+                                font-size: calc(100vw * (10 / 384));
                             }
                         }
                     }
                     .place_move_time_div {
-                        width: calc(100vw * (100 / 768));
+                        width: calc(100vw * (100 / 384));
                         .time_type {
-                            font-size: calc(100vw * (10 / 768));
+                            font-size: calc(100vw * (10 / 384));
                         }
                         .time_input_div {
                             .move_time {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
+                                font-size: calc(100vw * (24 / 384));
+                                line-height: calc(100vw * (26 / 384));
                             }
                         }
                     }
                     .select_place_div,
                     .select_vehicle_div {
-                        width: calc(100vw * (34 / 768));
-                        height: calc(100vw * (34 / 768));
-                        margin: calc(100vw * (6 / 768));
-                        border-radius: calc(100vw * (150 / 768));
-                        border: solid calc(100vw * (2 / 768)) #fff;
+                        width: calc(100vw * (34 / 384));
+                        height: calc(100vw * (34 / 384));
+                        margin: calc(100vw * (6 / 384));
+                        border-radius: calc(100vw * (150 / 384));
+                        border: solid calc(100vw * (2 / 384)) #fff;
                         .select_place_icon,
                         .select_vehicle_icon {
-                            width: calc(100vw * (18 / 768));
-                            height: calc(100vw * (18 / 768));
+                            width: calc(100vw * (18 / 384));
+                            height: calc(100vw * (18 / 384));
                         }
                     }
                     .select_place_tab,
                     .select_vehicle_tab {
-                        gap: calc(100vw * (2 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        border: solid calc(100vw * (1 / 768)) #fff;
+                        gap: calc(100vw * (2 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        border: solid calc(100vw * (1 / 384)) #fff;
                         .select_place_div,
                         .select_vehicle_div {
                             &.active {
-                                border: solid calc(100vw * (2 / 768)) #f23920;
+                                border: solid calc(100vw * (2 / 384)) #f23920;
                             }
                         }
                     }
                 }
                 .all_result_section {
-                    height: calc(100vh - (100vw * (280 / 768)));
-                    padding: calc(100vw * (20 / 768));
+                    height: calc(100vh - (100vw * (96 / 384)) - (100vw * (70 / 384)));
+                    max-height: calc(100vh - (100vw * (96 / 384)) - (100vw * (70 / 384)) - (384px * (64 / 384)));
+                    padding: calc(100vw * (20 / 384));
                     .place_control_section {
-                        height: calc(100vw * (74 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        margin-bottom: calc(100vw * (10 / 768));
+                        width: 100%;
+                        height: calc(100vw * (74 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        margin-bottom: calc(100vw * (10 / 384));
                         .place_control_div {
-                            width: calc(100vw * (300 / 768));
-                            margin: 0 calc(100vw * (13 / 768));
+                            width: calc(100vw * (180 / 384));
+                            margin: 0 calc(100vw * (13 / 384));
                             & div {
                                 .title {
-                                    font-size: calc(100vw * (14 / 768));
-                                    width: calc(100vw * (130 / 768));
-                                    height: calc(100vw * (40 / 768));
-                                    border-radius: calc(100vw * (12 / 768));
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: start;
+                                    font-size: calc(100vw * (14 / 384));
+                                    width: calc(100vw * (80 / 384));
+                                    height: calc(100vw * (40 / 384));
+                                    border-radius: calc(100vw * (12 / 384));
                                 }
                             }
                         }
                     }
                     .place_list_section {
-                        height: calc(100vw * (74 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        border: solid calc(100vw * (1 / 768)) #f4f4f4;
-                        box-shadow: calc(100vw * (8 / 768)) calc(100vw * (8 / 768)) calc(100vw * (16 / 768)) #dfdfdf, calc(100vw * (-8 / 768)) calc(100vw * (-8 / 768)) calc(100vw * (16 / 768)) #fbfbfb;
-                        margin-bottom: calc(100vw * (10 / 768));
+                        height: calc(100vw * (74 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        border: solid calc(100vw * (1 / 384)) #f4f4f4;
+                        box-shadow: calc(100vw * (8 / 384)) calc(100vw * (8 / 384)) calc(100vw * (16 / 384)) #dfdfdf, calc(100vw * (-8 / 384)) calc(100vw * (-8 / 384)) calc(100vw * (16 / 384)) #fbfbfb;
+                        margin-bottom: calc(100vw * (10 / 384));
                         .place_list_div {
-                            width: calc(100vw * (160 / 768));
+                            width: calc(100vw * (150 / 384));
                             .place {
-                                font-size: calc(100vw * (16 / 768));
+                                width: calc(100vw * (150 / 384));
+                                font-size: calc(100vw * (16 / 384));
                             }
                             .address {
-                                font-size: calc(100vw * (12 / 768));
+                                width: calc(100vw * (150 / 384));
+                                font-size: calc(100vw * (12 / 384));
                             }
                         }
                     }
                     .place_road_section {
-                        height: calc(100vw * (50 / 768));
-                        gap: calc(100vw * (10 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        margin-bottom: calc(100vw * (10 / 768));
+                        height: calc(100vw * (50 / 384));
+                        gap: calc(100vw * (10 / 384));
+                        border-radius: calc(100vw * (20 / 384));
+                        margin-bottom: calc(100vw * (10 / 384));
                         .place_list_div {
-                            gap: calc(100vw * (5 / 768));
-                            width: calc(100vw * (160 / 768));
+                            gap: calc(100vw * (5 / 384));
+                            width: calc(100vw * (150 / 384));
                             .place {
-                                font-size: calc(100vw * (16 / 768));
-                                max-width: calc(100vw * (64 / 768));
+                                font-size: calc(100vw * (16 / 384));
+                                width: calc(100vw * (150 / 384));
+                                max-width: calc(100vw * (64 / 384));
                             }
                             .arrow {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                         }
                     }
                     .place_path_section {
-                        height: calc(100vw * (100 / 768));
+                        height: calc(100vw * (100 / 384));
                         .place_path_start {
-                            height: calc(100vw * (50 / 768));
-                            gap: calc(100vw * (10 / 768));
-                            border-radius: calc(100vw * (20 / 768));
+                            height: calc(100vw * (50 / 384));
+                            gap: calc(100vw * (10 / 384));
+                            border-radius: calc(100vw * (20 / 384));
                         }
                         .place_path_end {
-                            height: calc(100vw * (50 / 768));
-                            gap: calc(100vw * (10 / 768));
-                            border-radius: calc(100vw * (20 / 768));
+                            height: calc(100vw * (50 / 384));
+                            gap: calc(100vw * (10 / 384));
+                            border-radius: calc(100vw * (20 / 384));
                         }
                         .place_list_div {
-                            gap: calc(100vw * (5 / 768));
-                            width: calc(100vw * (240 / 768));
-                            margin-right: calc(100vw * (30 / 768));
+                            gap: calc(100vw * (5 / 384));
+                            width: calc(100vw * (150 / 384));
+                            margin-right: unset;
                             .place {
-                                max-width: calc(100vw * (220 / 768));
-                                font-size: calc(100vw * (16 / 768));
+                                max-width: unset;
+                                font-size: calc(100vw * (16 / 384));
                             }
                             .arrow {
-                                width: calc(100vw * (18 / 768));
-                                height: calc(100vw * (18 / 768));
+                                width: calc(100vw * (18 / 384));
+                                height: calc(100vw * (18 / 384));
                             }
                         }
                     }
                     .place_amount_div {
-                        width: calc(100vw * (100 / 768));
-                        .amount_type {
-                            font-size: calc(100vw * (10 / 768));
-                        }
-                        .amount_input_div {
-                            .amount_unit {
-                                font-size: calc(100vw * (10 / 768));
-                                margin-left: calc(100vw * (5 / 768));
-                            }
-                            .amount {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
-                                width: calc(100vw * (72 / 768));
-                            }
-                        }
+                        display: none;
                     }
                     .place_stay_time_div {
-                        width: calc(100vw * (100 / 768));
+                        width: calc(100vw * (100 / 384));
                         .time_type {
-                            font-size: calc(100vw * (10 / 768));
+                            font-size: calc(100vw * (10 / 384));
                         }
                         .time_input_div {
                             .stay_time_times {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
+                                font-size: calc(100vw * (24 / 384));
+                                line-height: calc(100vw * (26 / 384));
                             }
                             .stay_time_hours {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
-                                width: calc(100vw * (30 / 768));
+                                font-size: calc(100vw * (24 / 384));
+                                line-height: calc(100vw * (26 / 384));
+                                width: calc(100vw * (30 / 384));
                             }
                             .time_unit {
-                                font-size: calc(100vw * (10 / 768));
+                                font-size: calc(100vw * (10 / 384));
                             }
                         }
                     }
                     .place_move_time_div {
-                        width: calc(100vw * (100 / 768));
+                        width: calc(100vw * (100 / 384));
                         .time_type {
-                            font-size: calc(100vw * (10 / 768));
+                            font-size: calc(100vw * (10 / 384));
                         }
                         .time_input_div {
                             .move_time {
-                                font-size: calc(100vw * (24 / 768));
-                                line-height: calc(100vw * (26 / 768));
+                                font-size: calc(100vw * (24 / 384));
+                                line-height: calc(100vw * (26 / 384));
                             }
                         }
                     }
                     .select_place_div,
                     .select_vehicle_div {
-                        width: calc(100vw * (34 / 768));
-                        height: calc(100vw * (34 / 768));
-                        margin: calc(100vw * (6 / 768));
-                        border-radius: calc(100vw * (150 / 768));
-                        border: solid calc(100vw * (2 / 768)) #fff;
+                        width: calc(100vw * (34 / 384));
+                        height: calc(100vw * (34 / 384));
+                        margin: calc(100vw * (6 / 384));
+                        border-radius: calc(100vw * (150 / 384));
+                        border: solid calc(100vw * (2 / 384)) #fff;
                         .select_place_icon,
                         .select_vehicle_icon {
-                            width: calc(100vw * (18 / 768));
-                            height: calc(100vw * (18 / 768));
+                            width: calc(100vw * (18 / 384));
+                            height: calc(100vw * (18 / 384));
                         }
                     }
                     .select_place_tab,
                     .select_vehicle_tab {
-                        gap: calc(100vw * (2 / 768));
-                        border-radius: calc(100vw * (20 / 768));
-                        border: solid calc(100vw * (1 / 768)) #fff;
-                        .select_place_div,
-                        .select_vehicle_div {
-                            &.active {
-                                border: solid calc(100vw * (2 / 768)) #f23920;
-                            }
-                        }
+                        display: none;
                     }
                 }
             }
         }
         .travel_list_button {
-            width: calc(100vw * (20 / 768));
+            width: calc(100vw * (40 / 768));
             &:after {
-                width: calc(100vw * (10 / 768));
-                height: calc(100vw * (100 / 768));
+                width: calc(100vw * (20 / 768));
+                height: calc(100vw * (180 / 768));
                 border-radius: calc(100vw * (20 / 768));
             }
         }
     }
 
     .travel_search_section {
-        width: calc(375px * (400 / 375));
-        height: calc(100vh - (375px * (150 / 375)));
-        top: calc(375px * (140 / 375));
-        left: calc(375px * (510 / 375));
-        border-radius: calc(375px * (20 / 375));
-        box-shadow: calc(375px * (2 / 375)) calc(375px * (2 / 375)) calc(375px * (4 / 375)) #bfbfbf, calc(375px * (-2 / 375)) calc(375px * (-2 / 375)) calc(375px * (4 / 375)) #bfbfbf;
+        width: 100vw;
+        height: calc(100vh - (100vw * (150 / 384)));
+        bottom: 0;
+        top: unset;
+        left: unset;
+        border-radius: calc(100vw * (20 / 384)) calc(100vw * (20 / 384)) 0 0;
+        box-shadow: calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #bfbfbf, calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #bfbfbf;
         .search_button_div {
-            padding: calc(375px * (10 / 375)) calc(375px * (20 / 375));
-            gap: calc(375px * (10 / 375));
-            border-bottom: solid calc(375px * (1 / 375)) #ececec;
+            padding: calc(100vw * (10 / 384)) calc(100vw * (20 / 384));
+            gap: calc(100vw * (10 / 384));
+            border-bottom: solid calc(100vw * (1 / 384)) #ececec;
             .close_div {
-                height: calc(375px * (30 / 375));
+                height: calc(100vw * (30 / 384));
                 .close_icon {
-                    width: calc(375px * (24 / 375));
-                    height: calc(375px * (24 / 375));
+                    width: calc(100vw * (24 / 384));
+                    height: calc(100vw * (24 / 384));
                 }
             }
             .keyword_input_div {
-                width: calc(375px * (360 / 375));
-                height: calc(375px * (30 / 375));
-                gap: calc(375px * (10 / 375));
-                border-radius: calc(375px * (12 / 375));
-                border: solid calc(375px * (1 / 375)) #ececec;
+                width: calc(100vw * (360 / 384));
+                height: calc(100vw * (30 / 384));
+                gap: calc(100vw * (10 / 384));
+                border-radius: calc(100vw * (12 / 384));
+                border: solid calc(100vw * (1 / 384)) #ececec;
                 .keyword_input {
-                    width: calc(375px * (340 / 375));
-                    line-height: calc(375px * (30 / 375));
-                    margin: 0 calc(375px * (10 / 375));
-                    font-size: calc(375px * (16 / 375));
+                    width: calc(100vw * (340 / 384));
+                    line-height: calc(100vw * (30 / 384));
+                    margin: 0 calc(100vw * (10 / 384));
+                    font-size: calc(100vw * (16 / 384));
                 }
             }
             .search_btn_keyword {
-                width: calc(375px * (360 / 375));
-                height: calc(375px * (30 / 375));
-                gap: calc(375px * (10 / 375));
-                border-radius: calc(375px * (12 / 375));
-                border: solid calc(375px * (1 / 375)) #ececec;
-                box-shadow:  calc(375px * (4 / 375)) calc(375px * (4 / 375)) calc(375px * (9 / 375)) #ebebeb, calc(375px * (-4 / 375)) calc(375px * (-4 / 375)) calc(375px * (9 / 375)) #ffffff;
+                width: calc(100vw * (360 / 384));
+                height: calc(100vw * (30 / 384));
+                gap: calc(100vw * (10 / 384));
+                border-radius: calc(100vw * (12 / 384));
+                border: solid calc(100vw * (1 / 384)) #ececec;
+                box-shadow:  calc(100vw * (4 / 384)) calc(100vw * (4 / 384)) calc(100vw * (9 / 384)) #ebebeb, calc(100vw * (-4 / 384)) calc(100vw * (-4 / 384)) calc(100vw * (9 / 384)) #ffffff;
                 .keyword_icon {
-                    width: calc(375px * (18 / 375));
-                    height: calc(375px * (18 / 375));
+                    width: calc(100vw * (18 / 384));
+                    height: calc(100vw * (18 / 384));
                 }
                 & span {
-                    font-size: calc(375px * (16 / 375));
+                    font-size: calc(100vw * (16 / 384));
                 }
                 &:hover {
-                    border: solid calc(375px * (1 / 375)) #f23920;
+                    border: solid calc(100vw * (1 / 384)) #f23920;
                 }
             }
             .search_btn_recommend {
-                width: calc(375px * (360 / 375));
-                height: calc(375px * (30 / 375));
-                gap: calc(375px * (10 / 375));
-                border-radius: calc(375px * (12 / 375));
-                border: solid calc(375px * (1 / 375)) #ececec;
-                box-shadow:  calc(375px * (4 / 375)) calc(375px * (4 / 375)) calc(375px * (9 / 375)) #ebebeb, calc(375px * (-4 / 375)) calc(375px * (-4 / 375)) calc(375px * (9 / 375)) #ffffff;
+                width: calc(100vw * (360 / 384));
+                height: calc(100vw * (30 / 384));
+                gap: calc(100vw * (10 / 384));
+                border-radius: calc(100vw * (12 / 384));
+                border: solid calc(100vw * (1 / 384)) #ececec;
+                box-shadow:  calc(100vw * (4 / 384)) calc(100vw * (4 / 384)) calc(100vw * (9 / 384)) #ebebeb, calc(100vw * (-4 / 384)) calc(100vw * (-4 / 384)) calc(100vw * (9 / 384)) #ffffff;
                 .recommend_icon {
-                    width: calc(375px * (18 / 375));
-                    height: calc(375px * (18 / 375));
+                    width: calc(100vw * (18 / 384));
+                    height: calc(100vw * (18 / 384));
                 }
                 & span {
-                    font-size: calc(375px * (16 / 375));
+                    font-size: calc(100vw * (16 / 384));
                 }
                 &:hover {
-                    border: solid calc(375px * (1 / 375)) #f23920;
+                    border: solid calc(100vw * (1 / 384)) #f23920;
                 }
             }
         }
         .search_list_div {
-            padding: calc(375px * (10 / 375)) calc(375px * (20 / 375));
-            gap: calc(375px * (10 / 375));
-            height: calc(100vh - (375px * (320 / 375)));
+            padding: calc(100vw * (10 / 384)) calc(100vw * (20 / 384));
+            gap: calc(100vw * (10 / 384));
+            height: calc(100vh - (100vw * (320 / 384)));
             .search_item_section {
-                width: calc(375px * (360 / 375));
-                height: calc(375px * (100 / 375));
-                gap: calc(375px * (10 / 375));
-                border-bottom: solid calc(375px * (1 / 375)) #ececec;
-                border-top: solid calc(375px * (1 / 375)) #ececec;
+                width: 100%;
+                height: calc(100vw * (100 / 384));
+                gap: calc(100vw * (10 / 384));
+                border-bottom: solid calc(100vw * (1 / 384)) #ececec;
+                border-top: solid calc(100vw * (1 / 384)) #ececec;
                 .item_img_div {
-                    width: calc(375px * (50 / 375));
-                    height: calc(375px * (100 / 375));
-                    border-right: solid calc(375px * (1 / 375)) #ececec;
+                    width: 20%;
+                    height: calc(100vw * (100 / 384));
+                    border-right: solid calc(100vw * (1 / 384)) #ececec;
                     .num {
-                        font-size: calc(375px * (16 / 375));
+                        font-size: calc(100vw * (16 / 384));
                     }
                 }
                 .item_info_div {
-                    width: calc(375px * (260 / 375));
-                    height: calc(375px * (100 / 375));
-                    gap: calc(375px * (5 / 375));
+                    width: 65%;
+                    height: calc(100vw * (100 / 384));
+                    gap: calc(100vw * (5 / 384));
                     .place {
-                        width: calc(375px * (260 / 375));
-                        font-size: calc(375px * (16 / 375));
+                        width: 100%;
+                        font-size: calc(100vw * (16 / 384));
                     }
                     .address {
-                        width: calc(375px * (260 / 375));
-                        font-size: calc(375px * (12 / 375));
+                        width: 100%;
+                        font-size: calc(100vw * (12 / 384));
                     }
                     .to_url {
                         .to_url_span {
-                            font-size: calc(375px * (12 / 375));
+                            font-size: calc(100vw * (12 / 384));
                         }
                     }
                 }
                 .item_add_div {
-                    width: calc(375px * (30 / 375));
-                    height: calc(375px * (100 / 375));
-                    border-left: solid calc(375px * (1 / 375)) #ececec;
+                    width: 15%;
+                    height: calc(100vw * (100 / 384));
+                    border-left: solid calc(100vw * (1 / 384)) #ececec;
                     .item_add_button {
-                        width: calc(375px * (20 / 375));
-                        height: calc(375px * (20 / 375));
+                        width: calc(100vw * (20 / 384));
+                        height: calc(100vw * (20 / 384));
                     }
                 }
             }
             .search_list_nothing {
-                font-size: calc(375px * (16 / 375));
+                font-size: calc(100vw * (16 / 384));
             }
         }
     }
 
     .route_detail_section {
-        width: calc(375px * (400 / 375));
-        height: calc(100vh - (375px * (150 / 375)));
-        top: calc(375px * (140 / 375));
-        left: calc(375px * (510 / 375));
-        border-radius: calc(375px * (20 / 375));
-        box-shadow: calc(375px * (2 / 375)) calc(375px * (2 / 375)) calc(375px * (4 / 375)) #bfbfbf, calc(375px * (-2 / 375)) calc(375px * (-2 / 375)) calc(375px * (4 / 375)) #bfbfbf;
+        width: 100vw;
+        height: calc(100vh - (100vw * (150 / 384)));
+        bottom: 0;
+        top: unset;
+        left: unset;
+        border-radius: calc(100vw * (20 / 384)) calc(100vw * (20 / 384)) 0 0;
+        box-shadow: calc(100vw * (2 / 384)) calc(100vw * (2 / 384)) calc(100vw * (4 / 384)) #bfbfbf, calc(100vw * (-2 / 384)) calc(100vw * (-2 / 384)) calc(100vw * (4 / 384)) #bfbfbf;
         .route_button_div {
-            padding: calc(375px * (10 / 375)) calc(375px * (20 / 375));
-            gap: calc(375px * (10 / 375));
-            border-bottom: solid calc(375px * (1 / 375)) #ececec;
+            padding: calc(100vw * (10 / 384)) calc(100vw * (20 / 384));
+            gap: calc(100vw * (10 / 384));
+            border-bottom: solid calc(100vw * (1 / 384)) #ececec;
             .close_div {
-                height: calc(375px * (30 / 375));
+                height: calc(100vw * (30 / 384));
                 .close_icon {
-                    width: calc(375px * (24 / 375));
-                    height: calc(375px * (24 / 375));
+                    width: calc(100vw * (24 / 384));
+                    height: calc(100vw * (24 / 384));
                 }
             }
         }
         .route_detail_div {
-            padding: calc(375px * (10 / 375)) calc(375px * (20 / 375));
-            height: calc(100vh - (375px * (220 / 375)));
+            padding: calc(100vw * (10 / 384)) calc(100vw * (20 / 384));
+            height: calc(100vh - (100vw * (220 / 384)));
             .route_item_section {
-                width: calc(375px * (360 / 375));
-                height: calc(375px * (60 / 375));
+                width: 100%;
+                height: calc(100vw * (60 / 384));
                 .route_icon_div {
-                    height: calc(375px * (60 / 375));
-                    width: calc(375px * (30 / 375));
+                    height: calc(100vw * (60 / 384));
+                    width: 20%;
                     .line_top {
-                        width: calc(375px * (5 / 375));
-                        height: calc(375px * (20 / 375));
+                        width: calc(100vw * (5 / 384));
+                        height: calc(100vw * (20 / 384));
                     }
                     .circle {
-                        width: calc(375px * (20 / 375));
-                        height: calc(375px * (20 / 375));
-                        border: solid calc(375px * (5 / 375)) #f23920;
+                        width: calc(100vw * (20 / 384));
+                        height: calc(100vw * (20 / 384));
+                        border: solid calc(100vw * (5 / 384)) #f23920;
                     }
                     .line_bottom {
-                        width: calc(375px * (5 / 375));
-                        height: calc(375px * (20 / 375));
+                        width: calc(100vw * (5 / 384));
+                        height: calc(100vw * (20 / 384));
                     }
                 }
                 .route_info_div {
-                    height: calc(375px * (60 / 375));
-                    width: calc(375px * (330 / 375));
-                    padding: 0 calc(375px * (10 / 375)) 0;
+                    height: calc(100vw * (60 / 384));
+                    width: 80%;
+                    padding: 0 calc(100vw * (10 / 384)) 0;
                     .name {
-                        font-size: calc(375px * (16 / 375));
+                        font-size: calc(100vw * (16 / 384));
                     }
                     .route_item_sub {
-                        gap: calc(375px * (10 / 375));
+                        gap: calc(100vw * (10 / 384));
                         .sub {
-                            font-size: calc(375px * (12 / 375));
+                            font-size: calc(100vw * (12 / 384));
                         }
                     }
                 }
             }
             .route_detail_nothing {
-                font-size: calc(375px * (16 / 375));
+                font-size: calc(100vw * (16 / 384));
             }
         }
     }
 
     .travel_map {
-        height: calc(100vh - (375px * (64 / 375)) - (375px * (50 / 375))) !important;
+        width: 100vw;
+        height: calc(100vh - (384px * (64 / 384))) !important;
     }
 }
