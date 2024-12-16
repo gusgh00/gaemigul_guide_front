@@ -22,6 +22,7 @@ import ShowTabSearch from "@/app/_components/travel/tab/ShowTabSearch";
 import ShowTabDetail from "@/app/_components/travel/tab/ShowTabDetail";
 import ShowTabResult from "@/app/_components/travel/tab/ShowTabResult";
 import RouteDetail from "@/app/_components/travel/RouteDetail";
+import {convertDateList} from "@module/convertXlsx";
 
 const Travel = () => {
     const [isAddList, setAddList] = useState(false)
@@ -201,6 +202,16 @@ const Travel = () => {
         setTotalAmount(Math.floor(totalAmount / people) + "원 / " + totalAmount + '원')
     }, [dateList, placeList, dateSelected]);
 
+    useEffect(() => {
+        setDateList(dateList.map(item => {
+            if (item.date === dateSelected) {
+                return { ...item, place_list: placeList }
+            } else {
+                return item
+            }
+        }))
+    }, [placeList]);
+
     return (
         <>
             <div>
@@ -218,9 +229,9 @@ const Travel = () => {
                             <span className="scoredream-500 default_text">총 금액 : <span className="scoredream-500 grey_text">{totalAmount}</span></span>
                         </div>
                         <div className="banner_inner_button">
-                            <div className="banner_button_save">
+                            <button className="banner_button_save" onClick={() => convertDateList(dateList, totalAmount)}>
                                 <span className="scoredream-700 white_text">엑셀로 저장하기</span>
-                            </div>
+                            </button>
                         </div>
                     </div>
                 </div>
