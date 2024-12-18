@@ -48,8 +48,8 @@ export default function RootLayout({
         <html lang="en">
         <body>
         {/*GA 영역*/}
-        {process.env.NEXT_PUBLIC_GOOGLE_GA_ID ? (
-            <GoogleAnalytics id={process.env.NEXT_PUBLIC_GOOGLE_GA_ID}/>
+        {process.env.GA_TRACKING_ID ? (
+            <GoogleAnalytics id={process.env.GA_TRACKING_ID}/>
         ) : null}
         {/*GA 영역*/}
         <Script
