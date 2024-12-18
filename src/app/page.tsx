@@ -74,10 +74,6 @@ export default function Home() {
     localStorage.setItem("travel", JSON.stringify(travelParams))
   }, [regionTop, startDate, endDate]);
 
-  useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_TEST_CODE)
-  }, [])
-
   return (
       <>
         <div id="main_content">
