@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Header from "@/app/_components/header";
 import React from "react";
 import Script from "next/script";
+import GoogleAnalytics from "@module/GoogleAnalytics";
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -46,6 +47,11 @@ export default function RootLayout({
   return (
         <html lang="en">
         <body>
+        {/*GA 영역*/}
+        {process.env.NEXT_PUBLIC_GOOGLE_GA_ID ? (
+            <GoogleAnalytics id={process.env.NEXT_PUBLIC_GOOGLE_GA_ID}/>
+        ) : null}
+        {/*GA 영역*/}
         <Script
             src={API}
             strategy="beforeInteractive"
