@@ -77,6 +77,7 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         env:
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.NEXT_PUBLIC_GOOGLE_ANALYTICS}}
           NEXT_PUBLIC_KAKAO_MOBILITY_URL: ${{ secrets.NEXT_PUBLIC_KAKAO_MOBILITY_URL}}
           NEXT_PUBLIC_KAKAO_REST_KEY: ${{ secrets.NEXT_PUBLIC_KAKAO_REST_KEY}}
           NEXT_PUBLIC_KAKAO_LOGIN_REDIRECT_URI: ${{ secrets.NEXT_PUBLIC_KAKAO_LOGIN_REDIRECT_URI}}
