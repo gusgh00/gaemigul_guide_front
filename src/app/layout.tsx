@@ -7,11 +7,33 @@ import Script from "next/script";
 // const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '개미굴 가이드 :: AI 여행 스케줄링',
-  description: '개미굴 가이드 :: AI 여행 스케줄링',
-  icons: {
-    icon: "/gaemigul_guide_logo_favicon.ico"
-  }
+    title: '개미굴 가이드 :: 여행 스케줄링',
+    description: '개미굴 가이드를 통해 자유롭게 여행을 계획해보세요!',
+    keywords: ['여행', '여행지도', '여행계획', '여행가이드', '여행스케줄'],
+    icons: {
+        icon: "/gaemigul_guide_logo_favicon.ico"
+    },
+    openGraph: {
+        title: '개미굴 가이드 :: 여행 스케줄링',
+        description: '개미굴 가이드를 통해 자유롭게 여행을 계획해보세요!',
+        url: "https://gaemigul-guide.com",
+        images: [
+            {
+                url: "https://raw.githubusercontent.com/gusgh00/gaemigul_guide_img/refs/heads/main/gaemigul_guide_og_image.png",
+                width: "1200",
+                height: "630",
+                alt: "gaemigul_guide_og"
+            }
+        ],
+        locale: "ko_KR"
+    },
+    creator: "Ryu HYNO",
+    publisher: "Ryu HYNO",
+    formatDetection: {
+        email: true,
+        address: false,
+        telephone: false
+    }
 }
 
 export default function RootLayout({
