@@ -6,7 +6,6 @@ import {
 } from "@interface/TravelInterface";
 import {MdForest, MdMuseum, MdPlace} from "react-icons/md";
 import {FaBed, FaBicycle, FaCar, FaQuestion, FaShoppingCart, FaWalking} from "react-icons/fa";
-import {FaBus} from "react-icons/fa6";
 import {IoRestaurant} from "react-icons/io5";
 import {TbBeach} from "react-icons/tb";
 import React from "react";
@@ -383,12 +382,12 @@ export const dropdownIconVehicle: dropdownIconVehicleInterface[] = [
         vehicle_name: "car",
         path_color: "#3f8ec7",
     },
-    {
-        vehicle_type: 3,
-        vehicle_icon: <FaBus className="select_vehicle_icon"/>,
-        vehicle_name: "bus",
-        path_color: "#5bb025",
-    },
+    // {
+    //     vehicle_type: 3,
+    //     vehicle_icon: <FaBus className="select_vehicle_icon"/>,
+    //     vehicle_name: "bus",
+    //     path_color: "#5bb025",
+    // },
     {
         vehicle_type: 4,
         vehicle_icon: <FaBicycle className="select_vehicle_icon"/>,

@@ -1,14 +1,14 @@
 "use client"
 import TimePicker from "@/app/_components/travel/GMGTimePicker";
 import PlacePicker from "@/app/_components/travel/PlacePicker";
-import React, {JSX, useEffect} from "react";
+import React, {JSX} from "react";
 import {FaRegCirclePlay, FaRegCircleStop} from "react-icons/fa6";
 import dayjs from "dayjs";
 import VehiclePicker from "@/app/_components/travel/VehiclePicker";
 import {FaArrowRight} from "react-icons/fa";
 import {MdOutlineKeyboardArrowDown} from "react-icons/md";
 import {dateListInterface, placeListInterface} from "@interface/TravelInterface";
-import {getRouteCar, getRouteCycleAndWalking, getRoutePublicTransport} from "@module/TravelModule";
+import {getRouteCar, getRouteCycleAndWalking} from "@module/TravelModule";
 import {addSeconds} from "date-fns";
 import {changeDurationTime, changeTimeToSeconds} from "@module/TimeModule";
 import {PiDotsThreeFill} from "react-icons/pi";
@@ -64,10 +64,11 @@ const TabDetail = (props: {
             } else if (props.placeList[i].vehicle_type === 2) {
                 let routeData = await getRouteCar(props.placeList[i], endPlace)
                 await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment, i, props.placeList[i].vehicle_type)
-            } else if (props.placeList[i].vehicle_type === 3) {
-                let routeData = await getRoutePublicTransport(props.placeList[i], endPlace)
-                await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
             }
+            // else if (props.placeList[i].vehicle_type === 3) {
+            //     let routeData = await getRoutePublicTransport(props.placeList[i], endPlace)
+            //     await changePlacePath(routeData.paths, routeData.routes, routeData.time, routeData.distance, routeData.payment * props.dateList[0].people, i, props.placeList[i].vehicle_type)
+            // }
         }
     }
 
