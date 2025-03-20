@@ -231,85 +231,85 @@ export const getRouteCar = async (startPlace: placeListInterface, endPlace: plac
     return {paths, routes, time, distance, payment}
 }
 
-export const getRoutePublicTransport = async (startPlace: placeListInterface, endPlace: placeListInterface) => {
-    let paths: placeListPublicPath[] = []
-    let routes: routeListPath[] = []
-    let time: number = 0
-    let distance: number = 0
-    let payment: number = 0
-    const url = process.env.NEXT_PUBLIC_ODSAY_PUBLICTRANS_URL as string
-    await axios.get(url, {
-        params: {
-            SX: startPlace.lng,
-            SY: startPlace.lat,
-            EX: endPlace.lng,
-            EY: endPlace.lat,
-            apiKey: process.env.NEXT_PUBLIC_ODSAY_KEY as string
-        }
-    })
-        .then(async response => {
-            let tempWalkingArr: placeListPublicPath[] = []
-            let tempRoutes: routeListPath[] = []
-            time = response.data.result.path[0].info.totalTime * 60
-            distance = response.data.result.path[0].info.totalDistance / 1000
-            payment = response.data.result.path[0].info.payment / 10000
-            for (let j = 0; j < response.data.result.path[0].subPath.length; j++) {
-                let startPositionLatLng = ""
-                let endPositionLatLng = ""
-                if (response.data.result.path[0].subPath[j].trafficType === 3) {
-                    if (j === 0) {
-                        startPositionLatLng = startPlace.lng + "," + startPlace.lat
-                        endPositionLatLng = response.data.result.path[0].subPath[j + 1].startX + "," + response.data.result.path[0].subPath[j + 1].startY
-                        let walkingPath = await getPublicTransportWalkGeometry(startPositionLatLng, endPositionLatLng)
-                        tempWalkingArr = [...tempWalkingArr, ...walkingPath.publicPaths]
-                        tempRoutes = [...tempRoutes, ...walkingPath.walkRoutes]
-                    } else if (j === response.data.result.path[0].subPath.length - 1) {
-                        startPositionLatLng = response.data.result.path[0].subPath[j - 1].endX + "," + response.data.result.path[0].subPath[j - 1].endY
-                        endPositionLatLng = endPlace.lng + "," + endPlace.lat
-                        let walkingPath = await getPublicTransportWalkGeometry(startPositionLatLng, endPositionLatLng)
-                        tempWalkingArr = [...tempWalkingArr, ...walkingPath.publicPaths]
-                        tempRoutes = [...tempRoutes, ...walkingPath.walkRoutes]
-                    }
-                    else if (j !== 0 && j !== response.data.result.path[0].subPath.length - 1) {
-                        if (response.data.result.path[0].subPath[j - 1].trafficType !== response.data.result.path[0].subPath[j + 1].trafficType) {
-                            startPositionLatLng = response.data.result.path[0].subPath[j - 1].endX + "," + response.data.result.path[0].subPath[j - 1].endY
-                            endPositionLatLng = response.data.result.path[0].subPath[j + 1].startX + "," + response.data.result.path[0].subPath[j + 1].startY
-                            let walkingPath = await getPublicTransportWalkGeometry(startPositionLatLng, endPositionLatLng)
-                            tempWalkingArr = [...tempWalkingArr, ...walkingPath.publicPaths]
-                            tempRoutes = [...tempRoutes, ...walkingPath.walkRoutes]
-                        }
-                    }
-                } else {
-                    tempRoutes = [...tempRoutes, {
-                        name: response.data.result.path[0].subPath[j].trafficType === 2 ?
-                            response.data.result.path[0].subPath[j].lane[0].busNo :
-                            response.data.result.path[0].subPath[j].lane[0].name,
-                        count: response.data.result.path[0].subPath[j].stationCount,
-                        type: 1,
-                        color: response.data.result.path[0].subPath[j].trafficType === 2 ?
-                            busRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].type)[0].color :
-                            subwayRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].subwayCode)[0].color,
-                        distance: response.data.result.path[0].subPath[j].distance,
-                        duration: response.data.result.path[0].subPath[j].sectionTime * 60,
-                    }]
-                    for (let k = 0; k < response.data.result.path[0].subPath[j].passStopList.stations.length; k++) {
-                        tempRoutes = [...tempRoutes, {
-                            name: response.data.result.path[0].subPath[j].passStopList.stations[k].stationName,
-                            count: 0,
-                            type: 2,
-                            color: response.data.result.path[0].subPath[j].trafficType === 2 ?
-                                busRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].type)[0].color :
-                                subwayRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].subwayCode)[0].color,
-                            distance: 0,
-                            duration: 0,
-                        }]
-                    }
-                }
-            }
-            let publicPaths = await getPublicTransportGeometry(response.data.result.path[0].info.mapObj)
-            paths = publicPaths.concat(tempWalkingArr)
-            routes = tempRoutes
-        })
-
-    return {paths, routes, time, distance, payment}
-}
+// export const getRoutePublicTransport = async (startPlace: placeListInterface, endPlace: placeListInterface) => {
+//     let paths: placeListPublicPath[] = []
+//     let routes: routeListPath[] = []
+//     let time: number = 0
+//     let distance: number = 0
+//     let payment: number = 0
+//     const url = process.env.NEXT_PUBLIC_ODSAY_PUBLICTRANS_URL as string
+//     await axios.get(url, {
+//         params: {
+//             SX: startPlace.lng,
+//             SY: startPlace.lat,
+//             EX: endPlace.lng,
+//             EY: endPlace.lat,
+//             apiKey: process.env.NEXT_PUBLIC_ODSAY_KEY as string
+//         }
+//     })
+//         .then(async response => {
+//             let tempWalkingArr: placeListPublicPath[] = []
+//             let tempRoutes: routeListPath[] = []
+//             time = response.data.result.path[0].info.totalTime * 60
+//             distance = response.data.result.path[0].info.totalDistance / 1000
+//             payment = response.data.result.path[0].info.payment / 10000
+//             for (let j = 0; j < response.data.result.path[0].subPath.length; j++) {
+//                 let startPositionLatLng = ""
+//                 let endPositionLatLng = ""
+//                 if (response.data.result.path[0].subPath[j].trafficType === 3) {
+//                     if (j === 0) {
+//                         startPositionLatLng = startPlace.lng + "," + startPlace.lat
+//                         endPositionLatLng = response.data.result.path[0].subPath[j + 1].startX + "," + response.data.result.path[0].subPath[j + 1].startY
+//                         let walkingPath = await getPublicTransportWalkGeometry(startPositionLatLng, endPositionLatLng)
+//                         tempWalkingArr = [...tempWalkingArr, ...walkingPath.publicPaths]
+//                         tempRoutes = [...tempRoutes, ...walkingPath.walkRoutes]
+//                     } else if (j === response.data.result.path[0].subPath.length - 1) {
+//                         startPositionLatLng = response.data.result.path[0].subPath[j - 1].endX + "," + response.data.result.path[0].subPath[j - 1].endY
+//                         endPositionLatLng = endPlace.lng + "," + endPlace.lat
+//                         let walkingPath = await getPublicTransportWalkGeometry(startPositionLatLng, endPositionLatLng)
+//                         tempWalkingArr = [...tempWalkingArr, ...walkingPath.publicPaths]
+//                         tempRoutes = [...tempRoutes, ...walkingPath.walkRoutes]
+//                     }
+//                     else if (j !== 0 && j !== response.data.result.path[0].subPath.length - 1) {
+//                         if (response.data.result.path[0].subPath[j - 1].trafficType !== response.data.result.path[0].subPath[j + 1].trafficType) {
+//                             startPositionLatLng = response.data.result.path[0].subPath[j - 1].endX + "," + response.data.result.path[0].subPath[j - 1].endY
+//                             endPositionLatLng = response.data.result.path[0].subPath[j + 1].startX + "," + response.data.result.path[0].subPath[j + 1].startY
+//                             let walkingPath = await getPublicTransportWalkGeometry(startPositionLatLng, endPositionLatLng)
+//                             tempWalkingArr = [...tempWalkingArr, ...walkingPath.publicPaths]
+//                             tempRoutes = [...tempRoutes, ...walkingPath.walkRoutes]
+//                         }
+//                     }
+//                 } else {
+//                     tempRoutes = [...tempRoutes, {
+//                         name: response.data.result.path[0].subPath[j].trafficType === 2 ?
+//                             response.data.result.path[0].subPath[j].lane[0].busNo :
+//                             response.data.result.path[0].subPath[j].lane[0].name,
+//                         count: response.data.result.path[0].subPath[j].stationCount,
+//                         type: 1,
+//                         color: response.data.result.path[0].subPath[j].trafficType === 2 ?
+//                             busRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].type)[0].color :
+//                             subwayRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].subwayCode)[0].color,
+//                         distance: response.data.result.path[0].subPath[j].distance,
+//                         duration: response.data.result.path[0].subPath[j].sectionTime * 60,
+//                     }]
+//                     for (let k = 0; k < response.data.result.path[0].subPath[j].passStopList.stations.length; k++) {
+//                         tempRoutes = [...tempRoutes, {
+//                             name: response.data.result.path[0].subPath[j].passStopList.stations[k].stationName,
+//                             count: 0,
+//                             type: 2,
+//                             color: response.data.result.path[0].subPath[j].trafficType === 2 ?
+//                                 busRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].type)[0].color :
+//                                 subwayRouteType.filter(item => item.type === response.data.result.path[0].subPath[j].lane[0].subwayCode)[0].color,
+//                             distance: 0,
+//                             duration: 0,
+//                         }]
+//                     }
+//                 }
+//             }
+//             let publicPaths = await getPublicTransportGeometry(response.data.result.path[0].info.mapObj)
+//             paths = publicPaths.concat(tempWalkingArr)
+//             routes = tempRoutes
+//         })
+//
+//     return {paths, routes, time, distance, payment}
+// }
