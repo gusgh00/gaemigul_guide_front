@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         address: false,
         telephone: false
     },
-    naver-site-verification: "195d6a0c24bba95aa2d44ee954ccf2f29f524cd5"
+    naverSiteVerification: "195d6a0c24bba95aa2d44ee954ccf2f29f524cd5"
 }
 
 export default function RootLayout({
