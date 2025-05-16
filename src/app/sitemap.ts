@@ -5,8 +5,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: 'https://gaemigul-guide.com',
         },
-        {
-            url: 'https://gaemigul-guide/travel',
-        },
     ]
 }
