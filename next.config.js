@@ -14,7 +14,7 @@ const nextConfig = {
     },
     assetPrefix:
         process.env.NODE_ENV === "production"
-            ? "https://gaemigul-guide.com"
+            ? "https://gaemigul-guide.hyno.kr"
             : "",
     images: {
         remotePatterns: [

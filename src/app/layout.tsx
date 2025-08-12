@@ -21,9 +21,10 @@ export const metadata: Metadata = {
         icon: "/gaemigul_guide_logo_favicon.ico"
     },
     openGraph: {
+        siteName: "개미굴 가이드",
         title: '개미굴 가이드 :: 여행 스케줄링',
         description: '개미굴 가이드를 통해 자유롭게 여행을 계획해보세요!',
-        url: "https://gaemigul-guide.com",
+        url: "https://gaemigul-guide.hyno.kr",
         images: [
             {
                 url: "https://raw.githubusercontent.com/gusgh00/gaemigul_guide_img/refs/heads/main/gaemigul_guide_og_image.png",
