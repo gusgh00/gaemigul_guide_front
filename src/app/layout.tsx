@@ -11,6 +11,12 @@ export const metadata: Metadata = {
     title: '개미굴 가이드 :: 여행 스케줄링',
     description: '개미굴 가이드를 통해 자유롭게 여행을 계획해보세요!',
     keywords: ['여행', '여행지도', '여행계획', '여행가이드', '여행스케줄'],
+    verification: {
+        google: 'dO3o2an2PeAC6yq1sF2YRFYATtuCMtwZp5VHWcSCDeM',
+        other: {
+            'naver-site-verification': '195d6a0c24bba95aa2d44ee954ccf2f29f524cd5'
+        }
+    },
     icons: {
         icon: "/gaemigul_guide_logo_favicon.ico"
     },
